@@ -4,7 +4,11 @@
 The repository tracks issues and features requests towards PerpetualIntelligence.Protocols package.
 
 [![License: Apache](https://img.shields.io/badge/License-Apache-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Build status](https://dev.azure.com/perpetualintelligence/Services/_apis/build/status/Continuous%20Integration/Packages/PerpetualIntelligence.Protocols)](https://dev.azure.com/perpetualintelligence/Services/_build/latest?definitionId=23)
+[![Issues](https://img.shields.io/github/issues/perpetualintelligence/protocols)](https://github.com/perpetualintelligence/protocols/issues)
+
+[![Build status](https://dev.azure.com/perpetualintelligence/Services/_apis/build/status/Continuous%20Integration/Packages/PerpetualIntelligence.Protocols)]
+[![Deployment](https://vsrm.dev.azure.com/perpetualintelligence/_apis/public/Release/badge/4c5f1531-e837-40e9-9e5e-47abaa3fab37/2/2)]
+
 
 :star: `src` is maintained in a private repo.
 
