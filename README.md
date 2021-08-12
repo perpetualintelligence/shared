@@ -1,93 +1,53 @@
 ![fast_banner_github_914.png](https://en.gravatar.com/userimage/152742631/4ab9cb340649391354d65b592b744114.png)
 
-# protocols
-The repository tracks issues and features requests towards PerpetualIntelligence.Protocols package.
-
+# protocols [![status: preview](https://img.shields.io/badge/status-preview-yellow)](https://opensource.org/licenses/MIT)
 [![License: Apache](https://img.shields.io/badge/License-Apache-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Issues](https://img.shields.io/github/issues/perpetualintelligence/protocols)](https://github.com/perpetualintelligence/protocols/issues)
+![Deployment](https://vsrm.dev.azure.com/perpetualintelligence/_apis/public/Release/badge/4c5f1531-e837-40e9-9e5e-47abaa3fab37/2/2)
+[![Nuget](https://img.shields.io/nuget/vpre/PerpetualIntelligence.Protocols)](https://www.nuget.org/packages/PerpetualIntelligence.Protocols)
 
-[![Build status](https://dev.azure.com/perpetualintelligence/Services/_apis/build/status/Continuous%20Integration/Packages/PerpetualIntelligence.Protocols)]
-[![Deployment](https://vsrm.dev.azure.com/perpetualintelligence/_apis/public/Release/badge/4c5f1531-e837-40e9-9e5e-47abaa3fab37/2/2)]
+This repository tracks issues and features requests towards Perpetual Intelligence `protocols`.
 
-
-:star: `src` is maintained in a private repo.
+> **Note:** The source `src` is maintained in a private Azure DevOps repo. This is a ***preview*** release, and it is subject to design changes without any advance notice.
 
 ## Introduction
 
 Perpetual Intelligence's `imlx` provides managed services for identity, multi-language, licensing, rbac, multi-tenancy, and adaptive UX components.
 
- `protocols` is a collection of cross-platform abstractions built on top of the .NET Core layer and includes the modern Web authorization and authentication standards. This enables you to address website and application design and development challenges, microservices, authentication, authorization, licensing, and localization in a standard way.
+ `protocols` is a collection of cross-platform abstractions built on top of the .NET Core layer and includes the modern Web authorization and authentication standards. This enables you to address website and application design and development challenges, microservices, authentication, authorization, licensing, and localization in a standard and integrated way.
 
-You can use the abstraction as a common foundation to build your custom implementations or use the OOTB default implementation.
+You can use the `protocols` as a common foundation to build your custom implementations or use our default implementations (planned for furture release).
 
-This is the FAST monorepo, containing web component packages, tools, examples, and documentation. FAST tech can be used à la carte or as a suite to build enterprise-grade websites, applications, components, design systems, and more.
+### Overview
 
-**TL;DR**
-
-* Create reusable UI components based on web component standards.
-* Use our standard library of pre-built web components in your apps.
-* Choose between two *adaptive* design systems: Fluent Design and FAST Frame.
-* Build your own design system without re-implementing component logic.
-* Integrate with any front-end framework or build system.
-
-For an in-depth explanation of FAST [see our docs introduction](https://www.fast.design/docs/introduction/).
+* Perpetual Intelligence `imlx` abstraction and its well-known configurations
+* OpenID Connect and OAuth 2.0 abstraction and well-known configurations
+* Custom endpoint request, handling, and result abstraction that integrates seamlessly with your existing controllers and API
+* Event-driven microservices abstraction
+* Common security abstraction
 
 ## Packages
 
-### `@microsoft/fast-element`
+### `PerpetualIntelligence.Protocols`
+[![License: Apache](https://img.shields.io/badge/License-Apache-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Nuget](https://img.shields.io/nuget/vpre/PerpetualIntelligence.Protocols)](https://www.nuget.org/packages/PerpetualIntelligence.Protocols)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![npm version](https://badge.fury.io/js/%40microsoft%2Ffast-element.svg)](https://badge.fury.io/js/%40microsoft%2Ffast-element)
+The `PerpetualIntelligence.Protocols` package is a free cross platform protocols and standards abstraction that is shared across application stack. To get up and running with Nuget packages see [NuGet documentation](https://docs.microsoft.com/en-us/nuget/).
 
-The `@microsoft/fast-element` library is a lightweight means to easily build performant, memory-efficient, standards-compliant Web Components. FAST Elements work in every major browser and can be used in combination with any front-end framework or even without a framework. To get up and running with `@microsoft/fast-element` see [the Getting Started guide](https://fast.design/docs/fast-element/getting-started).
-
-### `@microsoft/fast-foundation`
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![npm version](https://badge.fury.io/js/%40microsoft%2Ffast-foundation.svg)](https://badge.fury.io/js/%40microsoft%2Ffast-foundation)
-
-The `@microsoft/fast-foundation` package is a library of Web Component classes, templates, and other utilities intended to be composed into registered Web Components by design systems (e.g. Fluent Design, Material Design, etc.). The exports of this package can generally be thought of as un-styled base components that implement semantic and accessible markup and behavior.
-
-This package does not export Web Components registered as [custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements) - it exports parts and pieces intended to be *composed* into Web Components, allowing you to implement your own design language by simply applying CSS styles and behaviors without having to write all the JavaScript that's involved in building production-quality component implementations.
-
-### `@microsoft/fast-components`
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![npm version](https://badge.fury.io/js/%40microsoft%2Ffast-components.svg)](https://badge.fury.io/js/%40microsoft%2Ffast-components)
-
-`@microsoft/fast-components` is a library of Web Components that *composes* the exports of `@microsoft/fast-foundation` with stylesheets aligning to the FAST Frame design system. This composition step registers a custom element. See the [quick start](https://fast.design/docs/components/getting-started) to get started using the components.
-
-### `@fluentui/web-components`
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![npm version](https://badge.fury.io/js/%40fluentui%2Fweb-components.svg)](https://badge.fury.io/js/%40fluentui%2Fweb-components)
-
-`@fluentui/web-components` is a library of Web Components that *composes* `@microsoft/fast-foundation`. `@fluentui/web-components` makes use of different stylesheets and may include components that specifically support Microsoft's Fluent design language.
-
-The source for `@fluentui/web-components` is hosted in [the Fluent UI monorepo](https://github.com/microsoft/fluentui/tree/master/packages/web-components).
-
-### Component Explorer
-
-Launch our [Component Explorer](https://explore.fast.design) to experience our [FAST Components](https://www.npmjs.com/package/@microsoft/fast-components) and development tools.
+The source `src` is maintained in a private Azure DevOps repo. 
 
 ## Getting Started
 
-We hope you're excited by the possibilities that FAST presents. But, you may be wondering where to start. Here are a few statements that describe various members of our community. We recommend that you pick the statement you most identify with and follow the links where they lead. You can always come back and explore another topic at any time.
+We hope you're excited by the possibilities that `protocols` presents. But, you may be wondering where to start. We recommend that you pick the statement you most identify with and follow the links where they lead. You can always come back and explore another topic at any time.
 
-* "I just want ready-made components!"
-  * [Jump to the component docs.](https://fast.design/docs/components/getting-started)
-* "I want to build my own design system."
-  * [Jump to the design system docs.](https://fast.design/docs/design-systems/overview)
-* "I want to build my own components."
-  * [Jump to the fast-element docs.](https://fast.design/docs/fast-element/getting-started)
-* "I need to integrate FAST with another framework or build system."
+* "I just want ready-made implementation!"
+  * [Jump to the default implementation docs.]()
+* "I want to build my own custom implementation."
+  * [Jump to the custom implementation docs.]()
+* "I want to see examples with ready-made implementation!"
+  * [Jump to the default implementation example docs.]()
+* "I need to integrate `protocols` with another framework or system."
   * [Jump to the integration docs.](https://fast.design/docs/integrations/introduction)
-
-## Joining the Community
-
-Looking to get answers to questions or engage with us in realtime? Our community is most active [on Discord](https://discord.gg/FcSNfg4). Submit requests and issues on [GitHub](https://github.com/Microsoft/fast/issues/new/choose), or join us by contributing on [some good first issues via GitHub](https://github.com/Microsoft/fast/labels/community:good-first-issue).
-
-We look forward to building an amazing open source community with you!
 
 ## Features & benefits
 
@@ -118,7 +78,5 @@ Because FAST has abstracted base components from their style, you get a head sta
 
 ## Contact
 
-* Join the community and chat with us in real-time on [Discord](https://discord.gg/FcSNfg4).
-* Submit requests and issues on [GitHub](https://github.com/Microsoft/fast/issues/new/choose).
-* Contribute by helping out on some of our recommended first issues on [GitHub](https://github.com/Microsoft/fast/labels/community:good-first-issue).
+* Submit requests and issues on [GitHub](https://github.com/perpetualintelligence/protocols/issues).
 
