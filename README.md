@@ -1,6 +1,6 @@
 ![fast_banner_github_914.png](https://en.gravatar.com/userimage/152742631/4ab9cb340649391354d65b592b744114.png)
 
-# protocols [![status: preview](https://img.shields.io/badge/status-preview-yellow)](https://opensource.org/licenses/MIT) [![src: private](https://img.shields.io/badge/src-private-red)]() [![usage: free](https://img.shields.io/badge/usage-free-green)]()
+# protocols [![status: preview](https://img.shields.io/badge/status-preview-yellow)]() [![src: private](https://img.shields.io/badge/src-private-red)]() [![usage: free](https://img.shields.io/badge/usage-free-green)]()
 [![License: Apache](https://img.shields.io/badge/License-Apache-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Issues](https://img.shields.io/github/issues/perpetualintelligence/protocols)](https://github.com/perpetualintelligence/protocols/issues)
 ![Deployment](https://vsrm.dev.azure.com/perpetualintelligence/_apis/public/Release/badge/4c5f1531-e837-40e9-9e5e-47abaa3fab37/2/2)
@@ -29,6 +29,7 @@ You can use the `protocols` as a common foundation to build your custom implemen
 ## Packages
 
 ### `PerpetualIntelligence.Protocols`
+[![status: preview](https://img.shields.io/badge/status-preview-yellow)]()
 [![usage: free](https://img.shields.io/badge/usage-free-green)]()
 [![License: Apache](https://img.shields.io/badge/License-Apache-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Nuget](https://img.shields.io/nuget/vpre/PerpetualIntelligence.Protocols)](https://www.nuget.org/packages/PerpetualIntelligence.Protocols)
@@ -38,13 +39,9 @@ The `PerpetualIntelligence.Protocols` package is a free cross platform protocols
 The source `src` is maintained in a private [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) repo. 
 
 ### `PerpetualIntelligence.Protocols.Defaults`
-[![usage: paid](https://img.shields.io/badge/usage-paid-orange)]()
-[![License: Apache](https://img.shields.io/badge/License-Apache-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Nuget](https://img.shields.io/nuget/vpre/PerpetualIntelligence.Protocols)](https://www.nuget.org/packages/PerpetualIntelligence.Protocols)
+[![status: future](https://img.shields.io/badge/status-future-blue)]()
 
-The `PerpetualIntelligence.Protocols.Defaults` package is a paid cross platform protocols and standards implementation that is shared across application stack. To get up and running with Nuget packages see [NuGet documentation](https://docs.microsoft.com/en-us/nuget/).
-
-The source `src` is maintained in a private [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) repo. 
+This package will be a paid cross platform protocols and standards implementation that is shared across application stack.
 
 
 ## Getting Started
