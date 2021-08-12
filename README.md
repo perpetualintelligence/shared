@@ -22,7 +22,7 @@ Perpetual Intelligence's `imlx` provides managed services for identity, multi-la
 
 You can use the `protocols` as a common foundation to build your custom implementations or use our default implementations (planned for furture release).
 
-### Overview
+### Feature Overview
 
 * Perpetual Intelligence `imlx` abstraction and its well-known configurations
 * OpenID Connect and OAuth 2.0 abstraction and well-known configurations
@@ -38,9 +38,7 @@ You can use the `protocols` as a common foundation to build your custom implemen
 [![License: Apache](https://img.shields.io/badge/License-Apache-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Nuget](https://img.shields.io/nuget/vpre/PerpetualIntelligence.Protocols)](https://www.nuget.org/packages/PerpetualIntelligence.Protocols)
 
-The `PerpetualIntelligence.Protocols` package is a free cross platform protocols and standards abstraction that is shared across application stack. To get up and running with Nuget packages see [NuGet documentation](https://docs.microsoft.com/en-us/nuget/).
-
-The source `src` is maintained in a private [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) repo. 
+The `PerpetualIntelligence.Protocols` package is a free cross-platform protocols and standards abstraction that is shared across application stack. To get up and running with Nuget packages see [NuGet documentation](https://docs.microsoft.com/en-us/nuget/).
 
 ### `PerpetualIntelligence.Protocols.Defaults`
 [![status: future](https://img.shields.io/badge/status-future-blue)]()
