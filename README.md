@@ -70,7 +70,7 @@ We hope you're excited by the possibilities that `protocols` presents. But, you 
 | imlx |  [well-known](https://github.com/perpetualintelligence/protocols/blob/main/docs/imlx/intro.md) | The `imlx` well-known configurations. | `PerpetualIntelligence.Protocols.Imlx`
 | oidc | [well-known](https://github.com/perpetualintelligence/protocols/blob/main/docs/oidc/intro.md) | The OAuth 2.0 and OpenID Connect 1.0 well-known configurations. | `PerpetualIntelligence.Protocols.Oidc`
 | Security | [Services](https://github.com/perpetualintelligence/protocols/blob/main/docs/security/intro.md) | The common security services for apps and services. | `PerpetualIntelligence.Protocols.Security`
-| Security | [X509 Certificates](https://github.com/perpetualintelligence/protocols/blob/main/docs/se/events/intro.md) | The common X509 certificate based authentication services. | `PerpetualIntelligence.Protocols.Security.Certificates.X509`
+| Security | [X509 Certificates](https://github.com/perpetualintelligence/protocols/blob/main/docs/security/certificates/x509/intro.md) | The common X509 certificate based authentication services. | `PerpetualIntelligence.Protocols.Security.Certificates.X509`
 
 ## Contact
 
