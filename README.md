@@ -29,12 +29,24 @@ You can use the `protocols` as a common foundation to build your custom implemen
 ## Packages
 
 ### `PerpetualIntelligence.Protocols`
+[![usage: free](https://img.shields.io/badge/usage-free-green)]()
 [![License: Apache](https://img.shields.io/badge/License-Apache-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Nuget](https://img.shields.io/nuget/vpre/PerpetualIntelligence.Protocols)](https://www.nuget.org/packages/PerpetualIntelligence.Protocols)
 
 The `PerpetualIntelligence.Protocols` package is a free cross platform protocols and standards abstraction that is shared across application stack. To get up and running with Nuget packages see [NuGet documentation](https://docs.microsoft.com/en-us/nuget/).
 
 The source `src` is maintained in a private [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) repo. 
+
+
+### `PerpetualIntelligence.Protocols.Defaults`
+[![usage: paid](https://img.shields.io/badge/usage-paid-orange)]()
+[![License: Apache](https://img.shields.io/badge/License-Apache-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Nuget](https://img.shields.io/nuget/vpre/PerpetualIntelligence.Protocols)](https://www.nuget.org/packages/PerpetualIntelligence.Protocols)
+
+The `PerpetualIntelligence.Protocols.Defaults` package is a paid cross platform protocols and standards implementation that is shared across application stack. To get up and running with Nuget packages see [NuGet documentation](https://docs.microsoft.com/en-us/nuget/).
+
+The source `src` is maintained in a private [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) repo. 
+
 
 ## Getting Started
 
