@@ -8,7 +8,7 @@
 
 This repository tracks issues, requests and docs for Perpetual Intelligence `protocols` library.
 
-> **Note:** The source is maintained in a private Azure DevOps repo. This is a ***preview*** release, and it is subject to design changes without any advance notice.
+> **Note:** The source is maintained in a private repo. This is a ***preview*** release, and it is subject to design changes without any advance notice.
 
 ## Introduction
 
