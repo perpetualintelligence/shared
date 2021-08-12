@@ -34,7 +34,7 @@ You can use the `protocols` as a common foundation to build your custom implemen
 
 The `PerpetualIntelligence.Protocols` package is a free cross platform protocols and standards abstraction that is shared across application stack. To get up and running with Nuget packages see [NuGet documentation](https://docs.microsoft.com/en-us/nuget/).
 
-The source `src` is maintained in a private Azure DevOps repo. 
+The source `src` is maintained in a private [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) repo. 
 
 ## Getting Started
 
