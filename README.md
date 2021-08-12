@@ -63,30 +63,15 @@ We hope you're excited by the possibilities that `protocols` presents. But, you 
 
 ## Features & benefits
 
-### Unopinionated
-
-There are a million and one great ways to build your next website or application. To support the technologies you choose, creating unopinionated code is at the center of every decision we make in FAST.
-
-This principle of being unopinionated manifests in several important ways including:
-
-* A flat component architecture that lets you compose what you need without struggling with rigid patterns and complex objects.
-* Separating base components from styles and design systems to support multiple implementations without re-writing or duplicating styles. Use the design system to customize existing styled components, or build your own styles, with your design system, without having to rebuild or duplicate the base components.
-* Framework agnostic tooling that lets you use our development tools with any view framework.
-* The ability to replace almost any FAST package with your package of choice. Get started with our animation package and add more as you need them. Alternatively, use our suite of packages to build your next project from the ground up; it's your call.
-
-### UI development and style guide tools
-
-When developing components and views, excellent development tooling can make all the difference. FAST offers development and style guide tools that work with FAST components, components from other frameworks, or your components.
-
-Try out component properties with an auto-generated property UI, get a live preview of the code based on any property’s configuration, preview localization (RTL/LTR) and themes, and preview component compositing with a transparency grid.
-
-Also, we built FAST development tools from re-usable packages, so if you have special needs, you can build your tools from the same shared libraries.
-
-### Bring your design system
-
-Widely available design systems from companies like Microsoft (Fluent), Google (Material), or Salesforce (Lightning) are useful when it is essential to align with a platform or take advantage of a polished system at low cost, but many companies have a design system of their own, and some may have multiple design systems or variations.
-
-Because FAST has abstracted base components from their style, you get a head start on your design system by building on top of tried and true base components and style libraries like our offerings for color, animation, and elevation.
+| Topic | Feature | Description | Namespace | 
+| ----- | ------- | ----------- | --------- |
+| Communication | [Messages](https://github.com/perpetualintelligence/protocols/blob/main/docs/communication/messages.md) | The general purpose messaging abstraction. | `PerpetualIntelligence.Protocols.Communication`
+| Communication | [Endpoints](https://github.com/perpetualintelligence/protocols/blob/main/docs/communication/endpoints/intro.md) | The custom endpoint and middleware abstraction to integrate seamlessly with your controllers and API. | `PerpetualIntelligence.Protocols.Communication.Endpoints`
+| Communication | [Events](https://github.com/perpetualintelligence/protocols/blob/main/docs/communication/events/intro.md) | The event-driven or subscriber-publisher microservices abstraction. | `PerpetualIntelligence.Protocols.Communication.Events`
+| imlx |  well-known | `PerpetualIntelligence.Protocols.Imlx` | [Go to imlx abstraction and its well-known configuration documentation](https://github.com/perpetualintelligence/protocols/blob/main/docs/imlx/intro.md)
+| oidc | well-known | `PerpetualIntelligence.Protocols.Oidc` | [Go to OAuth 2.0 and OpenID Connect 1.0 abstraction and its well-known configuration documentation](https://github.com/perpetualintelligence/protocols/blob/main/docs/oidc/intro.md)
+| Security | Services | `PerpetualIntelligence.Protocols.Security` | [Go to common security services documentation ](https://github.com/perpetualintelligence/protocols/blob/main/docs/security/intro.md)
+| Security | X509 Certificates | `PerpetualIntelligence.Protocols.Security.Certificates.X509` | [Go to X509 certificate based authentication documentation ](https://github.com/perpetualintelligence/protocols/blob/main/docs/se/events/intro.md)
 
 ## Contact
 
