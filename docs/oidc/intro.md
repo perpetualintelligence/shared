@@ -14,7 +14,7 @@ The OAuth 2.0 and OpenID Connect 1.0 well-known configuration. For more informat
  
 > **Note:** The OAuth 2.1 protocol spec is in progress. Its new features will be supported once the spec is finalized. See [OAuth 2.1 Authorization Protocol](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-02) for more details.
 
-The Perpetual Intelligence `oidc` protocol implementation supports following well-known configurations. This document also defines additional configurations to enable enhanced authentication and authorization capabilities. The ***Field*** identifies the code element that defines a configuration. The ***OIDC Name*** identifies a configuration, parameter, protocol or flow name as defined by the OpenID Connect specification.
+The Perpetual Intelligence `oidc` protocol implementation supports following well-known configurations. This document also defines additional configurations to enable enhanced authentication and authorization capabilities. The ***Field*** identifies the code element that defines a configuration. The ***OIDC Value*** identifies a configuration, parameter, protocol or flow name as defined by the OpenID Connect specification.
 
 ### Access Token Types 
 Declaring Type: `PerpetualIntelligence.Protocols.Oidc.AccessTokenTypes`
