@@ -18,6 +18,7 @@ The Perpetual Intelligence `oidc` protocol implementation supports following wel
 
 ### Access Token Types 
 `PerpetualIntelligence.Protocols.Oidc.AccessTokenTypes`
+The access token types supported by the authorization server.
 | Type Name | Value | Description 
 |-|-|-|
 | Jwt | `urn:pi:protocols:oidc:at:jwt` | Self-contained Json Web Token. See [JSON Web Token (JWT)](https://datatracker.ietf.org/doc/html/rfc7519) for more information. |
