@@ -16,7 +16,8 @@ The OAuth 2.0 and OpenID Connect 1.0 well-known configuration. For more informat
 
 The Perpetual Intelligence `oidc` protocol implementation supports following well-known configurations. This document also defines additional configurations to enable enhanced authentication and authorization capabilities. The ***Type Name*** identifies the code element that defines a configuration. The ***OIDC Name*** identifies a configuration, parameter, protocol or flow name as defined by the OpenID Connect specification.
 
-### Access Token Types `PerpetualIntelligence.Protocols.Oidc.AccessTokenTypes`
+### Access Token Types 
+`PerpetualIntelligence.Protocols.Oidc.AccessTokenTypes`
 | Type Name | Value | Description 
 |-|-|-|
 | Jwt | `urn:pi:protocols:oidc:at:jwt` | Self-contained Json Web Token. See [JSON Web Token (JWT)](https://datatracker.ietf.org/doc/html/rfc7519) for more information. |
