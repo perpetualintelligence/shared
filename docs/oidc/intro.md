@@ -13,3 +13,12 @@
 The OAuth 2.0 and OpenID Connect 1.0 well-known configuration. For more information see [OAuth 2.0 Authorization Framework](https://datatracker.ietf.org/doc/html/rfc6749) and [OpenID Connect](https://openid.net/connect/) standards.
  
 > **Note:** The OAuth 2.1 protocol spec is in progress. Its new features will be supported once the spec is finalized. See [OAuth 2.1 Authorization Protocol](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-02) for more details.
+
+The Perpetual Intelligence `oidc` protocol implementation supports the following well-known configurations. This document also defines additional configurations to enable enhanced authentication and authorization capabilities.
+
+### Access Token Types `PerpetualIntelligence.Protocols.Oidc.AccessTokenTypes`
+| Type Name (code) | Value | Description 
+|-|-|-|
+| Jwt | `urn:pi:protocols:oidc:at:jwt` | Self-contained Json Web Token. See [JSON Web Token (JWT)](https://datatracker.ietf.org/doc/html/rfc7519) for more information. |
+| Opaque | `urn:pi:protocols:oidc:at:opaque` | Opaque token do not embed any identifiable information.
+
