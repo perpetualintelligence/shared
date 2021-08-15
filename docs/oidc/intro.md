@@ -32,7 +32,7 @@ The Perpetual Intelligence `oidc` protocol implementation supports following wel
 | IdentityProvider | `urn:pi:protocols:oidc:acr:idp` | The IDP or an Identity Provider.
 | Tenant | `urn:pi:protocols:oidc:acr:tenant` | The tenant for multi-tenancy.
 
-### Application Types https://img.shields.io/badge/-OIDC-lightgrey
+### Application Types [![standard](https://img.shields.io/badge/-std-blue)]()
 `PerpetualIntelligence.Protocols.Oidc.ApplicationTypes`
 | Field | Value | Description 
 |-|-|-|
