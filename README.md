@@ -40,8 +40,7 @@ You can use the `protocols` as a common foundation to build your custom implemen
 
 The `PerpetualIntelligence.Protocols` package is a free cross-platform protocols and standards abstraction that is shared across application stack. To get up and running with Nuget packages see [NuGet documentation](https://docs.microsoft.com/en-us/nuget/).
 
-### `PerpetualIntelligence.Protocols.Defaults`
-[![status: future](https://img.shields.io/badge/status-future-blue)]()
+### `PerpetualIntelligence.Protocols.Defaults` [![status: future](https://img.shields.io/badge/-future-blue)]()
 
 This package will be a paid cross platform protocols and standards implementation that is shared across application stack.
 
