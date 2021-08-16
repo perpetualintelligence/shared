@@ -22,13 +22,13 @@ Perpetual Intelligence's `imlx` provides managed services for identity, multi-la
 
 You can use the `protocols` as a common foundation to build your custom implementations or use our default implementations (planned for furture release).
 
-### Feature Overview
+### Key Highlights
 
 * Perpetual Intelligence `imlx` abstraction and its well-known configurations
 * OpenID Connect and OAuth 2.0 abstraction and well-known configurations
-* Custom endpoint request, handling, and result abstraction that integrates seamlessly with your existing controllers and API
 * Event-driven microservices abstraction
-* Common security abstraction
+* Custom endpoint handling, and result abstraction that integrates seamlessly with your existing controllers and API
+* Common security abstraction* 
 
 ## Packages
 
