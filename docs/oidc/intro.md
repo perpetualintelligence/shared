@@ -19,6 +19,7 @@ The Perpetual Intelligence `oidc` protocol implementation supports following wel
 * The ***Field*** identifies the code element that defines a configuration
 * The ***Value*** is the configuration value itself
 * The [![standard](https://img.shields.io/badge/-std-blue)]() identifies a configuration, value, parameter, protocol or name as defined by the OAuth or OpenID Connect specification
+* The [![infra](https://img.shields.io/badge/-infra-red)]() identifies a configuration, value, parameter, protocol or name as defined by the Perpetual Intelligence infrastructure.
 
 ### Access Token Types 
 `PerpetualIntelligence.Protocols.Oidc.AccessTokenTypes`
