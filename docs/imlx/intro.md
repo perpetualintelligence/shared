@@ -25,7 +25,7 @@ The Perpetual Intelligence `oidc` protocol implementation supports following wel
 | Field | Value | Description 
 |-|-|-|
 | ApiServerHttpClient | `urn:pi:protocols:imlx:api:serverhttp` | The named HTTP client for an API server. |
-| ClientAppHttpClient | `urn:pi:protocols:oidc:at:opaque` | The named HTTP client for the client application.
+| ClientAppHttpClient | `urn:pi:protocols:imlx:api:clienthttp` | The named HTTP client for the client application.
 | ContentTypeForm | `application/x-www-form-urlencoded` | The API form content type.
 | ContentTypeHtml | `text/html; charset=UTF-8` | The API HTML content type.
 | ContentTypeJson | `application/json` | The API JSON content type.
