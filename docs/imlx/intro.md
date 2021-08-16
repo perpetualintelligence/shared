@@ -14,5 +14,29 @@ The Perpetual Intelligence `imlx` well-known configuration. `imlx` provides mana
  
 > **Note:** These configurations are part of the Perpetual Intelligence infrastructure. Please do not use it directly in your application code.
 
+The Perpetual Intelligence `oidc` protocol implementation supports following well-known configurations. This document also defines additional configurations to enable enhanced authentication and authorization capabilities.
+
+* The ***Field*** identifies the code element that defines a configuration
+* The ***Value*** is the configuration value itself
+* The [![infra](https://img.shields.io/badge/-infra-red)]() identifies a configuration, value, parameter, protocol or name defined by the Perpetual Intelligence infrastructure. *Infrastructure components are subject to change without any advance notice. Please do not use it directly in your application code.*
+
+### API Constants 
+`PerpetualIntelligence.Protocols.Imlx.ApiConstants`
+| Field | Value | Description 
+|-|-|-|
+| ApiServerHttpClient | `urn:pi:protocols:imlx:api:serverhttp` | The named HTTP client for an API server. |
+| ClientAppHttpClient | `urn:pi:protocols:oidc:at:opaque` | The named HTTP client for the client application.
+| ContentTypeForm | `application/x-www-form-urlencoded` | The API form content type.
+| ContentTypeHtml | `text/html; charset=UTF-8` | The API HTML content type.
+| ContentTypeJson | `application/json` | The API JSON content type.
+| ContentTypeMultipart | `multipart/form-data` | The API Multipart content type.
+| LocalhostEndpoint | `urn:pi:protocols:imlx:api:localhost` | The localhost endpoint.
+| ProductionEndpoint | `urn:pi:protocols:imlx:api:production` | The production endpoint.
+| LivePayment [![infra](https://img.shields.io/badge/-infra-red)]() | `urn:pi:protocols:imlx:payment:live` | The live mode of payments.
+| TestPayment [![infra](https://img.shields.io/badge/-infra-red)]() | `urn:pi:protocols:imlx:payment:test` | The test mode of payments.
+| VersionV1Url [![infra](https://img.shields.io/badge/-infra-red)]() | `v1` | The v1 version identifier in the URL.
+| VersionV1 [![infra](https://img.shields.io/badge/-infra-red)]() | `1.0` | The v1 version identifier.
+
+
 
 
