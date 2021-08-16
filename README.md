@@ -28,7 +28,7 @@ You can use the `protocols` as a common foundation to build your custom implemen
 * OpenID Connect and OAuth 2.0 abstraction and well-known configurations
 * Event-driven microservices abstraction
 * Custom endpoint handling, and result abstraction that integrates seamlessly with your existing controllers and API
-* Common security abstraction* 
+* Common security abstraction
 
 ## Packages
 
