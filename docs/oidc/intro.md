@@ -14,7 +14,11 @@ The OAuth 2.0 and OpenID Connect 1.0 well-known configuration. For more informat
  
 > **Note:** The OAuth 2.1 protocol spec is in progress. Its new features will be supported once the spec is finalized. See [OAuth 2.1 Authorization Protocol](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-02) for more details.
 
-The Perpetual Intelligence `oidc` protocol implementation supports following well-known configurations. This document also defines additional configurations to enable enhanced authentication and authorization capabilities. The ***Field*** identifies the code element that defines a configuration. The ***OIDC Value*** identifies a configuration, parameter, protocol or flow name as defined by the OpenID Connect specification.
+The Perpetual Intelligence `oidc` protocol implementation supports following well-known configurations. This document also defines additional configurations to enable enhanced authentication and authorization capabilities.
+
+* The ***Field*** identifies the code element that defines a configuration
+* The ***Value*** is the configuration value itself
+* The [![standard](https://img.shields.io/badge/-std-blue)]() identifies a configuration, value, parameter, protocol or name as defined by the OAuth or OpenID Connect specification
 
 ### Access Token Types 
 `PerpetualIntelligence.Protocols.Oidc.AccessTokenTypes`
@@ -36,6 +40,7 @@ The Perpetual Intelligence `oidc` protocol implementation supports following wel
 `PerpetualIntelligence.Protocols.Oidc.ApplicationTypes`
 | Field | Value | Description 
 |-|-|-|
-| Native | `native` | Native or mobile applications. |
-| Web | `web` | The web applications. |
+| Native | `native` | The Native application such as a JAVAScript or a Blazor WebAssembly. |
+| Mobile | `mobile` | The Mobile application. |
+| Web | `web` | The Web application. |
 
