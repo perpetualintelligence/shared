@@ -16,8 +16,6 @@ This repository tracks issues, requests and docs for Perpetual Intelligence `pro
 
 ## Introduction
 
-Perpetual Intelligence's `imlx` provides managed services for identity, multi-language, licensing, rbac, multi-tenancy, and adaptive UX components.
-
  `protocols` is a collection of cross-platform abstractions built on top of the .NET Core layer and includes the modern Web authorization and authentication standards. This enables you to address website and application design and development challenges, authentication, authorization, licensing, and localization in a standard and integrated way.
 
 You can use the `protocols` as a common foundation to build your custom implementations or use our default implementations (planned for furture release).
