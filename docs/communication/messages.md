@@ -10,10 +10,6 @@
 ![Deployment](https://vsrm.dev.azure.com/perpetualintelligence/_apis/public/Release/badge/4c5f1531-e837-40e9-9e5e-47abaa3fab37/2/2)
 [![Nuget](https://img.shields.io/nuget/vpre/PerpetualIntelligence.Protocols)](https://www.nuget.org/packages/PerpetualIntelligence.Protocols)
 
-This repository tracks issues, requests and docs for Perpetual Intelligence `protocols` library.
-
-> **Note:** The source is maintained in a private repo. This is a ***preview*** release, and it is subject to design changes without any advance notice.
-
 ## Messages
 `PerpetualIntelligence.Protocols.Oidc.Communication.Message`
 
