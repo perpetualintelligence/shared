@@ -25,6 +25,7 @@ You can use the `protocols` as a common foundation to build your custom implemen
 * Perpetual Intelligence `imlx` abstraction and its well-known configurations
 * OpenID Connect and OAuth 2.0 abstraction and well-known configurations
 * Event-driven microservices abstraction
+* Checkers abstraction
 * Custom endpoint handling, and result abstraction that integrates seamlessly with your existing controllers and API
 * Common security abstraction
 
