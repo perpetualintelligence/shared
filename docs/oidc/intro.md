@@ -62,14 +62,14 @@ The Perpetual Intelligence `oidc` protocol implementation supports following wel
 `PerpetualIntelligence.Protocols.Oidc.CodeChallengeMethods`
 | Field | Value | Description 
 |-|-|-|
-| Plain | '' |  |
-| Sha256 | '' |  |
+| Plain | '' | [![ToDo](https://img.shields.io/badge/-ToDo-red)]() |
+| Sha256 | '' | [![ToDo](https://img.shields.io/badge/-ToDo-red)]() |
 
 ### Constants 
 `PerpetualIntelligence.Protocols.Oidc.Constants`
 | Field | Value | Description 
 |-|-|-|
-| AuthenticationType | '' | The authentication type used to create the 'System.Security.Claims.Claims.Principal'. |
+| AuthenticationType | '' | The authentication type used to create the 'System.Security.Claims.ClaimsPrincipal'.[![ToDo](https://img.shields.io/badge/-ToDo-red)]()  |
 | AuthenticationHeaderBearer | '' | The bearer token in authorization header. |
 | BearerTokenType | '' | The bearer token type. |
 | CorsPolicyName | '' | The default CORS policy name. |
@@ -80,3 +80,115 @@ The Perpetual Intelligence `oidc` protocol implementation supports following wel
 `PerpetualIntelligence.Protocols.Oidc.Discovery`
 | Field | Value | Description 
 |-|-|-|
+| AcrValuesSupported | '' |  |
+| AuthorizationEndpoint | '' |  |
+| AuthorizationResponseIssParameterSupported | '' |  |
+| BackChannelLogoutSessionSupported | '' |  |
+| BackChannelLogoutSupported | '' |  |
+| CheckSessionIframe | '' |  |
+| ClaimsLocalesSupported | '' |  |
+| ClaimsParameterSupported | '' |  |
+| ClaimsSupported | '' |  |
+| ClaimTypesSupported | '' |  |
+| CodeChallengeMethodsSupported | '' |  |
+| DeviceAuthorizationEndpoint | '' |  |
+| DiscoveryEndpoint | '' |  |
+| DisplayValuesSupported | '' |  |
+| EndSessionEndpoint | '' |  |
+| FrontChannelLogoutSessionSupported | '' |  |
+| FrontChannelLogoutSupported | '' |  |
+| GrantTypesSupported | '' |  |
+| IdTokenEncryptionAlgorithmsSupported | '' |  |
+| IdTokenEncryptionEncValuesSupported | '' |  |
+| IdTokenSigningAlgorithmsSupported | '' |  |
+| IntrospectionEndpoint | '' |  |
+| Issuer | '' |  |
+| JwksUri | '' |  |
+| MtlsEndpointAliases | '' |  |
+| OpPolicyUri | '' |  |
+| OpTosUri | '' |  |
+| RegistrationEndpoint | '' |  |
+| RequestObjectEncryptionAlgorithmsSupported | '' |  |
+| RequestObjectEncryptionEncValuesSupported | '' |  |
+| RequestObjectSigningAlgorithmsSupported | '' |  |
+| RequestParameterSupported | '' |  |
+| RequestUriParameterSupported | '' |  |
+| RequireRequestUriRegistration | '' |  |
+| ResponseModesSupported | '' |  |
+| ResponseTypesSupported | '' |  |
+| RevocationEndpoint | '' |  |
+| ScopesSupported | '' |  |
+| ServiceDocumentation | '' |  |
+| SubjectTypesSupported | '' |  |
+| TlsClientCertificateBoundAccessTokens | '' |  |
+| TokenEndpoint | '' |  |
+| TokenEndpointAuthenticationMethodsSupported | '' |  |
+| TokenEndpointAuthSigningAlgorithmsSupported | '' |  |
+| UILocalesSupported | '' |  |
+| UserInfoEncryptionAlgorithmsSupported | '' |  |
+| UserInfoEncryptionEncValuesSupported | '' |  |
+| UserInfoEndpoint | '' |  |
+| UserInfoSigningAlgorithmsSupported | '' |  |
+
+### Display Modes 
+`PerpetualIntelligence.Protocols.Oidc.DisplayModes`
+| Field | Value | Description 
+|-|-|-|
+| Page | '' | The Authorization Server SHOULD display the authentication and consent UI consistent with a full User Agent page view. If the display parameter is not specified, this is the default display mode. |
+| Popup | '' | The Authorization Server SHOULD display the authentication and consent UI consistent with a popup User Agent window. The popup User Agent window should be of an appropriate size for a login-focused dialog and should not obscure the entire window that it is popping up over. |
+| Touch | '' | The Authorization Server SHOULD display the authentication and consent UI consistent with a device that leverages a touch interface. |
+| Wap | '' | The Authorization Server SHOULD display the authentication and consent UI consistent with a "feature phone" type display. |
+
+### Errors 
+`PerpetualIntelligence.Protocols.Oidc.Errors`
+| Field | Value | Description 
+|-|-|-|
+| AccessDenied | '' |  |
+| AccountSelectionRequired | '' |  |
+| AuthorizationPending | '' |  |
+| ConsentRequired | '' |  |
+| ExpiredToken | '' |  |
+| InsufficientScope | '' |  |
+| InteractionRequired | '' |  |
+| InvalidClient | '' |  |
+| InvalidGrant | '' |  |
+| InvalidRequest | '' |  |
+| InvalidRequestObject | '' |  |
+| InvalidRequestUri | '' |  |
+| InvalidScope | '' |  |
+| InvalidTarget | '' |  |
+| InvalidToken | '' |  |
+| LoginRequired | '' |  |
+| RegistrationNotSupported | '' |  |
+| RequestNotSupported | '' |  |
+| RequestUriNotSupported | '' |  |
+| ServerError | '' |  |
+| SlowDown | '' |  |
+| TemporarilyUnavailable | '' |  |
+| UnauthorizedClient | '' |  |
+| UnauthorizedSubject | '' |  |
+| UnsupportedGrantType | '' |  |
+| UnsupportedResponseType | '' |  |
+
+### Events 
+`PerpetualIntelligence.Protocols.Oidc.Events`
+| Field | Value | Description 
+|-|-|-|
+| BackChannelLogout | '' |  |
+
+### Grant Types 
+`PerpetualIntelligence.Protocols.Oidc.GrantTypes`
+| Field | Value | Description 
+|-|-|-|
+| AuthorizationCode | '' | The authorization code grant. |
+| ClientCredentials | '' | The client credential grant. |
+| DeviceCode | '' | The device authorization grant. |
+| Hybrid | '' | The hybrid grant. |
+| Implicit | '' | The implicit grant. |
+| JwtBearer | '' | The JSON Web Token (JWT) Profile Client authentication and authorization grant. |
+| RefreshToken | '' | The refresh token grant. |
+| ResourceOwnerPassword | '' | The resource owner password grant. |
+| Saml2Bearer | '' | The SAML 2.0 profile for OAuth 2.0 client authenticaiton and authorization grant. |
+| TokenExchange | '' | The OAuth 2.0 token exchange grant. |
+
+
