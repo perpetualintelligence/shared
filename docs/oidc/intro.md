@@ -45,3 +45,38 @@ The Perpetual Intelligence `oidc` protocol implementation supports following wel
 | Mobile | `mobile` | The Mobile application. |
 | Web | `web` | The Web application. |
 
+### Claim Value Types
+`PerpetualIntelligence.Protocols.Oidc.ClaimValueTypes`
+| Field | Value | Description 
+|-|-|-|
+| Json | '' | A URI that represents Json data type. |
+
+### Client Assertion Types
+`PerpetualIntelligence.Protocols.Oidc.ClientAssertionTypes`
+| Field | Value | Description 
+|-|-|-|
+| JwtBearer | '' | JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants. |
+| SamlBearer | '' | Security Assertion Markup Language (SAML) 2.0 Profile for OAuth 2.0 Client Authentication and Authorization Grants. |
+
+### Code Challenge Methods
+`PerpetualIntelligence.Protocols.Oidc.CodeChallengeMethods`
+| Field | Value | Description 
+|-|-|-|
+| Plain | '' |  |
+| Sha256 | '' |  |
+
+### Constants 
+`PerpetualIntelligence.Protocols.Oidc.Constants`
+| Field | Value | Description 
+|-|-|-|
+| AuthenticationType | '' | The authentication type used to create the 'System.Security.Claims.Claims.Principal'. |
+| AuthenticationHeaderBearer | '' | The bearer token in authorization header. |
+| BearerTokenType | '' | The bearer token type. |
+| CorsPolicyName | '' | The default CORS policy name. |
+| LogoutToken | '' | The back channel logout token. |
+| OpenIDConnect | '' | The OpenID Connect authentication protocol. |
+
+###  Discovery
+`PerpetualIntelligence.Protocols.Oidc.Discovery`
+| Field | Value | Description 
+|-|-|-|
