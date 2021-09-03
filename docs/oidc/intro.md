@@ -45,151 +45,156 @@ The Perpetual Intelligence `oidc` protocol implementation supports following wel
 | Mobile | `mobile` | The Mobile application. |
 | Web | `web` | The Web application. |
 
-### Claim Value Types
+### Custom Claim Value Types
 `PerpetualIntelligence.Protocols.Oidc.ClaimValueTypes`
 | Field | Value | Description 
 |-|-|-|
-| Json | '' | A URI that represents Json data type. |
+| Json | `urn:pi:protocols:oidc:claimvalue:json` | A URI that represents Json data type. |
 
 ### Client Assertion Types
 `PerpetualIntelligence.Protocols.Oidc.ClientAssertionTypes`
 | Field | Value | Description 
 |-|-|-|
-| JwtBearer | '' | JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants. |
-| SamlBearer | '' | Security Assertion Markup Language (SAML) 2.0 Profile for OAuth 2.0 Client Authentication and Authorization Grants. |
+| JwtBearer | `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` | JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants. |
+| SamlBearer | `urn:ietf:params:oauth:client-assertion-type:saml2-bearer` | Security Assertion Markup Language (SAML) 2.0 Profile for OAuth 2.0 Client Authentication and Authorization Grants. |
 
 ### Code Challenge Methods
 `PerpetualIntelligence.Protocols.Oidc.CodeChallengeMethods`
 | Field | Value | Description 
 |-|-|-|
-| Plain | '' | [![ToDo](https://img.shields.io/badge/-ToDo-red)]() |
-| Sha256 | '' | [![ToDo](https://img.shields.io/badge/-ToDo-red)]() |
+| Plain | `plain` | [![ToDo](https://img.shields.io/badge/-ToDo-red)]() |
+| Sha256 | `S256` | [![ToDo](https://img.shields.io/badge/-ToDo-red)]() |
 
 ### Constants 
 `PerpetualIntelligence.Protocols.Oidc.Constants`
 | Field | Value | Description 
 |-|-|-|
-| AuthenticationType | '' | The authentication type used to create the 'System.Security.Claims.ClaimsPrincipal'.[![ToDo](https://img.shields.io/badge/-ToDo-red)]()  |
-| AuthenticationHeaderBearer | '' | The bearer token in authorization header. |
-| BearerTokenType | '' | The bearer token type. |
-| CorsPolicyName | '' | The default CORS policy name. |
-| LogoutToken | '' | The back channel logout token. |
-| OpenIDConnect | '' | The OpenID Connect authentication protocol. |
+| AuthenticationType | `urn:pi:protocols:imlx:identity:auth` | The authentication type used to create the 'System.Security.Claims.ClaimsPrincipal'.[![ToDo](https://img.shields.io/badge/-ToDo-red)]()  |
+| AuthenticationHeaderBearer | `Bearer` | The bearer token in authorization header. |
+| BearerTokenType | `Bearer` | The bearer token type. |
+| CorsPolicyName | `urn:pi:protocols:imlx:identity:cors` | The default CORS policy name. |
+| LogoutToken | `logout_token` | The back channel logout token. |
+| OpenIDConnect | `oidc` | The OpenID Connect authentication protocol. |
 
 ###  Discovery
 `PerpetualIntelligence.Protocols.Oidc.Discovery`
 | Field | Value | Description 
 |-|-|-|
-| AcrValuesSupported | '' |  |
-| AuthorizationEndpoint | '' |  |
-| AuthorizationResponseIssParameterSupported | '' |  |
-| BackChannelLogoutSessionSupported | '' |  |
-| BackChannelLogoutSupported | '' |  |
-| CheckSessionIframe | '' |  |
-| ClaimsLocalesSupported | '' |  |
-| ClaimsParameterSupported | '' |  |
-| ClaimsSupported | '' |  |
-| ClaimTypesSupported | '' |  |
-| CodeChallengeMethodsSupported | '' |  |
-| DeviceAuthorizationEndpoint | '' |  |
-| DiscoveryEndpoint | '' |  |
-| DisplayValuesSupported | '' |  |
-| EndSessionEndpoint | '' |  |
-| FrontChannelLogoutSessionSupported | '' |  |
-| FrontChannelLogoutSupported | '' |  |
-| GrantTypesSupported | '' |  |
-| IdTokenEncryptionAlgorithmsSupported | '' |  |
-| IdTokenEncryptionEncValuesSupported | '' |  |
-| IdTokenSigningAlgorithmsSupported | '' |  |
-| IntrospectionEndpoint | '' |  |
-| Issuer | '' |  |
-| JwksUri | '' |  |
-| MtlsEndpointAliases | '' |  |
-| OpPolicyUri | '' |  |
-| OpTosUri | '' |  |
-| RegistrationEndpoint | '' |  |
-| RequestObjectEncryptionAlgorithmsSupported | '' |  |
-| RequestObjectEncryptionEncValuesSupported | '' |  |
-| RequestObjectSigningAlgorithmsSupported | '' |  |
-| RequestParameterSupported | '' |  |
-| RequestUriParameterSupported | '' |  |
-| RequireRequestUriRegistration | '' |  |
-| ResponseModesSupported | '' |  |
-| ResponseTypesSupported | '' |  |
-| RevocationEndpoint | '' |  |
-| ScopesSupported | '' |  |
-| ServiceDocumentation | '' |  |
-| SubjectTypesSupported | '' |  |
-| TlsClientCertificateBoundAccessTokens | '' |  |
-| TokenEndpoint | '' |  |
-| TokenEndpointAuthenticationMethodsSupported | '' |  |
-| TokenEndpointAuthSigningAlgorithmsSupported | '' |  |
-| UILocalesSupported | '' |  |
-| UserInfoEncryptionAlgorithmsSupported | '' |  |
-| UserInfoEncryptionEncValuesSupported | '' |  |
-| UserInfoEndpoint | '' |  |
-| UserInfoSigningAlgorithmsSupported | '' |  |
+| AcrValuesSupported | `acr_values_supported` |  |
+| AuthorizationEndpoint | `authorization_endpoint` |  |
+| AuthorizationResponseIssParameterSupported | `authorization_response_iss_parameter_supported` |  |
+| BackChannelLogoutSessionSupported | `backchannel_logout_session_supported` |  |
+| BackChannelLogoutSupported | `backchannel_logout_supported` |  |
+| CheckSessionIframe | `check_session_iframe` |  |
+| ClaimsLocalesSupported | `claims_locales_supported` |  |
+| ClaimsParameterSupported | `claims_parameter_supported` |  |
+| ClaimsSupported | `claims_supported` |  |
+| ClaimTypesSupported | `claim_types_supported` |  |
+| CodeChallengeMethodsSupported | `code_challenge_methods_supported` |  |
+| DeviceAuthorizationEndpoint | `device_authorization_endpoint` |  |
+| DiscoveryEndpoint | `.well-known/openid-configuration` |  |
+| DisplayValuesSupported | `display_values_supported` |  |
+| EndSessionEndpoint | `end_session_endpoint` |  |
+| FrontChannelLogoutSessionSupported | `frontchannel_logout_session_supported` |  |
+| FrontChannelLogoutSupported | `frontchannel_logout_supported` |  |
+| GrantTypesSupported | `grant_types_supported` |  |
+| IdTokenEncryptionAlgorithmsSupported | `id_token_encryption_alg_values_supported` |  |
+| IdTokenEncryptionEncValuesSupported | `id_token_encryption_enc_values_supported` |  |
+| IdTokenSigningAlgorithmsSupported | `id_token_signing_alg_values_supported` |  |
+| IntrospectionEndpoint | `introspection_endpoint` |  |
+| Issuer | `issuer` |  |
+| JwksUri | `jwks_uri` |  |
+| MtlsEndpointAliases | `mtls_endpoint_aliases` |  |
+| OpPolicyUri | `op_policy_uri` |  |
+| OpTosUri | `op_tos_uri` |  |
+| RegistrationEndpoint | `registration_endpoint` |  |
+| RequestObjectEncryptionAlgorithmsSupported | `request_object_encryption_alg_values_supported` |  |
+| RequestObjectEncryptionEncValuesSupported | `request_object_encryption_enc_values_supported` |  |
+| RequestObjectSigningAlgorithmsSupported | `request_object_signing_alg_values_supported` |  |
+| RequestParameterSupported | `request_parameter_supported` |  |
+| RequestUriParameterSupported | `request_uri_parameter_supported` |  |
+| RequireRequestUriRegistration | `require_request_uri_registration` |  |
+| ResponseModesSupported | `response_modes_supported` |  |
+| ResponseTypesSupported | `response_types_supported` |  |
+| RevocationEndpoint | `revocation_endpoint` |  |
+| ScopesSupported | `scopes_supported` |  |
+| ServiceDocumentation | `service_documentation` |  |
+| SubjectTypesSupported | `subject_types_supported` |  |
+| TlsClientCertificateBoundAccessTokens | `tls_client_certificate_bound_access_tokens` |  |
+| TokenEndpoint | `token_endpoint` |  |
+| TokenEndpointAuthenticationMethodsSupported | `token_endpoint_auth_methods_supported` |  |
+| TokenEndpointAuthSigningAlgorithmsSupported | `token_endpoint_auth_signing_alg_values_supported` |  |
+| UILocalesSupported | `ui_locales_supported` |  |
+| UserInfoEncryptionAlgorithmsSupported | `userinfo_encryption_alg_values_supported` |  |
+| UserInfoEncryptionEncValuesSupported | `userinfo_encryption_enc_values_supported` |  |
+| UserInfoEndpoint | `userinfo_endpoint` |  |
+| UserInfoSigningAlgorithmsSupported | `userinfo_signing_alg_values_supported` |  |
 
 ### Display Modes 
 `PerpetualIntelligence.Protocols.Oidc.DisplayModes`
 | Field | Value | Description 
 |-|-|-|
-| Page | '' | The Authorization Server SHOULD display the authentication and consent UI consistent with a full User Agent page view. If the display parameter is not specified, this is the default display mode. |
-| Popup | '' | The Authorization Server SHOULD display the authentication and consent UI consistent with a popup User Agent window. The popup User Agent window should be of an appropriate size for a login-focused dialog and should not obscure the entire window that it is popping up over. |
-| Touch | '' | The Authorization Server SHOULD display the authentication and consent UI consistent with a device that leverages a touch interface. |
-| Wap | '' | The Authorization Server SHOULD display the authentication and consent UI consistent with a "feature phone" type display. |
+| Page | `page` | The Authorization Server SHOULD display the authentication and consent UI consistent with a full User Agent page view. If the display parameter is not specified, this is the default display mode. |
+| Popup | `popup` | The Authorization Server SHOULD display the authentication and consent UI consistent with a popup User Agent window. The popup User Agent window should be of an appropriate size for a login-focused dialog and should not obscure the entire window that it is popping up over. |
+| Touch | `touch` | The Authorization Server SHOULD display the authentication and consent UI consistent with a device that leverages a touch interface. |
+| Wap | `wap` | The Authorization Server SHOULD display the authentication and consent UI consistent with a "feature phone" type display. |
 
 ### Errors 
 `PerpetualIntelligence.Protocols.Oidc.Errors`
 | Field | Value | Description 
 |-|-|-|
-| AccessDenied | '' |  |
-| AccountSelectionRequired | '' |  |
-| AuthorizationPending | '' |  |
-| ConsentRequired | '' |  |
-| ExpiredToken | '' |  |
-| InsufficientScope | '' |  |
-| InteractionRequired | '' |  |
-| InvalidClient | '' |  |
-| InvalidGrant | '' |  |
-| InvalidRequest | '' |  |
-| InvalidRequestObject | '' |  |
-| InvalidRequestUri | '' |  |
-| InvalidScope | '' |  |
-| InvalidTarget | '' |  |
-| InvalidToken | '' |  |
-| LoginRequired | '' |  |
-| RegistrationNotSupported | '' |  |
-| RequestNotSupported | '' |  |
-| RequestUriNotSupported | '' |  |
-| ServerError | '' |  |
-| SlowDown | '' |  |
-| TemporarilyUnavailable | '' |  |
-| UnauthorizedClient | '' |  |
-| UnauthorizedSubject | '' |  |
-| UnsupportedGrantType | '' |  |
-| UnsupportedResponseType | '' |  |
+| AccessDenied | `access_denied` |  |
+| AccountSelectionRequired | `account_selection_required` |  |
+| AuthorizationPending | `authorization_pending` |  |
+| ConsentRequired | `consent_required` |  |
+| ExpiredToken | `expired_token` |  |
+| InsufficientScope | `insufficient_scope` |  |
+| InteractionRequired | `interaction_required` |  |
+| InvalidClient | `invalid_client` |  |
+| InvalidEndpoint | `invalid_endpoint` |  |
+| InvalidGrant | `invalid_grant` |  |
+| InvalidRequest | `invalid_request` |  |
+| InvalidRequestObject | `invalid_request_object` |  |
+| InvalidRequestUri | `invalid_request_uri` |  |
+| InvalidScope | `invalid_scope` |  |
+| InvalidTarget | `invalid_target` |  |
+| InvalidToken | `invalid_token` |  |
+| LoginRequired | `login_required` |  |
+| RegistrationNotSupported | `registration_not_supported` |  |
+| RequestNotSupported | `request_not_supported` |  |
+| RequestUriNotSupported | `request_uri_not_supported` |  |
+| ServerError | `server_error` |  |
+| SlowDown | `slow_down` |  |
+| TemporarilyUnavailable | `temporarily_unavailable` |  |
+| UnexpectedError | `unexpected_error` |  |
+| UnauthorizedClient | `unauthorized_client` |  |
+| UnauthorizedOrigin | `unauthorized_origin` |  |
+| UnauthorizedSubject | `unauthorized_subject` |  |
+| UnsupportedGrantType | `unsupported_grant_type` |  |
+| UnsupportedResponseType | `unsupported_response_type` |  |
+| MissingToken | `missing_token` |  |
+| UnsupportedTokenType | `unsupported_token_type` |  |
 
 ### Events 
 `PerpetualIntelligence.Protocols.Oidc.Events`
 | Field | Value | Description 
 |-|-|-|
-| BackChannelLogout | '' |  |
+| BackChannelLogout | `http://schemas.openid.net/event/backchannel-logout` |  |
 
 ### Grant Types 
 `PerpetualIntelligence.Protocols.Oidc.GrantTypes`
 | Field | Value | Description 
 |-|-|-|
-| AuthorizationCode | '' | The authorization code grant. |
-| ClientCredentials | '' | The client credential grant. |
-| DeviceCode | '' | The device authorization grant. |
-| Hybrid | '' | The hybrid grant. |
-| Implicit | '' | The implicit grant. |
-| JwtBearer | '' | The JSON Web Token (JWT) Profile Client authentication and authorization grant. |
-| RefreshToken | '' | The refresh token grant. |
-| ResourceOwnerPassword | '' | The resource owner password grant. |
-| Saml2Bearer | '' | The SAML 2.0 profile for OAuth 2.0 client authenticaiton and authorization grant. |
-| TokenExchange | '' | The OAuth 2.0 token exchange grant. |
+| AuthorizationCode | `authorization_code` | The authorization code grant. |
+| ClientCredentials | `client_credentials` | The client credential grant. |
+| DeviceCode | `urn:ietf:params:oauth:grant-type:device_code` | The device authorization grant. |
+| Hybrid | `hybrid` | The hybrid grant. |
+| Implicit | `implicit` | The implicit grant. |
+| JwtBearer | `urn:ietf:params:oauth:grant-type:jwt-bearer` | The JSON Web Token (JWT) Profile Client authentication and authorization grant. |
+| RefreshToken | `refresh_token` | The refresh token grant. |
+| ResourceOwnerPassword | `password` | The resource owner password grant. |
+| Saml2Bearer | `urn:ietf:params:oauth:grant-type:saml2-bearer` | The SAML 2.0 profile for OAuth 2.0 client authenticaiton and authorization grant. |
+| TokenExchange | `urn:ietf:params:oauth:grant-type:token-exchange` | The OAuth 2.0 token exchange grant. |
 
 ### Jwt Claim Types  
 `PerpetualIntelligence.Protocols.Oidc.JwtClaimTypes`
