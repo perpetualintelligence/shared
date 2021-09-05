@@ -200,190 +200,194 @@ The Perpetual Intelligence `oidc` protocol implementation supports following wel
 `PerpetualIntelligence.Protocols.Oidc.JwtClaimTypes`
 | Field | Value | Description 
 |-|-|-|
-| AccessTokenHash | '' | Access Token hash value. Its value is the base64url encoding of the left-most half of the hash of the octets of the ASCII representation of the access_token value, where the hash algorithm used is the hash algorithm used in the alg Header Parameter of the ID Token's JOSE Header. For instance, if the alg is RS256, hash the access_token value with SHA-256, then take the left-most 128 bits and base64url encode them. The at_hash value is a case sensitive string. |
-| Actor | '' | The "act" (actor) claim provides a means within a JWT to express that delegation has occurred and identify the acting party to whom authority has been delegated.The "act" claim value is a JSON object and members in the JSON object are claims that identify the actor. The claims that make up the "act" claim identify and possibly provide additional information about the actor. |
-| Address | '' | End-User's preferred postal address. The value of the address member is a JSON structure containing some or all of the members defined in http://openid.net/specs/openid-connect-basic-1_0-32.html#AddressClaim . [![ToDo](https://img.shields.io/badge/-ToDo-red)]() |
-| Application | '' | [![ToDo](https://img.shields.io/badge/-ToDo-red)]() |
-| Audience | '' | Audience(s) that this ID Token is intended for. It MUST contain the OAuth 2.0 client_id of the Relying Party as an audience value. It MAY also contain identifiers for other audiences. In the general case, the aud value is an array of case sensitive strings. In the common special case when there is one audience, the aud value MAY be a single case sensitive string. |
-| AuthenticationContextClassReference | '' | Authentication Context Class Reference. String specifying an Authentication Context Class Reference value that identifies the Authentication Context Class that the authentication performed satisfied. The value "0" indicates the End-User authentication did not meet the requirements of ISO/IEC 29115 level 1. Authentication using a long-lived browser cookie, for instance, is one example where the use of "level 0" is appropriate. Authentications with level 0 SHOULD NOT be used to authorize access to any resource of any monetary value. (This corresponds to the OpenID 2.0 PAPE nist_auth_level 0.) An absolute URI or an RFC 6711 registered name SHOULD be used as the acr value; registered names MUST NOT be used with a different meaning than that which is registered. Parties using this claim will need to agree upon the meanings of the values used, which may be context-specific. The acr value is a case sensitive string. |
-| AuthenticationMethod | '' | Authentication Methods References. JSON array of strings that are identifiers for authentication methods used in the authentication. |
-| AuthenticationTime | '' | Time when the End-User authentication occurred. Its value is a JSON number representing the number of seconds from 1970-01-01T0:0:0Z as measured in UTC until the date/time. When a max_age request is made or when auth_time is requested as an Essential Claim, then this Claim is REQUIRED; otherwise, its inclusion is OPTIONAL. |
-| AuthorizationCodeHash | '' | Code hash value. Its value is the base64url encoding of the left-most half of the hash of the octets of the ASCII representation of the code value, where the hash algorithm used is the hash algorithm used in the alg Header Parameter of the ID Token's JOSE Header. For instance, if the alg is HS512, hash the code value with SHA-512, then take the left-most 256 bits and base64url encode them. The c_hash value is a case sensitive string. |
-| AuthorizedParty | '' | The party to which the ID Token was issued. If present, it MUST contain the OAuth 2.0 Client ID of this party. This Claim is only needed when the ID Token has a single audience value and that audience is different than the authorized party. It MAY be included even when the authorized party is the same as the sole audience. The azp value is a case sensitive string containing a StringOrURI value. |
-| BirthDate | '' | End-User's birthday, represented as an ISO 8601:2004 [ISO8601‑2004] YYYY-MM-DD format. The year MAY be 0000, indicating that it is omitted. To represent only the year, YYYY format is allowed. Note that depending on the underlying platform's date related function, providing just year can result in varying month and day, so the implementers need to take this factor into account to correctly process the dates. |
-| ClientId | '' | OAuth 2.0 Client Identifier valid at the Authorization Server. |
-| Confirmation | '' | The confirmation. |
-| Email | '' | End-User's preferred e-mail address. Its value MUST conform to the RFC 5322 [RFC5322] addr-spec syntax. The relying party MUST NOT rely upon this value being unique. |
-| EmailVerified | '' | "true" if the End-User's e-mail address has been verified; otherwise "false". |
-| Events | '' | Defines a set of event statements that each may add additional claims to fully describe a single logical event that has occurred. |
-| Expiration | '' | The exp (expiration time) claim identifies the expiration time on or after which the token MUST NOT be accepted for processing, specified as the number of seconds from 1970-01-01T0:0:0Z |
-| FamilyName | '' | Surname(s) or last name(s) of the End-User. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters. |
-| Gender | '' | End-User's gender. Values defined by this specification are "female" and "male". Other values MAY be used when neither of the defined values are applicable. |
-| GivenName | '' | Given name(s) or first name(s) of the End-User. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters. |
-| Id | '' | An identifier. |
-| IdentityProvider | '' | The identity provider |
-| IssuedAt | '' | The iat (issued at) claim identifies the time at which the JWT was issued, , specified as the number of seconds from 1970-01-01T0:0:0Z |
-| Issuer | '' | Issuer Identifier for the Issuer of the response. The iss value is a case sensitive URL using the https scheme that contains scheme, host, and optionally, port number and path components and no query or fragment components. |
-| JwtId | '' | JWT ID. A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once, unless conditions for reuse were negotiated between the parties; any such negotiation is beyond the scope of this specification. |
-| Locale | '' | End-User's locale, represented as a BCP47 [RFC5646] language tag. This is typically an ISO 639-1 Alpha-2 [ISO639‑1] language code in lowercase and an ISO 3166-1 Alpha-2 [ISO3166‑1] country code in uppercase, separated by a dash. For example, en-US or fr-CA. As a compatibility note, some implementations have used an underscore as the separator rather than a dash, for example, en_US; Relying Parties MAY choose to accept this locale syntax as well. |
-| MayAct | '' | The "may_act" claim makes a statement that one party is authorized to become the actor and act on behalf of another party. The claim value is a JSON object and members in the JSON object are claims that identify the party that is asserted as being eligible to act for the party identified by the JWT containing the claim. |
-| MiddleName | '' | Middle name(s) of the End-User. Note that in some cultures, people can have multiple middle names; all can be present, with the names being separated by space characters. Also note that in some cultures, middle names are not used. |
-| Name | '' | End-User's full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the End-User's locale and preferences. |
-| NickName | '' | Casual name of the End-User that may or may not be the same as the given_name. For instance, a nickname value of Mike might be returned alongside a given_name value of Michael. |
-| Nonce | '' | String value used to associate a Client session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. If present in the ID Token, Clients MUST verify that the nonce Claim Value is equal to the value of the nonce parameter sent in the Authentication Request. If present in the Authentication Request, Authorization Servers MUST include a nonce Claim in the ID Token with the Claim Value being the nonce value sent in the Authentication Request. Authorization Servers SHOULD perform no other processing on nonce values used. The nonce value is a case sensitive string. |
-| NotBefore | '' | The time before which the JWT MUST NOT be accepted for processing, specified as the number of seconds from 1970-01-01T0:0:0Z. |
-| Permission | '' |  |
-| PhoneNumber | '' | End-User's preferred telephone number. E.164 (https://www.itu.int/rec/T-REC-E.164/e) is RECOMMENDED as the format of this Claim, for example, +1 (425) 555-1212 or +56 (2) 687 2400. If the phone number contains an extension, it is RECOMMENDED that the extension be represented using the RFC 3966 [RFC3966] extension syntax, for example, +1 (604) 555-1234;ext=5678. |
-| PhoneNumberVerified | '' | True if the End-User's phone number has been verified; otherwise false. When this Claim Value is true, this means that the OP took affirmative steps to ensure that this phone number was controlled by the End-User at the time the verification was performed. |
-| Picture | '' | URL of the End-User's profile picture. This URL MUST refer to an image file (for example, a PNG, JPEG, or GIF image file), rather than to a Web page containing an image. |
-| PreferredUserName | '' | Shorthand name by which the End-User wishes to be referred to at the RP, such as janedoe or j.doe. This value MAY be any valid JSON string including special characters such as @, /, or whitespace. The relying party MUST NOT rely upon this value being unique. |
-| Profile | '' | URL of the End-User's profile page. The contents of this Web page SHOULD be about the End-User. |
-| ReferenceTokenId | '' | The reference token identifier. |
-| Role | '' | The role. |
-| Scope | '' | OpenID Connect requests MUST contain the "openid" scope value. If the openid scope value is not present, the behavior is entirely unspecified. Other scope values MAY be present. Scope values used that are not understood by an implementation SHOULD be ignored. |
-| SessionId | '' | Session identifier. This represents a Session of an OP at an RP to a User Agent or device for a logged-in End-User. Its contents are unique to the OP and opaque to the RP. |
-| StateHash | '' | State hash value. Its value is the base64url encoding of the left-most half of the hash of the octets of the ASCII representation of the state value, where the hash algorithm used is the hash algorithm used in the alg Header Parameter of the ID Token's JOSE Header. For instance, if the alg is HS512, hash the code value with SHA-512, then take the left-most 256 bits and base64url encode them. The c_hash value is a case sensitive string. |
-| Subject | '' | Unique Identifier for the End-User at the Issuer. |
-| Tenant | '' |  |
-| UpdatedAt | '' | Time the End-User's information was last updated. Its value is a JSON number representing the number of seconds from 1970-01-01T0:0:0Z as measured in UTC until the date/time. |
-| WebSite | '' | URL of the End-User's Web page or blog. This Web page SHOULD contain information published by the End-User or an organization that the End-User is affiliated with. |
-| ZoneInfo | '' | String from the time zone database (http://www.twinsun.com/tz/tz-link.htm) representing the End-User's time zone. For example, Europe/Paris or America/Los_Angeles. |
+| AccessTokenHash | `at_hash` | Access Token hash value. Its value is the base64url encoding of the left-most half of the hash of the octets of the ASCII representation of the access_token value, where the hash algorithm used is the hash algorithm used in the alg Header Parameter of the ID Token's JOSE Header. For instance, if the alg is RS256, hash the access_token value with SHA-256, then take the left-most 128 bits and base64url encode them. The at_hash value is a case sensitive string. |
+| Actor | `act` | The "act" (actor) claim provides a means within a JWT to express that delegation has occurred and identify the acting party to whom authority has been delegated.The "act" claim value is a JSON object and members in the JSON object are claims that identify the actor. The claims that make up the "act" claim identify and possibly provide additional information about the actor. |
+| Address | `address` | End-User's preferred postal address. The value of the address member is a JSON structure containing some or all of the members defined in http://openid.net/specs/openid-connect-basic-1_0-32.html#AddressClaim . [![ToDo](https://img.shields.io/badge/-ToDo-red)]() |
+| Application | `urn:pi:protocols:oidc:jwtclaimtypes:application` | [![ToDo](https://img.shields.io/badge/-ToDo-red)]() |
+| Audience | `aud` | Audience(s) that this ID Token is intended for. It MUST contain the OAuth 2.0 client_id of the Relying Party as an audience value. It MAY also contain identifiers for other audiences. In the general case, the aud value is an array of case sensitive strings. In the common special case when there is one audience, the aud value MAY be a single case sensitive string. |
+| AuthenticationContextClassReference | `acr` | Authentication Context Class Reference. String specifying an Authentication Context Class Reference value that identifies the Authentication Context Class that the authentication performed satisfied. The value "0" indicates the End-User authentication did not meet the requirements of ISO/IEC 29115 level 1. Authentication using a long-lived browser cookie, for instance, is one example where the use of "level 0" is appropriate. Authentications with level 0 SHOULD NOT be used to authorize access to any resource of any monetary value. (This corresponds to the OpenID 2.0 PAPE nist_auth_level 0.) An absolute URI or an RFC 6711 registered name SHOULD be used as the acr value; registered names MUST NOT be used with a different meaning than that which is registered. Parties using this claim will need to agree upon the meanings of the values used, which may be context-specific. The acr value is a case sensitive string. |
+| AuthenticationMethod | `amr` | Authentication Methods References. JSON array of strings that are identifiers for authentication methods used in the authentication. |
+| AuthenticationTime | `auth_time` | Time when the End-User authentication occurred. Its value is a JSON number representing the number of seconds from 1970-01-01T0:0:0Z as measured in UTC until the date/time. When a max_age request is made or when auth_time is requested as an Essential Claim, then this Claim is REQUIRED; otherwise, its inclusion is OPTIONAL. |
+| AuthorizationCodeHash | `c_hash` | Code hash value. Its value is the base64url encoding of the left-most half of the hash of the octets of the ASCII representation of the code value, where the hash algorithm used is the hash algorithm used in the alg Header Parameter of the ID Token's JOSE Header. For instance, if the alg is HS512, hash the code value with SHA-512, then take the left-most 256 bits and base64url encode them. The c_hash value is a case sensitive string. |
+| AuthorizedParty | `azp` | The party to which the ID Token was issued. If present, it MUST contain the OAuth 2.0 Client ID of this party. This Claim is only needed when the ID Token has a single audience value and that audience is different than the authorized party. It MAY be included even when the authorized party is the same as the sole audience. The azp value is a case sensitive string containing a StringOrURI value. |
+| BirthDate | `birthdate` | End-User's birthday, represented as an ISO 8601:2004 [ISO8601‑2004] YYYY-MM-DD format. The year MAY be 0000, indicating that it is omitted. To represent only the year, YYYY format is allowed. Note that depending on the underlying platform's date related function, providing just year can result in varying month and day, so the implementers need to take this factor into account to correctly process the dates. |
+| ClientId | `client_id` | OAuth 2.0 Client Identifier valid at the Authorization Server. |
+| Confirmation | `cnf` | The confirmation. |
+| Email | `email` | End-User's preferred e-mail address. Its value MUST conform to the RFC 5322 [RFC5322] addr-spec syntax. The relying party MUST NOT rely upon this value being unique. |
+| EmailVerified | `email_verified` | "true" if the End-User's e-mail address has been verified; otherwise "false". |
+| Events | `events` | Defines a set of event statements that each may add additional claims to fully describe a single logical event that has occurred. |
+| Expiration | `exp` | The exp (expiration time) claim identifies the expiration time on or after which the token MUST NOT be accepted for processing, specified as the number of seconds from 1970-01-01T0:0:0Z |
+| FamilyName | `family_name` | Surname(s) or last name(s) of the End-User. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters. |
+| Gender | `gender` | End-User's gender. Values defined by this specification are "female" and "male". Other values MAY be used when neither of the defined values are applicable. |
+| GivenName | `given_name` | Given name(s) or first name(s) of the End-User. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters. |
+| Id | `id` | An identifier. |
+| IdentityProvider | `idp` | The identity provider |
+| IssuedAt | `iat` | The iat (issued at) claim identifies the time at which the JWT was issued, , specified as the number of seconds from 1970-01-01T0:0:0Z |
+| Issuer | `iss` | Issuer Identifier for the Issuer of the response. The iss value is a case sensitive URL using the https scheme that contains scheme, host, and optionally, port number and path components and no query or fragment components. |
+| JwtId | `jti` | JWT ID. A unique identifier for the token, which can be used to prevent reuse of the token. These tokens MUST only be used once, unless conditions for reuse were negotiated between the parties; any such negotiation is beyond the scope of this specification. |
+| Locale | `locale` | End-User's locale, represented as a BCP47 [RFC5646] language tag. This is typically an ISO 639-1 Alpha-2 [ISO639‑1] language code in lowercase and an ISO 3166-1 Alpha-2 [ISO3166‑1] country code in uppercase, separated by a dash. For example, en-US or fr-CA. As a compatibility note, some implementations have used an underscore as the separator rather than a dash, for example, en_US; Relying Parties MAY choose to accept this locale syntax as well. |
+| MayAct | `may_act` | The "may_act" claim makes a statement that one party is authorized to become the actor and act on behalf of another party. The claim value is a JSON object and members in the JSON object are claims that identify the party that is asserted as being eligible to act for the party identified by the JWT containing the claim. |
+| MiddleName | `middle_name` | Middle name(s) of the End-User. Note that in some cultures, people can have multiple middle names; all can be present, with the names being separated by space characters. Also note that in some cultures, middle names are not used. |
+| Name | `name` | End-User's full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the End-User's locale and preferences. |
+| NickName | `nickname` | Casual name of the End-User that may or may not be the same as the given_name. For instance, a nickname value of Mike might be returned alongside a given_name value of Michael. |
+| Nonce | `nonce` | String value used to associate a Client session with an ID Token, and to mitigate replay attacks. The value is passed through unmodified from the Authentication Request to the ID Token. If present in the ID Token, Clients MUST verify that the nonce Claim Value is equal to the value of the nonce parameter sent in the Authentication Request. If present in the Authentication Request, Authorization Servers MUST include a nonce Claim in the ID Token with the Claim Value being the nonce value sent in the Authentication Request. Authorization Servers SHOULD perform no other processing on nonce values used. The nonce value is a case sensitive string. |
+| NotBefore | `nbf` | The time before which the JWT MUST NOT be accepted for processing, specified as the number of seconds from 1970-01-01T0:0:0Z. |
+| Permission | `urn:pi:protocols:oidc:jwtclaimtypes:permission` |  |
+| PhoneNumber | `phone_number` | End-User's preferred telephone number. E.164 (https://www.itu.int/rec/T-REC-E.164/e) is RECOMMENDED as the format of this Claim, for example, +1 (425) 555-1212 or +56 (2) 687 2400. If the phone number contains an extension, it is RECOMMENDED that the extension be represented using the RFC 3966 [RFC3966] extension syntax, for example, +1 (604) 555-1234;ext=5678. |
+| PhoneNumberVerified | `phone_number_verified` | True if the End-User's phone number has been verified; otherwise false. When this Claim Value is true, this means that the OP took affirmative steps to ensure that this phone number was controlled by the End-User at the time the verification was performed. |
+| Picture | `picture` | URL of the End-User's profile picture. This URL MUST refer to an image file (for example, a PNG, JPEG, or GIF image file), rather than to a Web page containing an image. |
+| PreferredUserName | `preferred_username` | Shorthand name by which the End-User wishes to be referred to at the RP, such as janedoe or j.doe. This value MAY be any valid JSON string including special characters such as @, /, or whitespace. The relying party MUST NOT rely upon this value being unique. |
+| Profile | `profile` | URL of the End-User's profile page. The contents of this Web page SHOULD be about the End-User. |
+| ReferenceTokenId | `reference_token_id` | The reference token identifier. |
+| Role | `urn:pi:protocols:oidc:jwtclaimtypes:role` | The role. |
+| Scope | `scope` | OpenID Connect requests MUST contain the "openid" scope value. If the openid scope value is not present, the behavior is entirely unspecified. Other scope values MAY be present. Scope values used that are not understood by an implementation SHOULD be ignored. |
+| SessionId | `sid` | Session identifier. This represents a Session of an OP at an RP to a User Agent or device for a logged-in End-User. Its contents are unique to the OP and opaque to the RP. |
+| StateHash | `s_hash` | State hash value. Its value is the base64url encoding of the left-most half of the hash of the octets of the ASCII representation of the state value, where the hash algorithm used is the hash algorithm used in the alg Header Parameter of the ID Token's JOSE Header. For instance, if the alg is HS512, hash the code value with SHA-512, then take the left-most 256 bits and base64url encode them. The c_hash value is a case sensitive string. |
+| Subject | `sub` | Unique Identifier for the End-User at the Issuer. |
+| Tenant | `urn:pi:protocols:oidc:jwtclaimtypes:tenant` |  |
+| UpdatedAt | `updated_at` | Time the End-User's information was last updated. Its value is a JSON number representing the number of seconds from 1970-01-01T0:0:0Z as measured in UTC until the date/time. |
+| WebSite | `website` | URL of the End-User's Web page or blog. This Web page SHOULD contain information published by the End-User or an organization that the End-User is affiliated with. |
+| ZoneInfo | `zoneinfo` | String from the time zone database (http://www.twinsun.com/tz/tz-link.htm) representing the End-User's time zone. For example, Europe/Paris or America/Los_Angeles. |
 
 ### Jwt Header Types 
 `PerpetualIntelligence.Protocols.Oidc.JwtHeaderTypes`
 | Field | Value | Description 
 |-|-|-|
-| AccessToken | '' | OAuth 2.0 access token |
-| AuthorizationRequest | '' | JWT secured authorization request. |
+| AccessToken | `urn:pi:protocols:oidc:jwttyp:at` | OAuth 2.0 access token |
+| AuthorizationRequest | `urn:pi:protocols:oidc:jwttyp:ar` | JWT secured authorization request. |
 
 ### Login Methods 
 `PerpetualIntelligence.Protocols.Oidc.LoginMethods`
 | Field | Value | Description 
 |-|-|-|
-| Otp | '' | The one-time passcode. |
-| Password | '' | The user password. |
-| Pin | '' | The personal identificaiton number or a pattern. |
+| Otp | `urn:pi:protocols:oidc:login:otp` | The one-time passcode. |
+| Password | `urn:pi:protocols:oidc:login:pwd` | The user password. |
+| Pin | `urn:pi:protocols:oidc:login:pin` | The personal identificaiton number or a pattern. |
 
 ### Parameters 
 `PerpetualIntelligence.Protocols.Oidc.Parameters`
 | Field | Value | Description 
 |-|-|-|
-| AcrValues | '' |  |
-| ActorToken | '' |  |
-| ActorTokenType | '' |  |
-| Algorithm | '' |  |
-| Assertion | '' |  |
-| Audience | '' |  |
-| ClientAssertion | '' |  |
-| ClientAssertionType | '' |  |
-| ClientId | '' |  |
-| ClientSecret | '' |  |
-| Code | '' |  |
-| CodeChallenge | '' |  |
-| CodeChallengeMethod | '' |  |
-| CodeVerifier | '' |  |
-| DeviceCode | '' |  |
-| Display | '' |  |
-| Error | '' |  |
-| ErrorDescription | '' |  |
-| GrantType | '' |  |
-| IdTokenHint | '' |  |
-| Issuer | '' |  |
-| Key | '' |  |
-| LoginHint | '' |  |
-| MaxAge | '' |  |
-| Nonce | '' |  |
-| Password | '' |  |
-| PostLogoutRedirectUri | '' |  |
-| Prompt | '' |  |
-| RedirectUri | '' |  |
-| RefreshToken | '' |  |
-| Request | '' |  |
-| RequestedTokenType | '' |  |
-| RequestUri | '' |  |
-| Resource | '' |  |
-| ResponseMode | '' |  |
-| ResponseType | '' |  |
-| Scope | '' |  |
-| Sid | '' |  |
-| State | '' |  |
-| SubjectToken | '' |  |
-| SubjectTokenType | '' |  |
-| TokenType | '' |  |
-| UiLocales | '' |  |
-| UserName | '' |  |
+| AccessToken | `access_token` |  |
+| AcrValues | `acr_values` |  |
+| ActorToken | `actor_token` |  |
+| ActorTokenType | `actor_token_type` |  |
+| Algorithm | `alg` |  |
+| Assertion | `assertion` |  |
+| Audience | `audience` |  |
+| ClientAssertion | `client_assertion` |  |
+| ClientAssertionType | `client_assertion_type` |  |
+| ClientId | `client_id` |  |
+| ClientSecret | `client_secret` |  |
+| Code | `code` |  |
+| CodeChallenge | `code_challenge` |  |
+| CodeChallengeMethod | `code_challenge_method` |  |
+| CodeVerifier | `code_verifier` |  |
+| DeviceCode | `device_code` |  |
+| Display | `display` |  |
+| Error | `error` |  |
+| ErrorDescription | `error_description` |  |
+| ExpiresIn | `expires_in` |  |
+| GrantType | `grant_type` |  |
+| IdToken | `id_token` |  |
+| IdTokenHint | `id_token_hint` |  |
+| IssuedTokenType | `issued_token_type` |  |
+| Issuer | `iss` |  |
+| Key | `key` |  |
+| LoginHint | `login_hint` |  |
+| MaxAge | `max_age` |  |
+| Nonce | `nonce` |  |
+| Password | `password` |  |
+| PostLogoutRedirectUri | `post_logout_redirect_uri` |  |
+| Prompt | `prompt` |  |
+| RedirectUri | `redirect_uri` |  |
+| RefreshToken | `refresh_token` |  |
+| Request | `request` |  |
+| RequestedTokenType | `requested_token_type` |  |
+| RequestUri | `request_uri` |  |
+| Resource | `resource` |  |
+| ResponseMode | `response_mode` |  |
+| ResponseType | `response_type` |  |
+| Scope | `scope` |  |
+| Sid | `sid` |  |
+| State | `state` |  |
+| SubjectToken | `subject_token` |  |
+| SubjectTokenType | `subject_token_type` |  |
+| TokenType | `token_type` |  |
+| UiLocales | `ui_locales` |  |
+| UserName | `username` |  |
 
 ### Prompt Modes 
 `PerpetualIntelligence.Protocols.Oidc.PromptModes`
 | Field | Value | Description 
 |-|-|-|
-| Consent | '' | The Authorization Server SHOULD prompt the End-User for consent before returning information to the Client. If it cannot obtain consent, it MUST return an error, typically consent_required. |
-| Login | '' | The Authorization Server SHOULD prompt the End-User for reauthentication. If it cannot reauthenticate the End-User, it MUST return an error, typically login_required. |
-| None | '' | The Authorization Server MUST NOT display any authentication or consent user interface pages. An error is returned if an End-User is not already authenticated or the Client does not have pre-configured consent for the requested Claims or does not fulfill other conditions for processing the request. The error code will typically be login_required, interaction_required, or another code defined in Section 3.1.2.6. This can be used as a method to check for existing authentication and/or consent. |
-| SelectAccount | '' | The Authorization Server SHOULD prompt the End-User to select a user account. This enables an End-User who has multiple accounts at the Authorization Server to select amongst the multiple accounts that they might have current sessions for. If it cannot obtain an account selection choice made by the End-User, it MUST return an error, typically account_selection_required. |
+| Consent | `consent` | The Authorization Server SHOULD prompt the End-User for consent before returning information to the Client. If it cannot obtain consent, it MUST return an error, typically consent_required. |
+| Login | `login` | The Authorization Server SHOULD prompt the End-User for reauthentication. If it cannot reauthenticate the End-User, it MUST return an error, typically login_required. |
+| None | `none` | The Authorization Server MUST NOT display any authentication or consent user interface pages. An error is returned if an End-User is not already authenticated or the Client does not have pre-configured consent for the requested Claims or does not fulfill other conditions for processing the request. The error code will typically be login_required, interaction_required, or another code defined in Section 3.1.2.6. This can be used as a method to check for existing authentication and/or consent. |
+| SelectAccount | `select_account` | The Authorization Server SHOULD prompt the End-User to select a user account. This enables an End-User who has multiple accounts at the Authorization Server to select amongst the multiple accounts that they might have current sessions for. If it cannot obtain an account selection choice made by the End-User, it MUST return an error, typically account_selection_required. |
 
 ### Response Modes 
 `PerpetualIntelligence.Protocols.Oidc.ResponseModes`
 | Field | Value | Description 
 |-|-|-|
-| FormPost | '' | In this mode, Authorization Response parameters are encoded as HTML form values that are auto-submitted in the User Agent, and thus are transmitted via the HTTP POST method to the Client, with the result parameters being encoded in the body using the application/x-www-form-urlencoded format. The action attribute of the form MUST be the Client's Redirection URI. The method of the form attribute MUST be POST. Because the Authorization Response is intended to be used only once, the Authorization Server MUST instruct the User Agent (and any intermediaries) not to store or reuse the content of the response. Any technique supported by the User Agent MAY be used to cause the submission of the form, and any form content necessary to support this MAY be included, such as submit controls and client-side scripting commands.However, the Client MUST be able to process the message without regard for the mechanism by which the form submission was initiated. |
-| Fragment | '' | In this mode, Authorization Response parameters are encoded in the fragment added to the redirect_uri when redirecting back to the Client. |
-| Query | '' | In this mode, Authorization Response parameters are encoded in the query string added to the redirect_uri when redirecting back to the Client. |
+| FormPost | `form_post` | In this mode, Authorization Response parameters are encoded as HTML form values that are auto-submitted in the User Agent, and thus are transmitted via the HTTP POST method to the Client, with the result parameters being encoded in the body using the application/x-www-form-urlencoded format. The action attribute of the form MUST be the Client's Redirection URI. The method of the form attribute MUST be POST. Because the Authorization Response is intended to be used only once, the Authorization Server MUST instruct the User Agent (and any intermediaries) not to store or reuse the content of the response. Any technique supported by the User Agent MAY be used to cause the submission of the form, and any form content necessary to support this MAY be included, such as submit controls and client-side scripting commands.However, the Client MUST be able to process the message without regard for the mechanism by which the form submission was initiated. |
+| Fragment | `fragment` | In this mode, Authorization Response parameters are encoded in the fragment added to the redirect_uri when redirecting back to the Client. |
+| Query | `query` | In this mode, Authorization Response parameters are encoded in the query string added to the redirect_uri when redirecting back to the Client. |
 
 ### Response Types 
 `PerpetualIntelligence.Protocols.Oidc.ResponseTypes`
 | Field | Value | Description 
 |-|-|-|
-| Code | '' | When supplied as the value for the response_type parameter, a successful response MUST include an authorization code. |
-| CodeIdToken | '' | When supplied as the value for the response_type parameter, a successful response MUST include both an authorization code and an id_token. The default Response Mode for this Response Type is the fragment encoding and the query encoding MUST NOT be used. Both successful and error responses SHOULD be returned using the supplied Response Mode, or if none is supplied, using the default Response Mode. |
-| CodeIdTokenToken | '' | When supplied as the value for the response_type parameter, a successful response MUST include an authorization code, an id_token, an access_token, and an access_token Type. The default Response Mode for this Response Type is the fragment encoding and the query encoding MUST NOT be used. Both successful and error responses SHOULD be returned using the supplied Response Mode, or if none is supplied, using the default Response Mode. |
-| CodeToken | '' | When supplied as the value for the response_type parameter, a successful response MUST include an access_token, an access_token Type, and an authorization code. The default Response Mode for this Response Type is the fragment encoding and the query encoding MUST NOT be used. Both successful and error responses SHOULD be returned using the supplied Response Mode, or if none is supplied, using the default Response Mode. |
-| IdToken | '' | When supplied as the value for the response_type parameter, a successful response MUST include an id_token. |
-| IdTokenToken | '' | When supplied as the value for the response_type parameter, a successful response MUST include an access_token, an access_token Type, and an id_token. The default Response Mode for this Response Type is the fragment encoding and the query encoding MUST NOT be used. Both successful and error responses SHOULD be returned using the supplied Response Mode, or if none is supplied, using the default Response Mode. |
-| Token | '' | When supplied as the value for the response_type parameter, a successful response MUST include an access_token. |
+| Code | `code` | When supplied as the value for the response_type parameter, a successful response MUST include an authorization code. |
+| CodeIdToken | `code id_token` | When supplied as the value for the response_type parameter, a successful response MUST include both an authorization code and an id_token. The default Response Mode for this Response Type is the fragment encoding and the query encoding MUST NOT be used. Both successful and error responses SHOULD be returned using the supplied Response Mode, or if none is supplied, using the default Response Mode. |
+| CodeIdTokenToken | `code id_token token` | When supplied as the value for the response_type parameter, a successful response MUST include an authorization code, an id_token, an access_token, and an access_token Type. The default Response Mode for this Response Type is the fragment encoding and the query encoding MUST NOT be used. Both successful and error responses SHOULD be returned using the supplied Response Mode, or if none is supplied, using the default Response Mode. |
+| CodeToken | `code token` | When supplied as the value for the response_type parameter, a successful response MUST include an access_token, an access_token Type, and an authorization code. The default Response Mode for this Response Type is the fragment encoding and the query encoding MUST NOT be used. Both successful and error responses SHOULD be returned using the supplied Response Mode, or if none is supplied, using the default Response Mode. |
+| IdToken | `id_token` | When supplied as the value for the response_type parameter, a successful response MUST include an id_token. |
+| IdTokenToken | `id_token token` | When supplied as the value for the response_type parameter, a successful response MUST include an access_token, an access_token Type, and an id_token. The default Response Mode for this Response Type is the fragment encoding and the query encoding MUST NOT be used. Both successful and error responses SHOULD be returned using the supplied Response Mode, or if none is supplied, using the default Response Mode. |
+| Token | `token` | When supplied as the value for the response_type parameter, a successful response MUST include an access_token. |
 
 ### Standard Scopes 
 `PerpetualIntelligence.Protocols.Oidc.StandardScopes`
 | Field | Value | Description 
 |-|-|-|
-| Address | '' | This scope value requests access to the address claim. |
-| Api | '' | This scope value requests access to the Perpetual Intelligence's api claim. |
-| Application | '' | This scope value requests access to the Perpetual Intelligence's allowed_apps and subscribed_apps. |
-| Email | '' | This scope value requests access to the Perpetual Intelligence's allowed_apps and subscribed_apps. |
-| OfflineAccess | '' | This scope value requests that an OAuth 2.0 Refresh Token be issued that can be used to obtain an Access Token that grants access to the End-User's UserInfo Endpoint even when the End-User is not present (not logged in). |
-| OpenId | '' | Informs the Authorization Server that the Client is making an OpenID Connect request. If the openid scope value is not present, the behavior is entirely unspecified. |
-| Permission | '' | This scope value requests access to the Perpetual Intelligence's allowed_perms and subscribed_perms. |
-| Phone | '' | This scope value requests access to the phone_number and phone_number_verified claims. |
-| Profile | '' | This scope value requests access to the End-User's default profile claims, which are: name, family_name, given_name, middle_name, nickname, preferred_username, profile, picture, website, gender, birthdate, zoneinfo, locale, and updated_at. |
-| Role | '' | This scope value requests access to the Perpetual Intelligence's allowed_roles and active_role. |
-| Tenant | '' | This scope value requests access to the Perpetual Intelligence's tenant claim. |
+| Address | `address` | This scope value requests access to the address claim. |
+| Api | `urn:pi:protocols:oidc:scope:api` | This scope value requests access to the Perpetual Intelligence's api claim. |
+| Application | `urn:pi:protocols:oidc:scope:app` | This scope value requests access to the Perpetual Intelligence's allowed_apps and subscribed_apps. |
+| Email | `email` | This scope value requests access to the Perpetual Intelligence's allowed_apps and subscribed_apps. |
+| OfflineAccess | `offline_access` | This scope value requests that an OAuth 2.0 Refresh Token be issued that can be used to obtain an Access Token that grants access to the End-User's UserInfo Endpoint even when the End-User is not present (not logged in). |
+| OpenId | `openid` | Informs the Authorization Server that the Client is making an OpenID Connect request. If the openid scope value is not present, the behavior is entirely unspecified. |
+| Permission | `urn:pi:protocols:oidc:scope:perm` | This scope value requests access to the Perpetual Intelligence's allowed_perms and subscribed_perms. |
+| Phone | `phone` | This scope value requests access to the phone_number and phone_number_verified claims. |
+| Profile | `profile` | This scope value requests access to the End-User's default profile claims, which are: name, family_name, given_name, middle_name, nickname, preferred_username, profile, picture, website, gender, birthdate, zoneinfo, locale, and updated_at. |
+| Role | `urn:pi:protocols:oidc:scope:role` | This scope value requests access to the Perpetual Intelligence's allowed_roles and active_role. |
+| Tenant | `urn:pi:protocols:oidc:scope:tenant` | This scope value requests access to the Perpetual Intelligence's tenant claim. |
 
-### Token Endpoint Auth Methods 
+### Client Authentication Methods 
 `PerpetualIntelligence.Protocols.Oidc.TokenEndpointAuthMethods`
 | Field | Value | Description 
 |-|-|-|
-| Basic | '' | The client uses HTTP Basic as defined in OAuth 2.0. |
-| None | '' | The client is a public client as defined in OAuth 2.0, and does not have a client secret. |
-| PostBody | '' | The client uses the HTTP POST parameters as defined in OAuth 2.0, Section 2.3.1. |
-| PrivateKeyJwt | '' | The client uses the JWT Assertion profile with its own private key. |
-| SecretKeyJwt | '' | The client uses the JWT Assertion profile with a symmetric secret issued by the server. |
-| SelfSignedTlsClientAuth | '' | Indicates that client authentication to the authorization server will occur with mutual TLS utilizing the PKI method of associating a self-signed certificate to a client. |
-| TlsClientAuth | '' | Indicates that client authentication to the authorization server will occur with mutual TLS utilizing the PKI method of associating a certificate to a client. |
+| Basic | `client_secret_basic` | The client uses HTTP Basic as defined in OAuth 2.0. |
+| None | `none` | The client is a public client as defined in OAuth 2.0, and does not have a client secret. |
+| PostBody | `client_secret_post` | The client uses the HTTP POST parameters as defined in OAuth 2.0, Section 2.3.1. |
+| PrivateKeyJwt | `private_key_jwt` | The client uses the JWT Assertion profile with its own private key. |
+| SecretKeyJwt | `client_secret_jwt` | The client uses the JWT Assertion profile with a symmetric secret issued by the server. |
+| SelfSignedTlsClientAuth | `self_signed_tls_client_auth` | Indicates that client authentication to the authorization server will occur with mutual TLS utilizing the PKI method of associating a self-signed certificate to a client. |
+| TlsClientAuth | `tls_client_auth` | Indicates that client authentication to the authorization server will occur with mutual TLS utilizing the PKI method of associating a certificate to a client. |
 
 ### Token Types  
 `PerpetualIntelligence.Protocols.Oidc.TokenTypes`
 | Field | Value | Description 
 |-|-|-|
-| AccessToken | '' | Indicates that the token is an OAuth 2.0 access token issued by the given authorization server. |
-| IdToken | '' | Indicates that the token is an ID Token issued by the given authorization server. |
-| Jwt | '' | Indicates that the token is a JWT. |
-| RefreshToken | '' | Indicates that the token is an OAuth 2.0 refresh token issued by the given authorization server. |
-| Saml1 | '' | Indicates that the token is a base64url-encoded SAML 1.1. |
-| Saml2 | '' | Indicates that the token is a base64url-encoded SAML 2.0. |
+| AccessToken | `urn:ietf:params:oauth:token-type:access_token` | Indicates that the token is an OAuth 2.0 access token issued by the given authorization server. |
+| IdToken | `urn:ietf:params:oauth:token-type:id_token` | Indicates that the token is an ID Token issued by the given authorization server. |
+| Jwt | `urn:ietf:params:oauth:token-type:jwt` | Indicates that the token is a JWT. |
+| RefreshToken | `urn:ietf:params:oauth:token-type:refresh_token` | Indicates that the token is an OAuth 2.0 refresh token issued by the given authorization server. |
+| Saml1 | `urn:ietf:params:oauth:token-type:saml1` | Indicates that the token is a base64url-encoded SAML 1.1. |
+| Saml2 | `urn:ietf:params:oauth:token-type:saml2` | Indicates that the token is a base64url-encoded SAML 2.0. |
 
 ### User Code Types  
 `PerpetualIntelligence.Protocols.Oidc.UserCodeTypes`
 | Field | Value | Description 
 |-|-|-|
-| AlphaNumeric | '' | Alphanumeric code. |
-| Numeric | '' | Numeric code. |
+| AlphaNumeric | `urn:pi:protocols:oidc:ucode:anum` | Alphanumeric code. |
+| Numeric | `urn:pi:protocols:oidc:ucode:num` | Numeric code. |
