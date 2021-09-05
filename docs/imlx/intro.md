@@ -37,6 +37,59 @@ The Perpetual Intelligence `oidc` protocol implementation supports following wel
 | VersionV1Url [![infra](https://img.shields.io/badge/-infra-red)]() | `v1` | The v1 version identifier in the URL.
 | VersionV1 [![infra](https://img.shields.io/badge/-infra-red)]() | `1.0` | The v1 version identifier.
 
+### Cl Args 
+`PerpetualIntelligence.Protocols.Imlx.ClArgs`
+| Field | Value | Description 
+|-|-|-|
+| ControllerAsService | `piargcontrollerasservice` | Command line argument to use controller as a service. |
+| EnableLogger | `piargenablelogger` | Command line argument to enable logger. |
+
+### Endpoints 
+`PerpetualIntelligence.Protocols.Imlx.Endpoints`
+| Field | Value | Description 
+|-|-|-|
+| Authorize | `urn:pi:protocols:imlx:eps:auth` | The authorization endpoint. |
+| AuthorizeCallback | `urn:pi:protocols:imlx:eps:authcb` | The authorization callback endpoint. |
+| CheckSession | `urn:pi:protocols:imlx:eps:check` | The check session endpoint. |
+| DeviceAuthorization | `urn:pi:protocols:imlx:eps:device` | The device authorization endpoint. |
+| DiscoveryConfiguration | `urn:pi:protocols:imlx:eps:config` | The discovery well known configuration. |
+| DiscoveryWebKeys | `urn:pi:protocols:imlx:eps:jwks` | The discovery json web keys endpoint. |
+| EndSession | `urn:pi:protocols:imlx:eps:end` | The end session endpoint. |
+| EndSessionCallback | `urn:pi:protocols:imlx:eps:endcb` | The end session callback endpoint. |
+| Introspection | `urn:pi:protocols:imlx:eps:introspect` | The introspection callback endpoint. |
+| Revocation | `urn:pi:protocols:imlx:eps:revoke` | The revocation callback endpoint. |
+| Token | `urn:pi:protocols:imlx:eps:token` | The token endpoint. |
+| UserInfo | `urn:pi:protocols:imlx:eps:userinfo` | [![ToDo](https://img.shields.io/badge/-todo-red)]() |
 
 
+### Image Provider Types 
+`PerpetualIntelligence.Protocols.Imlx.ImageProviderTypes`
+| Field | Value | Description 
+|-|-|-|
+| Upload | `urn:pi:protocols:imlx:imgpvd:upload` | The image is uploaded. |
+| Url | `urn:pi:protocols:imlx:imgpvd:url` | The image is a URL. |
 
+### Local Storage Keys  
+`PerpetualIntelligence.Protocols.Imlx.LocalStorageKeys`
+| Field | Value | Description 
+|-|-|-|
+| IsDiagnostic | `urn:pi:protocols:imlx:localstoragekeys:isdiagnostic` | Determines the diagnostic state from the local storage. |
+
+### Org Constants  
+`PerpetualIntelligence.Protocols.Imlx.OrgConstants`
+| Field | Value | Description 
+|-|-|-|
+| Copyright | `Copyright (c) 2021. All Rights Reserved. Perpetual Intelligence L.L.C.` | The copyright. |
+| DoNotReplyEmail | `donotreply@perpetualintelligence.com` | The do not reply email. |
+| FullName | `Perpetual Intelligence L.L.C.` | The full name. |
+| Imlx | `urn:pi:protocols:imlx` | The imlx protocol. |
+| LogoUrl | `https://en.gravatar.com/userimage/152742631/5c2800c8660bdabbfdcc1bf9497964d4.png` | The logo. |
+| PrivacyUrl | `https://perpetualintelligence.com/legal/privacy` | The privacy URL. |
+| ShortName | `Perpetual Intelligence` | The short name. |
+| TermsUrl | `https://perpetualintelligence.com/legal/terms` | The terms URL. |
+
+### Runtime Options   
+`PerpetualIntelligence.Protocols.Imlx.RuntimeOptions`
+| Field | Value | Description 
+|-|-|-|
+|  |  |  |
