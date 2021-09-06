@@ -92,4 +92,22 @@ The Perpetual Intelligence `oidc` protocol implementation supports following wel
 `PerpetualIntelligence.Protocols.Imlx.RuntimeOptions`
 | Field | Value | Description 
 |-|-|-|
-|  |  |  |
+| ApiServerLocalhostEndpoint | `` | The Api server production endpoint. |
+| ApiServerProductionEndpoint | `` | The Api server production endpoint. |
+| CheckEntityProperties | `` | The option to check the entity properties. |
+| CheckStore | `` | The option to check whether the store exits and if it does not create it automatically. Note check for the store is a performance hit. Enable this option manually to ensure all stores exist and disable it in the production modes. |
+| ClientAppLocalhostEndpoint | `` | The client app localhost endpoint. |
+| ClientAppProductionEndpoint | `` | The client app production endpoint. |
+| DefaultUrlPathVersion | `` | The default Uri path version. |
+| EndpointConfiguration | `` | The endpoint mode. |
+| PaymentMode | `` | The payment mode. |
+| PaymentProvider | `` | The payment provider. |
+| UseTestData | `` | The configuration to enable the use of test data. |
+
+### SwaggerConstants   
+`PerpetualIntelligence.Protocols.Imlx.SwaggerConstants`
+| Field | Value | Description 
+|-|-|-|
+| V1IdentityGroup | `` | V1 version of Perpetual Intelligence Identity service. |
+| V1InternalGroup | `` | V1 version of Perpetual Intelligence internal services. |
+| V1OidcGroup | `` | V1 version of Perpetual Intelligence OpenId Connect service. |
