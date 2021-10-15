@@ -1,0 +1,78 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup Label="Globals">
+        <SccProjectName>SAK</SccProjectName>
+        <SccProvider>SAK</SccProvider>
+        <SccAuxPath>SAK</SccAuxPath>
+        <SccLocalPath>SAK</SccLocalPath>
+        <Configurations>Debug;Release</Configurations>
+    </PropertyGroup>
+
+    <Import Project="..\..\build\props\PackageApache.props" />
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <PropertyGroup Label="PiPackageProps">
+        <Product>Data</Product>
+        <Description>Cross platform data components shared across application stack.</Description>
+    </PropertyGroup>
+
+    <ItemGroup Label="PiExternalPackages">
+      <PackageReference Include="System.ComponentModel.Annotations" Version="6.0.0-preview.4.21253.7" />
+    </ItemGroup>
+
+    <!--
+        INTERNAL PACKAGES.
+
+        Azure Pipeline Configuration:
+        PIDEVOPSPIPELINECONFIGURATION: Azure pipeline environment variable that determines the pipeline configuration.
+        Undefined/Local: Project References in both Debug and Release mode.
+        Preview: Preview Packages
+        Candidate: Release Candidate Packages
+        Release: Released Packages
+
+        Azure Pipeline Packages: 
+        PIDEVOPSPIPELINEPREVIEWPACKAGEVERSION: Azure pipeline environment variable that determines preview (-preview) version.
+        PIDEVOPSPIPELINECANDIDATEPACKAGEVERSION: Azure pipeline environment variable that determines release candidate (-rc) version.
+        PIDEVOPSPIPELINERELEASEPACKAGEVERSION: Azure pipeline environment variable that determines released version.
+        All the packages in a pipeline will have same configuration and same version.
+
+        Important:
+        These environment variables are set in the Azure DevOps and will not be available on the local machine unless you define
+        them explicitly defined as system environment variables.
+    -->
+    <Choose>
+        <!--Preview Pipeline-->
+        <When Condition="'$(PIDEVOPSPIPELINECONFIGURATION)'=='Preview'">
+            <ItemGroup>
+                <PackageReference Include="PerpetualIntelligence.Shared" Version="$(PIDEVOPSPIPELINEPREVIEWPACKAGEVERSION)" />
+            </ItemGroup>
+        </When>
+
+        <!--Candidate Pipeline-->
+        <When Condition="'$(PIDEVOPSPIPELINECONFIGURATION)'=='Candidate'">
+            <ItemGroup>
+                <PackageReference Include="PerpetualIntelligence.Shared" Version="$(PIDEVOPSPIPELINECANDIDATEPACKAGEVERSION)" />
+            </ItemGroup>
+        </When>
+
+        <!--Release Pipeline-->
+        <When Condition="'$(PIDEVOPSPIPELINECONFIGURATION)'=='Release'">
+            <ItemGroup>
+                <PackageReference Include="PerpetualIntelligence.Shared" Version="$(PIDEVOPSPIPELINERELEASEPACKAGEVERSION)" />
+            </ItemGroup>
+        </When>
+
+        <!--Undefined/Local-->
+        <Otherwise>
+            <ItemGroup>
+                <ProjectReference Include="..\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
+            </ItemGroup>
+        </Otherwise>
+    </Choose>
+
+</Project>
