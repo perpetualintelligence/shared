@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup Label="Globals">
+        <SccProjectName>SAK</SccProjectName>
+        <SccProvider>SAK</SccProvider>
+        <SccAuxPath>SAK</SccAuxPath>
+        <SccLocalPath>SAK</SccLocalPath>
+        <Configurations>Debug;Release</Configurations>
+    </PropertyGroup>
+
+    <Import Project="..\..\build\props\PackageApache.props" />
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Label="PiPackageProps">
+        <Product>Infrastructure</Product>
+        <Description>The Perpetual Intelligence cross platform infrastructure components shared across application stack.</Description>
+        <PackageTags>imlx infrastructure modes</PackageTags>
+    </PropertyGroup>  
+
+    <ItemGroup Label="PiExternalPackages">
+        <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="6.0.0-rc.2.21480.10" />
+        <PackageReference Include="System.Text.Json" Version="6.0.0-rc.2.21480.5" />
+    </ItemGroup>
+</Project>

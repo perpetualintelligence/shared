@@ -1,0 +1,79 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <Import Project="..\..\build\props\PackageApache.props" />
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Label="PiPackageProps">
+        <Product>Standards and Protocols</Product>
+        <Description>The Perpetual Intelligence cross-platform protocols and standards default implementations.</Description>
+        <PackageTags>oauth2 oidc openid-connect security identity rbac multitenancy imlx communication event endpoint</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup Label="PiExternalPackages">
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0-rc.1.21451.13" />
+    </ItemGroup>
+
+
+    <!--
+        INTERNAL PACKAGES.
+
+        Azure Pipeline Configuration:
+        PIDEVOPSPIPELINECONFIGURATION: Azure pipeline environment variable that determines the pipeline configuration.
+        Undefined/Local: Project References in both Debug and Release mode.
+        Preview: Preview Packages
+        Candidate: Release Candidate Packages
+        Release: Released Packages
+
+        Azure Pipeline Packages: 
+        PIDEVOPSPIPELINEPREVIEWPACKAGEVERSION: Azure pipeline environment variable that determines preview (-preview) version.
+        PIDEVOPSPIPELINECANDIDATEPACKAGEVERSION: Azure pipeline environment variable that determines release candidate (-rc) version.
+        PIDEVOPSPIPELINERELEASEPACKAGEVERSION: Azure pipeline environment variable that determines released version.
+        All the packages in a pipeline will have same configuration and same version.
+
+        Important:
+        These environment variables are set in the Azure DevOps and will not be available on the local machine unless you define
+        them explicitly defined as system environment variables.
+    -->
+    <Choose>
+        <!--Preview Pipeline-->
+        <When Condition="'$(PIDEVOPSPIPELINECONFIGURATION)'=='Preview'">
+            <ItemGroup>
+                <PackageReference Include="PerpetualIntelligence.Protocols" Version="$(PIDEVOPSPIPELINEPREVIEWPACKAGEVERSION)" />
+            </ItemGroup>
+        </When>
+
+        <!--Candidate Pipeline-->
+        <When Condition="'$(PIDEVOPSPIPELINECONFIGURATION)'=='Candidate'">
+            <ItemGroup>
+                <PackageReference Include="PerpetualIntelligence.Protocols" Version="$(PIDEVOPSPIPELINECANDIDATEPACKAGEVERSION)" />
+            </ItemGroup>
+        </When>
+
+        <!--Release Pipeline-->
+        <When Condition="'$(PIDEVOPSPIPELINECONFIGURATION)'=='Release'">
+            <ItemGroup>
+                <PackageReference Include="PerpetualIntelligence.Protocols" Version="$(PIDEVOPSPIPELINERELEASEPACKAGEVERSION)" />
+            </ItemGroup>
+        </When>
+
+        <!--Undefined/Local-->
+        <Otherwise>
+            <ItemGroup>
+                <ProjectReference Include="..\PerpetualIntelligence.Protocols\PerpetualIntelligence.Protocols.csproj" />
+            </ItemGroup>
+        </Otherwise>
+    </Choose>
+
+</Project>
