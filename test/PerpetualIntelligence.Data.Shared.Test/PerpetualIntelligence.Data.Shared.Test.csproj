@@ -33,7 +33,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\PerpetualIntelligence.Data.Shared\PerpetualIntelligence.Data.Shared.csproj" />
-    <ProjectReference Include="..\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
+    <ProjectReference Include="..\..\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
   </ItemGroup>
 
 </Project>

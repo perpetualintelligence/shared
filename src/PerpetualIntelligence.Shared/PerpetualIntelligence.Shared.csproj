@@ -17,9 +17,9 @@
     </PropertyGroup>
 
     <PropertyGroup Label="PiPackageProps">
-        <Product>Infrastructure</Product>
-        <Description>The Perpetual Intelligence cross platform infrastructure components shared across application stack.</Description>
-        <PackageTags>imlx infrastructure modes</PackageTags>
+        <Product>protocols</Product>
+        <Description>The cross platform infrastructure components shared across application stack.</Description>
+        <PackageTags>infrastructure modes</PackageTags>
     </PropertyGroup>  
 
     <ItemGroup Label="PiExternalPackages">
