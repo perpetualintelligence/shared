@@ -12,7 +12,6 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <IsPackable>false</IsPackable>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
