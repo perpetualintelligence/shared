@@ -1,32 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup Label="Globals">
-    <SccProjectName>SAK</SccProjectName>
-    <SccProvider>SAK</SccProvider>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccLocalPath>SAK</SccLocalPath>
-  </PropertyGroup>
+    <PropertyGroup Label="Globals">
+        <SccProjectName>SAK</SccProjectName>
+        <SccProvider>SAK</SccProvider>
+        <SccAuxPath>SAK</SccAuxPath>
+        <SccLocalPath>SAK</SccLocalPath>
+    </PropertyGroup>
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <IsPackable>false</IsPackable>
-      <RootNamespace>$(MSBuildProjectName.Replace(".Test", ""))</RootNamespace>
-  </PropertyGroup>
+    <Import Project="..\..\build\props\Test.props" />
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="2.2.7" />
-    <PackageReference Include="MSTest.TestFramework" Version="2.2.7" />
-    <PackageReference Include="coverlet.collector" Version="3.1.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\PerpetualIntelligence.Protocols.Defaults\PerpetualIntelligence.Protocols.Defaults.csproj" />
-    <ProjectReference Include="..\..\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\PerpetualIntelligence.Protocols.Defaults\PerpetualIntelligence.Protocols.Defaults.csproj" />
+        <ProjectReference Include="..\..\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
+    </ItemGroup>
 
 </Project>

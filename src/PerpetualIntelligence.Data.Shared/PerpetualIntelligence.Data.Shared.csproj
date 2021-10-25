@@ -59,12 +59,6 @@
             </ItemGroup>
         </When>
 
-        <!-- Local environment with cross repo references -->
-        <When Condition="'$(PI_LIBRARY_CADENCE)'=='cross'">
-            <ItemGroup>
-            </ItemGroup>
-        </When>
-
         <!--Honor the cadence and use Nuget references-->
         <Otherwise>
             <ItemGroup>
