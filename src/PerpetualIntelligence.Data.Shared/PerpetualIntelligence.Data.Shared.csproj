@@ -59,6 +59,14 @@
             </ItemGroup>
         </When>
 
+        <!-- cross repo environment -->
+        <When Condition="'$(PI_LIBRARY_CADENCE)'=='cross'">
+            <ItemGroup>
+                <!-- Same repo project references -->
+                <ProjectReference Include="..\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
+            </ItemGroup>
+        </When>
+
         <!--Honor the cadence and use Nuget references-->
         <Otherwise>
             <ItemGroup>

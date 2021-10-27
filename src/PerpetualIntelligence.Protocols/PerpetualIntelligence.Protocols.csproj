@@ -54,9 +54,17 @@
             The Azure pipeline takes care of creating a correct PI_LIBRARY_PACKAGEVERSION based on PI_LIBRARY_CADENCE.
     -->
     <Choose>
-        <!-- Undefined or local environment use Project references-->
+        <!-- Undefined or local environment -->
         <When Condition="'$(PI_LIBRARY_CADENCE)'=='' Or '$(PI_LIBRARY_CADENCE)'=='local'">
             <ItemGroup>
+                <ProjectReference Include="..\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
+            </ItemGroup>
+        </When>
+
+        <!-- cross repo environment -->
+        <When Condition="'$(PI_LIBRARY_CADENCE)'=='cross'">
+            <ItemGroup>
+                <!-- Same repo project references -->
                 <ProjectReference Include="..\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
             </ItemGroup>
         </When>
