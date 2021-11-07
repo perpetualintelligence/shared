@@ -4,14 +4,12 @@
     https://api.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Shared.Abstractions;
-
-namespace PerpetualIntelligence.Data.Shared.Services
+namespace PerpetualIntelligence.Shared.Abstractions
 {
     /// <summary>
     /// Represents an abstraction to provide communication services.
     /// </summary>
-    public interface ICommunicationServiceProvider
+    public interface ICommunicationDescriptor
     {
         /// <summary>
         /// Default email service.

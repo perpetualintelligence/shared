@@ -3,6 +3,7 @@
 // https://api.perpetualintelligence.com
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerpetualIntelligence.Shared.Infrastructure;
 using PerpetualIntelligence.Test.Services;
 using System;
 using System.Collections.Generic;

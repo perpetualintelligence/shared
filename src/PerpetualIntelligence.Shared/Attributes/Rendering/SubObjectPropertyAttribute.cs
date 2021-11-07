@@ -7,7 +7,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace PerpetualIntelligence.Data.Shared.Rendering
+namespace PerpetualIntelligence.Shared.Attributes.Rendering
 {
     /// <summary>
     /// Instructs the UX rendering to apply the <see cref="DataType"/> and <see cref="Display"/> to the sub-object <see cref="PropertyName"/>.

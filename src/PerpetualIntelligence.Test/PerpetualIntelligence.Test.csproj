@@ -58,7 +58,7 @@
         <!-- Undefined or local environment use Project references-->
         <When Condition="'$(PI_LIBRARY_CADENCE)'=='' Or '$(PI_LIBRARY_CADENCE)'=='local'">
             <ItemGroup>
-                <ProjectReference Include="..\PerpetualIntelligence.Data.Shared\PerpetualIntelligence.Data.Shared.csproj" />
+                <ProjectReference Include="..\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
             </ItemGroup>
         </When>
 
@@ -66,14 +66,14 @@
         <When Condition="'$(PI_LIBRARY_CADENCE)'=='cross'">
             <ItemGroup>
                 <!-- Same repo project references -->
-                <ProjectReference Include="..\PerpetualIntelligence.Data.Shared\PerpetualIntelligence.Data.Shared.csproj" />
+                <ProjectReference Include="..\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
             </ItemGroup>
         </When>
 
         <!--Honor the cadence and use Nuget references-->
         <Otherwise>
             <ItemGroup>
-                <PackageReference Include="PerpetualIntelligence.Data.Shared" Version="$(PI_LIBRARY_PACKAGEVERSION)" />
+                <PackageReference Include="PerpetualIntelligence.Shared" Version="$(PI_LIBRARY_PACKAGEVERSION)" />
             </ItemGroup>
         </Otherwise>
     </Choose>

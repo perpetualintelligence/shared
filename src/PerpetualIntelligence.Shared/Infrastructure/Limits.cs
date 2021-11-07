@@ -6,7 +6,7 @@
 
 using PerpetualIntelligence.Shared.Attributes;
 
-namespace PerpetualIntelligence.Data.Shared.Validation
+namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
     /// Defines the limits for all the Perpetual Intelligence services.
@@ -14,6 +14,7 @@ namespace PerpetualIntelligence.Data.Shared.Validation
     [ToUnitTest]
     [ToDocumentation]
     [Architecture("Automate the limits by adding DisplayAttribute and Group name and that use that to display limits in documentation. Or generate an json that can be used to generate documentation.")]
+    [Refactor("I think we should just remove limits and use .NET core options framework to define limits. But then the data validations will not work on models.")]
     public static class Limits
     {
         /// <summary>

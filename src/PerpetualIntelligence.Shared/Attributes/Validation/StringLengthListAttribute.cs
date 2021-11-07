@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace PerpetualIntelligence.Data.Shared.Validation
+namespace PerpetualIntelligence.Shared.Attributes.Validation
 {
     /// <summary>
     /// Specifies the minimum and maximum length of characters that are allowed in each data field of a list.

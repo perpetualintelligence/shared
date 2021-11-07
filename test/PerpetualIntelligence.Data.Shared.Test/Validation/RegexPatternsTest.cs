@@ -1,8 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PerpetualIntelligence.Data.Shared.Validation;
+using PerpetualIntelligence.Shared.Attributes.Validation;
+using PerpetualIntelligence.Shared.Patterns;
 using PerpetualIntelligence.Test.Services;
 
-namespace PerpetualIntelligence.Data.Shared.Validation
+namespace PerpetualIntelligence.Shared.Attributes.Validation
 {
     [TestClass]
     public class RegexPatternsTest

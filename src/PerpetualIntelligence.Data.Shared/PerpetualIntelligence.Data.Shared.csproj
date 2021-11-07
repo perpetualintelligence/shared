@@ -25,6 +25,11 @@
       <PackageReference Include="System.ComponentModel.Annotations" Version="6.0.0-preview.4.21253.7" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Models\" />
+      <Folder Include="Services\" />
+    </ItemGroup>
+
     <!--
         CAUTION: DO NOT EDIT UNLESS YOU ARE KNOWLEDGEABLE ABOUT THE PERPETUAL INTELLIGENCE'S AZURE AND GITHUB DEVOPS INTEGRATION.
 

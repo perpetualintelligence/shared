@@ -4,12 +4,11 @@
     https://api.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Shared.Attributes;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace PerpetualIntelligence.Data.Shared.Validation
+namespace PerpetualIntelligence.Shared.Attributes.Validation
 {
     /// <summary>
     /// Specifies the allowed values for a property or a field.

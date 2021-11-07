@@ -6,7 +6,7 @@
 
 using System;
 
-namespace PerpetualIntelligence.Data.Shared.Validation
+namespace PerpetualIntelligence.Shared.Attributes.Validation
 {
     /// <summary>
     /// Specifies the allowed string values on the property.

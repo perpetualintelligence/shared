@@ -4,11 +4,14 @@
     https://api.perpetualintelligence.com
 */
 
-namespace PerpetualIntelligence.Data.Shared.Rendering
+using PerpetualIntelligence.Shared.Attributes;
+
+namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
     /// Custom data types for rendering razor components.
     /// </summary>
+    [Refactor("I think this does not belong to Attributes namespace.")]
     public sealed class CustomDataTypes
     {
         /// <summary>

@@ -7,7 +7,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace PerpetualIntelligence.Data.Shared.Rendering
+namespace PerpetualIntelligence.Shared.Attributes.Rendering
 {
     /// <summary>
     /// The relative group order for <see cref="DisplayAttribute.GroupName"/> defined in a class. The group order and

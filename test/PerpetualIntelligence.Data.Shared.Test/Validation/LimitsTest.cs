@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PerpetualIntelligence.Data.Shared.Validation;
+using PerpetualIntelligence.Shared.Infrastructure;
 using PerpetualIntelligence.Test.Services;
 
-namespace PerpetualIntelligence.Data.Shared.Validation
+namespace PerpetualIntelligence.Shared.Attributes.Validation
 {
     [TestClass]
     public class LimitsTest

@@ -7,7 +7,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace PerpetualIntelligence.Data.Shared.Rendering
+namespace PerpetualIntelligence.Shared.Attributes.Rendering
 {
     /// <summary>
     /// Instructs the UX rendering to ignore the <see cref="DisplayAttribute"/> and use the overridden values specified

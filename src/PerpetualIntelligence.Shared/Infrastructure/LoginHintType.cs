@@ -7,7 +7,7 @@
 using PerpetualIntelligence.Shared.Attributes;
 using System;
 
-namespace PerpetualIntelligence.Data.Shared.Models
+namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
     /// Represents a login hint that can identify an end-user.
