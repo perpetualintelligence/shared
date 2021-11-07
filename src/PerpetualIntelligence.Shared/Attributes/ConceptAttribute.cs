@@ -12,27 +12,15 @@ namespace PerpetualIntelligence.Shared.Attributes
     /// Indicates that the target element represents a concept.
     /// </summary>
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
-    public sealed class ConceptAttribute : Attribute
+    public sealed class ConceptAttribute : ActionAttribute
     {
-        /// <summary>
-        /// Initializes a new instance.
-        /// </summary>
-        public ConceptAttribute()
-        {
-        }
-
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
         /// <param name="description">Additional description.</param>
-        public ConceptAttribute(string description)
+        public ConceptAttribute(string description) : base(description)
         {
             Description = description;
         }
-
-        /// <summary>
-        /// Additional description.
-        /// </summary>
-        public string? Description { get; set; }
     }
 }

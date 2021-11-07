@@ -12,12 +12,12 @@ namespace PerpetualIntelligence.Shared.Attributes
     /// Indicates that the target element requires documentation.
     /// </summary>
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
-    public sealed class ToDocumentationAttribute : Attribute
+    public sealed class ToDocumentationAttribute : ActionAttribute
     {
         /// <summary>
         /// Initializes a new instance.
         /// </summary>
-        public ToDocumentationAttribute()
+        public ToDocumentationAttribute() : base()
         {
         }
 
@@ -25,14 +25,9 @@ namespace PerpetualIntelligence.Shared.Attributes
         /// Initialize a new instance.
         /// </summary>
         /// <param name="description">Additional description.</param>
-        public ToDocumentationAttribute(string description)
+        public ToDocumentationAttribute(string description) : base(description)
         {
             Description = description;
         }
-
-        /// <summary>
-        /// Additional description.
-        /// </summary>
-        public string? Description { get; set; }
     }
 }

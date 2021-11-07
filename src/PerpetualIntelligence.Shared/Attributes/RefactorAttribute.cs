@@ -12,20 +12,13 @@ namespace PerpetualIntelligence.Shared.Attributes
     /// Specifies that the target should be re-factored.
     /// </summary>
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-    public sealed class RefactorAttribute : Attribute
+    public sealed class RefactorAttribute : ActionAttribute
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
         /// <param name="description"></param>
-        public RefactorAttribute(string description)
-        {
-            Description = description;
-        }
-
-        /// <summary>
-        /// The description.
-        /// </summary>
-        public string Description { get; set; }
+        public RefactorAttribute(string description) : base(description)
+        { }
     }
 }

@@ -12,20 +12,15 @@ namespace PerpetualIntelligence.Shared.Attributes
     /// Specifies that the target has a redundancy that can be resolved in future releases without any breaking changes.
     /// </summary>
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-    public sealed class RedundancyAttribute : Attribute
+    public sealed class RedundancyAttribute : ActionAttribute
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
         /// <param name="description"></param>
-        public RedundancyAttribute(string description)
+        public RedundancyAttribute(string description) : base(description)
         {
             Description = description;
         }
-
-        /// <summary>
-        /// The description.
-        /// </summary>
-        public string Description { get; set; }
     }
 }

@@ -9,23 +9,18 @@ using System;
 namespace PerpetualIntelligence.Shared.Attributes
 {
     /// <summary>
-    /// Indicates that the target element should add the relevant check or information in the backend API.
+    /// Indicates that the target element should add the relevant check or information in the back-end API.
     /// </summary>
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
-    public sealed class ToApiAttribute : Attribute
+    public sealed class ToApiAttribute : ActionAttribute
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
         /// <param name="description">Additional description.</param>
-        public ToApiAttribute(string description)
+        public ToApiAttribute(string description) : base(description)
         {
             Description = description;
         }
-
-        /// <summary>
-        /// Additional description.
-        /// </summary>
-        public string Description { get; set; }
     }
 }

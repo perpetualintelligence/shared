@@ -12,13 +12,13 @@ namespace PerpetualIntelligence.Shared.Attributes
     /// Indicates a MUST-DO action on the target element.
     /// </summary>
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
-    public sealed class MustDoAttribute : Attribute
+    public sealed class MustDoAttribute : ActionAttribute
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
         /// <param name="description">Additional description.</param>
-        public MustDoAttribute(string description)
+        public MustDoAttribute(string description) : base(description)
         {
             Description = description;
         }
@@ -30,10 +30,5 @@ namespace PerpetualIntelligence.Shared.Attributes
         /// You should write tests that execute only in your DevOps release environment and check for this attribute.
         /// </remarks>
         public bool BlockRelease { get; set; }
-
-        /// <summary>
-        /// Additional description.
-        /// </summary>
-        public string Description { get; set; }
     }
 }

@@ -7,18 +7,18 @@
 namespace PerpetualIntelligence.Shared.Abstractions
 {
     /// <summary>
-    /// Represents an abstraction to provide communication services.
+    /// An abstraction to describe the standard communication.
     /// </summary>
     public interface ICommunicationDescriptor
     {
         /// <summary>
-        /// Default email service.
+        /// The email sender.
         /// </summary>
-        IEmailSender DefaultEmailService { get; }
+        IEmailSender EmailSender { get; }
 
         /// <summary>
-        /// Default text message service.
+        /// The text message sender.
         /// </summary>
-        ITextMessageSender DefaultTextMessageService { get; }
+        ITextMessageSender TextMessageSender { get; }
     }
 }

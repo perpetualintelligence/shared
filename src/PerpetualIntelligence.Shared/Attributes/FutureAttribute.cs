@@ -12,20 +12,15 @@ namespace PerpetualIntelligence.Shared.Attributes
     /// Indicates a future capability or a feature request.
     /// </summary>
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
-    public sealed class FutureAttribute : Attribute
+    public sealed class FutureAttribute : ActionAttribute
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
         /// <param name="description">Additional description.</param>
-        public FutureAttribute(string description)
+        public FutureAttribute(string description) : base(description)
         {
             Description = description;
         }
-
-        /// <summary>
-        /// Additional description.
-        /// </summary>
-        public string Description { get; set; }
     }
 }

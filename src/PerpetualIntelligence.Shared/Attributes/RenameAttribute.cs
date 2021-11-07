@@ -12,27 +12,15 @@ namespace PerpetualIntelligence.Shared.Attributes
     /// Specifies that the target should be renamed.
     /// </summary>
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-    public sealed class RenameAttribute : Attribute
+    public sealed class RenameAttribute : ActionAttribute
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        public RenameAttribute()
-        {
-        }
-
-        /// <summary>
-        /// Initialize a new instance.
-        /// </summary>
         /// <param name="description"></param>
-        public RenameAttribute(string description)
+        public RenameAttribute(string description) : base(description)
         {
             Description = description;
         }
-
-        /// <summary>
-        /// The description.
-        /// </summary>
-        public string? Description { get; set; }
     }
 }

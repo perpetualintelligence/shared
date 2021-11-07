@@ -12,7 +12,7 @@ namespace PerpetualIntelligence.Shared.Attributes
     /// Indicates that the target element should have unit tests.
     /// </summary>
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
-    public sealed class ToUnitTestAttribute : Attribute
+    public sealed class ToUnitTestAttribute : ActionAttribute
     {
         /// <summary>
         /// Initialize a new instance.
@@ -25,14 +25,8 @@ namespace PerpetualIntelligence.Shared.Attributes
         /// Initialize a new instance with description.
         /// </summary>
         /// <param name="description">Additional description.</param>
-        public ToUnitTestAttribute(string description)
+        public ToUnitTestAttribute(string description) : base(description)
         {
-            Description = description;
         }
-
-        /// <summary>
-        /// Additional description.
-        /// </summary>
-        public string? Description { get; set; }
     }
 }

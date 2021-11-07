@@ -21,12 +21,12 @@ namespace PerpetualIntelligence.Shared.Attributes
         }
 
         /// <summary>
-        /// API identifier.
+        /// The API identifier.
         /// </summary>
         public string Api { get; set; }
 
         /// <summary>
-        /// API domain.
+        /// The API domain.
         /// </summary>
         public string Domain { get; }
     }

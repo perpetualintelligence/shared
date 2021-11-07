@@ -13,30 +13,15 @@ namespace PerpetualIntelligence.Shared.Attributes
     /// use the target element, but the design may change in future releases including breaking changes.
     /// </summary>
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-    public sealed class ArchitectureAttribute : Attribute
+    public sealed class ArchitectureAttribute : ActionAttribute
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
         /// <param name="description">The description.</param>
-        public ArchitectureAttribute(string description)
+        public ArchitectureAttribute(string description) : base(description)
         {
             Description = description;
         }
-
-        /// <summary>
-        /// The description.
-        /// </summary>
-        public string Description { get; set; }
-
-        /// <summary>
-        /// The severity.
-        /// </summary>
-        public string? Severity { get; set; }
-
-        /// <summary>
-        /// The version to address the architecture comment.
-        /// </summary>
-        public string? Version { get; set; }
     }
 }

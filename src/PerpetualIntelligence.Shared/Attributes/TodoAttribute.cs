@@ -12,20 +12,16 @@ namespace PerpetualIntelligence.Shared.Attributes
     /// Indicates a TODO action on the target element.
     /// </summary>
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
-    public sealed class TodoAttribute : Attribute
+    public sealed class TodoAttribute : ActionAttribute
+
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
         /// <param name="description">Additional description.</param>
-        public TodoAttribute(string description)
+        public TodoAttribute(string description) : base(description)
         {
             Description = description;
         }
-
-        /// <summary>
-        /// Additional description.
-        /// </summary>
-        public string Description { get; set; }
     }
 }
