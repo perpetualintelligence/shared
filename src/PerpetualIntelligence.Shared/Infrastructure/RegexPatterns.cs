@@ -6,7 +6,7 @@
 
 using PerpetualIntelligence.Shared.Attributes;
 
-namespace PerpetualIntelligence.Shared.Patterns
+namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
     /// Defines commonly used REGEX patterns.

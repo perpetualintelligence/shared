@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Shared.Attributes.Validation;
+using PerpetualIntelligence.Shared.Infrastructure;
 using PerpetualIntelligence.Shared.Patterns;
 using PerpetualIntelligence.Test.Services;
 
