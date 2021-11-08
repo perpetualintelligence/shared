@@ -52,17 +52,17 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// </summary>
         public const string Tenant = "urn:pi:protocols:oidc:acr:tenant";
 
-        // <summary>
+        /// <summary>
         /// The account for multi-tenancy.
         /// </summary>
         public const string Account = "urn:pi:protocols:oidc:acr:account";
 
-        // <summary>
+        /// <summary>
         /// The tenant for multi-tenancy.
         /// </summary>
         public const string Organization = "urn:pi:protocols:oidc:acr:org";
 
-        // <summary>
+        /// <summary>
         /// The tenant for multi-tenancy.
         /// </summary>
         public const string Department = "urn:pi:protocols:oidc:acr:dept";

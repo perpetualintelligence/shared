@@ -11,7 +11,6 @@
     <Import Project="..\..\build\props\Test.props" />
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\PerpetualIntelligence.Data.Shared\PerpetualIntelligence.Data.Shared.csproj" />
         <ProjectReference Include="..\..\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
     </ItemGroup>
 

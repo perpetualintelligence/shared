@@ -8,7 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Shared.Services;
 using System;
 
-namespace PerpetualIntelligence.Data.Shared.Utility
+namespace PerpetualIntelligence.Shared.Services
 {
     [TestClass]
     public class IOHelperTest
