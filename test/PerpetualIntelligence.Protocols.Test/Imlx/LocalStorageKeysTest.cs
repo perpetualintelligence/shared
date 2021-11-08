@@ -4,9 +4,6 @@
     https://api.perpetualintelligence.com
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PerpetualIntelligence.Test.Services;
-
 namespace PerpetualIntelligence.Protocols.Imlx
 {
     [TestClass]

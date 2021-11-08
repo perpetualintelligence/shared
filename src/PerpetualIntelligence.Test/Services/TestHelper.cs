@@ -1,24 +1,8 @@
 ﻿/*
-    Copyright (c) 2021. All Rights Reserved. Perpetual Intelligence L.L.C.
+    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
 */
-
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Routing;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PerpetualIntelligence.Shared.Attributes;
-using PerpetualIntelligence.Shared.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace PerpetualIntelligence.Test.Services
 {
@@ -28,29 +12,6 @@ namespace PerpetualIntelligence.Test.Services
     /// </summary>
     public static class TestHelper
     {
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public static bool IsReleasePipelineConfig()
-        {
-            string? pipelineConfig = System.Environment.GetEnvironmentVariable("PIDEVOPSPIPELINECONFIGURATION");
-
-            // Null for local env
-            if (pipelineConfig == null)
-            {
-                return false;
-            }
-
-            return pipelineConfig == "Release";
-        }
-
-        /// <summary>
-        /// Asserts the value is any of the given collection.
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="anyOf"></param>
-
         public static void AssertAnyOf(string? value, params string[] anyOf)
         {
             if (!anyOf.Contains(value))
@@ -59,6 +20,11 @@ namespace PerpetualIntelligence.Test.Services
             }
         }
 
+        /// <summary>
+        /// Asserts the value is any of the given collection.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="anyOf"></param>
         /// <summary>
         /// Asserts <see cref="HttpMethodAttribute"/> is applied on the specified member.
         /// </summary>
@@ -729,7 +695,7 @@ namespace PerpetualIntelligence.Test.Services
         }
 
         /// <summary>
-        ///  Asserts <see cref="ProducesAttribute"/> is applied on the specified member.
+        /// Asserts <see cref="ProducesAttribute"/> is applied on the specified member.
         /// </summary>
         /// <param name="member"></param>
         /// <param name="contentType"></param>
@@ -753,7 +719,7 @@ namespace PerpetualIntelligence.Test.Services
         }
 
         /// <summary>
-        ///  Asserts <see cref="ProducesDefaultResponseTypeAttribute"/> is applied on the specified member.
+        /// Asserts <see cref="ProducesDefaultResponseTypeAttribute"/> is applied on the specified member.
         /// </summary>
         /// <param name="member"></param>
         /// <param name="responseType"></param>
@@ -803,6 +769,28 @@ namespace PerpetualIntelligence.Test.Services
         }
 
         /// <summary>
+        /// To check if properties defined in the class are same as in the interface.
+        /// </summary>
+        public static void AssertPropertiesMatchInterface(Type typeClass, Type typeInterface)
+        {
+            if (typeClass is null)
+            {
+                throw new ArgumentNullException(nameof(typeClass));
+            }
+            if (typeInterface is null)
+            {
+                throw new ArgumentNullException(nameof(typeInterface));
+            }
+
+            var typeProps = GetAllProperties(typeClass).Select(p => p.Name).ToArray();
+
+            // Interface needs flattened hiearchy https://stackoverflow.com/questions/358835/getproperties-to-return-all-properties-for-an-interface-inheritance-hierarchy/2444090
+            var typeInterfaceProps = GetAllProperties(typeInterface).Select(p => p.Name).ToArray();
+
+            CollectionAssert.AreEquivalent(typeInterfaceProps, typeProps);
+        }
+
+        /// <summary>
         /// Asserts <see cref="RangeAttribute"/> is applied on the specified member.
         /// </summary>
         /// <returns></returns>
@@ -832,6 +820,36 @@ namespace PerpetualIntelligence.Test.Services
                     Assert.AreEqual(maxLength, rangeAttribute.Maximum, $"Member '{member.DeclaringType.FullName}.{member.Name}' has attribute '{typeof(RangeAttribute).Name}' but its maximum is invalid.");
                     Assert.AreEqual(minLength, rangeAttribute.Minimum, $"Member '{member.DeclaringType.FullName}.{member.Name}' has attribute '{typeof(RangeAttribute).Name}' but its minimum is invalid.");
                     Assert.AreEqual(message, rangeAttribute.ErrorMessage, $"Member '{member.DeclaringType.FullName}.{member.Name}' has attribute '{typeof(RangeAttribute).Name}' but its error message is invalid.");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Asserts <see cref="HttpMethodAttribute"/> is applied on the specified member.
+        /// </summary>
+        /// <returns></returns>
+        public static void AssertRefactorAttribute(MemberInfo? member, string? description, bool inherit = false)
+        {
+            if (member is null)
+            {
+                throw new ArgumentNullException(nameof(member));
+            }
+
+            RefactorAttribute? refactorAttribute = member.GetCustomAttribute<RefactorAttribute>(inherit);
+            if (refactorAttribute == null)
+            {
+                Assert.Fail($"Member '{member.Name}' does not define '{typeof(RefactorAttribute).Name}' attribute.");
+            }
+            else
+            {
+                if (member.DeclaringType == null)
+                {
+                    Type classType = (Type)member;
+                    Assert.AreEqual(description, refactorAttribute.Description, $"Class '{classType.Namespace}.{member.Name}' has attribute '{typeof(RefactorAttribute).Name}' but its description is invalid.");
+                }
+                else
+                {
+                    Assert.AreEqual(description, refactorAttribute.Description, $"Member '{member.DeclaringType.FullName}.{member.Name}' has attribute '{typeof(RefactorAttribute).Name}' but its description is invalid.");
                 }
             }
         }
@@ -961,16 +979,17 @@ namespace PerpetualIntelligence.Test.Services
         }
 
         /// <summary>
-        /// Throws exception if caught with message.
+        /// Throws async with message.
         /// </summary>
         /// <typeparam name="TException"></typeparam>
         /// <param name="action"></param>
         /// <param name="message"></param>
-        public static void AssertThrowsWithMessage<TException>(Action action, string message) where TException : Exception
+        public static void AssertThrowsAsyncWithMessage<TException>(Func<Task> action, string message) where TException : Exception
         {
             try
             {
-                action.Invoke();
+                Task task = action.Invoke();
+                task.GetAwaiter().GetResult();
             }
             catch (Exception ex)
             {
@@ -996,17 +1015,16 @@ namespace PerpetualIntelligence.Test.Services
         }
 
         /// <summary>
-        ///  Throws async with message.
+        /// Throws exception if caught with message.
         /// </summary>
         /// <typeparam name="TException"></typeparam>
         /// <param name="action"></param>
         /// <param name="message"></param>
-        public static void AssertThrowsAsyncWithMessage<TException>(Func<Task> action, string message) where TException : Exception
+        public static void AssertThrowsWithMessage<TException>(Action action, string message) where TException : Exception
         {
             try
             {
-                Task task = action.Invoke();
-                task.GetAwaiter().GetResult();
+                action.Invoke();
             }
             catch (Exception ex)
             {
@@ -1092,35 +1110,20 @@ namespace PerpetualIntelligence.Test.Services
         }
 
         /// <summary>
-        /// Asserts <see cref="HttpMethodAttribute"/> is applied on the specified member.
         /// </summary>
+        /// <param name="type"></param>
         /// <returns></returns>
-        public static void AssertRefactorAttribute(MemberInfo? member, string? description, bool inherit = false)
+        public static IEnumerable<PropertyInfo> GetAllProperties(this Type type)
         {
-            if (member is null)
-            {
-                throw new ArgumentNullException(nameof(member));
-            }
+            if (!type.IsInterface)
+                return type.GetProperties();
 
-            RefactorAttribute? refactorAttribute = member.GetCustomAttribute<RefactorAttribute>(inherit);
-            if (refactorAttribute == null)
-            {
-                Assert.Fail($"Member '{member.Name}' does not define '{typeof(RefactorAttribute).Name}' attribute.");
-            }
-            else
-            {
-                if (member.DeclaringType == null)
-                {
-                    Type classType = (Type)member;
-                    Assert.AreEqual(description, refactorAttribute.Description, $"Class '{classType.Namespace}.{member.Name}' has attribute '{typeof(RefactorAttribute).Name}' but its description is invalid.");
-                }
-                else
-                {
-                    Assert.AreEqual(description, refactorAttribute.Description, $"Member '{member.DeclaringType.FullName}.{member.Name}' has attribute '{typeof(RefactorAttribute).Name}' but its description is invalid.");
-                }
-            }
+            // https://stackoverflow.com/questions/358835/getproperties-to-return-all-properties-for-an-interface-inheritance-hierarchy/2444090
+            // Do we need distinct check
+            return (new Type[] { type })
+                   .Concat(type.GetInterfaces())
+                   .SelectMany(i => i.GetProperties());
         }
-
 
         /// <summary>
         /// </summary>
@@ -1169,43 +1172,18 @@ namespace PerpetualIntelligence.Test.Services
         }
 
         /// <summary>
-        /// To check if properties defined in the class are same as in the interface.
         /// </summary>
-        public static void AssertPropertiesMatchInterface(Type typeClass, Type typeInterface)
+        public static bool IsReleasePipelineConfig()
         {
-            if (typeClass is null)
+            string? pipelineConfig = System.Environment.GetEnvironmentVariable("PIDEVOPSPIPELINECONFIGURATION");
+
+            // Null for local env
+            if (pipelineConfig == null)
             {
-                throw new ArgumentNullException(nameof(typeClass));
-            }
-            if (typeInterface is null)
-            {
-                throw new ArgumentNullException(nameof(typeInterface));
+                return false;
             }
 
-            var typeProps = GetAllProperties(typeClass).Select(p => p.Name).ToArray();
-
-            // Interface needs flattened hiearchy
-            // https://stackoverflow.com/questions/358835/getproperties-to-return-all-properties-for-an-interface-inheritance-hierarchy/2444090
-            var typeInterfaceProps = GetAllProperties(typeInterface).Select(p => p.Name).ToArray();
-
-            CollectionAssert.AreEquivalent(typeInterfaceProps, typeProps);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static IEnumerable<PropertyInfo> GetAllProperties(this Type type)
-        {
-            if (!type.IsInterface)
-                return type.GetProperties();
-
-            // https://stackoverflow.com/questions/358835/getproperties-to-return-all-properties-for-an-interface-inheritance-hierarchy/2444090
-            // Do we need distinct check
-            return (new Type[] { type })
-                   .Concat(type.GetInterfaces())
-                   .SelectMany(i => i.GetProperties());
+            return pipelineConfig == "Release";
         }
     }
 }

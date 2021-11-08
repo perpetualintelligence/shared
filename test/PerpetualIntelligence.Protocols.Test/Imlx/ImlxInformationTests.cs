@@ -1,34 +1,14 @@
-﻿// Copyright (c) 2021. All Rights Reserved. Perpetual Intelligence L.L.C.
-// https://perpetualintelligence.com
-// https://api.perpetualintelligence.com
-
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PerpetualIntelligence.Test.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿/*
+    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    https://perpetualintelligence.com
+    https://api.perpetualintelligence.com
+*/
 
 namespace PerpetualIntelligence.Protocols.Imlx
 {
     [TestClass]
     public class ImlxInformationTests
     {
-        [TestMethod]
-        public void InformationTest()
-        {
-            Type type = typeof(ImlxInformation);
-            PropertyInfo? prop = type.GetProperty(nameof(ImlxInformation.Information));
-
-            Assert.IsNotNull(prop);
-
-            TestHelper.AssertAttributeCount(prop, 1, false);
-
-            TestHelper.AssertJsonPropertyName(prop, "information", false);
-        }
-
         [TestMethod]
         public void InformationDescriptionTest()
         {
@@ -40,6 +20,19 @@ namespace PerpetualIntelligence.Protocols.Imlx
             TestHelper.AssertAttributeCount(prop, 1, false);
 
             TestHelper.AssertJsonPropertyName(prop, "information_description", false);
+        }
+
+        [TestMethod]
+        public void InformationTest()
+        {
+            Type type = typeof(ImlxInformation);
+            PropertyInfo? prop = type.GetProperty(nameof(ImlxInformation.Information));
+
+            Assert.IsNotNull(prop);
+
+            TestHelper.AssertAttributeCount(prop, 1, false);
+
+            TestHelper.AssertJsonPropertyName(prop, "information", false);
         }
 
         [TestMethod]

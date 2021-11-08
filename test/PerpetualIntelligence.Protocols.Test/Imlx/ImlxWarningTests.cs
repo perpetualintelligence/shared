@@ -1,15 +1,8 @@
-﻿// Copyright (c) 2021. All Rights Reserved. Perpetual Intelligence L.L.C.
-// https://perpetualintelligence.com
-// https://api.perpetualintelligence.com
-
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PerpetualIntelligence.Test.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿/*
+    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    https://perpetualintelligence.com
+    https://api.perpetualintelligence.com
+*/
 
 namespace PerpetualIntelligence.Protocols.Imlx
 {
@@ -30,19 +23,6 @@ namespace PerpetualIntelligence.Protocols.Imlx
         }
 
         [TestMethod]
-        public void WarningTest()
-        {
-            Type type = typeof(ImlxWarning);
-            PropertyInfo? prop = type.GetProperty(nameof(ImlxWarning.Warning));
-
-            Assert.IsNotNull(prop);
-
-            TestHelper.AssertAttributeCount(prop, 1, false);
-
-            TestHelper.AssertJsonPropertyName(prop, "warning", false);
-        }
-
-        [TestMethod]
         public void WarningDescriptionTest()
         {
             Type type = typeof(ImlxWarning);
@@ -53,6 +33,19 @@ namespace PerpetualIntelligence.Protocols.Imlx
             TestHelper.AssertAttributeCount(prop, 1, false);
 
             TestHelper.AssertJsonPropertyName(prop, "warning_description", false);
+        }
+
+        [TestMethod]
+        public void WarningTest()
+        {
+            Type type = typeof(ImlxWarning);
+            PropertyInfo? prop = type.GetProperty(nameof(ImlxWarning.Warning));
+
+            Assert.IsNotNull(prop);
+
+            TestHelper.AssertAttributeCount(prop, 1, false);
+
+            TestHelper.AssertJsonPropertyName(prop, "warning", false);
         }
 
         [TestMethod]
