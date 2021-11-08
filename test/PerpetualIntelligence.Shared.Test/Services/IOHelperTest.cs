@@ -4,6 +4,9 @@
     https://api.perpetualintelligence.com
 */
 
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+
 namespace PerpetualIntelligence.Shared.Services
 {
     [TestClass]

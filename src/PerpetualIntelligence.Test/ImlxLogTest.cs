@@ -4,6 +4,9 @@
     https://api.perpetualintelligence.com
 */
 
+using Microsoft.Extensions.Logging;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 namespace PerpetualIntelligence.Test
 {
     /// <summary>
