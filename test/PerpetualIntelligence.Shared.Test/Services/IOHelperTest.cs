@@ -5,7 +5,6 @@
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PerpetualIntelligence.Shared.Services;
 using System;
 
 namespace PerpetualIntelligence.Shared.Services
