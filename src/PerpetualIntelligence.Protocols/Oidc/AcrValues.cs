@@ -7,7 +7,7 @@
 namespace PerpetualIntelligence.Protocols.Oidc
 {
     /// <summary>
-    /// The <c>acr_values</c> supported by the <c>imlx</c> OAuth or OpenID Connect authorization server.
+    /// The <c>acr_values</c> supported by the <c>oneimlx</c> OAuth or OpenID Connect authorization server.
     /// </summary>
     public static class AcrValues
     {

@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 namespace PerpetualIntelligence.Protocols.Imlx
 {
     /// <summary>
-    /// Represents a base information model for all <c>imlx</c> services.
+    /// Represents a base information model for all <c>oneimlx</c> services.
     /// </summary>
     public class ImlxInformation
     {

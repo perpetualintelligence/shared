@@ -9,12 +9,11 @@ using PerpetualIntelligence.Shared.Infrastructure;
 namespace PerpetualIntelligence.Shared.Abstractions
 {
     /// <summary>
-    /// An abstraction of an identifier generator for <c>imlx</c> managed services.
+    /// An abstraction of an identifier generator for <c>oneimlx</c> managed services.
     /// </summary>
-    /// <remarks>
-    /// The <see cref="IIdGenerator"/> supports generating regular text based id, numeric id, a partitioned id or an
-    /// <see cref="Identity"/> and a mode based partitioned id or <see cref="ModeIdentity"/>.
-    /// </remarks>
+    /// <remarks>The <see cref="IIdGenerator"/> generates regular text id, numeric id, partitioned id and mode id.</remarks>
+    /// <seealso cref="Identity"/>
+    /// <seealso cref="ModeIdentity"/>
     public interface IIdGenerator
     {
         /// <summary>

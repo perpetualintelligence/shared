@@ -31,12 +31,12 @@ namespace PerpetualIntelligence.Protocols.Imlx
         public const string FullName = "Perpetual Intelligence L.L.C.";
 
         /// <summary>
-        /// The <c>imlx</c> protocol.
+        /// The <c>oneimlx</c> protocol.
         /// </summary>
         public const string Imlx = "urn:pi:protocols:imlx";
 
         /// <summary>
-        /// The <c>imlx</c> protocol.
+        /// The <c>oneimlx</c> protocol.
         /// </summary>
         public const string ImlxOrg = "PerpetualIntelligence.Imlx";
 

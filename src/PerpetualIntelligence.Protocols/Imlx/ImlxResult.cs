@@ -7,7 +7,7 @@
 namespace PerpetualIntelligence.Protocols.Imlx
 {
     /// <summary>
-    /// The generic <c>imlx</c> result that may have multiple errors, warnings or informations.
+    /// The generic <c>oneimlx</c> result that may have multiple errors, warnings or informations.
     /// </summary>
     public class ImlxResult
     {

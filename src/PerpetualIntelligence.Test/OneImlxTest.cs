@@ -11,7 +11,7 @@ namespace PerpetualIntelligence.Test
     /// <summary>
     /// Represents a test class that provides the test context.
     /// </summary>
-    public abstract class ImlxTest
+    public abstract class OneImlxTest
     {
         /// <summary>
         /// The test context. This property is set automatically by the test engine.

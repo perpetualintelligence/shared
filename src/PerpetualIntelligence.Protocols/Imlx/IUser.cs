@@ -7,7 +7,7 @@
 namespace PerpetualIntelligence.Protocols.Imlx
 {
     /// <summary>
-    /// The <c>imlx</c> user abstraction.
+    /// The <c>oneimlx</c> user abstraction.
     /// </summary>
     public interface IUser
     {

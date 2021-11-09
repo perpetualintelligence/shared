@@ -11,7 +11,7 @@ using System.Linq;
 namespace PerpetualIntelligence.Protocols.Imlx
 {
     /// <summary>
-    /// The generic <c>imlx</c> result that supports multiple errors.
+    /// The generic <c>oneimlx</c> result that supports multiple errors.
     /// </summary>
     [ToUnitTest]
     public class ImlxErrorResult

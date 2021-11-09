@@ -9,7 +9,7 @@ using PerpetualIntelligence.Shared.Attributes;
 namespace PerpetualIntelligence.Protocols.Imlx
 {
     /// <summary>
-    /// The <c>imlx</c> endpoint identifiers.
+    /// The <c>oneimlx</c> endpoint identifiers.
     /// </summary>
     [ToDocumentation]
     [MustDo("Add links to OpenID connect standard for each endpoint.", BlockRelease = true)]

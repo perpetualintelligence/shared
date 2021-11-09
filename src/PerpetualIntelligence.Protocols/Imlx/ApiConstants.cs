@@ -7,7 +7,7 @@
 namespace PerpetualIntelligence.Protocols.Imlx
 {
     /// <summary>
-    /// The <c>imlx</c> API constants.
+    /// The <c>oneimlx</c> API constants.
     /// </summary>
     public static class ApiConstants
     {

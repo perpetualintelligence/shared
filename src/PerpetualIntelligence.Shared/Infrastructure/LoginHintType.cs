@@ -14,6 +14,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     /// </summary>
     [Flags]
     [ToUnitTest]
+    [MustDo("Why do we need this ?")]
     public enum LoginHintType
     {
         /// <summary>

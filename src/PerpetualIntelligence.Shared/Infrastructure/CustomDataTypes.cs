@@ -4,12 +4,10 @@
     https://api.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Shared.Attributes;
-
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
-    /// Custom data types for rendering razor components.
+    /// The custom data types for rendering ux components.
     /// </summary>
     public sealed class CustomDataTypes
     {
@@ -39,11 +37,11 @@ namespace PerpetualIntelligence.Shared.Infrastructure
 
         /// <summary>
         /// </summary>
-        public const string StringList = nameof(StringList);
+        public const string StringDictionary = nameof(StringDictionary);
 
         /// <summary>
         /// </summary>
-        public const string StringDictionary = nameof(StringDictionary);
+        public const string StringList = nameof(StringList);
 
         /// <summary>
         /// </summary>

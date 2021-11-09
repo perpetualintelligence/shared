@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace PerpetualIntelligence.Shared.Abstractions
 {
     /// <summary>
-    /// An abstraction of the localization service.
+    /// An abstraction of the localizer.
     /// </summary>
     public interface ILocalizer
     {

@@ -4,26 +4,23 @@
     https://api.perpetualintelligence.com
 */
 
-using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Net.Http;
 
 namespace PerpetualIntelligence.Test
 {
     /// <summary>
-    /// Represents a test class that provides the HTTP client and logs the test.
+    /// Represents a test class that provides the test context and logger.
     /// </summary>
-    public abstract class ImlxHttpClientTest : OneImlxTest
+    public abstract class OneImlxLogTest : OneImlxTest
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
         /// <param name="logger"></param>
-        public ImlxHttpClientTest(ILogger logger)
+        public OneImlxLogTest(ILogger logger)
         {
-            Logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            Logger = logger;
         }
 
         /// <summary>
@@ -38,13 +35,7 @@ namespace PerpetualIntelligence.Test
         public void ImlxLogTestCleanup()
         {
             OnTestCleanup();
-
-            if (HttpClient != null)
-            {
-                HttpClient.Dispose();
-            }
-
-            Logger.LogInformation("-------- End Http Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
+            Logger.LogInformation("-------- End Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
         }
 
         /// <summary>
@@ -53,34 +44,22 @@ namespace PerpetualIntelligence.Test
         [TestInitialize]
         public void ImlxLogTestInitialize()
         {
-            Logger.LogInformation("-------- Start Http Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
-
-            HttpClient = GetTestServer().CreateClient();
-
+            Logger.LogInformation("-------- Start Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
             OnTestInitialize();
         }
-
-        /// <summary>
-        /// The HTTP client..
-        /// </summary>
-        protected HttpClient HttpClient { get; set; } = null!; // Set in TestInitialize
-
-        /// <summary>
-        /// Gets the test server.
-        /// </summary>
-        /// <returns></returns>
-        protected abstract TestServer GetTestServer();
 
         /// <summary>
         /// On test cleanup callback.
         /// </summary>
         protected virtual void OnTestCleanup()
-        { }
+        {
+        }
 
         /// <summary>
         /// On test initialize callback.
         /// </summary>
         protected virtual void OnTestInitialize()
-        { }
+        {
+        }
     }
 }

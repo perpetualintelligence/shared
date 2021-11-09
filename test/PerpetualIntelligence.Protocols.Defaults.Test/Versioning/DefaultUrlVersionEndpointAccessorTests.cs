@@ -15,7 +15,7 @@ using System.Collections.Generic;
 namespace PerpetualIntelligence.Protocols.Defaults.Versioning
 {
     [TestClass]
-    public class DefaultUrlVersionEndpointAccessorTests : ImlxLogTest
+    public class DefaultUrlVersionEndpointAccessorTests : OneImlxLogTest
     {
         public DefaultUrlVersionEndpointAccessorTests() : base(TestLogger.Create<DefaultUrlVersionEndpointAccessorTests>())
         {

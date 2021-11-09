@@ -8,7 +8,7 @@
 namespace PerpetualIntelligence.Protocols.Imlx
 {
     /// <summary>
-    /// The HTTP client names used by the <c>imlx</c> managed services.
+    /// The HTTP client names used by the <c>oneimlx</c> managed services.
     /// </summary>
     public static class HttpClientNames
     {
