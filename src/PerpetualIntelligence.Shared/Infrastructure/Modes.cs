@@ -5,7 +5,6 @@
 */
 
 using PerpetualIntelligence.Shared.Exceptions;
-using System;
 
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
@@ -69,21 +68,21 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <summary>
         /// Live or production mode.
         /// </summary>
-        public const string Live = "urn:pi:shared:infra:mode:live";
+        public const string Live = "urn:oneimlx:mode:live";
 
         /// <summary>
         /// Neutral or no mode.
         /// </summary>
-        public const string Neutral = "urn:pi:shared:infra:mode:neutral";
+        public const string Neutral = "urn:oneimlx:mode:neutral";
 
         /// <summary>
         /// Staging or pre-production mode.
         /// </summary>
-        public const string Stage = "urn:pi:shared:infra:mode:stage";
+        public const string Stage = "urn:oneimlx:mode:stage";
 
         /// <summary>
         /// Test or sandbox mode.
         /// </summary>
-        public const string Test = "urn:pi:shared:infra:mode:test";
+        public const string Test = "urn:oneimlx:mode:test";
     }
 }

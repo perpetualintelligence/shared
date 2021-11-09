@@ -15,10 +15,10 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void ModesTest()
         {
-            Assert.AreEqual("urn:pi:shared:infra:mode:live", Modes.Live);
-            Assert.AreEqual("urn:pi:shared:infra:mode:test", Modes.Test);
-            Assert.AreEqual("urn:pi:shared:infra:mode:neutral", Modes.Neutral);
-            Assert.AreEqual("urn:pi:shared:infra:mode:stage", Modes.Stage);
+            Assert.AreEqual("urn:oneimlx:mode:live", Modes.Live);
+            Assert.AreEqual("urn:oneimlx:mode:test", Modes.Test);
+            Assert.AreEqual("urn:oneimlx:mode:neutral", Modes.Neutral);
+            Assert.AreEqual("urn:oneimlx:mode:stage", Modes.Stage);
         }
 
         [TestMethod]
