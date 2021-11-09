@@ -7,17 +7,17 @@
 using PerpetualIntelligence.Protocols.Oidc;
 using System.Text.Json.Serialization;
 
-namespace PerpetualIntelligence.Protocols.Imlx
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
     /// Represents a base information model for all <c>oneimlx</c> services.
     /// </summary>
-    public class ImlxInformation
+    public class OneImlxInformation
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        public ImlxInformation()
+        public OneImlxInformation()
         {
             Information = Errors.UnexpectedInformation;
         }
@@ -26,7 +26,7 @@ namespace PerpetualIntelligence.Protocols.Imlx
         /// Initialize a new instance.
         /// </summary>
         /// <param name="information"></param>
-        public ImlxInformation(string information)
+        public OneImlxInformation(string information)
         {
             Information = information;
         }
@@ -38,7 +38,7 @@ namespace PerpetualIntelligence.Protocols.Imlx
         /// <param name="informationDescription"></param>
         /// <param name="informationUri"></param>
         /// <param name="requestId"></param>
-        public ImlxInformation(string information, string? informationDescription = null, string? informationUri = null, string? requestId = null)
+        public OneImlxInformation(string information, string? informationDescription = null, string? informationUri = null, string? requestId = null)
         {
             Information = information;
             InformationDescription = informationDescription;

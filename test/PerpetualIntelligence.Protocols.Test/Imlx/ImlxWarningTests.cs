@@ -9,7 +9,7 @@ using PerpetualIntelligence.Test.Services;
 using System;
 using System.Reflection;
 
-namespace PerpetualIntelligence.Protocols.Imlx
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     [TestClass]
     public class ImlxWarningTests
@@ -17,8 +17,8 @@ namespace PerpetualIntelligence.Protocols.Imlx
         [TestMethod]
         public void RequestIdTest()
         {
-            Type type = typeof(ImlxWarning);
-            PropertyInfo? prop = type.GetProperty(nameof(ImlxWarning.RequestId));
+            Type type = typeof(OneImlxWarning);
+            PropertyInfo? prop = type.GetProperty(nameof(OneImlxWarning.RequestId));
 
             Assert.IsNotNull(prop);
 
@@ -30,8 +30,8 @@ namespace PerpetualIntelligence.Protocols.Imlx
         [TestMethod]
         public void WarningDescriptionTest()
         {
-            Type type = typeof(ImlxWarning);
-            PropertyInfo? prop = type.GetProperty(nameof(ImlxWarning.WarningDescription));
+            Type type = typeof(OneImlxWarning);
+            PropertyInfo? prop = type.GetProperty(nameof(OneImlxWarning.WarningDescription));
 
             Assert.IsNotNull(prop);
 
@@ -43,8 +43,8 @@ namespace PerpetualIntelligence.Protocols.Imlx
         [TestMethod]
         public void WarningTest()
         {
-            Type type = typeof(ImlxWarning);
-            PropertyInfo? prop = type.GetProperty(nameof(ImlxWarning.Warning));
+            Type type = typeof(OneImlxWarning);
+            PropertyInfo? prop = type.GetProperty(nameof(OneImlxWarning.Warning));
 
             Assert.IsNotNull(prop);
 
@@ -56,8 +56,8 @@ namespace PerpetualIntelligence.Protocols.Imlx
         [TestMethod]
         public void WarningUriTest()
         {
-            Type type = typeof(ImlxWarning);
-            PropertyInfo? prop = type.GetProperty(nameof(ImlxWarning.WarningUri));
+            Type type = typeof(OneImlxWarning);
+            PropertyInfo? prop = type.GetProperty(nameof(OneImlxWarning.WarningUri));
 
             Assert.IsNotNull(prop);
 

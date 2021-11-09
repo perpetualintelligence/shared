@@ -5,7 +5,7 @@
 */
 
 using Microsoft.Extensions.Configuration;
-using PerpetualIntelligence.Protocols.Imlx;
+using PerpetualIntelligence.Protocols.OneImlx;
 using PerpetualIntelligence.Protocols.Oidc;
 using PerpetualIntelligence.Shared.Abstractions;
 

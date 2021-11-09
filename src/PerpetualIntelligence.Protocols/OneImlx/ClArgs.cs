@@ -6,7 +6,7 @@
 
 using PerpetualIntelligence.Shared.Attributes;
 
-namespace PerpetualIntelligence.Protocols.Imlx
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
     /// The Perpetual Intelligence command line arguments. Argument names must start with 'piarg' and contain characters

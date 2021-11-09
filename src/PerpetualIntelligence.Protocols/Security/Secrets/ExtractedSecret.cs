@@ -4,7 +4,7 @@
     https://api.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Protocols.Imlx;
+using PerpetualIntelligence.Protocols.OneImlx;
 using PerpetualIntelligence.Shared.Attributes;
 
 namespace PerpetualIntelligence.Protocols.Security.Secrets
@@ -17,7 +17,7 @@ namespace PerpetualIntelligence.Protocols.Security.Secrets
     /// <seealso cref="SecretComparer"/>
     [Concept("Secrets Manager")]
     [ToUnitTest]
-    public sealed class ExtractedSecret : ImlxErrorResult
+    public sealed class ExtractedSecret : OneImlxErrorResult
     {
         /// <summary>
         /// The secret identifier.

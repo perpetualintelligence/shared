@@ -7,17 +7,17 @@
 using PerpetualIntelligence.Protocols.Oidc;
 using System.Text.Json.Serialization;
 
-namespace PerpetualIntelligence.Protocols.Imlx
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
     /// Represents a base warning model for all <c>oneimlx</c> services.
     /// </summary>
-    public class ImlxWarning
+    public class OneImlxWarning
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        public ImlxWarning()
+        public OneImlxWarning()
         {
             Warning = Errors.UnexpectedWarning;
         }
@@ -26,7 +26,7 @@ namespace PerpetualIntelligence.Protocols.Imlx
         /// Initialize a new instance.
         /// </summary>
         /// <param name="warning"></param>
-        public ImlxWarning(string warning)
+        public OneImlxWarning(string warning)
         {
             Warning = warning;
         }
@@ -38,7 +38,7 @@ namespace PerpetualIntelligence.Protocols.Imlx
         /// <param name="warningDescription"></param>
         /// <param name="warningUri"></param>
         /// <param name="requestId"></param>
-        public ImlxWarning(string warning, string? warningDescription = null, string? warningUri = null, string? requestId = null)
+        public OneImlxWarning(string warning, string? warningDescription = null, string? warningUri = null, string? requestId = null)
         {
             Warning = warning;
             WarningDescription = warningDescription;

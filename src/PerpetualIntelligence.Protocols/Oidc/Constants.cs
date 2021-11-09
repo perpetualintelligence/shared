@@ -4,7 +4,7 @@
     https://api.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Protocols.Imlx;
+using PerpetualIntelligence.Protocols.OneImlx;
 using System.Security.Claims;
 
 namespace PerpetualIntelligence.Protocols.Oidc

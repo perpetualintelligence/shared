@@ -4,26 +4,26 @@
     https://api.perpetualintelligence.com
 */
 
-namespace PerpetualIntelligence.Protocols.Imlx
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
     /// The generic <c>oneimlx</c> result that may have multiple errors, warnings or informations.
     /// </summary>
-    public class ImlxResult
+    public class OneImlxResult
     {
         /// <summary>
         /// The errors.
         /// </summary>
-        public ImlxError[]? Errors { get; set; }
+        public OneImlxError[]? Errors { get; set; }
 
         /// <summary>
         /// The informations.
         /// </summary>
-        public ImlxInformation[]? Informations { get; set; }
+        public OneImlxInformation[]? Informations { get; set; }
 
         /// <summary>
         /// The warnings.
         /// </summary>
-        public ImlxWarning[]? Warnings { get; set; }
+        public OneImlxWarning[]? Warnings { get; set; }
     }
 }

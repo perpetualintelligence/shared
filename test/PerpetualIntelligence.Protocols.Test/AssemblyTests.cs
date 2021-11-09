@@ -15,13 +15,13 @@ namespace PerpetualIntelligence.Protocols
         [TestMethod]
         public void TypesNamespaceTest()
         {
-            TestHelper.AssertNamespace(typeof(Imlx.OrgConstants).Assembly, "PerpetualIntelligence.Protocols");
+            TestHelper.AssertNamespace(typeof(OneImlx.OrgConstants).Assembly, "PerpetualIntelligence.Protocols");
         }
 
         [TestMethod]
         public void TypesTypesLocationTest()
         {
-            TestHelper.AssertAssemblyTypesLocation(typeof(Imlx.OrgConstants).Assembly);
+            TestHelper.AssertAssemblyTypesLocation(typeof(OneImlx.OrgConstants).Assembly);
         }
     }
 }

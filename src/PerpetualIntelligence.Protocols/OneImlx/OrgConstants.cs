@@ -4,7 +4,7 @@
     https://api.perpetualintelligence.com
 */
 
-namespace PerpetualIntelligence.Protocols.Imlx
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
     /// The Perpetual Intelligence organizational constants.
@@ -33,12 +33,12 @@ namespace PerpetualIntelligence.Protocols.Imlx
         /// <summary>
         /// The <c>oneimlx</c> protocol.
         /// </summary>
-        public const string Imlx = "urn:pi:protocols:imlx";
+        public const string OneImlx = "urn:pi:protocols:imlx";
 
         /// <summary>
         /// The <c>oneimlx</c> protocol.
         /// </summary>
-        public const string ImlxOrg = "PerpetualIntelligence.Imlx";
+        public const string ImlxOrg = "PerpetualIntelligence.OneImlx";
 
         /// <summary>
         /// The <c>OAuth</c>, <c>oidc</c> or <c>OpenID Connect</c> protocol.

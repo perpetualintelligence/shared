@@ -6,7 +6,7 @@
 
 using PerpetualIntelligence.Shared.Attributes;
 
-namespace PerpetualIntelligence.Protocols.Imlx
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
     /// The <c>oneimlx</c> endpoint identifiers.

@@ -5,7 +5,7 @@
 */
 
 
-namespace PerpetualIntelligence.Protocols.Imlx
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
     /// The HTTP client names used by the <c>oneimlx</c> managed services.

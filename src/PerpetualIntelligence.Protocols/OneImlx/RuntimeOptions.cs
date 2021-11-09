@@ -6,7 +6,7 @@
 
 using PerpetualIntelligence.Shared.Attributes;
 
-namespace PerpetualIntelligence.Protocols.Imlx
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
     /// The runtime options that are typically defined in the <c>appsettings.json</c>.

@@ -2,7 +2,7 @@
 // https://perpetualintelligence.com
 // https://api.perpetualintelligence.com
 
-namespace PerpetualIntelligence.Protocols.Imlx
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
     /// Represents a result of a try method.
@@ -24,7 +24,7 @@ namespace PerpetualIntelligence.Protocols.Imlx
         /// <summary>
         /// The error during the try.
         /// </summary>
-        public ImlxError? TryError { get; set; }
+        public OneImlxError? TryError { get; set; }
 
         /// <summary>
         /// The result of a try.

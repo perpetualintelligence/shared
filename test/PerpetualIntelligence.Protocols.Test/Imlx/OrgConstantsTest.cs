@@ -7,7 +7,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Test.Services;
 
-namespace PerpetualIntelligence.Protocols.Imlx
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     [TestClass]
     public class OrgConstantsTest
@@ -22,8 +22,8 @@ namespace PerpetualIntelligence.Protocols.Imlx
             Assert.AreEqual("donotreply@perpetualintelligence.com", OrgConstants.DoNotReplyEmail);
             Assert.AreEqual("Perpetual Intelligence L.L.C.", OrgConstants.FullName);
             Assert.AreEqual("Perpetual Intelligence", OrgConstants.ShortName);
-            Assert.AreEqual("urn:pi:protocols:imlx", OrgConstants.Imlx);
-            Assert.AreEqual("PerpetualIntelligence.Imlx", OrgConstants.ImlxOrg);
+            Assert.AreEqual("urn:pi:protocols:imlx", OrgConstants.OneImlx);
+            Assert.AreEqual("PerpetualIntelligence.OneImlx", OrgConstants.ImlxOrg);
             Assert.AreEqual("urn:pi:protocols:oidc", OrgConstants.Oidc);
             Assert.AreEqual("https://perpetualintelligence.com/legal/privacy", OrgConstants.PrivacyUrl);
             Assert.AreEqual("https://perpetualintelligence.com/legal/terms", OrgConstants.TermsUrl);

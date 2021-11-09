@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PerpetualIntelligence.Protocols.Imlx
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     [TestClass]
     public class ImlxErrorTest
@@ -19,8 +19,8 @@ namespace PerpetualIntelligence.Protocols.Imlx
         [TestMethod]
         public void ErrorTest()
         {
-            Type type = typeof(ImlxError);
-            PropertyInfo? prop = type.GetProperty(nameof(ImlxError.Error));
+            Type type = typeof(OneImlxError);
+            PropertyInfo? prop = type.GetProperty(nameof(OneImlxError.Error));
 
             Assert.IsNotNull(prop);
             TestHelper.AssertAttributeCount(prop, 1, false);

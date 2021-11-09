@@ -8,18 +8,18 @@ using PerpetualIntelligence.Shared.Attributes;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PerpetualIntelligence.Protocols.Imlx
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
     /// The generic <c>oneimlx</c> result that supports multiple errors.
     /// </summary>
     [ToUnitTest]
-    public class ImlxErrorResult
+    public class OneImlxErrorResult
     {
         /// <summary>
         /// The result errors.
         /// </summary>
-        public ImlxError[]? Errors
+        public OneImlxError[]? Errors
         {
             get
             {
@@ -30,7 +30,7 @@ namespace PerpetualIntelligence.Protocols.Imlx
         /// <summary>
         /// The first error, if the result represents an error.
         /// </summary>
-        public ImlxError? FirstError
+        public OneImlxError? FirstError
         {
             get
             {
@@ -76,13 +76,13 @@ namespace PerpetualIntelligence.Protocols.Imlx
                 throw new System.ArgumentException($"'{nameof(error)}' cannot be null or whitespace.", nameof(error));
             }
 
-            AddError(new ImlxError(error, errorDescription, errorUri, requestId));
+            AddError(new OneImlxError(error, errorDescription, errorUri, requestId));
         }
 
         /// <summary>
         /// Adds an error to the result.
         /// </summary>
-        public void AddError(ImlxError error)
+        public void AddError(OneImlxError error)
         {
             if (error == null)
             {
@@ -114,7 +114,7 @@ namespace PerpetualIntelligence.Protocols.Imlx
         /// <summary>
         /// Set an error on the result. This will clear all the existing errors and set the specified error.
         /// </summary>
-        /// <seealso cref="AddError(ImlxError)"/>
+        /// <seealso cref="AddError(OneImlxError)"/>
         /// <seealso cref="AddError(string, string?, string?, string?)"/>
         public void SetError(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null)
         {
@@ -127,15 +127,15 @@ namespace PerpetualIntelligence.Protocols.Imlx
             NoError();
 
             // Now add the specified error.
-            AddError(new ImlxError(error, errorDescription, errorUri, requestId));
+            AddError(new OneImlxError(error, errorDescription, errorUri, requestId));
         }
 
         /// <summary>
         /// Set an error on the result. This will clear all the existing errors and set the specified error.
         /// </summary>
-        /// <seealso cref="AddError(ImlxError)"/>
+        /// <seealso cref="AddError(OneImlxError)"/>
         /// <seealso cref="AddError(string, string?, string?, string?)"/>
-        public void SetError(ImlxError error)
+        public void SetError(OneImlxError error)
         {
             if (error == null)
             {
@@ -152,7 +152,7 @@ namespace PerpetualIntelligence.Protocols.Imlx
         /// <summary>
         /// Syncs all the errors from the input to this instance.
         /// </summary>
-        public void SyncError(ImlxErrorResult input)
+        public void SyncError(OneImlxErrorResult input)
         {
             if (input.IsError)
             {
@@ -160,10 +160,10 @@ namespace PerpetualIntelligence.Protocols.Imlx
                 NoError();
 
                 // Sync errors.
-                _errorList = new List<ImlxError>(input._errorList);
+                _errorList = new List<OneImlxError>(input._errorList);
             }
         }
 
-        private List<ImlxError>? _errorList;
+        private List<OneImlxError>? _errorList;
     }
 }

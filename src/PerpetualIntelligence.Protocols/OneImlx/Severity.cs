@@ -4,7 +4,7 @@
     https://api.perpetualintelligence.com
 */
 
-namespace PerpetualIntelligence.Protocols.Imlx
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
     /// Define the severity based on business impact.

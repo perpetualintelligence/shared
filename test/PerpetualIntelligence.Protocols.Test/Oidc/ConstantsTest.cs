@@ -20,10 +20,10 @@ namespace PerpetualIntelligence.Protocols.Oidc
             Assert.AreEqual("urn:pi:protocols:oidc:auth", Constants.AuthenticationType);
             Assert.AreEqual("Bearer", Constants.AuthorizationHeaderBearer);
             Assert.AreEqual("Bearer", Constants.BearerTokenType);
-            Assert.AreEqual("PerpetualIntelligence.Imlx.Cors", Constants.CorsPolicyName);
-            Assert.AreEqual("PerpetualIntelligence.Imlx.Cookie.Session", Constants.DefaultCheckSessionCookieName);
-            Assert.AreEqual("PerpetualIntelligence.Imlx.Cookie.Auth", Constants.DefaultCookieAuthenticationScheme);
-            Assert.AreEqual("PerpetualIntelligence.Imlx.Cookie.External", Constants.DefaultExternalCookieAuthenticationScheme);
+            Assert.AreEqual("PerpetualIntelligence.OneImlx.Cors", Constants.CorsPolicyName);
+            Assert.AreEqual("PerpetualIntelligence.OneImlx.Cookie.Session", Constants.DefaultCheckSessionCookieName);
+            Assert.AreEqual("PerpetualIntelligence.OneImlx.Cookie.Auth", Constants.DefaultCookieAuthenticationScheme);
+            Assert.AreEqual("PerpetualIntelligence.OneImlx.Cookie.External", Constants.DefaultExternalCookieAuthenticationScheme);
             Assert.AreEqual("urn:pi:protocols:oidc:scheme:jwt", Constants.DefaultJwtRequestClientKey);
             Assert.AreEqual("urn:pi:protocols:oidc:scheme:signout", Constants.DefaultSignoutScheme);
             Assert.AreEqual("urn:pi:protocols:oidc:idp:local", Constants.LocalIdP);

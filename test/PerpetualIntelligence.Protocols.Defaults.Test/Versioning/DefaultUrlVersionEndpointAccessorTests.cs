@@ -6,7 +6,7 @@
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PerpetualIntelligence.Protocols.Imlx;
+using PerpetualIntelligence.Protocols.OneImlx;
 using PerpetualIntelligence.Protocols.Oidc;
 using PerpetualIntelligence.Test;
 using PerpetualIntelligence.Test.Services;

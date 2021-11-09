@@ -9,7 +9,7 @@ using PerpetualIntelligence.Test.Services;
 using System;
 using System.Reflection;
 
-namespace PerpetualIntelligence.Protocols.Imlx
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     [TestClass]
     public class ImlxInformationTests
@@ -17,8 +17,8 @@ namespace PerpetualIntelligence.Protocols.Imlx
         [TestMethod]
         public void InformationDescriptionTest()
         {
-            Type type = typeof(ImlxInformation);
-            PropertyInfo? prop = type.GetProperty(nameof(ImlxInformation.InformationDescription));
+            Type type = typeof(OneImlxInformation);
+            PropertyInfo? prop = type.GetProperty(nameof(OneImlxInformation.InformationDescription));
 
             Assert.IsNotNull(prop);
 
@@ -30,8 +30,8 @@ namespace PerpetualIntelligence.Protocols.Imlx
         [TestMethod]
         public void InformationTest()
         {
-            Type type = typeof(ImlxInformation);
-            PropertyInfo? prop = type.GetProperty(nameof(ImlxInformation.Information));
+            Type type = typeof(OneImlxInformation);
+            PropertyInfo? prop = type.GetProperty(nameof(OneImlxInformation.Information));
 
             Assert.IsNotNull(prop);
 
@@ -43,8 +43,8 @@ namespace PerpetualIntelligence.Protocols.Imlx
         [TestMethod]
         public void InformationUriTest()
         {
-            Type type = typeof(ImlxInformation);
-            PropertyInfo? prop = type.GetProperty(nameof(ImlxInformation.InformationUri));
+            Type type = typeof(OneImlxInformation);
+            PropertyInfo? prop = type.GetProperty(nameof(OneImlxInformation.InformationUri));
 
             Assert.IsNotNull(prop);
 

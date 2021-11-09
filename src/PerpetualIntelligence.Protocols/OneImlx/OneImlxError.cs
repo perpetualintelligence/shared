@@ -7,17 +7,17 @@
 using PerpetualIntelligence.Protocols.Oidc;
 using System.Text.Json.Serialization;
 
-namespace PerpetualIntelligence.Protocols.Imlx
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
     /// Represents a base error model for all <c>oneimlx</c> services.
     /// </summary>
-    public class ImlxError
+    public class OneImlxError
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        public ImlxError()
+        public OneImlxError()
         {
             Error = Errors.UnexpectedError;
         }
@@ -29,7 +29,7 @@ namespace PerpetualIntelligence.Protocols.Imlx
         /// <param name="errorDescription"></param>
         /// <param name="errorUri"></param>
         /// <param name="requestId"></param>
-        public ImlxError(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null)
+        public OneImlxError(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null)
         {
             Error = error;
             ErrorDescription = errorDescription;
