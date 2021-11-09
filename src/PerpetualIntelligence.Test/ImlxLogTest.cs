@@ -12,7 +12,7 @@ namespace PerpetualIntelligence.Test
     /// <summary>
     /// Represents a test class that provides the test context and logger.
     /// </summary>
-    public abstract class ImlxLogTest : ImlxTest
+    public abstract class ImlxLogTest : OneImlxTest
     {
         /// <summary>
         /// Initialize a new instance.

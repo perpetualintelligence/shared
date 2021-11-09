@@ -15,7 +15,7 @@ namespace PerpetualIntelligence.Test
     /// <summary>
     /// Represents a test class that provides the HTTP client and logs the test.
     /// </summary>
-    public abstract class ImlxHttpClientTest : ImlxTest
+    public abstract class ImlxHttpClientTest : OneImlxTest
     {
         /// <summary>
         /// Initialize a new instance.
