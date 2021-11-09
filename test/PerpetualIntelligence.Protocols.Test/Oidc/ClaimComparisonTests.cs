@@ -1,4 +1,9 @@
-﻿
+﻿/*
+    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    https://perpetualintelligence.com
+    https://api.perpetualintelligence.com
+*/
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,27 +14,6 @@ namespace PerpetualIntelligence.Protocols.Oidc
     [TestClass]
     public class ClaimComparisonTests
     {
-        private readonly List<Claim> _claims = new List<Claim>
-        {
-            new Claim("claim_type1", "value", System.Security.Claims.ClaimValueTypes.String, "issuer1"),  // 1
-            new Claim("claim_type1", "value", System.Security.Claims.ClaimValueTypes.String, "issuer1"),  // duplicate
-            new Claim("claim_type1", "Value", System.Security.Claims.ClaimValueTypes.String, "issuer1"),  // 2
-
-            new Claim("Claim_type1", "value", System.Security.Claims.ClaimValueTypes.String, "issuer1"),  // 3
-            new Claim("Claim_type1", "value", System.Security.Claims.ClaimValueTypes.String, "issuer1"),  // duplicate
-            new Claim("Claim_type1", "Value", System.Security.Claims.ClaimValueTypes.String, "issuer1"),  // 4
-
-            new Claim("claim_type1", "value", System.Security.Claims.ClaimValueTypes.String, "issuer2"),  // 5
-            new Claim("claim_type1", "value", System.Security.Claims.ClaimValueTypes.String, "issuer2"),  // duplicate
-            new Claim("claim_type1", "Value", System.Security.Claims.ClaimValueTypes.String, "issuer2"),  // 6
-
-            new Claim("Claim_type1", "value", System.Security.Claims.ClaimValueTypes.String, "issuer2"),  // 7
-            new Claim("Claim_type1", "value", System.Security.Claims.ClaimValueTypes.String, "issuer2"),  // duplicate
-            new Claim("Claim_type1", "Value", System.Security.Claims.ClaimValueTypes.String, "issuer2")   // 8
-        };
-
-
-        
         [TestMethod]
         public void DefaultOptionsShouldResultInFourClaims()
         {
@@ -84,5 +68,24 @@ namespace PerpetualIntelligence.Protocols.Oidc
             Assert.AreEqual("Value", item.Value);
             Assert.AreEqual("issuer2", item.Issuer);
         }
+
+        private readonly List<Claim> _claims = new List<Claim>
+        {
+            new Claim("claim_type1", "value", System.Security.Claims.ClaimValueTypes.String, "issuer1"),  // 1
+            new Claim("claim_type1", "value", System.Security.Claims.ClaimValueTypes.String, "issuer1"),  // duplicate
+            new Claim("claim_type1", "Value", System.Security.Claims.ClaimValueTypes.String, "issuer1"),  // 2
+
+            new Claim("Claim_type1", "value", System.Security.Claims.ClaimValueTypes.String, "issuer1"),  // 3
+            new Claim("Claim_type1", "value", System.Security.Claims.ClaimValueTypes.String, "issuer1"),  // duplicate
+            new Claim("Claim_type1", "Value", System.Security.Claims.ClaimValueTypes.String, "issuer1"),  // 4
+
+            new Claim("claim_type1", "value", System.Security.Claims.ClaimValueTypes.String, "issuer2"),  // 5
+            new Claim("claim_type1", "value", System.Security.Claims.ClaimValueTypes.String, "issuer2"),  // duplicate
+            new Claim("claim_type1", "Value", System.Security.Claims.ClaimValueTypes.String, "issuer2"),  // 6
+
+            new Claim("Claim_type1", "value", System.Security.Claims.ClaimValueTypes.String, "issuer2"),  // 7
+            new Claim("Claim_type1", "value", System.Security.Claims.ClaimValueTypes.String, "issuer2"),  // duplicate
+            new Claim("Claim_type1", "Value", System.Security.Claims.ClaimValueTypes.String, "issuer2")   // 8
+        };
     }
 }

@@ -12,7 +12,7 @@ using System.Reflection;
 namespace PerpetualIntelligence.Protocols.OneImlx
 {
     [TestClass]
-    public class ImlxInformationTests
+    public class OneImlxInformationTests
     {
         [TestMethod]
         public void InformationDescriptionTest()

@@ -12,7 +12,7 @@ using System.Reflection;
 namespace PerpetualIntelligence.Protocols.OneImlx
 {
     [TestClass]
-    public class ImlxWarningTests
+    public class OneImlxWarningTests
     {
         [TestMethod]
         public void RequestIdTest()
