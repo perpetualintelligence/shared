@@ -55,7 +55,7 @@ namespace PerpetualIntelligence.Shared.Extensions
                 return string.Empty;
             }
 
-            return string.Join(" ", list).Trim();           
+            return string.Join(" ", list).Trim();
         }
     }
 }

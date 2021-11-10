@@ -5,7 +5,6 @@
 */
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -51,8 +50,7 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
                 return true;
             }
 
-            // only return true if there is only 1 '@' character
-            // and it is neither the first nor the last character
+            // only return true if there is only 1 '@' character and it is neither the first nor the last character
             int index = val.IndexOf('@');
 
             return

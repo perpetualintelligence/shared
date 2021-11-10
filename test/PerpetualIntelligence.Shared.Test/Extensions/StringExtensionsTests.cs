@@ -4,8 +4,6 @@
     https://api.perpetualintelligence.com
 */
 
-// Copyright (c) 2021. All Rights Reserved. Perpetual Intelligence L.L.C. https://perpetualintelligence.com https://api.perpetualintelligence.com
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace PerpetualIntelligence.Shared.Extensions
@@ -13,6 +11,18 @@ namespace PerpetualIntelligence.Shared.Extensions
     [TestClass]
     public class StringExtensionsTests
     {
+        [TestMethod]
+        public void IsNotNullOrWhiteSpaceTest()
+        {
+            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace(""));
+
+            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace("  "));
+
+            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace(null));
+
+            Assert.IsTrue(StringExtensions.IsNotNullOrWhiteSpace("Test"));
+        }
+
         [TestMethod]
         public void IsNullOrEmptyTest()
         {
@@ -26,7 +36,7 @@ namespace PerpetualIntelligence.Shared.Extensions
         }
 
         [TestMethod]
-        public void IsNullOrWhiteSpace()
+        public void IsNullOrWhiteSpaceTest()
         {
             Assert.IsTrue(StringExtensions.IsNullOrWhiteSpace(""));
 
@@ -35,6 +45,12 @@ namespace PerpetualIntelligence.Shared.Extensions
             Assert.IsTrue(StringExtensions.IsNullOrWhiteSpace(null));
 
             Assert.IsFalse(StringExtensions.IsNullOrWhiteSpace("Test"));
+        }
+
+        [TestMethod]
+        public void JoinSpaceTest()
+        {
+            Assert.AreEqual("test1 test2 test3", StringExtensions.JoinSpace(new string[] { "test1", "test2", "test3" }));
         }
     }
 }

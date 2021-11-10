@@ -47,7 +47,7 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
         {
             if (val == null)
             {
-                return true;
+                return false;
             }
 
             return val.StartsWith("http://", StringComparison.OrdinalIgnoreCase)
