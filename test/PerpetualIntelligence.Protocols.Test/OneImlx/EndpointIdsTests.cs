@@ -17,18 +17,18 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         {
             TestHelper.AssertConstantCount(typeof(EndpointIds), 12);
 
-            Assert.AreEqual("urn:pi:protocols:imlx:auth", EndpointIds.Authorize);
-            Assert.AreEqual("urn:pi:protocols:imlx:authcb", EndpointIds.AuthorizeCallback);
-            Assert.AreEqual("urn:pi:protocols:imlx:check", EndpointIds.CheckSession);
-            Assert.AreEqual("urn:pi:protocols:imlx:device", EndpointIds.DeviceAuthorization);
-            Assert.AreEqual("urn:pi:protocols:imlx:discovery", EndpointIds.DiscoveryConfiguration);
-            Assert.AreEqual("urn:pi:protocols:imlx:jwks", EndpointIds.DiscoveryWebKeys);
-            Assert.AreEqual("urn:pi:protocols:imlx:end", EndpointIds.EndSession);
-            Assert.AreEqual("urn:pi:protocols:imlx:endcb", EndpointIds.EndSessionCallback);
-            Assert.AreEqual("urn:pi:protocols:imlx:introspection", EndpointIds.Introspection);
-            Assert.AreEqual("urn:pi:protocols:imlx:revocation", EndpointIds.Revocation);
-            Assert.AreEqual("urn:pi:protocols:imlx:token", EndpointIds.Token);
-            Assert.AreEqual("urn:pi:protocols:imlx:userinfo", EndpointIds.UserInfo);
+            Assert.AreEqual("urn:oneimlx:auth", EndpointIds.Authorize);
+            Assert.AreEqual("urn:oneimlx:authcb", EndpointIds.AuthorizeCallback);
+            Assert.AreEqual("urn:oneimlx:checksession", EndpointIds.CheckSession);
+            Assert.AreEqual("urn:oneimlx:device", EndpointIds.DeviceAuthorization);
+            Assert.AreEqual("urn:oneimlx:discovery", EndpointIds.DiscoveryConfiguration);
+            Assert.AreEqual("urn:oneimlx:jwks", EndpointIds.DiscoveryWebKeys);
+            Assert.AreEqual("urn:oneimlx:endsession", EndpointIds.EndSession);
+            Assert.AreEqual("urn:oneimlx:endsessioncb", EndpointIds.EndSessionCallback);
+            Assert.AreEqual("urn:oneimlx:introspection", EndpointIds.Introspection);
+            Assert.AreEqual("urn:oneimlx:revocation", EndpointIds.Revocation);
+            Assert.AreEqual("urn:oneimlx:token", EndpointIds.Token);
+            Assert.AreEqual("urn:oneimlx:userinfo", EndpointIds.UserInfo);
         }
     }
 }

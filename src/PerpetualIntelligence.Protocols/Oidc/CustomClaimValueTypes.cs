@@ -13,6 +13,6 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// <summary>
         /// A URI that represents Json data type.
         /// </summary>
-        public const string Json = "urn:pi:protocols:oidc:claimvalue:json";
+        public const string Json = "urn:oneimlx:oidc:claimvalue:json";
     }
 }

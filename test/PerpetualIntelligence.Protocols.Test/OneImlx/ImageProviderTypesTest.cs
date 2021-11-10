@@ -17,8 +17,8 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         {
             TestHelper.AssertConstantCount(typeof(ImageProviderTypes), 2);
 
-            Assert.AreEqual("urn:pi:protocols:imlx:img:upload", ImageProviderTypes.Upload);
-            Assert.AreEqual("urn:pi:protocols:imlx:img:url", ImageProviderTypes.Url);
+            Assert.AreEqual("urn:oneimlx:img:upload", ImageProviderTypes.Upload);
+            Assert.AreEqual("urn:oneimlx:img:url", ImageProviderTypes.Url);
         }
     }
 }

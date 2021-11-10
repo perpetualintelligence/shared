@@ -20,13 +20,13 @@ namespace PerpetualIntelligence.Protocols.Oidc
         {
             TestHelper.AssertConstantCount(typeof(AcrValues), 7);
 
-            Assert.AreEqual("urn:pi:protocols:oidc:acr:achrgs", AcrValues.AllowedChargeables);
-            Assert.AreEqual("urn:pi:protocols:oidc:acr:idp", AcrValues.Idp);
-            Assert.AreEqual("urn:pi:protocols:oidc:acr:schrgs", AcrValues.SubscribedChargeables);
-            Assert.AreEqual("urn:pi:protocols:oidc:acr:tenant", AcrValues.Tenant);
-            Assert.AreEqual("urn:pi:protocols:oidc:acr:account", AcrValues.Account);
-            Assert.AreEqual("urn:pi:protocols:oidc:acr:org", AcrValues.Organization);
-            Assert.AreEqual("urn:pi:protocols:oidc:acr:dept", AcrValues.Department);
+            Assert.AreEqual("urn:oneimlx:oidc:acr:achrgs", AcrValues.AllowedChargeables);
+            Assert.AreEqual("urn:oneimlx:oidc:acr:idp", AcrValues.Idp);
+            Assert.AreEqual("urn:oneimlx:oidc:acr:schrgs", AcrValues.SubscribedChargeables);
+            Assert.AreEqual("urn:oneimlx:oidc:acr:tenant", AcrValues.Tenant);
+            Assert.AreEqual("urn:oneimlx:oidc:acr:account", AcrValues.Account);
+            Assert.AreEqual("urn:oneimlx:oidc:acr:org", AcrValues.Organization);
+            Assert.AreEqual("urn:oneimlx:oidc:acr:dept", AcrValues.Department);
         }
     }
 }

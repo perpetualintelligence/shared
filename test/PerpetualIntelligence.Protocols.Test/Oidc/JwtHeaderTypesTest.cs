@@ -15,8 +15,8 @@ namespace PerpetualIntelligence.Protocols.Oidc
         {
             TestHelper.AssertConstantCount(typeof(JwtHeaderTypes), 2);
 
-            Assert.AreEqual("urn:pi:protocols:oidc:jwttyp:at", JwtHeaderTypes.AccessToken);
-            Assert.AreEqual("urn:pi:protocols:oidc:jwttyp:ar", JwtHeaderTypes.AuthorizationRequest);
+            Assert.AreEqual("urn:oneimlx:oidc:jwttyp:at", JwtHeaderTypes.AccessToken);
+            Assert.AreEqual("urn:oneimlx:oidc:jwttyp:ar", JwtHeaderTypes.AuthorizationRequest);
         }
     }
 }

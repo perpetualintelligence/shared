@@ -31,24 +31,24 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         public const string FullName = "Perpetual Intelligence L.L.C.";
 
         /// <summary>
-        /// The <c>oneimlx</c> protocol.
+        /// The logo.
         /// </summary>
-        public const string OneImlx = "urn:pi:protocols:imlx";
-
-        /// <summary>
-        /// The <c>oneimlx</c> protocol.
-        /// </summary>
-        public const string ImlxOrg = "PerpetualIntelligence.OneImlx";
+        public const string LogoUrl = "https://en.gravatar.com/userimage/152742631/5c2800c8660bdabbfdcc1bf9497964d4.png";
 
         /// <summary>
         /// The <c>OAuth</c>, <c>oidc</c> or <c>OpenID Connect</c> protocol.
         /// </summary>
-        public const string Oidc = "urn:pi:protocols:oidc";
+        public const string Oidc = "urn:oneimlx:oidc";
 
         /// <summary>
-        /// The logo.
+        /// The <c>oneimlx</c> protocol.
         /// </summary>
-        public const string LogoUrl = "https://en.gravatar.com/userimage/152742631/5c2800c8660bdabbfdcc1bf9497964d4.png";
+        public const string OneImlx = "urn:oneimlx";
+
+        /// <summary>
+        /// The <c>oneimlx</c> protocol with organization namespace.
+        /// </summary>
+        public const string OneImlxOrg = "PerpetualIntelligence.OneImlx";
 
         /// <summary>
         /// The privacy URL.

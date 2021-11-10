@@ -15,7 +15,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
         {
             TestHelper.AssertConstantCount(typeof(CustomClaimValueTypes), 1);
 
-            Assert.AreEqual("urn:pi:protocols:oidc:claimvalue:json", CustomClaimValueTypes.Json);
+            Assert.AreEqual("urn:oneimlx:oidc:claimvalue:json", CustomClaimValueTypes.Json);
         }
     }
 }

@@ -14,11 +14,11 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// <summary>
         /// The image is uploaded.
         /// </summary>
-        public const string Upload = "urn:pi:protocols:imlx:img:upload";
+        public const string Upload = "urn:oneimlx:img:upload";
 
         /// <summary>
         /// The image is a URL.
         /// </summary>
-        public const string Url = "urn:pi:protocols:imlx:img:url";
+        public const string Url = "urn:oneimlx:img:url";
     }
 }

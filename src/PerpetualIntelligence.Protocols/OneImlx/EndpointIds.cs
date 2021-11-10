@@ -18,61 +18,61 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// <summary>
         /// The authorization endpoint.
         /// </summary>
-        public const string Authorize = "urn:pi:protocols:imlx:auth";
+        public const string Authorize = "urn:oneimlx:auth";
 
         /// <summary>
         /// The authorization callback endpoint.
         /// </summary>
-        public const string AuthorizeCallback = "urn:pi:protocols:imlx:authcb";
+        public const string AuthorizeCallback = "urn:oneimlx:authcb";
 
         /// <summary>
         /// The check session endpoint.
         /// </summary>
-        public const string CheckSession = "urn:pi:protocols:imlx:check";
+        public const string CheckSession = "urn:oneimlx:checksession";
 
         /// <summary>
         /// The device authorization endpoint.
         /// </summary>
-        public const string DeviceAuthorization = "urn:pi:protocols:imlx:device";
+        public const string DeviceAuthorization = "urn:oneimlx:device";
 
         /// <summary>
         /// The discovery well known configuration.
         /// </summary>
-        public const string DiscoveryConfiguration = "urn:pi:protocols:imlx:discovery";
+        public const string DiscoveryConfiguration = "urn:oneimlx:discovery";
 
         /// <summary>
         /// The discovery json web keys endpoint.
         /// </summary>
-        public const string DiscoveryWebKeys = "urn:pi:protocols:imlx:jwks";
+        public const string DiscoveryWebKeys = "urn:oneimlx:jwks";
 
         /// <summary>
         /// The end session endpoint.
         /// </summary>
-        public const string EndSession = "urn:pi:protocols:imlx:end";
+        public const string EndSession = "urn:oneimlx:endsession";
 
         /// <summary>
         /// The end session callback endpoint.
         /// </summary>
-        public const string EndSessionCallback = "urn:pi:protocols:imlx:endcb";
+        public const string EndSessionCallback = "urn:oneimlx:endsessioncb";
 
         /// <summary>
         /// The introspection callback endpoint.
         /// </summary>
-        public const string Introspection = "urn:pi:protocols:imlx:introspection";
+        public const string Introspection = "urn:oneimlx:introspection";
 
         /// <summary>
         /// The revocation callback endpoint.
         /// </summary>
-        public const string Revocation = "urn:pi:protocols:imlx:revocation";
+        public const string Revocation = "urn:oneimlx:revocation";
 
         /// <summary>
         /// The token endpoint.
         /// </summary>
-        public const string Token = "urn:pi:protocols:imlx:token";
+        public const string Token = "urn:oneimlx:token";
 
         /// <summary>
         /// The user information endpoint.
         /// </summary>
-        public const string UserInfo = "urn:pi:protocols:imlx:userinfo";
+        public const string UserInfo = "urn:oneimlx:userinfo";
     }
 }

@@ -31,26 +31,26 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// <summary>
         /// Critical impact to business with no available workaround.
         /// </summary>
-        public const string Critical = "urn:pi:protocol:imlx:severity:crit";
+        public const string Critical = "urn:oneimlx:severity:crit";
 
         /// <summary>
         /// High impact to business with no available workaround.
         /// </summary>
-        public const string High = "urn:pi:protocol:imlx:severity:high";
+        public const string High = "urn:oneimlx:severity:high";
 
         /// <summary>
         /// Low severities cosmetic changes.
         /// </summary>
-        public const string Low = "urn:pi:protocol:imlx:severity:low";
+        public const string Low = "urn:oneimlx:severity:low";
 
         /// <summary>
         /// Medium impact to business but with available workaround.
         /// </summary>
-        public const string Medium = "urn:pi:protocol:imlx:severity:med";
+        public const string Medium = "urn:oneimlx:severity:med";
 
         /// <summary>
         /// Business impact is unknown and severity to be decided.
         /// </summary>
-        public const string Tbd = "urn:pi:protocol:imlx:severity:tbd";
+        public const string Tbd = "urn:oneimlx:severity:tbd";
     }
 }

@@ -16,10 +16,10 @@ namespace PerpetualIntelligence.Protocols.Oidc
             // NOTE: Update the assert checks below if you change the constants.
             TestHelper.AssertConstantCount(typeof(LoginMethods), 4);
 
-            Assert.AreEqual("urn:pi:protocols:oidc:login:pwd", LoginMethods.Password);
-            Assert.AreEqual("urn:pi:protocols:oidc:login:pin", LoginMethods.Pin);
-            Assert.AreEqual("urn:pi:protocols:oidc:login:otp", LoginMethods.Otp);
-            Assert.AreEqual("urn:pi:protocols:oidc:login:unknown", LoginMethods.Unknown);
+            Assert.AreEqual("urn:oneimlx:oidc:login:pwd", LoginMethods.Password);
+            Assert.AreEqual("urn:oneimlx:oidc:login:pin", LoginMethods.Pin);
+            Assert.AreEqual("urn:oneimlx:oidc:login:otp", LoginMethods.Otp);
+            Assert.AreEqual("urn:oneimlx:oidc:login:unknown", LoginMethods.Unknown);
         }
     }
 }

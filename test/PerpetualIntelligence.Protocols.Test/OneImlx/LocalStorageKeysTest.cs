@@ -17,7 +17,7 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         {
             TestHelper.AssertConstantCount(typeof(LocalStorageKeys), 1);
 
-            Assert.AreEqual("urn:pi:protocols:imlx:lsk:isdiag", LocalStorageKeys.IsDiagnostic);
+            Assert.AreEqual("urn:oneimlx:lsk:isdiag", LocalStorageKeys.IsDiagnostic);
         }
     }
 }

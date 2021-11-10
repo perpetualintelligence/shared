@@ -14,17 +14,17 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// <summary>
         /// The imlx protocol identifier.
         /// </summary>
-        public const string ImlxId = "imlx";
+        public const string OneImlxId = "oneimlx";
 
         /// <summary>
         /// The named HTTP client for an API server.
         /// </summary>
-        public const string ApiServerHttpClient = "urn:pi:protocols:imlx:http:server";
+        public const string ApiServerHttpClient = "urn:oneimlx:http:apiserver";
 
         /// <summary>
         /// The named HTTP client for the client application.
         /// </summary>
-        public const string ClientAppHttpClient = "urn:pi:protocols:imlx:http:client";
+        public const string ClientAppHttpClient = "urn:oneimlx:http:clientapp";
 
         /// <summary>
         /// The API form content type <c>application/x-www-form-urlencoded</c>.
@@ -49,21 +49,21 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// <summary>
         /// The live mode of payments.
         /// </summary>
-        public const string LivePayment = "urn:pi:protocols:imlx:payment:live";
+        public const string LivePayment = "urn:oneimlx:payment:live";
 
         /// <summary>
         /// The localhost endpoint.
         /// </summary>
-        public const string LocalhostEndpoint = "urn:pi:protocols:imlx:host:local";
+        public const string LocalhostEndpoint = "urn:oneimlx:host:local";
 
         /// <summary>
         /// The production endpoint.
         /// </summary>
-        public const string ProductionEndpoint = "urn:pi:protocols:imlx:host:prod";
+        public const string ProductionEndpoint = "urn:oneimlx:host:prod";
 
         /// <summary>
         /// The test mode of payments.
         /// </summary>
-        public const string TestPayment = "urn:pi:protocols:imlx:payment:test";
+        public const string TestPayment = "urn:oneimlx:payment:test";
     }
 }

@@ -12,13 +12,14 @@ namespace PerpetualIntelligence.Protocols.Oidc
     public static class AccessTokens
     {
         /// <summary>
-        /// Self-contained Json Web Token. A JWT token embeds identifiable information in the authorization response. See <see href="https://datatracker.ietf.org/doc/html/rfc7519"/> for more information.
+        /// Self-contained Json Web Token. A JWT token embeds identifiable information in the authorization response.
+        /// See <see href="https://datatracker.ietf.org/doc/html/rfc7519"/> for more information.
         /// </summary>
-        public const string Jwt = "urn:pi:protocols:oidc:at:jwt";
+        public const string Jwt = "urn:oneimlx:oidc:at:jwt";
 
         /// <summary>
         /// Opaque token that do not embed any identifiable information.
         /// </summary>
-        public const string Opaque = "urn:pi:protocols:oidc:at:opaque";
+        public const string Opaque = "urn:oneimlx:oidc:at:opaque";
     }
 }

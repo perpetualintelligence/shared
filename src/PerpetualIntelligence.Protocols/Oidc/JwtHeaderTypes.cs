@@ -14,11 +14,11 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// <summary>
         /// OAuth 2.0 access token
         /// </summary>
-        public const string AccessToken = "urn:pi:protocols:oidc:jwttyp:at";
+        public const string AccessToken = "urn:oneimlx:oidc:jwttyp:at";
 
         /// <summary>
         /// JWT secured authorization request.
         /// </summary>
-        public const string AuthorizationRequest = "urn:pi:protocols:oidc:jwttyp:ar";
+        public const string AuthorizationRequest = "urn:oneimlx:oidc:jwttyp:ar";
     }
 }

@@ -17,10 +17,10 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         {
             TestHelper.AssertConstantCount(typeof(HttpClientNames), 4);
 
-            Assert.AreEqual("pi:protocols:imlx:http:capp", HttpClientNames.ClientApp);
-            Assert.AreEqual("pi:protocols:imlx:http:apisvr", HttpClientNames.ApiServer);
-            Assert.AreEqual("pi:protocols:imlx:http:jwturis", HttpClientNames.JwtRequestUri);
-            Assert.AreEqual("pi:protocols:imlx:http:bclogout", HttpClientNames.BackChannelLogout);
+            Assert.AreEqual("urn:oneimlx:http:capp", HttpClientNames.ClientApp);
+            Assert.AreEqual("urn:oneimlx:http:apisvr", HttpClientNames.ApiServer);
+            Assert.AreEqual("urn:oneimlx:http:jwturis", HttpClientNames.JwtRequestUri);
+            Assert.AreEqual("urn:oneimlx:http:bclogout", HttpClientNames.BackChannelLogout);
         }
     }
 }

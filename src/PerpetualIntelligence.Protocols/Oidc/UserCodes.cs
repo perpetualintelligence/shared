@@ -14,11 +14,11 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// <summary>
         /// Alphanumeric code.
         /// </summary>
-        public const string AlphaNumeric = "urn:pi:protocols:oidc:ucode:anum";
+        public const string AlphaNumeric = "urn:oneimlx:oidc:ucode:anum";
 
         /// <summary>
         /// Numeric code.
         /// </summary>
-        public const string Numeric = "urn:pi:protocols:oidc:ucode:num";
+        public const string Numeric = "urn:oneimlx:oidc:ucode:num";
     }
 }

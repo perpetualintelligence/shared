@@ -17,8 +17,8 @@ namespace PerpetualIntelligence.Protocols.Oidc
         {
             TestHelper.AssertConstantCount(typeof(UserCodes), 2);
 
-            Assert.AreEqual("urn:pi:protocols:oidc:ucode:anum", UserCodes.AlphaNumeric);
-            Assert.AreEqual("urn:pi:protocols:oidc:ucode:num", UserCodes.Numeric);
+            Assert.AreEqual("urn:oneimlx:oidc:ucode:anum", UserCodes.AlphaNumeric);
+            Assert.AreEqual("urn:oneimlx:oidc:ucode:num", UserCodes.Numeric);
         }
     }
 }

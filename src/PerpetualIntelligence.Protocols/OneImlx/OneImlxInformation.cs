@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
-    /// Represents a base information model for all <c>oneimlx</c> services.
+    /// The generic <c>oneimlx</c> information.
     /// </summary>
     public class OneImlxInformation
     {
@@ -38,13 +38,21 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// <param name="informationDescription"></param>
         /// <param name="informationUri"></param>
         /// <param name="requestId"></param>
-        public OneImlxInformation(string information, string? informationDescription = null, string? informationUri = null, string? requestId = null)
+        /// <param name="httpStatusCode"></param>
+        public OneImlxInformation(string information, string? informationDescription = null, string? informationUri = null, string? requestId = null, int? httpStatusCode = null)
         {
             Information = information;
             InformationDescription = informationDescription;
             InformationUri = informationUri;
             RequestId = requestId;
+            HttpStatusCode = httpStatusCode;
         }
+
+        /// <summary>
+        /// The HTTP status code <c>http_status_code</c>.
+        /// </summary>
+        [JsonPropertyName("http_status_code")]
+        public int? HttpStatusCode { get; set; }
 
         /// <summary>
         /// The <c>information</c> code.

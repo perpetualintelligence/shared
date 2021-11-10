@@ -32,22 +32,22 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// <summary>
         /// The default CORS policy name.
         /// </summary>
-        public const string CorsPolicyName = OrgConstants.ImlxOrg + ".Cors";
+        public const string CorsPolicyName = OrgConstants.OneImlxOrg + ".Cors";
 
         /// <summary>
         /// The default <c>check_session</c> cookie name.
         /// </summary>
-        public const string DefaultCheckSessionCookieName = OrgConstants.ImlxOrg + ".Cookie.Session";
+        public const string DefaultCheckSessionCookieName = OrgConstants.OneImlxOrg + ".Cookie.Session";
 
         /// <summary>
         /// The default authentication cookie name.
         /// </summary>
-        public const string DefaultCookieAuthenticationScheme = OrgConstants.ImlxOrg + ".Cookie.Auth";
+        public const string DefaultCookieAuthenticationScheme = OrgConstants.OneImlxOrg + ".Cookie.Auth";
 
         /// <summary>
         /// The default external authentication cookie name.
         /// </summary>
-        public const string DefaultExternalCookieAuthenticationScheme = OrgConstants.ImlxOrg + ".Cookie.External";
+        public const string DefaultExternalCookieAuthenticationScheme = OrgConstants.OneImlxOrg + ".Cookie.External";
 
         /// <summary>
         /// The <c>jwt</c> request key.

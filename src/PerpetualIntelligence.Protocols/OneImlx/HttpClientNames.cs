@@ -15,21 +15,21 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// <summary>
         /// The client application HTTP client name.
         /// </summary>
-        public const string ClientApp = "pi:protocols:imlx:http:capp";
+        public const string ClientApp = "urn:oneimlx:http:capp";
 
         /// <summary>
         /// The API server HTTP client name.
         /// </summary>
-        public const string ApiServer = "pi:protocols:imlx:http:apisvr";
+        public const string ApiServer = "urn:oneimlx:http:apisvr";
 
         /// <summary>
         /// The <c>jwt_uris</c> HTTP client name.
         /// </summary>
-        public const string JwtRequestUri = "pi:protocols:imlx:http:jwturis";
+        public const string JwtRequestUri = "urn:oneimlx:http:jwturis";
 
         /// <summary>
         /// The back channel logout HTTP client name.
         /// </summary>
-        public const string BackChannelLogout = "pi:protocols:imlx:http:bclogout";
+        public const string BackChannelLogout = "urn:oneimlx:http:bclogout";
     }
 }

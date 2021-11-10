@@ -17,15 +17,15 @@ namespace PerpetualIntelligence.Protocols.Security.Secrets
         {
             TestHelper.AssertConstantCount(typeof(SecretTypes), 9);
 
-            Assert.AreEqual("urn:pi:protocols:security:secret:jwk", SecretTypes.JsonWebKey);
+            Assert.AreEqual("urn:oneimlx:security:secret:jwk", SecretTypes.JsonWebKey);
             Assert.AreEqual("urn:ietf:params:oauth:client-assertion-type:jwt-bearer", SecretTypes.JwtBearer);
-            Assert.AreEqual("urn:pi:protocols:security:secret:none", SecretTypes.None);
-            Assert.AreEqual("urn:pi:protocols:security:secret:pln", SecretTypes.Plain);
-            Assert.AreEqual("urn:pi:protocols:security:secret:sha", SecretTypes.Sha);
-            Assert.AreEqual("urn:pi:protocols:security:secret:x509b64", SecretTypes.X509Base64);
-            Assert.AreEqual("urn:pi:protocols:security:secret:x509mtls", SecretTypes.X509Mtls);
-            Assert.AreEqual("urn:pi:protocols:security:secret:x509sub", SecretTypes.X509Subject);
-            Assert.AreEqual("urn:pi:protocols:security:secret:x509tb", SecretTypes.X509Thumbprint);
+            Assert.AreEqual("urn:oneimlx:security:secret:none", SecretTypes.None);
+            Assert.AreEqual("urn:oneimlx:security:secret:pln", SecretTypes.Plain);
+            Assert.AreEqual("urn:oneimlx:security:secret:sha", SecretTypes.Sha);
+            Assert.AreEqual("urn:oneimlx:security:secret:x509b64", SecretTypes.X509Base64);
+            Assert.AreEqual("urn:oneimlx:security:secret:x509mtls", SecretTypes.X509Mtls);
+            Assert.AreEqual("urn:oneimlx:security:secret:x509sub", SecretTypes.X509Subject);
+            Assert.AreEqual("urn:oneimlx:security:secret:x509tb", SecretTypes.X509Thumbprint);
         }
     }
 }

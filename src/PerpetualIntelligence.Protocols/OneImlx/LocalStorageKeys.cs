@@ -7,7 +7,7 @@
 namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
-    /// The Perpetual Intelligence local storage keys.
+    /// The <c>oneimlx</c> local storage keys.
     /// </summary>
     /// <remarks>
     /// NOTE: This class is part of the Perpetual Intelligence infrastructure. Please do not use it directly in your
@@ -18,6 +18,6 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// <summary>
         /// Determines the diagnostic state from the local storage.
         /// </summary>
-        public const string IsDiagnostic = "urn:pi:protocols:imlx:lsk:isdiag";
+        public const string IsDiagnostic = "urn:oneimlx:lsk:isdiag";
     }
 }

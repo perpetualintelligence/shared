@@ -14,21 +14,21 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// <summary>
         /// The one-time pass-code.
         /// </summary>
-        public const string Otp = "urn:pi:protocols:oidc:login:otp";
+        public const string Otp = "urn:oneimlx:oidc:login:otp";
 
         /// <summary>
         /// The user password.
         /// </summary>
-        public const string Password = "urn:pi:protocols:oidc:login:pwd";
+        public const string Password = "urn:oneimlx:oidc:login:pwd";
 
         /// <summary>
         /// The personal identification number or a pattern.
         /// </summary>
-        public const string Pin = "urn:pi:protocols:oidc:login:pin";
+        public const string Pin = "urn:oneimlx:oidc:login:pin";
 
         /// <summary>
         /// The unknown.
         /// </summary>
-        public const string Unknown = "urn:pi:protocols:oidc:login:unknown";
+        public const string Unknown = "urn:oneimlx:oidc:login:unknown";
     }
 }

@@ -16,16 +16,16 @@ namespace PerpetualIntelligence.Protocols.Oidc
             TestHelper.AssertConstantCount(typeof(Scopes), 11);
 
             Assert.AreEqual("address", Scopes.Address);
-            Assert.AreEqual("urn:pi:protocols:oidc:scope:app", Scopes.Application);
+            Assert.AreEqual("urn:oneimlx:oidc:scope:app", Scopes.Application);
             Assert.AreEqual("email", Scopes.Email);
             Assert.AreEqual("offline_access", Scopes.OfflineAccess);
             Assert.AreEqual("openid", Scopes.OpenId);
-            Assert.AreEqual("urn:pi:protocols:oidc:scope:perm", Scopes.Permission);
+            Assert.AreEqual("urn:oneimlx:oidc:scope:perm", Scopes.Permission);
             Assert.AreEqual("phone", Scopes.Phone);
             Assert.AreEqual("profile", Scopes.Profile);
             Assert.AreEqual("role", Scopes.Role);
-            Assert.AreEqual("urn:pi:protocols:oidc:scope:tenant", Scopes.Tenant);
-            Assert.AreEqual("urn:pi:protocols:oidc:scope:api", Scopes.Api);
+            Assert.AreEqual("urn:oneimlx:oidc:scope:tenant", Scopes.Tenant);
+            Assert.AreEqual("urn:oneimlx:oidc:scope:api", Scopes.Api);
         }
     }
 }

@@ -22,7 +22,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// This scope value requests access to the Perpetual Intelligence's <c>allowed_apps</c> and <c>subscribed_apps</c>.
         /// </summary>
         [Todo("Updatate this to correctly reflect the allowed_apps and subscribed_apps. Should we keep the names with _ or with pascal case.")]
-        public const string Application = "urn:pi:protocols:oidc:scope:app";
+        public const string Application = "urn:oneimlx:oidc:scope:app";
 
         /// <summary>
         /// This scope value requests access to the <c>email</c> and <c>email_verified</c> claims.
@@ -46,7 +46,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// This scope value requests access to the Perpetual Intelligence's <c>allowed_perms</c> and <c>subscribed_perms</c>.
         /// </summary>
         [Todo("Updatate this to correctly reflect the allowed_perms and subscribed_perms. Should we keep the names with _ or with pascal case.")]
-        public const string Permission = "urn:pi:protocols:oidc:scope:perm";
+        public const string Permission = "urn:oneimlx:oidc:scope:perm";
 
         /// <summary>
         /// This scope value requests access to the <c>phone_number</c> and <c>phone_number_verified</c> claims.
@@ -70,11 +70,11 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// <summary>
         /// This scope value requests access to the Perpetual Intelligence's <c>tenant</c> claim.
         /// </summary>
-        public const string Tenant = "urn:pi:protocols:oidc:scope:tenant";
+        public const string Tenant = "urn:oneimlx:oidc:scope:tenant";
 
         /// <summary>
         /// This scope value requests access to the Perpetual Intelligence's <c>api</c> claim.
         /// </summary>
-        public const string Api = "urn:pi:protocols:oidc:scope:api";
+        public const string Api = "urn:oneimlx:oidc:scope:api";
     }
 }

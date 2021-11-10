@@ -22,9 +22,9 @@ namespace PerpetualIntelligence.Protocols.OneImlx
             Assert.AreEqual("donotreply@perpetualintelligence.com", OrgConstants.DoNotReplyEmail);
             Assert.AreEqual("Perpetual Intelligence L.L.C.", OrgConstants.FullName);
             Assert.AreEqual("Perpetual Intelligence", OrgConstants.ShortName);
-            Assert.AreEqual("urn:pi:protocols:imlx", OrgConstants.OneImlx);
-            Assert.AreEqual("PerpetualIntelligence.OneImlx", OrgConstants.ImlxOrg);
-            Assert.AreEqual("urn:pi:protocols:oidc", OrgConstants.Oidc);
+            Assert.AreEqual("urn:oneimlx", OrgConstants.OneImlx);
+            Assert.AreEqual("PerpetualIntelligence.OneImlx", OrgConstants.OneImlxOrg);
+            Assert.AreEqual("urn:oneimlx:oidc", OrgConstants.Oidc);
             Assert.AreEqual("https://perpetualintelligence.com/legal/privacy", OrgConstants.PrivacyUrl);
             Assert.AreEqual("https://perpetualintelligence.com/legal/terms", OrgConstants.TermsUrl);
         }

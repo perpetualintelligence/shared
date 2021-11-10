@@ -36,7 +36,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
 
         /// <summary>
         /// </summary>
-        public const string Application = "urn:pi:protocols:oidc:jwtclaims:app";
+        public const string Application = "urn:oneimlx:oidc:jwtclaims:app";
 
         /// <summary>
         /// Audience(s) that this ID Token is intended for. It MUST contain the OAuth 2.0 client_id of the Relying Party
@@ -235,7 +235,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
 
         /// <summary>
         /// </summary>
-        public const string Permission = "urn:pi:protocols:oidc:jwtclaims:perm";
+        public const string Permission = "urn:oneimlx:oidc:jwtclaims:perm";
 
         /// <summary>
         /// End-User's preferred telephone number. E.164 (https://www.itu.int/rec/T-REC-E.164/e) is RECOMMENDED as the
@@ -318,19 +318,19 @@ namespace PerpetualIntelligence.Protocols.Oidc
 
         /// <summary>
         /// </summary>
-        public const string Tenant = "urn:pi:protocols:oidc:jwtclaims:tenant";
+        public const string Tenant = "urn:oneimlx:oidc:jwtclaims:tenant";
 
         /// <summary>
         /// </summary>
-        public const string Account = "urn:pi:protocols:oidc:jwtclaims:account";
+        public const string Account = "urn:oneimlx:oidc:jwtclaims:account";
 
         /// <summary>
         /// </summary>
-        public const string Organization = "urn:pi:protocols:oidc:jwtclaims:org";
+        public const string Organization = "urn:oneimlx:oidc:jwtclaims:org";
 
         /// <summary>
         /// </summary>
-        public const string Department = "urn:pi:protocols:oidc:jwtclaims:dept";
+        public const string Department = "urn:oneimlx:oidc:jwtclaims:dept";
 
         /// <summary>
         /// Time the End-User's information was last updated. Its value is a JSON number representing the number of

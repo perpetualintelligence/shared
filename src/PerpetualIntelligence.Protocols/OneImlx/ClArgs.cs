@@ -9,7 +9,7 @@ using PerpetualIntelligence.Shared.Attributes;
 namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
-    /// The Perpetual Intelligence command line arguments. Argument names must start with 'piarg' and contain characters
+    /// The Perpetual Intelligence command line arguments. Argument names must start with 'oneimlxarg' and contain characters
     /// a-z, A-Z, and letters 0-9. No special characters are allowed.
     /// </summary>
     /// <remarks>
@@ -22,11 +22,11 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// <summary>
         /// Command line argument to use controller as a service.
         /// </summary>
-        public const string ControllerAsService = "piargcontrollerasservice";
+        public const string ControllerAsService = "oneimlxargcontrollerasservice";
 
         /// <summary>
         /// Command line argument to enable logger.
         /// </summary>
-        public const string EnableLogger = "piargenablelogger";
+        public const string EnableLogger = "oneimlxargenablelogger";
     }
 }

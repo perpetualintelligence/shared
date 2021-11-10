@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
-    /// Represents a base error model for all <c>oneimlx</c> services.
+    /// The generic <c>oneimlx</c> error.
     /// </summary>
     public class OneImlxError
     {
@@ -25,16 +25,18 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        /// <param name="error"></param>
-        /// <param name="errorDescription"></param>
-        /// <param name="errorUri"></param>
-        /// <param name="requestId"></param>
-        public OneImlxError(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null)
+        /// <param name="error">The error code.</param>
+        /// <param name="errorDescription">The error description.</param>
+        /// <param name="errorUri">The error URI.</param>
+        /// <param name="requestId">The request id.</param>
+        /// <param name="httpStatusCode">The HTTP status code.</param>
+        public OneImlxError(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null, int? httpStatusCode = null)
         {
             Error = error;
             ErrorDescription = errorDescription;
             ErrorUri = errorUri;
             RequestId = requestId;
+            HttpStatusCode = httpStatusCode;
         }
 
         /// <summary>
@@ -44,27 +46,27 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         public string Error { get; set; }
 
         /// <summary>
-        /// The <c>error_uri</c>.
-        /// </summary>
-        [JsonPropertyName("error_uri")]
-        public string? ErrorUri { get; set; }
-
-        /// <summary>
         /// The <c>error_description</c>.
         /// </summary>
         [JsonPropertyName("error_description")]
         public string? ErrorDescription { get; set; }
 
         /// <summary>
-        /// The request identifier for a request.
+        /// The <c>error_uri</c>.
         /// </summary>
-        [JsonPropertyName("request_id")]
-        public string? RequestId { get; set; }
+        [JsonPropertyName("error_uri")]
+        public string? ErrorUri { get; set; }
 
         /// <summary>
-        /// The HTTP status code.
+        /// The HTTP status code <c>http_status_code</c>.
         /// </summary>
         [JsonPropertyName("http_status_code")]
         public int? HttpStatusCode { get; set; }
+
+        /// <summary>
+        /// The request identifier <c>request_id</c>.
+        /// </summary>
+        [JsonPropertyName("request_id")]
+        public string? RequestId { get; set; }
     }
 }

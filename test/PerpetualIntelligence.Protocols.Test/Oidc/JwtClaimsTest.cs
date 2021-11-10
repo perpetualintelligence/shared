@@ -24,7 +24,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
             Assert.AreEqual("at_hash", JwtClaims.AccessTokenHash);
             Assert.AreEqual("act", JwtClaims.Actor);
             Assert.AreEqual("address", JwtClaims.Address);
-            Assert.AreEqual("urn:pi:protocols:oidc:jwtclaims:app", JwtClaims.Application);
+            Assert.AreEqual("urn:oneimlx:oidc:jwtclaims:app", JwtClaims.Application);
             Assert.AreEqual("aud", JwtClaims.Audience);
             Assert.AreEqual("acr", JwtClaims.AuthenticationContextClassReference);
             Assert.AreEqual("amr", JwtClaims.AuthenticationMethod);
@@ -53,7 +53,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
             Assert.AreEqual("nickname", JwtClaims.NickName);
             Assert.AreEqual("nonce", JwtClaims.Nonce);
             Assert.AreEqual("nbf", JwtClaims.NotBefore);
-            Assert.AreEqual("urn:pi:protocols:oidc:jwtclaims:perm", JwtClaims.Permission);
+            Assert.AreEqual("urn:oneimlx:oidc:jwtclaims:perm", JwtClaims.Permission);
             Assert.AreEqual("phone_number", JwtClaims.PhoneNumber);
             Assert.AreEqual("phone_number_verified", JwtClaims.PhoneNumberVerified);
             Assert.AreEqual("picture", JwtClaims.Picture);
@@ -65,10 +65,10 @@ namespace PerpetualIntelligence.Protocols.Oidc
             Assert.AreEqual("sid", JwtClaims.SessionId);
             Assert.AreEqual("s_hash", JwtClaims.StateHash);
             Assert.AreEqual("sub", JwtClaims.Subject);
-            Assert.AreEqual("urn:pi:protocols:oidc:jwtclaims:tenant", JwtClaims.Tenant);
-            Assert.AreEqual("urn:pi:protocols:oidc:jwtclaims:account", JwtClaims.Account);
-            Assert.AreEqual("urn:pi:protocols:oidc:jwtclaims:org", JwtClaims.Organization);
-            Assert.AreEqual("urn:pi:protocols:oidc:jwtclaims:dept", JwtClaims.Department);
+            Assert.AreEqual("urn:oneimlx:oidc:jwtclaims:tenant", JwtClaims.Tenant);
+            Assert.AreEqual("urn:oneimlx:oidc:jwtclaims:account", JwtClaims.Account);
+            Assert.AreEqual("urn:oneimlx:oidc:jwtclaims:org", JwtClaims.Organization);
+            Assert.AreEqual("urn:oneimlx:oidc:jwtclaims:dept", JwtClaims.Department);
             Assert.AreEqual("updated_at", JwtClaims.UpdatedAt);
             Assert.AreEqual("website", JwtClaims.WebSite);
             Assert.AreEqual("zoneinfo", JwtClaims.ZoneInfo);

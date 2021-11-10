@@ -4,11 +4,14 @@
     https://api.perpetualintelligence.com
 */
 
+using PerpetualIntelligence.Shared.Attributes;
+
 namespace PerpetualIntelligence.Protocols.Oidc
 {
     /// <summary>
-    /// The <c>acr_values</c> supported by the <c>oneimlx</c> OAuth or OpenID Connect authorization server.
+    /// The <c>acr_values</c> supported by the <c>oneimlx</c> authorization server.
     /// </summary>
+    [MustDo("For multi-tenancy we have concept of tiers and org, depts. These needs to be merged as 1 concept.", BlockRelease = true)]
     public static class AcrValues
     {
         /// <summary>
@@ -33,38 +36,38 @@ namespace PerpetualIntelligence.Protocols.Oidc
         }
 
         /// <summary>
+        /// The account for multi-tenancy.
+        /// </summary>
+        public const string Account = "urn:oneimlx:oidc:acr:account";
+
+        /// <summary>
         /// The allowed chargeables.
         /// </summary>
-        public const string AllowedChargeables = "urn:pi:protocols:oidc:acr:achrgs";
+        public const string AllowedChargeables = "urn:oneimlx:oidc:acr:achrgs";
+
+        /// <summary>
+        /// The tenant for multi-tenancy.
+        /// </summary>
+        public const string Department = "urn:oneimlx:oidc:acr:dept";
 
         /// <summary>
         /// The IDP or an Identity Provider.
         /// </summary>
-        public const string Idp = "urn:pi:protocols:oidc:acr:idp";
+        public const string Idp = "urn:oneimlx:oidc:acr:idp";
+
+        /// <summary>
+        /// The tenant for multi-tenancy.
+        /// </summary>
+        public const string Organization = "urn:oneimlx:oidc:acr:org";
 
         /// <summary>
         /// The subscribed chargeables.
         /// </summary>
-        public const string SubscribedChargeables = "urn:pi:protocols:oidc:acr:schrgs";
+        public const string SubscribedChargeables = "urn:oneimlx:oidc:acr:schrgs";
 
         /// <summary>
         /// The tenant for multi-tenancy.
         /// </summary>
-        public const string Tenant = "urn:pi:protocols:oidc:acr:tenant";
-
-        /// <summary>
-        /// The account for multi-tenancy.
-        /// </summary>
-        public const string Account = "urn:pi:protocols:oidc:acr:account";
-
-        /// <summary>
-        /// The tenant for multi-tenancy.
-        /// </summary>
-        public const string Organization = "urn:pi:protocols:oidc:acr:org";
-
-        /// <summary>
-        /// The tenant for multi-tenancy.
-        /// </summary>
-        public const string Department = "urn:pi:protocols:oidc:acr:dept";
+        public const string Tenant = "urn:oneimlx:oidc:acr:tenant";
     }
 }

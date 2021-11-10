@@ -17,8 +17,8 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         {
             TestHelper.AssertConstantCount(typeof(ClArgs), 2);
 
-            Assert.AreEqual("piargcontrollerasservice", ClArgs.ControllerAsService);
-            Assert.AreEqual("piargenablelogger", ClArgs.EnableLogger);
+            Assert.AreEqual("oneimlxargcontrollerasservice", ClArgs.ControllerAsService);
+            Assert.AreEqual("oneimlxargenablelogger", ClArgs.EnableLogger);
         }
     }
 }

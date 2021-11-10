@@ -17,11 +17,11 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         {
             TestHelper.AssertConstantCount(typeof(Severity), 5);
 
-            Assert.AreEqual("urn:pi:protocol:imlx:severity:crit", Severity.Critical);
-            Assert.AreEqual("urn:pi:protocol:imlx:severity:high", Severity.High);
-            Assert.AreEqual("urn:pi:protocol:imlx:severity:low", Severity.Low);
-            Assert.AreEqual("urn:pi:protocol:imlx:severity:med", Severity.Medium);
-            Assert.AreEqual("urn:pi:protocol:imlx:severity:tbd", Severity.Tbd);
+            Assert.AreEqual("urn:oneimlx:severity:crit", Severity.Critical);
+            Assert.AreEqual("urn:oneimlx:severity:high", Severity.High);
+            Assert.AreEqual("urn:oneimlx:severity:low", Severity.Low);
+            Assert.AreEqual("urn:oneimlx:severity:med", Severity.Medium);
+            Assert.AreEqual("urn:oneimlx:severity:tbd", Severity.Tbd);
         }
     }
 }

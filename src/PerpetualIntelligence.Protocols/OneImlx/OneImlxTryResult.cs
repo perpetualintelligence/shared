@@ -1,14 +1,16 @@
-﻿// Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
-// https://perpetualintelligence.com
-// https://api.perpetualintelligence.com
+﻿/*
+    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    https://perpetualintelligence.com
+    https://api.perpetualintelligence.com
+*/
 
 namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
-    /// Represents a result of a try method.
+    /// The <c>oneimlx</c> result of a try method.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public sealed class TryResult <T>
+    public sealed class OneImlxTryResult<T>
     {
         /// <summary>
         /// Indicates that the try has an error.
@@ -22,13 +24,13 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         }
 
         /// <summary>
-        /// The error during the try.
-        /// </summary>
-        public OneImlxError? TryError { get; set; }
-
-        /// <summary>
         /// The result of a try.
         /// </summary>
         public T? Result { get; set; }
+
+        /// <summary>
+        /// The error during the try.
+        /// </summary>
+        public OneImlxError? TryError { get; set; }
     }
 }

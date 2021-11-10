@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
-    /// Represents a base warning model for all <c>oneimlx</c> services.
+    /// The generic <c>oneimlx</c> warning.
     /// </summary>
     public class OneImlxWarning
     {
@@ -38,13 +38,20 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// <param name="warningDescription"></param>
         /// <param name="warningUri"></param>
         /// <param name="requestId"></param>
-        public OneImlxWarning(string warning, string? warningDescription = null, string? warningUri = null, string? requestId = null)
+        /// <param name="httpStatusCode"></param>
+        public OneImlxWarning(string warning, string? warningDescription = null, string? warningUri = null, string? requestId = null, int? httpStatusCode = null)
         {
             Warning = warning;
             WarningDescription = warningDescription;
             WarningUri = warningUri;
             RequestId = requestId;
         }
+
+        /// <summary>
+        /// The HTTP status code <c>http_status_code</c>.
+        /// </summary>
+        [JsonPropertyName("http_status_code")]
+        public int? HttpStatusCode { get; set; }
 
         /// <summary>
         /// The request identifier for a request.
