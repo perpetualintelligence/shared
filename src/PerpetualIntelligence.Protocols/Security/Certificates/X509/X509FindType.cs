@@ -40,12 +40,12 @@ namespace PerpetualIntelligence.Protocols.Security.Certificates.X509
         public System.Security.Cryptography.X509Certificates.X509FindType FindType { get; }
 
         /// <summary>
-        /// The X.509 <see cref="StoreLocation"/>.
+        /// The X509 <see cref="StoreLocation"/>.
         /// </summary>
         public StoreLocation Location { get; }
 
         /// <summary>
-        /// The X.509 <see cref="StoreName"/>.
+        /// The X509 <see cref="StoreName"/>.
         /// </summary>
         public StoreName Name { get; }
 
