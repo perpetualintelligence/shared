@@ -4,11 +4,14 @@
     https://api.perpetualintelligence.com
 */
 
+using PerpetualIntelligence.Shared.Attributes;
+
 namespace PerpetualIntelligence.Shared.Abstractions
 {
     /// <summary>
     /// An abstraction for normalizing email, name, key and identifier.
     /// </summary>
+    [MustDo("Microsoft.AspNetCore.Identity already has ILookupNormalizer")]
     public interface ILookupNormalizer
     {
         /// <summary>

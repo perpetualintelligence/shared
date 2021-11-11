@@ -11,7 +11,7 @@ namespace PerpetualIntelligence.Shared.Patterns
     /// <summary>
     /// A disposable <see cref="Decorator{TObject}"/>.
     /// </summary>
-    /// <typeparam name="TObject">The inner object type.</typeparam>
+    /// <typeparam name="TObject">The inner object type. It can be <see cref="IDisposable"/>.</typeparam>
     public class DisposableDecorator<TObject> : Decorator<TObject>, IDisposable
     {
         /// <summary>
