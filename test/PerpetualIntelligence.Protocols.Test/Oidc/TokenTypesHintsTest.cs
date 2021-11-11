@@ -10,7 +10,7 @@ using PerpetualIntelligence.Test.Services;
 namespace PerpetualIntelligence.Protocols.Oidc
 {
     [TestClass]
-    public class TokenTypesTest
+    public class TokenTypesHintsTest
     {
         [TestMethod]
         public void TokenTypesConstantsTest()

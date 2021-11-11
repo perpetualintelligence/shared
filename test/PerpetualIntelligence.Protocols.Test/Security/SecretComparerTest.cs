@@ -12,7 +12,7 @@ namespace PerpetualIntelligence.Protocols.Security.Secrets
     public class SecretComparerTest
     {
         [TestMethod]
-        public void ConstantTimeComparerISEqualTest()
+        public void ConstantTimeComparerIsEqualTest()
         {
             Assert.IsTrue(SecretComparer.IsEqual("", ""));
             Assert.IsFalse(SecretComparer.IsEqual("TestString", ""));
