@@ -20,7 +20,7 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
             Assert.IsTrue(urlListAttribute.IsValid(null));
             Assert.IsTrue(urlListAttribute.IsValid(new string[] { "http://testurl", "https://testurl2", "ftp://testurl3" }));
 
-            Assert.IsFalse(urlListAttribute.IsValid(new string[] { null, "https://testurl2", "ftp://testurl3" }));
+            Assert.IsFalse(urlListAttribute.IsValid(new string?[] { null, "https://testurl2", "ftp://testurl3" }));
             Assert.IsFalse(urlListAttribute.IsValid(new string[] { "invalid_url", "https://testurl2", "ftp://testurl3" }));
         }
     }
