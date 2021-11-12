@@ -18,7 +18,6 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// <summary>
         /// The valid consent errors.
         /// </summary>
-        [ToUnitTest]
         public static string[] ConsentErrors
         {
             get
@@ -36,7 +35,6 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// <summary>
         /// The valid token errors.
         /// </summary>
-        [ToUnitTest]
         public static string[] TokenErrors
         {
             get

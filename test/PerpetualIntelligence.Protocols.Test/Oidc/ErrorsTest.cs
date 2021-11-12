@@ -8,13 +8,37 @@ using PerpetualIntelligence.Test.Services;
 namespace PerpetualIntelligence.Protocols.Oidc
 {
     [TestClass]
-   public class ErrorsTest
+    public class ErrorsTest
     {
+        [TestMethod]
+        public void ConsentErrorsTest()
+        {
+            Assert.AreEqual(5, Errors.ConsentErrors.Length);
+            Assert.AreEqual("access_denied", Errors.ConsentErrors[0]);
+            Assert.AreEqual("interaction_required", Errors.ConsentErrors[1]);
+            Assert.AreEqual("login_required", Errors.ConsentErrors[2]);
+            Assert.AreEqual("account_selection_required", Errors.ConsentErrors[3]);
+            Assert.AreEqual("consent_required", Errors.ConsentErrors[4]);
+        }
+
+        [TestMethod]
+        public void TokenErrorsTest()
+        {
+            Assert.AreEqual(7, Errors.TokenErrors.Length);
+            Assert.AreEqual("invalid_request", Errors.TokenErrors[0]);
+            Assert.AreEqual("invalid_client", Errors.TokenErrors[1]);
+            Assert.AreEqual("invalid_grant", Errors.TokenErrors[2]);
+            Assert.AreEqual("unauthorized_client", Errors.TokenErrors[3]);
+            Assert.AreEqual("unsupported_grant_type", Errors.TokenErrors[4]);
+            Assert.AreEqual("invalid_scope", Errors.TokenErrors[5]);
+            Assert.AreEqual("invalid_target", Errors.TokenErrors[6]);
+        }
+
         [TestMethod]
         public void ErrorConstantsTest()
         {
             TestHelper.AssertConstantCount(typeof(Errors), 35);
-                        
+
             Assert.AreEqual("access_denied", Errors.AccessDenied);
             Assert.AreEqual("account_selection_required", Errors.AccountSelectionRequired);
             Assert.AreEqual("authorization_pending", Errors.AuthorizationPending);
