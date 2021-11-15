@@ -4,10 +4,9 @@
     https://api.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Protocols.Oidc;
 using System.Text.Json.Serialization;
 
-namespace PerpetualIntelligence.Protocols.OneImlx
+namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
     /// The generic <c>oneimlx</c> error.
@@ -19,7 +18,7 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// </summary>
         public OneImlxError()
         {
-            Error = Errors.UnexpectedError;
+            Error = "unexpected_error";
         }
 
         /// <summary>

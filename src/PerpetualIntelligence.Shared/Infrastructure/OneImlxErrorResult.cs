@@ -7,7 +7,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PerpetualIntelligence.Protocols.OneImlx
+namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
     /// The generic <c>oneimlx</c> error result.

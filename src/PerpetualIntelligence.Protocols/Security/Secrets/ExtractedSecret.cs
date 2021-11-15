@@ -4,8 +4,8 @@
     https://api.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Protocols.OneImlx;
 using PerpetualIntelligence.Shared.Attributes;
+using PerpetualIntelligence.Shared.Infrastructure;
 
 namespace PerpetualIntelligence.Protocols.Security.Secrets
 {

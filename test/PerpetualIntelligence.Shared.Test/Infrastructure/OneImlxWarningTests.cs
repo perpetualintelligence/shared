@@ -5,11 +5,12 @@
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerpetualIntelligence.Shared.Infrastructure;
 using PerpetualIntelligence.Test.Services;
 using System;
 using System.Reflection;
 
-namespace PerpetualIntelligence.Protocols.OneImlx
+namespace PerpetualIntelligence.Shared.Infrastructure
 {
     [TestClass]
     public class OneImlxWarningTests

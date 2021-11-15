@@ -28,7 +28,6 @@ namespace PerpetualIntelligence.Test.Services
     /// </summary>
     public static class TestHelper
     {
-
         public static void AssertAnyOf(string? value, params string[] anyOf)
         {
             if (!anyOf.Contains(value))
