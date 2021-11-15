@@ -13,7 +13,6 @@ namespace PerpetualIntelligence.Protocols.Security
     /// <summary>
     /// Generates unique identifiers.
     /// </summary>
-    [ToUnitTest]
     public static class IdGenerator
     {
         /// <summary>

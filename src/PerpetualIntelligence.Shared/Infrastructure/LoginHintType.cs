@@ -13,7 +13,6 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     /// Represents a login hint that can identify an end-user.
     /// </summary>
     [Flags]
-    [ToUnitTest]
     [MustDo("Why do we need this ?")]
     public enum LoginHintType
     {

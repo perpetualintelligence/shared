@@ -13,7 +13,6 @@ namespace PerpetualIntelligence.Protocols.Security
     /// <summary>
     /// Generates a HEX salt using cryptographic <see cref="RandomNumberGenerator"/>.
     /// </summary>
-    [ToUnitTest]
     public static class HexSaltGenerator
     {
         /// <summary>
@@ -26,7 +25,7 @@ namespace PerpetualIntelligence.Protocols.Security
         }
 
         /// <summary>
-        /// Generates a new HEX salt of specified length wuth no dash.
+        /// Generates a new HEX salt of specified length with no dash.
         /// </summary>
         /// <param name="length">The salt byte length.</param>
         /// <returns>The generated salt.</returns>

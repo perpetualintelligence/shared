@@ -20,13 +20,17 @@ namespace PerpetualIntelligence.Protocols.Security
         [TestMethod]
         public void NewLongIdTest()
         {
-            Assert.IsNotNull(IdGenerator.NewLongId());
+            string id = IdGenerator.NewLongId();
+            Assert.IsNotNull(id);
+            Assert.IsFalse(id.Contains('-'));
         }
 
         [TestMethod]
         public void NewShortIdTest()
         {
-            Assert.IsNotNull(IdGenerator.NewShortId());
+            string id = IdGenerator.NewShortId();
+            Assert.IsNotNull(id);
+            Assert.IsFalse(id.Contains("[/+= -]"));
         }
     }
 }
