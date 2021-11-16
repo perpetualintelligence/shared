@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Shared.Attributes;
+using PerpetualIntelligence.Shared.Infrastructure;
 using PerpetualIntelligence.Shared.Services;
 using System;
 using System.Collections.Generic;
@@ -710,6 +711,20 @@ namespace PerpetualIntelligence.Test.Services
 
             // Make sure the types count matches the files count
             Assert.AreEqual(files.Count(), types.Count(), $"Namespace '{@namespace}' has {types.Count()} types, but it has {files.Count()} source files.");
+        }
+
+        /// <summary>
+        /// Asserts <see cref="OneImlxErrorResult"/> is an error.
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="error"></param>
+        /// <param name="errorDescription"></param>
+        public static void AssertOneImlxError(OneImlxErrorResult result, string error, string? errorDescription)
+        {
+            Assert.IsTrue(result.IsError);
+            Assert.IsNotNull(result.FirstError);
+            Assert.AreEqual(error, result.FirstError.Error);
+            Assert.AreEqual(errorDescription, result.FirstError.ErrorDescription);
         }
 
         /// <summary>
