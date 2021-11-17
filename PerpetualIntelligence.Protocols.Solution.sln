@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31507.150
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.31911.260
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerpetualIntelligence.Shared", "src\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj", "{E12911A3-907C-4E02-86FC-C8E577027387}"
 EndProject
@@ -22,6 +22,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerpetualIntelligence.Test", "src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj", "{2BE1E73E-0752-4D5F-8B87-805DC95D1226}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{99A64035-E6B3-46D1-989E-71A804DB1048}"
+	ProjectSection(SolutionItems) = preProject
+		build\config\global.json = build\config\global.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
