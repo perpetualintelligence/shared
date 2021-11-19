@@ -24,7 +24,7 @@
 
     <ItemGroup Label="PiExternalPackages">
         <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-        <PackageReference Include="Microsoft.Extensions.Primitives" Version="6.0.0-rc.2.21480.5" />
+        <PackageReference Include="Microsoft.Extensions.Primitives" Version="6.0.0" />
     </ItemGroup>
 
     <!--
