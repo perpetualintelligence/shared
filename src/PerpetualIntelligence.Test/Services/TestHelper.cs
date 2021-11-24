@@ -16,8 +16,10 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
@@ -725,6 +727,26 @@ namespace PerpetualIntelligence.Test.Services
             Assert.IsNotNull(result.FirstError);
             Assert.AreEqual(error, result.FirstError.Error);
             Assert.AreEqual(errorDescription, result.FirstError.ErrorDescription);
+        }
+
+        public static void AssertOneImlxHttpResultException(OneImlxHttpResult result, string exceptionMessage)
+        {
+            Assert.AreEqual(OneImlxHttpResultType.Exception, result.ResultType);
+            Assert.IsNotNull(result.Exception);
+            Assert.AreEqual(exceptionMessage, result.Exception.Message);
+            Assert.IsNull(result.HttpResponse);
+            Assert.IsNull(result.Raw);
+            Assert.AreEqual(JsonValueKind.Undefined, result.Json.ValueKind);
+        }
+
+        public static void AssertOneImlxHttpResultResponse(OneImlxHttpResult result, HttpStatusCode httpStatusCode, string? reasonPhrase, string? raw)
+        {
+            Assert.AreEqual(OneImlxHttpResultType.HttpResponse, result.ResultType);
+            Assert.IsNotNull(result.HttpResponse);
+            Assert.AreEqual(httpStatusCode, result.HttpResponse.StatusCode);
+            Assert.AreEqual(reasonPhrase, result.HttpResponse.ReasonPhrase);
+            Assert.AreEqual(raw, result.Raw);
+            Assert.IsNull(result.Exception);
         }
 
         /// <summary>

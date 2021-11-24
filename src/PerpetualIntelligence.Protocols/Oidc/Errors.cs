@@ -70,6 +70,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
         public const string InvalidToken = "invalid_token";
         public const string LoginRequired = "login_required";
         public const string MissingToken = "missing_token";
+        public const string PolicyViolation = "policy_violation";
         public const string RedirectRequired = "redirect_required";
         public const string RegistrationNotSupported = "registration_not_supported";
         public const string RequestNotSupported = "request_not_supported";
