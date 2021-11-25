@@ -65,11 +65,6 @@ namespace PerpetualIntelligence.Protocols.Oidc
         public const string LocalIdP = OrgConstants.Oidc + ":idp:local";
 
         /// <summary>
-        /// The back channel logout token.
-        /// </summary>
-        public const string LogoutToken = "logout_token";
-
-        /// <summary>
         /// The OpenID Connect authentication protocol.
         /// </summary>
         public const string OpenIDConnect = "oidc";

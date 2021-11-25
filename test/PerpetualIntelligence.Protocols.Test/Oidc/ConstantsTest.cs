@@ -15,7 +15,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
         [TestMethod]
         public void ConstantTest()
         {
-            TestHelper.AssertConstantCount(typeof(Constants), 13);
+            TestHelper.AssertConstantCount(typeof(Constants), 12);
 
             Assert.AreEqual("urn:oneimlx:oidc:auth", Constants.AuthenticationType);
             Assert.AreEqual("Bearer", Constants.AuthorizationHeaderBearer);
@@ -27,7 +27,6 @@ namespace PerpetualIntelligence.Protocols.Oidc
             Assert.AreEqual("urn:oneimlx:oidc:scheme:jwt", Constants.DefaultJwtRequestClientKey);
             Assert.AreEqual("urn:oneimlx:oidc:scheme:signout", Constants.DefaultSignoutScheme);
             Assert.AreEqual("urn:oneimlx:oidc:idp:local", Constants.LocalIdP);
-            Assert.AreEqual("logout_token", Constants.LogoutToken);
             Assert.AreEqual("oidc", Constants.OpenIDConnect);
             Assert.AreEqual(10, Constants.DefaultTimeoutSeconds);
         }

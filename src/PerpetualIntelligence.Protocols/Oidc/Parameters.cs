@@ -86,5 +86,8 @@ namespace PerpetualIntelligence.Protocols.Oidc
         public const string UserName = "username";
         public const string VerificationUri = "verification_uri";
         public const string VerificationUriComplete = "verification_uri_complete";
+
+        // Endsession
+        public const string LogoutToken = "logout_token";
     }
 }

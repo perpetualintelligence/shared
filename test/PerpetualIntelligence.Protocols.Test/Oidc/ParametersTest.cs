@@ -13,7 +13,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
         [TestMethod]
         public void ParameterConstantTest()
         {
-            TestHelper.AssertConstantCount(typeof(Parameters), 61);
+            TestHelper.AssertConstantCount(typeof(Parameters), 62);
 
             Assert.AreEqual("access_token", Parameters.AccessToken);
             Assert.AreEqual("acr_values", Parameters.AcrValues);
@@ -83,6 +83,10 @@ namespace PerpetualIntelligence.Protocols.Oidc
             Assert.AreEqual("registration_client_uri", Parameters.RegistrationClientUri);
             Assert.AreEqual("client_id_issued_at", Parameters.ClientIdIssuedAt);
             Assert.AreEqual("client_secret_expires_at", Parameters.ClientSecretExpiresAt);
+
+            // end_session
+            Assert.AreEqual("logout_token", Parameters.LogoutToken);
+
         }
     }
 }
