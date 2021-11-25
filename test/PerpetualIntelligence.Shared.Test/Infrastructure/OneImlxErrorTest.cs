@@ -5,7 +5,6 @@
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PerpetualIntelligence.Shared.Infrastructure;
 using PerpetualIntelligence.Test.Services;
 using System;
 using System.Reflection;
@@ -15,6 +14,16 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     [TestClass]
     public class OneImlxErrorTest
     {
+        [TestMethod]
+        public void DefaultErrorTest()
+        {
+            OneImlxError error = new OneImlxError();
+            Assert.AreEqual("unexpected_error", error.Error);
+            Assert.IsNull(error.ErrorDescription);
+            Assert.IsNull(error.ErrorUri);
+            Assert.IsNull(error.RequestId);
+        }
+
         [TestMethod]
         public void ErrorTest()
         {

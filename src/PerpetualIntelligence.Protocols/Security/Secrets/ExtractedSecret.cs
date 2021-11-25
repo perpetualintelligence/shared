@@ -17,7 +17,7 @@ namespace PerpetualIntelligence.Protocols.Security.Secrets
     /// <seealso cref="SecretComparer"/>
     [Concept("Secrets Manager")]
     [ToUnitTest]
-    public sealed class ExtractedSecret : OneImlxErrorResult
+    public sealed class ExtractedSecret : OneImlxResult
     {
         /// <summary>
         /// The secret identifier.

@@ -4,12 +4,13 @@
     https://api.perpetualintelligence.com
 */
 
+using PerpetualIntelligence.Shared.Attributes;
 using System.Text.Json.Serialization;
 
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
-    /// The generic <c>oneimlx</c> error.
+    /// The generic <c>oneimlx</c> error response.
     /// </summary>
     public class OneImlxError
     {
@@ -28,14 +29,17 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <param name="errorDescription">The error description.</param>
         /// <param name="errorUri">The error URI.</param>
         /// <param name="requestId">The request id.</param>
-        /// <param name="httpStatusCode">The HTTP status code.</param>
-        public OneImlxError(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null, int? httpStatusCode = null)
+        public OneImlxError(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null)
         {
+            if (string.IsNullOrEmpty(error))
+            {
+                throw new System.ArgumentException($"'{nameof(error)}' cannot be null or empty.", nameof(error));
+            }
+
             Error = error;
             ErrorDescription = errorDescription;
             ErrorUri = errorUri;
             RequestId = requestId;
-            HttpStatusCode = httpStatusCode;
         }
 
         /// <summary>
@@ -48,24 +52,38 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// The <c>error_description</c>.
         /// </summary>
         [JsonPropertyName("error_description")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? ErrorDescription { get; set; }
 
         /// <summary>
         /// The <c>error_uri</c>.
         /// </summary>
         [JsonPropertyName("error_uri")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? ErrorUri { get; set; }
-
-        /// <summary>
-        /// The HTTP status code <c>http_status_code</c>.
-        /// </summary>
-        [JsonPropertyName("http_status_code")]
-        public int? HttpStatusCode { get; set; }
 
         /// <summary>
         /// The request identifier <c>request_id</c>.
         /// </summary>
         [JsonPropertyName("request_id")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? RequestId { get; set; }
+
+        /// <summary>
+        /// Set an error.
+        /// </summary>
+        [ToUnitTest("test json attributes as well.")]
+        public void SetError(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null)
+        {
+            if (string.IsNullOrWhiteSpace(error))
+            {
+                throw new System.ArgumentException($"'{nameof(error)}' cannot be null or whitespace.", nameof(error));
+            }
+
+            Error = error;
+            ErrorDescription = errorDescription;
+            ErrorUri = errorUri;
+            RequestId = requestId;
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     /// The OAuth or OpenID Connect HTTP result. The <see cref="ResultType"/> represents an exception while connecting
     /// to the endpoint or the HTTP response while executing the endpoint.
     /// </summary>
-    public class OneImlxHttpResult : OneImlxErrorResult, IDisposable
+    public class OneImlxHttpResult : OneImlxResult, IDisposable
     {
         /// <summary>
         /// The exception instance if <see cref="ResultType"/> is <see cref="OneImlxHttpResultType.Exception"/>.

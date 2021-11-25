@@ -11,12 +11,12 @@ using System;
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
     [TestClass]
-    public class OneImlxErrorResultTests
+    public class OneImlxResultTests
     {
         [TestMethod]
         public void AddErrorObjectShouldAddTheError()
         {
-            OneImlxErrorResult result = new();
+            OneImlxResult result = new();
 
             OneImlxError error = new()
             {
@@ -24,7 +24,6 @@ namespace PerpetualIntelligence.Shared.Infrastructure
                 ErrorDescription = "test_error_desc",
                 ErrorUri = "test_error_uri",
                 RequestId = "test_request_id",
-                HttpStatusCode = 404
             };
 
             result.AddError(error);
@@ -36,13 +35,12 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             Assert.AreEqual("test_error_desc", error2.ErrorDescription);
             Assert.AreEqual("test_error_uri", error2.ErrorUri);
             Assert.AreEqual("test_request_id", error2.RequestId);
-            Assert.AreEqual(404, error2.HttpStatusCode);
         }
 
         [TestMethod]
         public void AddErrorObjWithoutErrorCodeShouldThrow()
         {
-            OneImlxErrorResult result = new();
+            OneImlxResult result = new();
             OneImlxError error = new()
             {
                 Error = ""
@@ -54,9 +52,9 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void AddErrorShouldAddTheError()
         {
-            OneImlxErrorResult result = new();
+            OneImlxResult result = new();
 
-            result.AddError("test_error", "test_error_desc", "test_error_uri", "test_request_id", 404);
+            result.AddError("test_error", "test_error_desc", "test_error_uri", "test_request_id");
             Assert.IsNotNull(result.Errors);
             Assert.AreEqual(1, result.Errors.Length);
 
@@ -65,13 +63,12 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             Assert.AreEqual("test_error_desc", error.ErrorDescription);
             Assert.AreEqual("test_error_uri", error.ErrorUri);
             Assert.AreEqual("test_request_id", error.RequestId);
-            Assert.AreEqual(404, error.HttpStatusCode);
         }
 
         [TestMethod]
         public void AddErrorWithoutErrorCodeShouldThrow()
         {
-            OneImlxErrorResult result = new();
+            OneImlxResult result = new();
 
             // null
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
@@ -85,14 +82,27 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void DefaultInstanceShouldNotContainAnyError()
         {
-            OneImlxErrorResult result = new();
+            OneImlxResult result = new();
             Assert.IsFalse(result.IsError);
+        }
+
+        [TestMethod]
+        public void FirstErrorDescriptionShouldReturnCorrectDescription()
+        {
+            OneImlxResult result = new();
+            result.AddError("test_error1", "test_error_desc1");
+            result.AddError("test_error2", "test_error_desc2");
+            result.AddError("test_error3", "test_error_desc3");
+
+            Assert.IsNotNull(result.FirstError);
+            Assert.AreEqual("test_error_desc1", result.FirstError.ErrorDescription);
+            Assert.AreEqual("test_error_desc1", result.FirstErrorDescription);
         }
 
         [TestMethod]
         public void FirstErrorShouldReturnCorrectError()
         {
-            OneImlxErrorResult result = new();
+            OneImlxResult result = new();
             result.AddError("test_error1");
             result.AddError("test_error2");
             result.AddError("test_error3");
@@ -105,7 +115,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void NoErrorShouldRemoveAllError()
         {
-            OneImlxErrorResult result = new();
+            OneImlxResult result = new();
             result.AddError("test_error1");
             result.AddError("test_error2");
 
@@ -121,7 +131,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void SetErrorShouldRemovePreviousErrors()
         {
-            OneImlxErrorResult result = new();
+            OneImlxResult result = new();
             result.AddError("test_error1");
             result.AddError("test_error2");
 
@@ -141,13 +151,13 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void SyncErrorShouldRemovePreviousAndSetInputError()
         {
-            OneImlxErrorResult result = new();
+            OneImlxResult result = new();
             result.AddError("test_error1");
             result.AddError("test_error2");
             result.AddError("test_error3");
 
-            OneImlxErrorResult input = new OneImlxErrorResult();
-            input.AddError("test_error3", "test_error_desc3", "test_error_uri3", "test_request_id3", 404);
+            OneImlxResult input = new OneImlxResult();
+            input.AddError("test_error3", "test_error_desc3", "test_error_uri3", "test_request_id3");
 
             result.SyncError(input);
             Assert.IsNotNull(result.Errors);
@@ -158,7 +168,6 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             Assert.AreEqual("test_error_desc3", syncError.ErrorDescription);
             Assert.AreEqual("test_error_uri3", syncError.ErrorUri);
             Assert.AreEqual("test_request_id3", syncError.RequestId);
-            Assert.AreEqual(404, syncError.HttpStatusCode);
         }
     }
 }

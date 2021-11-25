@@ -716,12 +716,12 @@ namespace PerpetualIntelligence.Test.Services
         }
 
         /// <summary>
-        /// Asserts <see cref="OneImlxErrorResult"/> is an error.
+        /// Asserts <see cref="OneImlxResult"/> is an error.
         /// </summary>
         /// <param name="result"></param>
         /// <param name="error"></param>
         /// <param name="errorDescription"></param>
-        public static void AssertOneImlxError(OneImlxErrorResult result, string error, string? errorDescription)
+        public static void AssertOneImlxError(OneImlxResult result, string error, string? errorDescription)
         {
             Assert.IsTrue(result.IsError);
             Assert.IsNotNull(result.FirstError);
