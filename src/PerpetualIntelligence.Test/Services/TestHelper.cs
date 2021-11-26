@@ -729,6 +729,19 @@ namespace PerpetualIntelligence.Test.Services
             Assert.AreEqual(errorDescription, result.FirstError.ErrorDescription);
         }
 
+        /// <summary>
+        /// Asserts <see cref="OneImlxError"/>
+        /// </summary>
+        /// <param name="error"></param>
+        /// <param name="errorCode"></param>
+        /// <param name="errorDescription"></param>
+        public static void AssertOneImlxError(OneImlxError error, string errorCode, string? errorDescription)
+        {
+            Assert.IsNotNull(error);
+            Assert.AreEqual(errorCode, error.Error);
+            Assert.AreEqual(errorDescription, error.ErrorDescription);
+        }
+
         public static void AssertOneImlxHttpResultException(OneImlxHttpResult result, string exceptionMessage)
         {
             Assert.AreEqual(OneImlxHttpResultType.Exception, result.ResultType);

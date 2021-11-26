@@ -28,7 +28,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
         [TestMethod]
         public void ErrorConstantsTest()
         {
-            TestHelper.AssertConstantCount(typeof(Errors), 36);
+            TestHelper.AssertConstantCount(typeof(Errors), 37);
 
             Assert.AreEqual("access_denied", Errors.AccessDenied);
             Assert.AreEqual("account_selection_required", Errors.AccountSelectionRequired);
@@ -63,6 +63,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
             Assert.AreEqual("unauthorized_subject", Errors.UnauthorizedSubject);
             Assert.AreEqual("unsupported_grant_type", Errors.UnsupportedGrantType);
             Assert.AreEqual("unsupported_response_type", Errors.UnsupportedResponseType);
+            Assert.AreEqual("unsupported_response_mode", Errors.UnsupportedResponseMode);
             Assert.AreEqual("missing_token", Errors.MissingToken);
             Assert.AreEqual("unsupported_token_type", Errors.UnsupportedTokenType);
             Assert.AreEqual("policy_violation", Errors.PolicyViolation);

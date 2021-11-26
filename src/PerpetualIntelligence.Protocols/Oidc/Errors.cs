@@ -86,6 +86,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
         public const string UnexpectedWarning = "unexpected_warning";
         public const string UnsupportedGrantType = "unsupported_grant_type";
         public const string UnsupportedResponseType = "unsupported_response_type";
+        public const string UnsupportedResponseMode = "unsupported_response_mode";
         public const string UnsupportedTokenType = "unsupported_token_type";
     }
 }
