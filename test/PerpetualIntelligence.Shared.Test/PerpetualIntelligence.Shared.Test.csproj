@@ -10,9 +10,53 @@
 
     <Import Project="..\..\build\props\Test.props" />
 
+    <!--
+        We do not use the project reference for PerpetualIntelligence.Test because that causes a cyclic dependency over the cadence pipeline of 
+        PerpetualIntelligence.Shared package.
+
+        In the DevOps environment, we are in the middle of restoring, building, testing, and pushing PerpetualIntelligence.Shared, but the cadence 
+        fails to restore test project PerpetualIntelligence.Shared.Test while resolving its Nuget dependencies.
+
+        PerpetualIntelligence.Test
+        |
+        |... PerpetualIntelligence.Shared
+        
+        PerpetualIntelligence.Shared.Test
+        |
+        |... PerpetualIntelligence.Test
+             |
+             |...PerpetualIntelligence.Shared
+        |
+        |... PerpetualIntelligence.Shared
+
+        Cyclic Issue:
+        1. To build and push PerpetualIntelligence.Shared the tests in PerpetualIntelligence.Shared.Test needs to pass.
+        2. PerpetualIntelligence.Shared.Test depends on PerpetualIntelligence.Test for common infrastructure test components.
+        3. PerpetualIntelligence.Test depend on PerpetualIntelligence.Shared for common infrastructure components
+        4. PerpetualIntelligence.Shared.Test fails to restore PerpetualIntelligence.Test because PerpetualIntelligence.Test fails to restore PerpetualIntelligence.Shared because cadence package is not yet published
+        
+        Resolution: (Workaround YUCK!)
+        1. Manually build first PerpetualIntelligence.Shared
+        2. Manually build first PerpetualIntelligence.Test
+        3. Manually publish PerpetualIntelligence.Shared and PerpetualIntelligence.Test (Now we always have 1 Nuget package for both)
+        4. Reference Nuget latest available PerpetualIntelligence.Test version in PerpetualIntelligence.Shared.Test
+        
+        Explanation:
+        In the workaround, the PerpetualIntelligence.Test will not find the current cadence version; instead, it will restore the referenced PerpetualIntelligence.Shared version.
+
+        Limitation:
+        1. We cannot push parallel changes to PerpetualIntelligence.Shared and PerpetualIntelligence.Test at the same time.
+        2. First push PerpetualIntelligence.Shared
+        3. Then push PerpetualIntelligence.Test
+
+        TODO: Works for now ! but find a more scalable solution.
+	-->
+	<ItemGroup>
+      <PackageReference Include="PerpetualIntelligence.Test" Version="2.3.4" />
+    </ItemGroup>
+
     <ItemGroup>
         <ProjectReference Include="..\..\src\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
-        <ProjectReference Include="..\..\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
     </ItemGroup>
 
 </Project>
