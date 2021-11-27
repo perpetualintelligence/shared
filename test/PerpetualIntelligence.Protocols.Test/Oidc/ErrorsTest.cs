@@ -4,8 +4,6 @@
     https://api.perpetualintelligence.com
 */
 
-// Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C. https://perpetualintelligence.com https://api.perpetualintelligence.com
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Test.Services;
 
@@ -15,14 +13,15 @@ namespace PerpetualIntelligence.Protocols.Oidc
     public class ErrorsTest
     {
         [TestMethod]
-        public void ConsentErrorsTest()
+        public void AuthorizationErrorsTest()
         {
-            Assert.AreEqual(5, Errors.ConsentErrors.Length);
-            Assert.AreEqual("access_denied", Errors.ConsentErrors[0]);
-            Assert.AreEqual("interaction_required", Errors.ConsentErrors[1]);
-            Assert.AreEqual("login_required", Errors.ConsentErrors[2]);
-            Assert.AreEqual("account_selection_required", Errors.ConsentErrors[3]);
-            Assert.AreEqual("consent_required", Errors.ConsentErrors[4]);
+            Assert.AreEqual(6, Errors.AuthorizationErrors.Length);
+            Assert.AreEqual(Errors.AccessDenied, Errors.AuthorizationErrors[0]);
+            Assert.AreEqual(Errors.InteractionRequired, Errors.AuthorizationErrors[1]);
+            Assert.AreEqual(Errors.LoginRequired, Errors.AuthorizationErrors[2]);
+            Assert.AreEqual(Errors.AccountSelectionRequired, Errors.AuthorizationErrors[3]);
+            Assert.AreEqual(Errors.ConsentRequired, Errors.AuthorizationErrors[4]);
+            Assert.AreEqual(Errors.TemporarilyUnavailable, Errors.AuthorizationErrors[5]);
         }
 
         [TestMethod]
