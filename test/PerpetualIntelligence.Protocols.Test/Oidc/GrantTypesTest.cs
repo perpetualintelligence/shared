@@ -23,7 +23,9 @@ namespace PerpetualIntelligence.Protocols.Oidc
             Assert.AreEqual("authorization_code", GrantTypes.AuthorizationCode);
             Assert.AreEqual("client_credentials", GrantTypes.ClientCredentials);
             Assert.AreEqual("urn:ietf:params:oauth:grant-type:device_code", GrantTypes.DeviceCode);
+#pragma warning disable CS0618 // Type or member is obsolete
             Assert.AreEqual("implicit", GrantTypes.Implicit);
+#pragma warning restore CS0618 // Type or member is obsolete
             Assert.AreEqual("hybrid", GrantTypes.Hybrid);
             Assert.AreEqual("urn:ietf:params:oauth:grant-type:jwt-bearer", GrantTypes.JwtBearer);
             Assert.AreEqual("password", GrantTypes.ResourceOwnerPassword);

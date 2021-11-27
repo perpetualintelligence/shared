@@ -72,8 +72,6 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <param name="httpResponse">The HTTP response.</param>
         /// <param name="addtionalInfo">The additional information.</param>
         /// <param name="additionalData">The additional data.</param>
-        /// <param name=""></param>
-        /// <returns></returns>
         public static async Task<T> FromHttpResponseAsync<T>(HttpResponseMessage httpResponse, string? addtionalInfo = null, [Refactor("Remove this and find a better way to do this ?")] object? additionalData = null) where T : OneImlxHttpResult, new()
         {
             T response = new()
@@ -99,7 +97,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             }
 
             // Read the Json from raw response.
-            if (!string.IsNullOrWhiteSpace(content))
+            if (content != null)
             {
                 try
                 {
@@ -117,7 +115,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             {
                 // If the HTTP response gave us error details then honor that otherwise formulate std errors
                 string? error = response.TryGetFromJson("error");
-                if (!string.IsNullOrWhiteSpace(error))
+                if (error != null)
                 {
                     response.SetErrorWithAdditionalInfo(error, $"{response.TryGetFromJson("error_description")}", addtionalInfo);
                     return response;

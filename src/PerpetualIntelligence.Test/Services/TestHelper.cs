@@ -31,6 +31,11 @@ namespace PerpetualIntelligence.Test.Services
     /// </summary>
     public static class TestHelper
     {
+        /// <summary>
+        /// Asserts the value is any of the specified values.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="anyOf"></param>
         public static void AssertAnyOf(string? value, params string[] anyOf)
         {
             if (!anyOf.Contains(value))
@@ -494,8 +499,8 @@ namespace PerpetualIntelligence.Test.Services
         /// </summary>
         public static void AssertInternalTypes(Assembly assembly, string @namespace)
         {
-            // Make sure the root namespace end
-            IEnumerable<Type> types = assembly.GetTypes().Where(e => !IsCompilerGenerated(e)).Where(e => e.Namespace.StartsWith(@namespace));
+            // Make sure the root name space end
+            IEnumerable<Type> types = assembly.GetTypes().Where(e => !IsCompilerGenerated(e)).Where(e => e.Namespace != null && e.Namespace.StartsWith(@namespace));
             IEnumerable<Type> invalidTypes = types.Where(e => !e.IsNestedAssembly); // Must be internal class
 
             Assert.AreEqual(0, invalidTypes.Count(), $"Types must be internal.  {string.Join(',', invalidTypes.Select(e => e.FullName))}");
@@ -742,6 +747,10 @@ namespace PerpetualIntelligence.Test.Services
             Assert.AreEqual(errorDescription, error.ErrorDescription);
         }
 
+        /// <summary>
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="exceptionMessage"></param>
         public static void AssertOneImlxHttpResultException(OneImlxHttpResult result, string exceptionMessage)
         {
             Assert.AreEqual(OneImlxHttpResultType.Exception, result.ResultType);
@@ -752,6 +761,12 @@ namespace PerpetualIntelligence.Test.Services
             Assert.AreEqual(JsonValueKind.Undefined, result.Json.ValueKind);
         }
 
+        /// <summary>
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="httpStatusCode"></param>
+        /// <param name="reasonPhrase"></param>
+        /// <param name="raw"></param>
         public static void AssertOneImlxHttpResultResponse(OneImlxHttpResult result, HttpStatusCode httpStatusCode, string? reasonPhrase, string? raw)
         {
             Assert.AreEqual(OneImlxHttpResultType.HttpResponse, result.ResultType);

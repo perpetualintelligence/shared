@@ -19,7 +19,9 @@ namespace PerpetualIntelligence.Protocols.Security
 
             Assert.AreEqual("urn:pi:protocol:security:csp:l1", ContentSecurityPolicies.Level1);
             Assert.AreEqual("urn:pi:protocol:security:csp:l2", ContentSecurityPolicies.Level2);
+#pragma warning disable CS0618 // Type or member is obsolete
             Assert.AreEqual("urn:pi:protocol:security:csp:l3", ContentSecurityPolicies.Level3);
+#pragma warning restore CS0618 // Type or member is obsolete
         }
     }
 }
