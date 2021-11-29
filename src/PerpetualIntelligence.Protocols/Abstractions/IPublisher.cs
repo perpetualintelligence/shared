@@ -6,13 +6,13 @@
 
 using System.Threading.Tasks;
 
-namespace PerpetualIntelligence.Protocols.Communication.Endpoints
+namespace PerpetualIntelligence.Protocols.Abstractions
 {
     /// <summary>
-    /// The abstraction of an endpoint request result.
+    /// An abstraction of a context specific response publisher.
     /// </summary>
     /// <typeparam name="TContext">The endpoint request context.</typeparam>
-    public interface IEndpointRequestResult<TContext> where TContext : class
+    public interface IPublisher<TContext> where TContext : class
     {
         /// <summary>
         /// Determines whether the result publishes a response to the requesting party (RP).

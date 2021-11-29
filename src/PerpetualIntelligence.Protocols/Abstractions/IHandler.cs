@@ -6,20 +6,20 @@
 
 using System.Threading.Tasks;
 
-namespace PerpetualIntelligence.Protocols.Communication.Endpoints
+namespace PerpetualIntelligence.Protocols.Abstractions
 {
     /// <summary>
-    /// The abstraction of an endpoint request handler.
+    /// An abstraction of a context specific request handler.
     /// </summary>
     /// <typeparam name="TContext">The endpoint handler context.</typeparam>
     /// <typeparam name="TResult">The endpoint handler result.</typeparam>
-    public interface IEndpointRequestHandler<TContext, TResult> where TContext : class where TResult : class, IEndpointRequestResult<TContext>
+    public interface IHandler<TContext, TResult> where TContext : class where TResult : class, IPublisher<TContext>
     {
         /// <summary>
         /// Handles the request.
         /// </summary>
         /// <param name="context">The request handler context.</param>
         /// <returns>The request handler instance.</returns>
-        Task<TResult?> HandleRequestAsync(TContext context);
+        Task<TResult> HandleRequestAsync(TContext context);
     }
 }

@@ -4,17 +4,15 @@
     https://api.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Shared.Attributes;
 using System.Threading.Tasks;
 
-namespace PerpetualIntelligence.Protocols.Checkers
+namespace PerpetualIntelligence.Protocols.Abstractions
 {
     /// <summary>
     /// An abstraction of a context specific checker.
     /// </summary>
     /// <typeparam name="TContext">The checker context.</typeparam>
     /// <typeparam name="TResult">The checker result.</typeparam>
-    [Concept("Checkers")]
     public interface IChecker<TContext, TResult> where TContext : class where TResult : class
     {
         /// <summary>

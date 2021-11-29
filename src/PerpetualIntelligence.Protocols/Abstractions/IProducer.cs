@@ -6,12 +6,12 @@
 
 using System.Threading.Tasks;
 
-namespace PerpetualIntelligence.Protocols.Communication.Endpoints
+namespace PerpetualIntelligence.Protocols.Abstractions
 {
     /// <summary>
-    /// The abstraction of an endpoint request's response producer.
+    /// An abstraction of a context specific response producer.
     /// </summary>
-    public interface IEndpointRequestResponseProducer<TContext, TResponse> where TContext : class where TResponse : class
+    public interface IProducer<TContext, TResponse> where TContext : class where TResponse : class
     {
         /// <summary>
         /// Produces the response asynchronously.

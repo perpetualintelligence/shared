@@ -26,6 +26,6 @@ namespace PerpetualIntelligence.Test
         /// <summary>
         /// The test id.
         /// </summary>
-        public string Id { get; set; };
+        public string Id { get; set; }
     }
 }

@@ -33,7 +33,7 @@ namespace PerpetualIntelligence.Protocols.Communication
         /// </summary>
         /// <param name="data">The cookie data.</param>
         /// <param name="createStamp">
-        /// The create timestamp of the cookie expressed in the Coordinated Universal Time (UTC).
+        /// The create time-stamp expressed in the Coordinated Universal Time (UTC).
         /// </param>
         public Message(TData data, DateTimeOffset createStamp)
         {
@@ -42,7 +42,7 @@ namespace PerpetualIntelligence.Protocols.Communication
         }
 
         /// <summary>
-        /// The create timestamp of the cookie expressed in the Coordinated Universal Time (UTC).
+        /// The create time-stamp expressed in the Coordinated Universal Time (UTC).
         /// </summary>
         [JsonPropertyName("create_stamp")]
         public DateTimeOffset CreateStamp { get; set; }

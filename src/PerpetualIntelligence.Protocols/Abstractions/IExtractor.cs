@@ -4,19 +4,15 @@
     https://api.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Shared.Attributes;
 using System.Threading.Tasks;
 
-namespace PerpetualIntelligence.Protocols.Extractors
+namespace PerpetualIntelligence.Protocols.Abstractions
 {
     /// <summary>
     /// An abstraction of a context specific extractor.
     /// </summary>
     /// <typeparam name="TContext">The extractor context.</typeparam>
     /// <typeparam name="TResult">The extractor result.</typeparam>
-    /// <seealso cref="IExtracted"/>
-    /// <seealso cref="IExtractorResult"/>
-    [Concept("Extractors")]
     public interface IExtractor<TContext, TResult> where TContext : class where TResult : class
     {
         /// <summary>
