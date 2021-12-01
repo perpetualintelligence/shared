@@ -10,27 +10,26 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     /// The <c>oneimlx</c> result of a try method.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public sealed class OneImlxTryResult<T>
+    public sealed class OneImlxTryResult<T> : OneImlxResult
     {
         /// <summary>
-        /// Indicates that the try has an error.
+        /// Initialize a new instance.
         /// </summary>
-        public bool IsError
+        public OneImlxTryResult()
         {
-            get
-            {
-                return TryError != null && !string.IsNullOrWhiteSpace(TryError.Error);
-            }
+        }
+
+        /// <summary>
+        /// Initialize a new instance.
+        /// </summary>
+        public OneImlxTryResult(OneImlxError error)
+        {
+            SetError(error);
         }
 
         /// <summary>
         /// The result of a try.
         /// </summary>
         public T? Result { get; set; }
-
-        /// <summary>
-        /// The error during the try.
-        /// </summary>
-        public OneImlxError? TryError { get; set; }
     }
 }

@@ -4,6 +4,7 @@
     https://api.perpetualintelligence.com
 */
 
+using PerpetualIntelligence.Shared.Abstractions;
 using System.Threading.Tasks;
 
 namespace PerpetualIntelligence.Protocols.Abstractions

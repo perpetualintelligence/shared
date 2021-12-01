@@ -4,19 +4,20 @@
     https://api.perpetualintelligence.com
 */
 
+using PerpetualIntelligence.Shared.Abstractions;
 using System.Threading.Tasks;
 
 namespace PerpetualIntelligence.Protocols.Abstractions
 {
     /// <summary>
-    /// An abstraction of a context specific response producer.
+    /// An abstraction of a context specific result producer.
     /// </summary>
-    public interface IProducer<TContext, TResponse> where TContext : class where TResponse : class
+    public interface IProducer<TContext, TResult> where TContext : class where TResult : class
     {
         /// <summary>
-        /// Produces the response asynchronously.
+        /// Produces the result asynchronously.
         /// </summary>
-        /// <param name="context">The response context.</param>
-        Task<TResponse> ProduceResponseAsync(TContext context);
+        /// <param name="context">The producer context.</param>
+        Task<TResult> ProduceResponseAsync(TContext context);
     }
 }

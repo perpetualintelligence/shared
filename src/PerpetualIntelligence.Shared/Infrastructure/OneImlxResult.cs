@@ -4,6 +4,8 @@
     https://api.perpetualintelligence.com
 */
 
+using PerpetualIntelligence.Shared.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,7 +15,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     /// The generic <c>oneimlx</c> error result.
     /// </summary>
     /// <seealso cref="OneImlxError"/>
-    public class OneImlxResult
+    public class OneImlxResult : IOneImlxResult
     {
         /// <summary>
         /// The result errors.
@@ -77,15 +79,56 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         }
 
         /// <summary>
+        /// Creates a new instance with the specified error.
+        /// </summary>
+        /// <param name="error">The error.</param>
+        /// <seealso cref="NewError(string, string?, string?, string?)"/>
+        public static T NewError<T>(OneImlxError error) where T : OneImlxResult
+        {
+            T tInst = Activator.CreateInstance<T>();
+            tInst.SetError(error);
+            return tInst;
+        }
+
+        /// <summary>
+        /// Creates a new instance with the specified error.
+        /// </summary>
+        /// <param name="error">The error.</param>
+        /// <param name="errorDescription">The error description.</param>
+        /// <param name="errorUri">The error URI.</param>
+        /// <param name="requestId">The request id.</param>
+        /// <seealso cref="NewError{T}(OneImlxError)"/>
+        public static T NewError<T>(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null) where T : OneImlxResult
+        {
+            T tInst = Activator.CreateInstance<T>();
+            tInst.SetError(error, errorDescription, errorUri, requestId);
+            return tInst;
+        }
+
+        /// <summary>
+        /// Creates a new error instance synced with specified result.
+        /// </summary>
+        /// <param name="result">The result instance.</param>
+        public static T NewError<T>(OneImlxResult result) where T : OneImlxResult
+        {
+            T tInst = Activator.CreateInstance<T>();
+            tInst.SyncError(result);
+            return tInst;
+        }
+
+        /// <summary>
+        /// Creates a new success instance.
+        /// </summary>
+        public static T NewSuccess<T>() where T : OneImlxResult
+        {
+            return Activator.CreateInstance<T>();
+        }
+
+        /// <summary>
         /// Adds an error to the result.
         /// </summary>
         public void AddError(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null)
         {
-            if (string.IsNullOrWhiteSpace(error))
-            {
-                throw new System.ArgumentException($"'{nameof(error)}' cannot be null or whitespace.", nameof(error));
-            }
-
             AddError(new OneImlxError(error, errorDescription, errorUri, requestId));
         }
 
@@ -96,12 +139,12 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         {
             if (error == null)
             {
-                throw new System.ArgumentException($"'{nameof(error)}' cannot be null.", nameof(error));
+                throw new ArgumentNullException(nameof(error), $"'{nameof(error)}' cannot be null.");
             }
 
             if (string.IsNullOrWhiteSpace(error.Error))
             {
-                throw new System.ArgumentException($"'{nameof(error.Error)}' cannot be null or whitespace.", nameof(error));
+                throw new ArgumentException($"'{nameof(error.Error)}' cannot be null or whitespace.", nameof(error));
             }
 
             if (_errorList == null)
@@ -128,16 +171,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <seealso cref="AddError(string, string?, string?, string?)"/>
         public void SetError(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null)
         {
-            if (string.IsNullOrWhiteSpace(error))
-            {
-                throw new System.ArgumentException($"'{nameof(error)}' cannot be null or whitespace.", nameof(error));
-            }
-
-            // Clear all errors
-            NoError();
-
-            // Now add the specified error.
-            AddError(new OneImlxError(error, errorDescription, errorUri, requestId));
+            SetError(new OneImlxError(error, errorDescription, errorUri, requestId));
         }
 
         /// <summary>
@@ -147,11 +181,6 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <seealso cref="AddError(string, string?, string?, string?)"/>
         public void SetError(OneImlxError error)
         {
-            if (error == null)
-            {
-                throw new System.ArgumentException($"'{nameof(error)}' cannot be null.", nameof(error));
-            }
-
             // Clear all errors
             NoError();
 

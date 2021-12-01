@@ -4,6 +4,7 @@
     https://api.perpetualintelligence.com
 */
 
+using PerpetualIntelligence.Shared.Abstractions;
 using System.Threading.Tasks;
 
 namespace PerpetualIntelligence.Protocols.Abstractions
@@ -18,8 +19,8 @@ namespace PerpetualIntelligence.Protocols.Abstractions
         /// <summary>
         /// Runs a context asynchronously.
         /// </summary>
-        /// <param name="context">The run context.</param>
-        /// <returns>The run result.</returns>
+        /// <param name="context">The runner context.</param>
+        /// <returns>The runner result.</returns>
         Task<TResult> RunAsync(TContext context);
     }
 }

@@ -4,7 +4,6 @@
     https://api.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Shared.Attributes;
 using System.Text.Json.Serialization;
 
 namespace PerpetualIntelligence.Shared.Infrastructure
@@ -31,9 +30,9 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <param name="requestId">The request id.</param>
         public OneImlxError(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null)
         {
-            if (string.IsNullOrEmpty(error))
+            if (string.IsNullOrWhiteSpace(error))
             {
-                throw new System.ArgumentException($"'{nameof(error)}' cannot be null or empty.", nameof(error));
+                throw new System.ArgumentException($"'{nameof(error)}' cannot be null or whitespace.", nameof(error));
             }
 
             Error = error;
@@ -72,7 +71,6 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <summary>
         /// Set an error.
         /// </summary>
-        [ToUnitTest("test json attributes as well.")]
         public void SetError(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null)
         {
             if (string.IsNullOrWhiteSpace(error))

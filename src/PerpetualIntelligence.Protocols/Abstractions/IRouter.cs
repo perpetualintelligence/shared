@@ -4,30 +4,32 @@
     https://api.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Protocols.Abstractions;
+using PerpetualIntelligence.Shared.Abstractions;
+using PerpetualIntelligence.Shared.Infrastructure;
 using System.Threading.Tasks;
 
 namespace PerpetualIntelligence.Protocols.Abstractions
 {
     /// <summary>
-    /// An abstraction of a context specific request router.
+    /// An abstraction of a context specific router.
     /// </summary>
-    /// <typeparamref name="TContext">The endpoint request handler context.</typeparamref>
-    /// <typeparamref name="TResult">The endpoint request handler result.</typeparamref>
-    /// <typeparamref name="THandler">The endpoint request handler.</typeparamref>
-    public interface IRouter<TContext, TResult, THandler> where TContext : class where TResult : class, IPublisher<TContext> where THandler : class, IHandler<TContext, TResult>
+    /// <typeparamref name="TContext">The router context.</typeparamref>
+    /// <typeparamref name="TResult">The router result.</typeparamref>
+    /// <typeparamref name="THandler">The route handler.</typeparamref>
+    public interface IRouter<TContext, TResult, THandler> where TContext : class where TResult : class where THandler : class
     {
         /// <summary>
-        /// Finds a matching <see cref="IHandler{TContext, TResult}"/> based on the current request asynchronously.
+        /// Routes the request asynchronously.
         /// </summary>
-        /// <param name="context">The HTTP context.</param>
-        /// <returns>The <see cref="IHandler{TContext, TResult}"/> if found, otherwise <c>null</c>.</returns>
-        Task<THandler?> FindHandlerAsync(TContext context);
+        /// <param name="context">The router context.</param>
+        /// <returns>The router result.</returns>
+        Task<TResult> RouteAsync(TContext context);
 
         /// <summary>
-        /// Routes the request to the appropriate <see cref="IHandler{TContext, TResult}"/> asynchronously.
+        /// Finds a matching route handler for a request asynchronously.
         /// </summary>
-        /// <param name="context">The endpoint request context.</param>
-        Task<bool> RouteRequestAsync(TContext context);
+        /// <param name="context">The router context.</param>
+        /// <returns>The request handler.</returns>
+        Task<OneImlxTryResult<THandler>> TryFindHandlerAsync(TContext context);
     }
 }

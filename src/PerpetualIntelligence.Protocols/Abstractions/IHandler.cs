@@ -4,22 +4,23 @@
     https://api.perpetualintelligence.com
 */
 
+using PerpetualIntelligence.Shared.Abstractions;
 using System.Threading.Tasks;
 
 namespace PerpetualIntelligence.Protocols.Abstractions
 {
     /// <summary>
-    /// An abstraction of a context specific request handler.
+    /// An abstraction of a context specific handler.
     /// </summary>
-    /// <typeparam name="TContext">The endpoint handler context.</typeparam>
-    /// <typeparam name="TResult">The endpoint handler result.</typeparam>
-    public interface IHandler<TContext, TResult> where TContext : class where TResult : class, IPublisher<TContext>
+    /// <typeparam name="TContext">The handler context.</typeparam>
+    /// <typeparam name="TResult">The handler result.</typeparam>
+    public interface IHandler<TContext, TResult> where TContext : class where TResult : class
     {
         /// <summary>
-        /// Handles the request.
+        /// Handles the context.
         /// </summary>
-        /// <param name="context">The request handler context.</param>
-        /// <returns>The request handler instance.</returns>
+        /// <param name="context">The handler context.</param>
+        /// <returns>The handler result.</returns>
         Task<TResult> HandleRequestAsync(TContext context);
     }
 }
