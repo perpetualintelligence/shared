@@ -28,6 +28,15 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         }
 
         /// <summary>
+        /// Initialize a new instance.
+        /// </summary>
+        /// <param name="result"></param>
+        public OneImlxTryResult(T result)
+        {
+            Result = result;
+        }
+
+        /// <summary>
         /// The result of a try.
         /// </summary>
         public T? Result { get; set; }

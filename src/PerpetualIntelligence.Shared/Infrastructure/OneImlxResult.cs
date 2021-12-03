@@ -5,6 +5,7 @@
 */
 
 using PerpetualIntelligence.Shared.Abstractions;
+using PerpetualIntelligence.Shared.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -153,6 +154,23 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             }
 
             _errorList.Add(error);
+        }
+
+        /// <summary>
+        /// Appends all the errors from the input to this instance.
+        /// </summary>
+        [ToUnitTest]
+        public void AppendError(OneImlxResult input)
+        {
+            if (input.IsError)
+            {
+                if (_errorList == null)
+                {
+                    _errorList = new();
+                }
+
+                _errorList.AddRange(input._errorList);
+            }
         }
 
         /// <summary>

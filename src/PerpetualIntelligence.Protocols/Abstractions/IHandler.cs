@@ -4,7 +4,6 @@
     https://api.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Shared.Abstractions;
 using System.Threading.Tasks;
 
 namespace PerpetualIntelligence.Protocols.Abstractions
@@ -21,6 +20,6 @@ namespace PerpetualIntelligence.Protocols.Abstractions
         /// </summary>
         /// <param name="context">The handler context.</param>
         /// <returns>The handler result.</returns>
-        Task<TResult> HandleRequestAsync(TContext context);
+        Task<TResult> HandleAsync(TContext context);
     }
 }

@@ -4,7 +4,6 @@
     https://api.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Shared.Abstractions;
 using PerpetualIntelligence.Shared.Infrastructure;
 using System.Threading.Tasks;
 
