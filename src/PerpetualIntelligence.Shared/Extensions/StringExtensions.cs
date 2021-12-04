@@ -57,5 +57,26 @@ namespace PerpetualIntelligence.Shared.Extensions
 
             return string.Join(" ", list).Trim();
         }
+
+        /// <summary>
+        /// Removes the leading occurrence of a string.
+        /// </summary>
+        /// <param name="self">The string to trim.</param>
+        /// <param name="trim">The string to trim from start.</param>
+        public static string TrimStart(this string self, string? trim)
+        {
+            if (string.IsNullOrEmpty(trim))
+            {
+                return self;
+            }
+
+            string result = self;
+            while (result.StartsWith(trim, System.StringComparison.Ordinal))
+            {
+                result = result.Substring(trim.Length);
+            }
+
+            return result;
+        }
     }
 }

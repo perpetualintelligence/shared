@@ -12,7 +12,12 @@ namespace PerpetualIntelligence.Protocols.Cli
     public static class Errors
     {
         /// <summary>
-        /// The request is invalid.
+        /// The arguments are invalid.
+        /// </summary>
+        public const string InvalidArgument = "invalid_argument";
+
+        /// <summary>
+        /// The command is invalid.
         /// </summary>
         public const string InvalidCommand = "invalid_command";
 
@@ -25,5 +30,10 @@ namespace PerpetualIntelligence.Protocols.Cli
         /// The server error.
         /// </summary>
         public const string ServerError = "server_error";
+
+        /// <summary>
+        /// The argument is not supported.
+        /// </summary>
+        public const string UnsupportedArgument = "unsupported_argument";
     }
 }

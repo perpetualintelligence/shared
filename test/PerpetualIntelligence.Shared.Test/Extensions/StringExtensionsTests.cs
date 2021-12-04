@@ -52,5 +52,55 @@ namespace PerpetualIntelligence.Shared.Extensions
         {
             Assert.AreEqual("test1 test2 test3", StringExtensions.JoinSpace(new string[] { "test1", "test2", "test3" }));
         }
+
+        [TestMethod]
+        public void TrimStart()
+        {
+            string test = "#arg=value";
+            Assert.AreEqual("arg=value", test.TrimStart("#"));
+
+            test = "#~arg=value";
+            Assert.AreEqual("~arg=value", test.TrimStart("#"));
+
+            test = "####arg=value";
+            Assert.AreEqual("arg=value", test.TrimStart("#"));
+
+            test = "####arg=value";
+            Assert.AreEqual("arg=value", test.TrimStart("##"));
+
+            test = "####arg=value";
+            Assert.AreEqual("#arg=value", test.TrimStart("###"));
+
+            test = "####arg=value";
+            Assert.AreEqual("arg=value", test.TrimStart("####"));
+
+            test = "##  ##arg=value";
+            Assert.AreEqual("##  ##arg=value", test.TrimStart("####"));
+        }
+
+        [TestMethod]
+        public void TrimStartUnicode()
+        {
+            string test = "ööarg=value";
+            Assert.AreEqual("arg=value", test.TrimStart("öö"));
+
+            test = "ööarg=value";
+            Assert.AreEqual("arg=value", test.TrimStart("ö"));
+
+            test = "माणूसarg=value";
+            Assert.AreEqual("arg=value", test.TrimStart("माणूस"));
+
+            test = "माणूसarg=value";
+            Assert.AreEqual("सarg=value", test.TrimStart("माणू"));
+
+            test = "माणू    सarg=value";
+            Assert.AreEqual("    सarg=value", test.TrimStart("माणू"));
+
+            test = "माणूस की चान अहे";
+            Assert.AreEqual("चान अहे", test.TrimStart("माणूस की "));
+
+            test = "माणूमाणूसमाणूस माणूस की चान अहे";
+            Assert.AreEqual("समाणूस माणूस की चान अहे", test.TrimStart("माणू"));
+        }
     }
 }
