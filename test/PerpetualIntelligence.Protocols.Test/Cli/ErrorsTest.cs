@@ -15,7 +15,7 @@ namespace PerpetualIntelligence.Protocols.Cli
         [TestMethod]
         public void AssertErrorsAreValid()
         {
-            TestHelper.AssertConstantCount(typeof(Errors), 6);
+            TestHelper.AssertConstantCount(typeof(Errors), 7);
 
             Assert.AreEqual("invalid_command", Errors.InvalidCommand);
             Assert.AreEqual("invalid_configuration", Errors.InvalidConfiguration);
