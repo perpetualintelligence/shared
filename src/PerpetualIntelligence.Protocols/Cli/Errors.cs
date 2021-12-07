@@ -12,19 +12,29 @@ namespace PerpetualIntelligence.Protocols.Cli
     public static class Errors
     {
         /// <summary>
-        /// The arguments are invalid.
+        /// The argument is not valid.
         /// </summary>
         public const string InvalidArgument = "invalid_argument";
 
         /// <summary>
-        /// The command is invalid.
+        /// The command is not valid.
         /// </summary>
         public const string InvalidCommand = "invalid_command";
 
         /// <summary>
-        /// The request is invalid.
+        /// The configuration is not valid.
+        /// </summary>
+        public const string InvalidConfiguration = "invalid_configuration";
+
+        /// <summary>
+        /// The request is not valid.
         /// </summary>
         public const string InvalidRequest = "invalid_request";
+
+        /// <summary>
+        /// The argument is missing.
+        /// </summary>
+        public const string MissingArgument = "missing_argument";
 
         /// <summary>
         /// The server error.

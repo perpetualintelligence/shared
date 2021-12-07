@@ -18,7 +18,6 @@ namespace PerpetualIntelligence.Protocols.Abstractions
         /// Processes asynchronously.
         /// </summary>
         /// <param name="context">The processor context.</param>
-        /// <returns>The processor result.</returns>
         Task ProcessAsync(TContext context);
     }
 }

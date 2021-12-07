@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 namespace PerpetualIntelligence.Protocols.Abstractions
 {
     /// <summary>
-    /// An abstraction of a context specific result producer.
+    /// An abstraction of a context specific mapper.
     /// </summary>
-    public interface IProducer<TContext, TResult> where TContext : class where TResult : class
+    public interface IMapper<TContext, TResult> where TContext : class where TResult : class
     {
         /// <summary>
-        /// Produces the result asynchronously.
+        /// Maps asynchronously.
         /// </summary>
         /// <param name="context">The producer context.</param>
-        Task<TResult> ProduceResponseAsync(TContext context);
+        Task<TResult> MapAsync(TContext context);
     }
 }
