@@ -9,14 +9,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace PerpetualIntelligence.Shared.Attributes.Validation
 {
     [TestClass]
-    public class AllowedAttributeTests
+    public class OneOfAttributeTests
     {
         [TestMethod]
         public void IsValidArrayShouldReturnValidResult()
         {
             string[] allowed = new string[] { "test1", "test2", "test3", "test4" };
 
-            AllowedAttribute allowedAttribute = new AllowedAttribute(allowed);
+            OneOfAttribute allowedAttribute = new OneOfAttribute(allowed);
 
             Assert.IsTrue(allowedAttribute.IsValid(new string[] { "test1", "test2" }));
 
@@ -31,7 +31,7 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
         {
             string[] allowed = new string[] { "test1", "test2", "test3", "test4" };
 
-            AllowedAttribute allowedAttribute = new AllowedAttribute(allowed);
+            OneOfAttribute allowedAttribute = new OneOfAttribute(allowed);
 
             Assert.IsTrue(allowedAttribute.IsValid("test1"));
             Assert.IsTrue(allowedAttribute.IsValid("test2"));
