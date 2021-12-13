@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
 */
@@ -17,7 +17,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
     /// <see cref="Claim.Issuer"/> for equality. The string comparison for <see cref="Claim.ValueType"/> is
     /// <see cref="StringComparison.Ordinal"/> for all others it is <see cref="StringComparison.OrdinalIgnoreCase"/>.
     /// </summary>
-    [ToDocumentation("Explain comparison logic in docs.")]
+    [WriteDocumentation("Explain comparison logic in docs.")]
     [Todo("Do we need issuer an optional check ? 2 same claims from different issuer ? when can it happen")]
     public class ClaimComparer : EqualityComparer<Claim>
     {

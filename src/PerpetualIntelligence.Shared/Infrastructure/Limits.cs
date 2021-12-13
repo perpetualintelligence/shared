@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
 */
@@ -11,8 +11,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     /// <summary>
     /// Defines the limits for all the Perpetual Intelligence services.
     /// </summary>
-    [ToUnitTest]
-    [ToDocumentation]
+    [WriteUnitTest]
+    [WriteDocumentation]
     [Architecture("Automate the limits by adding DisplayAttribute and Group name and that use that to display limits in documentation. Or generate an json that can be used to generate documentation.")]
     [Refactor("I think we should just remove limits and use .NET core options framework to define limits. But then the data validations will not work on models.")]
     public static class Limits

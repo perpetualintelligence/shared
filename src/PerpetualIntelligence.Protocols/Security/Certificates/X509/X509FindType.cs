@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
 */
@@ -55,7 +55,7 @@ namespace PerpetualIntelligence.Protocols.Security.Certificates.X509
         /// <param name="findValue"></param>
         /// <param name="validOnly"></param>
         /// <returns></returns>
-        [ToUnitTest]
+        [WriteUnitTest]
         public IEnumerable<X509Certificate2> Find(object findValue, bool validOnly = true)
         {
             using (X509Store? store = new(Name, Location))

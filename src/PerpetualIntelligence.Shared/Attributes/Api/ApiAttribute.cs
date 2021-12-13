@@ -1,12 +1,12 @@
 ﻿/*
-    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
 */
 
 using System;
 
-namespace PerpetualIntelligence.Shared.Attributes
+namespace PerpetualIntelligence.Shared.Attributes.Api
 {
     /// <summary>
     /// Defines an Api.

@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
 */
@@ -7,7 +7,7 @@
 using System;
 using System.Text.Json.Serialization;
 
-namespace PerpetualIntelligence.Shared.Attributes
+namespace PerpetualIntelligence.Shared.Attributes.Api
 {
     /// <summary>
     /// Hides the target property from the API spec.

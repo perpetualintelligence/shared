@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
 */
@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Shared.Attributes;
+using PerpetualIntelligence.Shared.Attributes.Api;
 using PerpetualIntelligence.Shared.Infrastructure;
 using PerpetualIntelligence.Shared.Services;
 using System;
@@ -1163,7 +1164,7 @@ namespace PerpetualIntelligence.Test.Services
         }
 
         /// <summary>
-        /// Asserts <see cref="ToDocumentationAttribute"/> is applied on the specified member.
+        /// Asserts <see cref="WriteDocumentationAttribute"/> is applied on the specified member.
         /// </summary>
         /// <returns></returns>
         public static void AssertToDocumentationAttribute(MemberInfo? member, string description, bool inherit = false)
@@ -1173,21 +1174,21 @@ namespace PerpetualIntelligence.Test.Services
                 throw new ArgumentNullException(nameof(member));
             }
 
-            ToDocumentationAttribute? documentationAttribute = member.GetCustomAttribute<ToDocumentationAttribute>(inherit);
+            WriteDocumentationAttribute? documentationAttribute = member.GetCustomAttribute<WriteDocumentationAttribute>(inherit);
             if (documentationAttribute == null)
             {
-                Assert.Fail($"Member '{member.Name}' does not define '{typeof(ToDocumentationAttribute).Name}' attribute.");
+                Assert.Fail($"Member '{member.Name}' does not define '{typeof(WriteDocumentationAttribute).Name}' attribute.");
             }
             else
             {
                 if (member.DeclaringType == null)
                 {
                     Type classType = (Type)member;
-                    Assert.AreEqual(description, documentationAttribute.Description, $"Class '{classType.Namespace}.{member.Name}' has attribute '{typeof(ToDocumentationAttribute).Name}' but its description is invalid.");
+                    Assert.AreEqual(description, documentationAttribute.Description, $"Class '{classType.Namespace}.{member.Name}' has attribute '{typeof(WriteDocumentationAttribute).Name}' but its description is invalid.");
                 }
                 else
                 {
-                    Assert.AreEqual(description, documentationAttribute.Description, $"Member '{member.DeclaringType.FullName}.{member.Name}' has attribute '{typeof(ToDocumentationAttribute).Name}' but its description is invalid.");
+                    Assert.AreEqual(description, documentationAttribute.Description, $"Member '{member.DeclaringType.FullName}.{member.Name}' has attribute '{typeof(WriteDocumentationAttribute).Name}' but its description is invalid.");
                 }
             }
         }

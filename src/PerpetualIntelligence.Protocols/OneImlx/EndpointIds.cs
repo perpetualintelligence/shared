@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
 */
@@ -11,7 +11,7 @@ namespace PerpetualIntelligence.Protocols.OneImlx
     /// <summary>
     /// The <c>oneimlx</c> endpoint identifiers.
     /// </summary>
-    [ToDocumentation]
+    [WriteDocumentation]
     [MustDo("Add links to OpenID connect standard for each endpoint.", BlockRelease = true)]
     public static class EndpointIds
     {

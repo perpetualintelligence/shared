@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
 */
@@ -14,7 +14,7 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
     /// Specifies the allowed values for a property or a field.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false, Inherited = false)]
-    [ToUnitTest]
+    [WriteUnitTest]
     public sealed class OneOfAttribute : ValidationAttribute
     {
         /// <summary>

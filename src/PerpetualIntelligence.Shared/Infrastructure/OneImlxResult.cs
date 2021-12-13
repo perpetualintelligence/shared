@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
 */
@@ -159,7 +159,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <summary>
         /// Appends all the errors from the input to this instance.
         /// </summary>
-        [ToUnitTest]
+        [WriteUnitTest]
         public void AppendError(OneImlxResult input)
         {
             if (input.IsError)

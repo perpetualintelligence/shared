@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
 */
@@ -9,25 +9,24 @@ using System;
 namespace PerpetualIntelligence.Shared.Attributes
 {
     /// <summary>
-    /// Indicates that the target element requires documentation.
+    /// Indicates that the target element should have unit tests.
     /// </summary>
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
-    public sealed class ToDocumentationAttribute : ActionAttribute
+    public sealed class WriteUnitTestAttribute : ActionAttribute
     {
         /// <summary>
-        /// Initializes a new instance.
+        /// Initialize a new instance.
         /// </summary>
-        public ToDocumentationAttribute() : base()
+        public WriteUnitTestAttribute()
         {
         }
 
         /// <summary>
-        /// Initialize a new instance.
+        /// Initialize a new instance with description.
         /// </summary>
         /// <param name="description">Additional description.</param>
-        public ToDocumentationAttribute(string description) : base(description)
+        public WriteUnitTestAttribute(string description) : base(description)
         {
-            Description = description;
         }
     }
 }

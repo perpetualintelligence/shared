@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
 */
@@ -21,7 +21,7 @@ namespace PerpetualIntelligence.Protocols.Security.Secrets
         /// <param name="s2">string 2.</param>
         /// <returns><c>true</c> if the specified strings are equal; otherwise, <c>false</c>.</returns>
         [MethodImpl(MethodImplOptions.NoOptimization)]
-        [ToUnitTest]
+        [WriteUnitTest]
         public static bool IsEqual(string? s1, string? s2)
         {
             // FOMAC: change implementation or add cc right

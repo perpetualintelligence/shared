@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
 */
@@ -18,7 +18,7 @@ namespace PerpetualIntelligence.Protocols.OneImlx
             TestHelper.AssertConstantCount(typeof(OrgConstants), 10);
 
             Assert.AreEqual("https://en.gravatar.com/userimage/152742631/5c2800c8660bdabbfdcc1bf9497964d4.png", OrgConstants.LogoUrl);
-            Assert.AreEqual("Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.", OrgConstants.Copyright);
+            Assert.AreEqual("Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved", OrgConstants.Copyright);
             Assert.AreEqual("donotreply@perpetualintelligence.com", OrgConstants.DoNotReplyEmail);
             Assert.AreEqual("Perpetual Intelligence L.L.C.", OrgConstants.FullName);
             Assert.AreEqual("Perpetual Intelligence", OrgConstants.ShortName);

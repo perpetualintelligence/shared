@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
 */
@@ -14,7 +14,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
     /// <summary>
     /// Creates <see cref="ClaimsIdentity"/> for OpenID Connect authentication.
     /// </summary>
-    [ToDocumentation("Claims from certificate.")]
+    [WriteDocumentation("Claims from certificate.")]
     public static class ClaimsIdentityFactory
     {
         /// <summary>

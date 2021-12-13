@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
 */
@@ -11,7 +11,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
     /// <summary>
     /// The errors for the OAuth and OpenID Connect authentication protocol.
     /// </summary>
-    [ToDocumentation("Add std error and explain in which flow they are relevant")]
+    [WriteDocumentation("Add std error and explain in which flow they are relevant")]
     [Todo("Missing XML comments")]
     public static class Errors
     {

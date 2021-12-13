@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2019-2022. All Rights Reserved. Perpetual Intelligence L.L.C.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
 */
@@ -16,7 +16,7 @@ namespace PerpetualIntelligence.Protocols.Security.Secrets
     /// <seealso cref="SecretTypes"/>
     /// <seealso cref="SecretComparer"/>
     [Concept("Secrets Manager")]
-    [ToUnitTest]
+    [WriteUnitTest]
     public sealed class ExtractedSecret : OneImlxResult
     {
         /// <summary>
