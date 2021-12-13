@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using System;
@@ -18,38 +19,63 @@ namespace PerpetualIntelligence.Shared.Services
         /// <summary>
         /// Decodes the specified string.
         /// </summary>
-        /// <param name="arg">The Base64 string.</param>
+        /// <param name="value">The Base64 string.</param>
         /// <returns>The decoded byte array.</returns>
         /// <exception cref="InvalidOperationException">Invalid Base64 string.</exception>
-        public static byte[] Decode(string arg)
+        public static byte[] Decode(string value)
         {
-            string? s = arg;
-            s = s.Replace('-', '+'); // 62nd char of encoding - (dash) to +
-            s = s.Replace('_', '/'); // 63rd char of encoding _ (underscore) to /
+            // Base64 sanitation.
+            // -> 62nd char of encoding - (dash) to +
+            // -> 63rd char of encoding _ (underscore) to /
+            string s = value.Replace('-', '+').Replace('_', '/');
 
-            switch (s.Length % 4) // Pad with trailing '='s
+            // Apply the padding.
+            // - https://stackoverflow.com/questions/26353710/how-to-achieve-base64-url-safe-encoding-in-c
+            // - https://github.com/dotnet/aspnetcore/blob/main/src/Shared/WebEncoders/WebEncoders.cs#L389
+            switch (s.Length % 4)
             {
-                case 0: break; // No pad chars in this case
-                case 2: s += "=="; break; // Two pad chars
-                case 3: s += "="; break; // One pad char
-                default: throw new InvalidOperationException($"String '{arg}' is not a valid Base64 encoded string.");
+                case 0:
+                    {
+                        // No pad chars in this case
+                        break;
+                    }
+                case 2:
+                    {
+                        // Two padding chars ==
+                        s += "=="; break;
+                    }
+                case 3:
+                    {
+                        // One padding char =
+                        s += "="; break;
+                    }
+                default:
+                    {
+                        throw new InvalidOperationException($"The string '{value}' is not a valid Base64 encoded string.");
+                    }
             }
 
-            return Convert.FromBase64String(s); // Standard base64 decoder
+            // The standard .NET Base64 converter
+            return Convert.FromBase64String(s);
         }
 
         /// <summary>
         /// Encodes the specified byte array.
         /// </summary>
-        /// <param name="arg">The byte array.</param>
+        /// <param name="value">The byte array.</param>
         /// <returns>The encoded Base64 string.</returns>
-        public static string Encode(byte[] arg)
+        public static string Encode(byte[] value)
         {
-            string? s = Convert.ToBase64String(arg); // Standard base64 encoder
+            // The standard .NET Base64 converter
+            string s = Convert.ToBase64String(value);
 
-            s = s.Split('=')[0]; // Remove any trailing '='s
-            s = s.Replace('+', '-'); // 62nd char of encoding  + to - (dash)
-            s = s.Replace('/', '_'); // 63rd char of encoding  / to _ (underscore)
+            // Remove any trailing '='s
+            s = s.TrimEnd('=');
+
+            // Base64 sanitation.
+            // -> 62nd char of encoding - (dash) to +
+            // -> 63rd char of encoding _ (underscore) to /
+            s = s.Replace('+', '-').Replace('/', '_');
 
             return s;
         }
