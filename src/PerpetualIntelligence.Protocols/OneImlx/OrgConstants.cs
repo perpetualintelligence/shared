@@ -41,6 +41,11 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         public const string Oidc = "urn:oneimlx:oidc";
 
         /// <summary>
+        /// The <c>cli</c> protocol.
+        /// </summary>
+        public const string Cli = "urn:oneimlx:cli";
+
+        /// <summary>
         /// The <c>oneimlx</c> protocol.
         /// </summary>
         public const string OneImlx = "urn:oneimlx";
