@@ -50,7 +50,7 @@ namespace PerpetualIntelligence.Shared.Extensions
         [TestMethod]
         public void JoinSpaceTest()
         {
-            Assert.AreEqual("test1 test2 test3", StringExtensions.JoinSpace(new string[] { "test1", "test2", "test3" }));
+            Assert.AreEqual("test1 test2 test3", StringExtensions.JoinBySpace(new string[] { "test1", "test2", "test3" }));
         }
 
         [TestMethod]

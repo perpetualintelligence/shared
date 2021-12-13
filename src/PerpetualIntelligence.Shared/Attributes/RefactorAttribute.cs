@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using System;
@@ -9,7 +10,8 @@ using System;
 namespace PerpetualIntelligence.Shared.Attributes
 {
     /// <summary>
-    /// Specifies that the target should be re-factored.
+    /// Specifies that the target should be re-factored. Applications can use the target element, but the design may
+    /// change in future releases including breaking changes.
     /// </summary>
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
     public sealed class RefactorAttribute : ActionAttribute

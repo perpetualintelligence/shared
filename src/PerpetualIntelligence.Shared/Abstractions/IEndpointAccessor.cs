@@ -57,7 +57,7 @@ namespace PerpetualIntelligence.Shared.Abstractions
         string RegisterEndpoint { get; }
 
         /// <summary>
-        /// The enpoint authority.
+        /// The endpoint authority.
         /// </summary>
         string Authority { get; }
 

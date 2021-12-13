@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using System;
@@ -9,7 +10,7 @@ using System;
 namespace PerpetualIntelligence.Shared.Exceptions
 {
     /// <summary>
-    /// The <c>oneimlx</c> exception.
+    /// The generic <c>oneimlx</c> exception.
     /// </summary>
     public class OneImlxException : Exception
     {

@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using System.Collections.Generic;
@@ -48,7 +49,7 @@ namespace PerpetualIntelligence.Shared.Extensions
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        public static string JoinSpace(this IEnumerable<string> list)
+        public static string JoinBySpace(this IEnumerable<string> list)
         {
             if (list == null)
             {
