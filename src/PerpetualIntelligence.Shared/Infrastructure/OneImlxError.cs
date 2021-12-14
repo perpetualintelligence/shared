@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using System.Text.Json.Serialization;
@@ -9,7 +10,7 @@ using System.Text.Json.Serialization;
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
-    /// The generic <c>oneimlx</c> error response.
+    /// The generic <c>oneimlx</c> error.
     /// </summary>
     public class OneImlxError
     {
@@ -18,7 +19,6 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// </summary>
         public OneImlxError()
         {
-            Error = "unexpected_error";
         }
 
         /// <summary>
@@ -42,10 +42,10 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         }
 
         /// <summary>
-        /// The <c>error</c> code.
+        /// The <c>error</c> code. Defaults to <c>unexpected_error</c>.
         /// </summary>
         [JsonPropertyName("error")]
-        public string Error { get; set; }
+        public string Error { get; set; } = "unexpected_error";
 
         /// <summary>
         /// The <c>error_description</c>.

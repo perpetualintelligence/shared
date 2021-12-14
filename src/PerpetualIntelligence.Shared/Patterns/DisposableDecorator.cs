@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using System;
@@ -23,7 +24,7 @@ namespace PerpetualIntelligence.Shared.Patterns
         }
 
         /// <inheritdoc/>
-        public void Dispose()
+        public virtual void Dispose()
         {
             (Object as IDisposable)?.Dispose();
         }

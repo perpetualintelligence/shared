@@ -2,53 +2,81 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
+
+using System;
 
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
-    /// The custom data types for rendering ux components.
+    /// The custom data types to support <see cref="System.ComponentModel.DataAnnotations.DataType.Custom"/>.
     /// </summary>
     public sealed class CustomDataTypes
     {
         /// <summary>
+        /// The <see cref="bool"/> custom data type.
         /// </summary>
-        public const string Bool = nameof(Bool);
+        public const string Bool = "urn:oneimlx:cdt:bool";
 
         /// <summary>
+        /// The <see cref="double"/> custom data type.
         /// </summary>
-        public const string Double = nameof(Double);
+        public const string Double = "urn:oneimlx:cdt:double";
 
         /// <summary>
+        /// The <see cref="Enum"/> custom data type.
         /// </summary>
-        public const string Enumeration = nameof(Enumeration);
+        public const string Enumeration = "urn:oneimlx:cdt:enum";
 
         /// <summary>
+        /// The <see cref="float"/> custom data type.
         /// </summary>
-        public const string Int = nameof(Int);
+        public const string Float = "urn:oneimlx:cdt:float";
 
         /// <summary>
+        /// The <see cref="int"/> custom data type.
         /// </summary>
-        public const string MultiSelect = nameof(MultiSelect);
+        public const string Int = "urn:oneimlx:cdt:int";
 
         /// <summary>
+        /// The <see cref="long"/> custom data type.
         /// </summary>
-        public const string SingleSelect = nameof(SingleSelect);
+        public const string Long = "urn:oneimlx:cdt:long";
 
         /// <summary>
+        /// The multi-selection custom data type.
         /// </summary>
-        public const string StringDictionary = nameof(StringDictionary);
+        public const string MultiSelect = "urn:oneimlx:cdt:mselect";
 
         /// <summary>
+        /// The <see cref="short"/> custom data type.
         /// </summary>
-        public const string StringList = nameof(StringList);
+        public const string Short = "urn:oneimlx:cdt:short";
 
         /// <summary>
+        /// The single-selection custom data type.
         /// </summary>
-        public const string SubObject = nameof(SubObject);
+        public const string SingleSelect = "urn:oneimlx:cdt:sselect";
 
         /// <summary>
+        /// The string key-value pairs custom data type.
         /// </summary>
-        public const string SubObjectList = nameof(SubObjectList);
+        public const string StringDictionary = "urn:oneimlx:cdt:sdict";
+
+        /// <summary>
+        /// The string list or collection custom data type.
+        /// </summary>
+        public const string StringList = "urn:oneimlx:cdt:slist";
+
+        /// <summary>
+        /// The sub-object custom data type.
+        /// </summary>
+        public const string SubObject = "urn:oneimlx:cdt:so";
+
+        /// <summary>
+        /// The sub-object list or collection custom data type.
+        /// </summary>
+        public const string SubObjectList = "urn:oneimlx:cdt:solist";
     }
 }

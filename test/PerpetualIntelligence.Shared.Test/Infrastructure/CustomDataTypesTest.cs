@@ -2,18 +2,13 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PerpetualIntelligence.Shared.Infrastructure;
 using PerpetualIntelligence.Test.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace PerpetualIntelligence.Data.Shared.Rendering
+namespace PerpetualIntelligence.Shared.Infrastructure
 {
     [TestClass]
     public class CustomDataTypesTest
@@ -21,18 +16,21 @@ namespace PerpetualIntelligence.Data.Shared.Rendering
         [TestMethod]
         public void CustomDataTypesConstantTest()
         {
-            TestHelper.AssertConstantCount(typeof(CustomDataTypes), 10);
+            TestHelper.AssertConstantCount(typeof(CustomDataTypes), 13);
 
-            Assert.AreEqual("Bool", CustomDataTypes.Bool);
-            Assert.AreEqual("Double", CustomDataTypes.Double);
-            Assert.AreEqual("Enumeration", CustomDataTypes.Enumeration);
-            Assert.AreEqual("Int", CustomDataTypes.Int);
-            Assert.AreEqual("MultiSelect", CustomDataTypes.MultiSelect);
-            Assert.AreEqual("SingleSelect", CustomDataTypes.SingleSelect);
-            Assert.AreEqual("StringDictionary", CustomDataTypes.StringDictionary);
-            Assert.AreEqual("StringList", CustomDataTypes.StringList);
-            Assert.AreEqual("SubObject", CustomDataTypes.SubObject);
-            Assert.AreEqual("SubObjectList", CustomDataTypes.SubObjectList);
+            Assert.AreEqual("urn:oneimlx:cdt:bool", CustomDataTypes.Bool);
+            Assert.AreEqual("urn:oneimlx:cdt:double", CustomDataTypes.Double);
+            Assert.AreEqual("urn:oneimlx:cdt:enum", CustomDataTypes.Enumeration);
+            Assert.AreEqual("urn:oneimlx:cdt:float", CustomDataTypes.Float);
+            Assert.AreEqual("urn:oneimlx:cdt:int", CustomDataTypes.Int);
+            Assert.AreEqual("urn:oneimlx:cdt:long", CustomDataTypes.Long);
+            Assert.AreEqual("urn:oneimlx:cdt:mselect", CustomDataTypes.MultiSelect);
+            Assert.AreEqual("urn:oneimlx:cdt:short", CustomDataTypes.Short);
+            Assert.AreEqual("urn:oneimlx:cdt:sselect", CustomDataTypes.SingleSelect);
+            Assert.AreEqual("urn:oneimlx:cdt:sdict", CustomDataTypes.StringDictionary);
+            Assert.AreEqual("urn:oneimlx:cdt:slist", CustomDataTypes.StringList);
+            Assert.AreEqual("urn:oneimlx:cdt:so", CustomDataTypes.SubObject);
+            Assert.AreEqual("urn:oneimlx:cdt:solist", CustomDataTypes.SubObjectList);
         }
     }
 }

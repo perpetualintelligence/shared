@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using PerpetualIntelligence.Shared.Attributes;
@@ -14,8 +15,7 @@ using System.Threading.Tasks;
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
-    /// The OAuth or OpenID Connect HTTP result. The <see cref="ResultType"/> represents an exception while connecting
-    /// to the endpoint or the HTTP response while executing the endpoint.
+    /// The generic <c>oneimlx</c> HTTP result.
     /// </summary>
     public class OneImlxHttpResult : OneImlxResult, IDisposable
     {

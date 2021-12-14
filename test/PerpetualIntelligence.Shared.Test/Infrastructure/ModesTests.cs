@@ -13,12 +13,15 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     public class ModesTests
     {
         [TestMethod]
-        public void ModesTest()
+        public void All()
         {
-            Assert.AreEqual("urn:oneimlx:mode:live", Modes.Live);
-            Assert.AreEqual("urn:oneimlx:mode:test", Modes.Test);
-            Assert.AreEqual("urn:oneimlx:mode:neutral", Modes.Neutral);
-            Assert.AreEqual("urn:oneimlx:mode:stage", Modes.Stage);
+            string[] all = Modes.All();
+            Assert.AreEqual(4, all.Length);
+
+            Assert.AreEqual(Modes.Neutral, all[0]);
+            Assert.AreEqual(Modes.Test, all[1]);
+            Assert.AreEqual(Modes.Stage, all[2]);
+            Assert.AreEqual(Modes.Live, all[3]);
         }
 
         [TestMethod]
@@ -55,17 +58,13 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         }
 
         [TestMethod]
-        public void All()
+        public void ModesTest()
         {
-            string[] all = Modes.All();
-            Assert.AreEqual(4, all.Length);
-
-            Assert.AreEqual(Modes.Neutral, all[0]);
-            Assert.AreEqual(Modes.Test, all[1]);
-            Assert.AreEqual(Modes.Stage, all[2]);
-            Assert.AreEqual(Modes.Live, all[3]);
+            Assert.AreEqual("urn:oneimlx:mode:live", Modes.Live);
+            Assert.AreEqual("urn:oneimlx:mode:test", Modes.Test);
+            Assert.AreEqual("urn:oneimlx:mode:neutral", Modes.Neutral);
+            Assert.AreEqual("urn:oneimlx:mode:stage", Modes.Stage);
         }
-
         [TestMethod]
         public void ThrowIdInvalid()
         {

@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using System.Text.Json.Serialization;
@@ -18,16 +19,6 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// </summary>
         public OneImlxInformation()
         {
-            Information = "unexpected_information";
-        }
-
-        /// <summary>
-        /// Initialize a new instance.
-        /// </summary>
-        /// <param name="information"></param>
-        public OneImlxInformation(string information)
-        {
-            Information = information;
         }
 
         /// <summary>
@@ -37,27 +28,19 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <param name="informationDescription"></param>
         /// <param name="informationUri"></param>
         /// <param name="requestId"></param>
-        /// <param name="httpStatusCode"></param>
-        public OneImlxInformation(string information, string? informationDescription = null, string? informationUri = null, string? requestId = null, int? httpStatusCode = null)
+        public OneImlxInformation(string information, string? informationDescription = null, string? informationUri = null, string? requestId = null)
         {
             Information = information;
             InformationDescription = informationDescription;
             InformationUri = informationUri;
             RequestId = requestId;
-            HttpStatusCode = httpStatusCode;
         }
 
         /// <summary>
-        /// The HTTP status code <c>http_status_code</c>.
-        /// </summary>
-        [JsonPropertyName("http_status_code")]
-        public int? HttpStatusCode { get; set; }
-
-        /// <summary>
-        /// The <c>information</c> code.
+        /// The <c>information</c> code. Defaults to <c>unexpected_information</c>.
         /// </summary>
         [JsonPropertyName("information")]
-        public string Information { get; set; }
+        public string Information { get; set; } = "unexpected_information";
 
         /// <summary>
         /// The <c>information_description</c>.

@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 namespace PerpetualIntelligence.Shared.Patterns
@@ -12,6 +13,7 @@ namespace PerpetualIntelligence.Shared.Patterns
     /// objects and decorators follow the same interface.
     /// </summary>
     /// <typeparam name="TObject">The inner object type.</typeparam>
+    /// <seealso href="https://en.wikipedia.org/wiki/Decorator_pattern"/>
     public class Decorator<TObject>
     {
         /// <summary>

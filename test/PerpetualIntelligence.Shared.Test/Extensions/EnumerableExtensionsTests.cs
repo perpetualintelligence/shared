@@ -13,23 +13,16 @@ namespace PerpetualIntelligence.Shared.Extensions
     public class EnumerableExtensionsTests
     {
         [TestMethod]
-        public void NullListShouldReturnEmpty()
+        public void NonEmptyListButNullValueAndEmptyValueShouldNotReturnEmpty()
         {
-            IEnumerable<string>? list = null;
-            Assert.IsTrue(list.IsNullOrEmpty());
+            IEnumerable<string?>? list = new string?[] { "", null };
+            Assert.IsFalse(list.IsNullOrEmpty());
         }
 
         [TestMethod]
-        public void NonNullListShouldReturnEmpty()
+        public void NonEmptyListButNullValueAndNonEmptyValueShouldNotReturnEmpty()
         {
-            IEnumerable<string>? list = System.Array.Empty<string>();
-            Assert.IsTrue(list.IsNullOrEmpty());
-        }
-
-        [TestMethod]
-        public void NonEmptyListShouldNotReturnEmpty()
-        {
-            IEnumerable<string>? list = new[] {"test1", "test2"};
+            IEnumerable<string?>? list = new string?[] { "test1", null };
             Assert.IsFalse(list.IsNullOrEmpty());
         }
 
@@ -42,17 +35,24 @@ namespace PerpetualIntelligence.Shared.Extensions
         }
 
         [TestMethod]
-        public void NonEmptyListButNullValueAndEmptyValueShouldNotReturnEmpty()
+        public void NonEmptyListShouldNotReturnEmpty()
         {
-            IEnumerable<string?>? list = new string?[] { "", null };
+            IEnumerable<string>? list = new[] { "test1", "test2" };
             Assert.IsFalse(list.IsNullOrEmpty());
         }
 
         [TestMethod]
-        public void NonEmptyListButNullValueAndNonEmptyValueShouldNotReturnEmpty()
+        public void NonNullListShouldReturnEmpty()
         {
-            IEnumerable<string?>? list = new string?[] { "test1", null };
-            Assert.IsFalse(list.IsNullOrEmpty());
+            IEnumerable<string>? list = System.Array.Empty<string>();
+            Assert.IsTrue(list.IsNullOrEmpty());
+        }
+
+        [TestMethod]
+        public void NullListShouldReturnEmpty()
+        {
+            IEnumerable<string>? list = null;
+            Assert.IsTrue(list.IsNullOrEmpty());
         }
     }
 }

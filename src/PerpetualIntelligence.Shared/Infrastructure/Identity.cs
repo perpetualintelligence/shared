@@ -10,7 +10,7 @@ using System.Text.Json.Serialization;
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
-    /// Identifies an entity uniquely with an <c>id</c> and an optional <c>partition_id</c> if the entity is partitioned.
+    /// Identifies an entity uniquely with an <c>id</c> and an optional <c>partition_id</c>, if the entity is partitioned.
     /// </summary>
     public class Identity
     {

@@ -2,11 +2,12 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using Microsoft.Extensions.Configuration;
-using PerpetualIntelligence.Protocols.OneImlx;
 using PerpetualIntelligence.Protocols.Oidc;
+using PerpetualIntelligence.Protocols.OneImlx;
 using PerpetualIntelligence.Shared.Abstractions;
 
 namespace PerpetualIntelligence.Protocols.Defaults.Versioning
@@ -22,6 +23,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Versioning
         /// </summary>
         /// <param name="configuration">The configuration.</param>
         /// <param name="urlVersionAccessor">The URL version accessor.</param>
+        /// <param name="logger">The logger.</param>
         public DefaultUrlVersionEndpointAccessor(IConfiguration configuration, IUrlVersionAccessor urlVersionAccessor)
         {
             Configuration = configuration;
@@ -148,7 +150,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Versioning
             {
                 return $"{UrlVersionAccessor.GetVersion()}/oidc/authorization/token";
             }
-        }      
+        }
 
         /// <summary>
         /// The application configuration.

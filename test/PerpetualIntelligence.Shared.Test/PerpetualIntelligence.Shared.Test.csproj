@@ -52,11 +52,12 @@
         TODO: Works for now ! but find a more scalable solution.
 	-->
 	<ItemGroup>
-      <PackageReference Include="PerpetualIntelligence.Test" Version="2.3.4" />
+      <!--<PackageReference Include="PerpetualIntelligence.Test" Version="2.3.4" />-->
+      <ProjectReference Include="..\..\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
+        <ProjectReference Include="..\..\src\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />        
     </ItemGroup>
 
 </Project>
