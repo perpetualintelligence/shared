@@ -98,7 +98,7 @@ namespace PerpetualIntelligence.Shared.Extensions
             {
                 if (!loggingOptions.RevealErrorArguments.GetValueOrDefault())
                 {
-                    argsToUse = Enumerable.Repeat("****", args.Length).ToArray();
+                    argsToUse = Enumerable.Repeat(loggingOptions.ObscureErrorArgumentString, args.Length).ToArray();
                 }
             }
 
