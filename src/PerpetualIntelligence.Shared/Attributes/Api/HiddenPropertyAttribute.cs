@@ -17,14 +17,14 @@ namespace PerpetualIntelligence.Shared.Attributes.Api
     /// Swagger UI. Use this attribute to process and remove the property from your API spec schema.
     /// </remarks>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
-    public class ApiHidePropertyAttribute : Attribute
+    public class HiddenPropertyAttribute : Attribute
     {
         /// <summary>
         /// Initializes a new instance.
         /// </summary>
         /// <param name="property">The property to hide.</param>
         /// <param name="justification">The justification to hide the property.</param>
-        public ApiHidePropertyAttribute(string property, string justification)
+        public HiddenPropertyAttribute(string property, string justification)
         {
             Property = property;
             Justification = justification;

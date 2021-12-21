@@ -1031,7 +1031,7 @@ namespace PerpetualIntelligence.Test.Services
         }
 
         /// <summary>
-        /// Asserts <see cref="ApiHidePropertyAttribute"/> is applied on the specified member.
+        /// Asserts <see cref="HiddenPropertyAttribute"/> is applied on the specified member.
         /// </summary>
         /// <returns></returns>
         public static void AssertSwaggerHideProperty(MemberInfo? member, string? propertyName, string? justification, bool inherit = false)
@@ -1041,18 +1041,18 @@ namespace PerpetualIntelligence.Test.Services
                 throw new ArgumentNullException(nameof(member));
             }
 
-            ApiHidePropertyAttribute? swaggerHidePropertyAttribute = member.GetCustomAttribute<ApiHidePropertyAttribute>(inherit);
+            HiddenPropertyAttribute? swaggerHidePropertyAttribute = member.GetCustomAttribute<HiddenPropertyAttribute>(inherit);
             if (swaggerHidePropertyAttribute == null)
             {
-                Assert.Fail($"Member '{member.Name}' does not define '{typeof(ApiHidePropertyAttribute).Name}' attribute.");
+                Assert.Fail($"Member '{member.Name}' does not define '{typeof(HiddenPropertyAttribute).Name}' attribute.");
             }
             else
             {
                 if (member.DeclaringType == null)
                 {
                     Type classType = (Type)member;
-                    Assert.AreEqual(propertyName, swaggerHidePropertyAttribute.Property, $"Class '{classType.Namespace}.{member.Name}' has attribute '{typeof(ApiHidePropertyAttribute).Name}' but its property name is invalid.");
-                    Assert.AreEqual(justification, swaggerHidePropertyAttribute.Justification, $"Class '{classType.Namespace}.{member.Name}' has attribute '{typeof(ApiHidePropertyAttribute).Name}' but its justification is invalid.");
+                    Assert.AreEqual(propertyName, swaggerHidePropertyAttribute.Property, $"Class '{classType.Namespace}.{member.Name}' has attribute '{typeof(HiddenPropertyAttribute).Name}' but its property name is invalid.");
+                    Assert.AreEqual(justification, swaggerHidePropertyAttribute.Justification, $"Class '{classType.Namespace}.{member.Name}' has attribute '{typeof(HiddenPropertyAttribute).Name}' but its justification is invalid.");
                 }
                 else
                 {

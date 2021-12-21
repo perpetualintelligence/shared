@@ -41,8 +41,13 @@ namespace PerpetualIntelligence.Shared.Attributes
         public string? Severity { get; set; }
 
         /// <summary>
-        /// The version to address the action.
+        /// The version to address an action.
         /// </summary>
         public string? Version { get; set; }
+
+        /// <summary>
+        /// The action assignee.
+        /// </summary>
+        public string? Assignee { get; set; }
     }
 }

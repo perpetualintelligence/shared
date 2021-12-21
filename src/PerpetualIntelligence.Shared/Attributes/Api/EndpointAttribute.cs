@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using System;
@@ -9,30 +10,30 @@ using System;
 namespace PerpetualIntelligence.Shared.Attributes.Api
 {
     /// <summary>
-    /// Defines an Api.
+    /// Defines an api endpoint.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
-    public class ApiAttribute : Attribute
+    public class EndpointAttribute : Attribute
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        /// <param name="api"></param>
-        /// <param name="domain"></param>
-        public ApiAttribute(string api, string domain)
+        /// <param name="id">The endpoint identifier.</param>
+        /// <param name="authority">The endpoint authority.</param>
+        public EndpointAttribute(string id, string authority)
         {
-            Api = api;
-            Domain = domain;
+            Id = id;
+            Authority = authority;
         }
 
         /// <summary>
-        /// The API identifier.
+        /// The endpoint authority.
         /// </summary>
-        public string Api { get; set; }
+        public string Authority { get; }
 
         /// <summary>
-        /// The API domain.
+        /// The endpoint identifier.
         /// </summary>
-        public string Domain { get; }
+        public string Id { get; set; }
     }
 }
