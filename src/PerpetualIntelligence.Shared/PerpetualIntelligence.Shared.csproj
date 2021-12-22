@@ -18,8 +18,8 @@
 
     <PropertyGroup Label="PiPackageProps">
         <Product>protocols</Product>
-        <Description>The cross platform infrastructure components shared across application stack.</Description>
-        <PackageTags>infrastructure modes</PackageTags>
+        <Description>Perpetual Intelligence's cross-platform infrastructure components. These components are shared across the application stack. Applications can use these components to build low-level or foundational elements.</Description>
+        <PackageTags>infrastructure modes oneimlx</PackageTags>
     </PropertyGroup>  
 
     <ItemGroup Label="PiExternalPackages">

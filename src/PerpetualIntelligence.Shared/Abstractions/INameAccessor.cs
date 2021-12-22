@@ -14,6 +14,7 @@ namespace PerpetualIntelligence.Shared.Abstractions
         /// <summary>
         /// Returns the subject's name.
         /// </summary>
+        /// <returns>The name.</returns>
         string? GetName();
     }
 }

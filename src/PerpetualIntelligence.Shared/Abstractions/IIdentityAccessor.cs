@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using PerpetualIntelligence.Shared.Infrastructure;
@@ -20,6 +21,7 @@ namespace PerpetualIntelligence.Shared.Abstractions
         /// <summary>
         /// Gets the identity.
         /// </summary>
+        /// <returns>An identity instance.</returns>
         Identity GetIdentity();
     }
 }

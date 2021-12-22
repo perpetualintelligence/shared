@@ -11,8 +11,8 @@ using System.Text;
 namespace PerpetualIntelligence.Shared.Services
 {
     /// <summary>
-    /// The URL safe Base64 string encoder. The encoder trims the padding character '=', replacing the characters + and
-    /// with -(dash) and _(underscore), respectively.
+    /// The URL safe Base64 string encoder. The encoder trims the padding character <c>=</c>, replacing the characters
+    /// <c>+</c> and <c>/</c> with <c>-</c> (dash) and <c>_</c> (underscore), respectively.
     /// </summary>
     public static class UrlSafeBase64Encoder
     {

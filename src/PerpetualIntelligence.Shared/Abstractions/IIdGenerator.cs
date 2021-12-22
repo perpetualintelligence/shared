@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using PerpetualIntelligence.Shared.Infrastructure;
@@ -9,18 +10,21 @@ using PerpetualIntelligence.Shared.Infrastructure;
 namespace PerpetualIntelligence.Shared.Abstractions
 {
     /// <summary>
-    /// An abstraction of an identifier generator for <c>oneimlx</c> managed services.
+    /// An abstraction of an id generator.
     /// </summary>
-    /// <remarks>The <see cref="IIdGenerator"/> generates regular text id, numeric id, partitioned id and mode id.</remarks>
+    /// <remarks>
+    /// The <see cref="IIdGenerator"/> can generate regular text id, numeric id, partitioned id and mode id.
+    /// </remarks>
     /// <seealso cref="Identity"/>
     /// <seealso cref="ModeIdentity"/>
+    /// <seealso cref="Modes"/>
     public interface IIdGenerator
     {
         /// <summary>
         /// Decodes the specified mode identifier.
         /// </summary>
         /// <param name="modeId">The mode identifier to decode.</param>
-        /// <returns><see cref="ModeIdentity"/> that represents the decoded mode identifier.</returns>
+        /// <returns>An identity instance that represents the decoded mode identifier.</returns>
         ModeIdentity DecodeModeId(string modeId);
 
         /// <summary>
@@ -28,7 +32,7 @@ namespace PerpetualIntelligence.Shared.Abstractions
         /// </summary>
         /// <param name="partitionedId">The partitioned identifier to decode.</param>
         /// <param name="splitId"><c>true</c> to split the partitionedId identifier, otherwise <c>false</c>.</param>
-        /// <returns><see cref="Identity"/> that represents a decoded partitioned identifier.</returns>
+        /// <returns>An identity instance that represents a decoded partitioned identifier.</returns>
         Identity DecodePartitionedId(string partitionedId, bool splitId);
 
         /// <summary>
@@ -41,7 +45,7 @@ namespace PerpetualIntelligence.Shared.Abstractions
         /// Generates a new mode identifier. A mode identifier is a compound identifier of the specified mode, partition
         /// identifier and a new unique identifier.
         /// </summary>
-        /// <param name="mode">The mode.</param>
+        /// <param name="mode">The mode. See <see cref="Modes"/>.</param>
         /// <param name="partitionId">The partition identifier.</param>
         /// <returns>A new mode identifier.</returns>
         string NewModeId(string mode, string partitionId);

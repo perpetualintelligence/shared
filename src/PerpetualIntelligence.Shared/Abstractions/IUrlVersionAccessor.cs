@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 namespace PerpetualIntelligence.Shared.Abstractions
@@ -14,6 +15,7 @@ namespace PerpetualIntelligence.Shared.Abstractions
         /// <summary>
         /// Gets the URL version.
         /// </summary>
+        /// <returns>The version string.</returns>
         string GetVersion();
     }
 }

@@ -14,13 +14,13 @@ https://docs.microsoft.com/en-us/cpp/build/reference/vcxproj-file-structure?view
         Shared package properties.
     -->
     <PropertyGroup Label="PiPackageProps">
-        <Copyright>Copyright (c) 2021. All Rights Reserved. Perpetual Intelligence L.L.C.</Copyright>
+        <Copyright>Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.</Copyright>
         <Authors>Perpetual Intelligence</Authors>
         <Company>Perpetual Intelligence L.L.C.</Company>
 
-        <PackageProjectUrl>https://perpetualintelligence.azurewebsites.net/</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/perpetualintelligence/protocols</PackageProjectUrl>
 
-        <RepositoryUrl>https://github.com/perpetualintelligence</RepositoryUrl>        
+        <RepositoryUrl>https://github.com/perpetualintelligence/protocols</RepositoryUrl>        
 
         <!--
             We are using Visual Studio Team Services/TFS and CI build process and that has versioning built-in. So we utilize msbuild's Condition attribute.
@@ -33,7 +33,7 @@ https://docs.microsoft.com/en-us/cpp/build/reference/vcxproj-file-structure?view
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-        <RepositoryType>tfs</RepositoryType>        
+        <RepositoryType>git</RepositoryType>        
     </PropertyGroup>
 
     <!--

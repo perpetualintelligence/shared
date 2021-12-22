@@ -2,8 +2,10 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
+using PerpetualIntelligence.Shared.Attributes;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
@@ -12,21 +14,25 @@ namespace PerpetualIntelligence.Shared.Abstractions
     /// <summary>
     /// An abstraction to query the property parameters for UX rendering.
     /// </summary>
+    [Refactor("This interface should not be in the shared.")]
     public interface IPropertyAccessor
     {
         /// <summary>
-        /// The property to render.
+        /// The property data type.
         /// </summary>
-        PropertyInfo Property { get; }
+        /// <value>An instance of <see cref="DataTypeAttribute"/></value>
+        DataTypeAttribute DataType { get; }
 
         /// <summary>
-        /// The property <see cref="DisplayAttribute"/>.
+        /// The property display parameters.
         /// </summary>
+        /// <value>An instance of <see cref="DisplayAttribute"/></value>
         DisplayAttribute Display { get; }
 
         /// <summary>
-        /// The property <see cref="DataTypeAttribute"/>.
+        /// The property to render.
         /// </summary>
-        DataTypeAttribute DataType { get; }
+        /// <value>An instance of <see cref="PropertyInfo"/></value>
+        PropertyInfo Property { get; }
     }
 }

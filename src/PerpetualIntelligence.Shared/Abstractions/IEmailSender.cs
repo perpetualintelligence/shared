@@ -16,7 +16,7 @@ namespace PerpetualIntelligence.Shared.Abstractions
         /// <summary>
         /// Sends an email asynchronously.
         /// </summary>
-        /// <param name="to">The email recipient.</param>
+        /// <param name="to">The recipient.</param>
         /// <param name="subject">The subject.</param>
         /// <param name="htmlMessage">The HTML message.</param>
         /// <returns><see cref="Task"/> instance that represents an asynchronous send operation.</returns>

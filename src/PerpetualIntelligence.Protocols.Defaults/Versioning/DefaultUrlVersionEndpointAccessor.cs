@@ -13,10 +13,10 @@ using PerpetualIntelligence.Shared.Abstractions;
 namespace PerpetualIntelligence.Protocols.Defaults.Versioning
 {
     /// <summary>
-    /// The default versioned <see cref="IEndpointAccessor"/>. The version information is added in the URL path.
+    /// The default versioned <see cref="IOPAccessor"/>. The version information is added in the URL path.
     /// </summary>
-    /// <seealso cref="IEndpointAccessor"/>
-    public sealed class DefaultUrlVersionEndpointAccessor : IEndpointAccessor
+    /// <seealso cref="IOPAccessor"/>
+    public sealed class DefaultUrlVersionEndpointAccessor : IOPAccessor
     {
         /// <summary>
         /// Initializes a new instance.

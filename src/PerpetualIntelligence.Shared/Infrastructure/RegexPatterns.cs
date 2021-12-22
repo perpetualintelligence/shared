@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using PerpetualIntelligence.Shared.Attributes;
@@ -12,8 +13,6 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     /// Defines commonly used REGEX patterns.
     /// </summary>
     [WriteUnitTest]
-    [WriteDocumentation]
-    [Todo("Automate the documentation by adding DisplayAttribute and Group name and that use that to display limits in documentation. Or generate an json that can be used to generate documentation.")]
     public static class RegexPatterns
     {
         /// <summary>

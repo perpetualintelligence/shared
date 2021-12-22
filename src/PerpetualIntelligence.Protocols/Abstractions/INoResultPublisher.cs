@@ -10,16 +10,19 @@ using System.Threading.Tasks;
 namespace PerpetualIntelligence.Protocols.Abstractions
 {
     /// <summary>
-    /// An abstraction of context specific publisher.
+    /// An abstraction of a context specific publisher.
     /// </summary>
     /// <typeparam name="TContext">The publisher context.</typeparam>
-    /// <typeparam name="TResult">The publisher context.</typeparam>
-    public interface IPublisher<TContext, TResult> where TContext : class where TResult : class
+    /// <remarks>
+    /// The <see cref="INoResultPublisher{TContext}"/> does not return any result during publish. See
+    /// <see cref="IPublisher{TContext, TResult}"/> for publisher with result.
+    /// </remarks>
+    public interface INoResultPublisher<TContext> where TContext : class
     {
         /// <summary>
         /// Publishes asynchronously.
         /// </summary>
         /// <param name="context">The publisher context.</param>
-        Task<TResult> ProcessAsync(TContext context);
+        Task PublishAsync(TContext context);
     }
 }

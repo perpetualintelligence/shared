@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace PerpetualIntelligence.Protocols.Defaults.Concurrency
 {
     /// <summary>
-    /// The default <see cref="IThreadLock{T}"/> using <see cref="SemaphoreSlim"/> .
+    /// The default <see cref="IThreadLock{T}"/> using <see cref="SemaphoreSlim"/>.
     /// </summary>
     public class DefaultSemaphoreSlimThreadLock<T> : IThreadLock<T>
     {

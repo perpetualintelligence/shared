@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using System;
@@ -32,30 +33,6 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
         public object?[] AllowedValues { get; }
 
         /// <inheritdoc/>
-        public override bool IsValid(object? value)
-        {
-            // Null value is OK, this may mean that user has not yet entered any value.
-            if (value == null)
-            {
-                return true;
-            }
-
-            // If value is an array compute the difference otherwise check if it exist in the allowed values.
-            if (value is object?[] valArray)
-            {
-                return !valArray.Except(AllowedValues).Any();
-            }
-            else
-            {
-                return AllowedValues.Contains(value);
-            }
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <param name="value"></param>
-        /// <param name="validationContext"></param>
-        /// <returns></returns>
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             // Null value is OK, this may mean that user has not yet entered any value.

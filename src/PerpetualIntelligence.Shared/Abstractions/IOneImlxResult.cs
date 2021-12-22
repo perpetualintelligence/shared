@@ -2,6 +2,12 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
+*/
+/*
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
+    https://perpetualintelligence.com
+    https://api.perpetualintelligence.com
 */
 
 namespace PerpetualIntelligence.Shared.Abstractions
@@ -14,6 +20,7 @@ namespace PerpetualIntelligence.Shared.Abstractions
         /// <summary>
         /// Determines if the result is an error.
         /// </summary>
+        /// <value>A boolean value.</value>
         bool IsError { get; }
     }
 }
