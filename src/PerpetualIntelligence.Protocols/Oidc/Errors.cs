@@ -17,6 +17,12 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// <summary>
         /// The valid authentication errors.
         /// </summary>
+        /// <value>
+        /// An array of authentication errors that includes <see cref="InteractionRequired"/>,
+        /// <see cref="LoginRequired"/>, <see cref="AccountSelectionRequired"/>, <see cref="ConsentRequired"/>,
+        /// <see cref="InvalidRequestUri"/>, <see cref="InvalidRequestObject"/>, <see cref="RequestNotSupported"/>,
+        /// <see cref="RequestUriNotSupported"/>, <see cref="RegistrationNotSupported"/>.
+        /// </value>
         /// <seealso href="https://openid.net/specs/openid-connect-core-1_0.html#AuthError"/>
         public static string[] AuthenticationErrors
         {
@@ -39,6 +45,11 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// <summary>
         /// The valid authorization errors.
         /// </summary>
+        /// <value>
+        /// An array of authorization errors that includes <see cref="AccessDenied"/>,
+        /// <see cref="InteractionRequired"/>, <see cref="LoginRequired"/>, <see cref="AccountSelectionRequired"/>,
+        /// <see cref="ConsentRequired"/>, <see cref="TemporarilyUnavailable"/>.
+        /// </value>
         public static string[] AuthorizationErrors
         {
             get
@@ -57,6 +68,11 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// <summary>
         /// The valid token errors.
         /// </summary>
+        /// <value>
+        /// An array of token errors that includes <see cref="InvalidRequest"/>, <see cref="InvalidClient"/>,
+        /// <see cref="InvalidGrant"/>, <see cref="UnauthorizedClient"/>, <see cref="UnsupportedGrantType"/>,
+        /// <see cref="InvalidScope"/>, <see cref="InvalidTarget"/>.
+        /// </value>
         public static string[] TokenErrors
         {
             get
