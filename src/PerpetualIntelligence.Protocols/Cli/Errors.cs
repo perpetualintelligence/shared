@@ -7,7 +7,7 @@
 namespace PerpetualIntelligence.Protocols.Cli
 {
     /// <summary>
-    /// The errors for the <c>cli</c> protocol.
+    /// The errors for the Perpetual Intelligence's <c>cli</c> protocol.
     /// </summary>
     public static class Errors
     {

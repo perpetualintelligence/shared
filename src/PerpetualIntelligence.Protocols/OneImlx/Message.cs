@@ -7,7 +7,7 @@
 using System;
 using System.Text.Json.Serialization;
 
-namespace PerpetualIntelligence.Protocols.Communication
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
     /// The generic communication message.

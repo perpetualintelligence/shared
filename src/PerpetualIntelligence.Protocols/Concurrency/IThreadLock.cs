@@ -11,6 +11,7 @@ namespace PerpetualIntelligence.Protocols.Concurrency
     /// <summary>
     /// An abstraction to lock or release the concurrent thread execution.
     /// </summary>
+    /// <typeparam name="T">The type requesting thread lock.</typeparam>
     public interface IThreadLock<T>
     {
         /// <summary>
@@ -23,7 +24,7 @@ namespace PerpetualIntelligence.Protocols.Concurrency
         /// <summary>
         /// Asynchronously release the locked thread.
         /// </summary>
-        /// <returns></returns>
+        /// <returns><see cref="Task"/> instance.</returns>
         Task ReleaseAsync();
     }
 }

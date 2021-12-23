@@ -6,7 +6,7 @@
 
 using System.Threading.Tasks;
 
-namespace PerpetualIntelligence.Protocols.Communication.Events
+namespace PerpetualIntelligence.Protocols.Abstractions
 {
     /// <summary>
     /// The abstraction to record an <see cref="IEvent"/> in the publish/subscribe-style communication without requiring
@@ -15,7 +15,7 @@ namespace PerpetualIntelligence.Protocols.Communication.Events
     /// <seealso cref="IEvent"/>
     /// <seealso cref="IEventPublisher{TContext, TResult}"/>
     /// <seealso cref="IEventSubscriber{TContext, TResult}"/>
-    public interface IEventRecorder<TContext, TResult> where TContext : class
+    public interface IEventRecorder<TContext, TResult> where TContext : class where TResult : class
     {
         /// <summary>
         /// Determines whether the <see cref="IEventRecorder{TContext, TResult}"/> can record the specified event.
