@@ -14,7 +14,7 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
         [TestMethod]
         public void IsValidShouldReturnValidResult()
         {
-            UrlListAttribute urlListAttribute = new UrlListAttribute();
+            UrlListAttribute urlListAttribute = new();
 
             // null is valid
             Assert.IsTrue(urlListAttribute.IsValid(null));

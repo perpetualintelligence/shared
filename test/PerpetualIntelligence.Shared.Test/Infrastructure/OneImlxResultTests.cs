@@ -115,7 +115,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void NewErrorShouldHaveErrorParms()
         {
-            OneImlxError error = new OneImlxError()
+            OneImlxError error = new()
             {
                 Error = "test_error",
                 ErrorDescription = "test_error_desc",
@@ -155,7 +155,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void NewInstanceShouldNotError()
         {
-            OneImlxResult oneImlxResult = new OneImlxResult();
+            OneImlxResult oneImlxResult = new();
             Assert.IsFalse(oneImlxResult.IsError);
         }
 
@@ -227,7 +227,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             result.AddError("test_error2");
             result.AddError("test_error3");
 
-            OneImlxResult input = new OneImlxResult();
+            OneImlxResult input = new();
             input.AddError("test_error3", "test_error_desc3", "test_error_uri3", "test_request_id3");
 
             result.SyncError(input);

@@ -16,7 +16,7 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
         {
             string[] allowed = new string[] { "test1", "test2", "test3", "test4" };
 
-            OneOfAttribute allowedAttribute = new OneOfAttribute(allowed);
+            OneOfAttribute allowedAttribute = new(allowed);
 
             Assert.IsTrue(allowedAttribute.IsValid(new string[] { "test1", "test2" }));
 
@@ -31,7 +31,7 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
         {
             string[] allowed = new string[] { "test1", "test2", "test3", "test4" };
 
-            OneOfAttribute allowedAttribute = new OneOfAttribute(allowed);
+            OneOfAttribute allowedAttribute = new(allowed);
 
             Assert.IsTrue(allowedAttribute.IsValid("test1"));
             Assert.IsTrue(allowedAttribute.IsValid("test2"));

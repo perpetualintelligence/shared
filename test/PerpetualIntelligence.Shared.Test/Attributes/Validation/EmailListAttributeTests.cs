@@ -14,7 +14,7 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
         [TestMethod]
         public void IsValidShouldReturnValidResult()
         {
-            EmailListAttribute emailListAttribute = new EmailListAttribute();
+            EmailListAttribute emailListAttribute = new();
 
             // null is valid
             Assert.IsTrue(emailListAttribute.IsValid(null));

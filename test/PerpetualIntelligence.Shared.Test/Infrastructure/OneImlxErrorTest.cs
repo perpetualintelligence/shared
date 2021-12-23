@@ -2,6 +2,12 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
+*/
+/*
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
+    https://perpetualintelligence.com
+    https://api.perpetualintelligence.com
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -17,9 +23,11 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         public void CtorNoErrorShouldThrow()
         {
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
+#pragma warning disable CA1806 // Do not ignore method results
             TestHelper.AssertThrowsWithMessage<ArgumentException>(() => new OneImlxError(null), "'error' cannot be null or whitespace. (Parameter 'error')");
-#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
             TestHelper.AssertThrowsWithMessage<ArgumentException>(() => new OneImlxError("   "), "'error' cannot be null or whitespace. (Parameter 'error')");
+#pragma warning restore CA1806 // Do not ignore method results
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
         }
 
         [TestMethod]

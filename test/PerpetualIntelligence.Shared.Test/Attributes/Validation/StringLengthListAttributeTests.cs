@@ -14,7 +14,7 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
         [TestMethod]
         public void IsValidShouldReturnValidResult()
         {
-            StringLengthListAttribute  stringLengthListAttribute = new StringLengthListAttribute(8);
+            StringLengthListAttribute  stringLengthListAttribute = new(8);
 
             // null is valid
             Assert.IsTrue(stringLengthListAttribute.IsValid(null));

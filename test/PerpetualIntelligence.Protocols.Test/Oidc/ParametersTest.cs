@@ -1,6 +1,9 @@
-﻿// Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-// https://perpetualintelligence.com
-// https://api.perpetualintelligence.com
+﻿/*
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
+    https://perpetualintelligence.com
+    https://api.perpetualintelligence.com
+    https://oneimlx.com
+*/
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Test.Services;
@@ -8,7 +11,7 @@ using PerpetualIntelligence.Test.Services;
 namespace PerpetualIntelligence.Protocols.Oidc
 {
     [TestClass]
-   public class ParametersTest
+    public class ParametersTest
     {
         [TestMethod]
         public void ParameterConstantTest()
@@ -41,7 +44,6 @@ namespace PerpetualIntelligence.Protocols.Oidc
             Assert.AreEqual("id_token_hint", Parameters.IdTokenHint);
             Assert.AreEqual("issued_token_type", Parameters.IssuedTokenType);
             Assert.AreEqual("iss", Parameters.Issuer);
-            Assert.AreEqual("key", Parameters.Key);
             Assert.AreEqual("login_hint", Parameters.LoginHint);
             Assert.AreEqual("max_age", Parameters.MaxAge);
             Assert.AreEqual("nonce", Parameters.Nonce);
@@ -86,7 +88,6 @@ namespace PerpetualIntelligence.Protocols.Oidc
 
             // end_session
             Assert.AreEqual("logout_token", Parameters.LogoutToken);
-
         }
     }
 }
