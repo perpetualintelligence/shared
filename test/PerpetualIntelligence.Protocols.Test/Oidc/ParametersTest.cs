@@ -16,7 +16,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
         [TestMethod]
         public void ParameterConstantTest()
         {
-            TestHelper.AssertConstantCount(typeof(Parameters), 62);
+            TestHelper.AssertConstantCount(typeof(Parameters), 61);
 
             Assert.AreEqual("access_token", Parameters.AccessToken);
             Assert.AreEqual("acr_values", Parameters.AcrValues);
