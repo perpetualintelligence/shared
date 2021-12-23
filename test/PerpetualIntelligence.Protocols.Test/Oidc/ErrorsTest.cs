@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -12,6 +13,13 @@ namespace PerpetualIntelligence.Protocols.Oidc
     [TestClass]
     public class ErrorsTest
     {
+        [TestMethod]
+        public void AuthenticationErrorsTest()
+        {
+            Assert.AreEqual(9, Errors.AuthenticationErrors.Length);
+            CollectionAssert.AreEqual(new string[] { Errors.InteractionRequired, Errors.LoginRequired, Errors.AccountSelectionRequired, Errors.ConsentRequired, Errors.InvalidRequestUri, Errors.InvalidRequestObject, Errors.RequestNotSupported, Errors.RequestUriNotSupported, Errors.RegistrationNotSupported }, Errors.AuthenticationErrors);
+        }
+
         [TestMethod]
         public void AuthorizationErrorsTest()
         {
@@ -27,7 +35,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
         [TestMethod]
         public void ErrorConstantsTest()
         {
-            TestHelper.AssertConstantCount(typeof(Errors), 37);
+            TestHelper.AssertConstantCount(typeof(Errors), 38);
 
             Assert.AreEqual("access_denied", Errors.AccessDenied);
             Assert.AreEqual("account_selection_required", Errors.AccountSelectionRequired);
@@ -66,6 +74,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
             Assert.AreEqual("missing_token", Errors.MissingToken);
             Assert.AreEqual("unsupported_token_type", Errors.UnsupportedTokenType);
             Assert.AreEqual("policy_violation", Errors.PolicyViolation);
+            Assert.AreEqual("transaction_failed", Errors.TransactionFailed);
         }
 
         [TestMethod]
