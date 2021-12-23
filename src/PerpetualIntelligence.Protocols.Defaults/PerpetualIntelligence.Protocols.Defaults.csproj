@@ -17,8 +17,8 @@
 
     <PropertyGroup Label="PiPackageProps">
         <Product>protocols</Product>
-        <Description>The Perpetual Intelligence cross-platform protocols and standards default implementations.</Description>
-        <PackageTags>oauth2 oidc openid-connect security identity rbac multitenancy imlx communication event endpoint</PackageTags>
+        <Description>Perpetual Intelligence's cross-platform protocols and default implementations.</Description>
+        <PackageTags>oauth2 oidc openid-connect security identity rbac multitenancy communication event endpoint</PackageTags>
     </PropertyGroup>
 
     <ItemGroup Label="PiExternalPackages">

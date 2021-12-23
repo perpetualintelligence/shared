@@ -74,7 +74,9 @@ namespace PerpetualIntelligence.Shared.Extensions
             string result = self;
             while (result.StartsWith(trim, System.StringComparison.Ordinal))
             {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 result = result.Substring(trim.Length);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             }
 
             return result;

@@ -14,6 +14,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Concurrency
     /// <summary>
     /// The default <see cref="IThreadLock{T}"/> using <see cref="SemaphoreSlim"/>.
     /// </summary>
+    /// <typeparam name="T">The type requesting the thread lock.</typeparam>
     public class DefaultSemaphoreSlimThreadLock<T> : IThreadLock<T>
     {
         /// <inheritdoc/>

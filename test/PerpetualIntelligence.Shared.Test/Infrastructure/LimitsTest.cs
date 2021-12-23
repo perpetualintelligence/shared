@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -16,6 +17,7 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
         [TestMethod]
         public void LimitsConstantTest()
         {
+#pragma warning disable CS0612 // Type or member is obsolete
             TestHelper.AssertConstantCount(typeof(Limits), 32);
 
             Assert.AreEqual(5, Limits.MaxClientRedirectUris);
@@ -81,6 +83,8 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
             Assert.AreEqual(2, Limits.MinTagLength);
 
             Assert.AreEqual(1, Limits.MinTranslationUnitSourceTextLenght);
+
+#pragma warning restore CS0612 // Type or member is obsolete
         }
     }
 }

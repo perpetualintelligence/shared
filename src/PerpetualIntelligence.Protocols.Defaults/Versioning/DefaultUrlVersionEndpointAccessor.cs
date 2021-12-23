@@ -23,7 +23,6 @@ namespace PerpetualIntelligence.Protocols.Defaults.Versioning
         /// </summary>
         /// <param name="configuration">The configuration.</param>
         /// <param name="urlVersionAccessor">The URL version accessor.</param>
-        /// <param name="logger">The logger.</param>
         public DefaultUrlVersionEndpointAccessor(IConfiguration configuration, IUrlVersionAccessor urlVersionAccessor)
         {
             Configuration = configuration;

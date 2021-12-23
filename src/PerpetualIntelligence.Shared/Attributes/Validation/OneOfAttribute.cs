@@ -33,7 +33,7 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
         public object?[] AllowedValues { get; }
 
         /// <inheritdoc/>
-        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
             // Null value is OK, this may mean that user has not yet entered any value.
             if (value == null)
