@@ -2,22 +2,20 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
-
-using PerpetualIntelligence.Shared.Attributes;
 
 namespace PerpetualIntelligence.Protocols.Oidc
 {
     /// <summary>
     /// The <c>acr_values</c> supported by the <c>oneimlx</c> authorization server.
     /// </summary>
-    [MustDo("For multi-tenancy we have concept of tiers and org, depts. These needs to be merged as 1 concept.", BlockRelease = true)]
     public static class AcrValues
     {
         /// <summary>
         /// All the supported <c>acr_values</c>.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>An array of all the supported <c>acr</c> values.</returns>
         public static string[] All
         {
             get
@@ -26,9 +24,11 @@ namespace PerpetualIntelligence.Protocols.Oidc
                 {
                     Idp,
                     Tenant,
-                    Account,
-                    Organization,
-                    Department,
+                    TenantLevel1,
+                    TenantLevel2,
+                    TenantLevel3,
+                    TenantLevel4,
+                    TenantLevel5,
                     AllowedChargeables,
                     SubscribedChargeables
                 };
@@ -36,19 +36,9 @@ namespace PerpetualIntelligence.Protocols.Oidc
         }
 
         /// <summary>
-        /// The account for multi-tenancy.
-        /// </summary>
-        public const string Account = "urn:oneimlx:oidc:acr:account";
-
-        /// <summary>
-        /// The allowed chargeables.
+        /// The allowed chargeable.
         /// </summary>
         public const string AllowedChargeables = "urn:oneimlx:oidc:acr:achrgs";
-
-        /// <summary>
-        /// The tenant for multi-tenancy.
-        /// </summary>
-        public const string Department = "urn:oneimlx:oidc:acr:dept";
 
         /// <summary>
         /// The IDP or an Identity Provider.
@@ -56,18 +46,38 @@ namespace PerpetualIntelligence.Protocols.Oidc
         public const string Idp = "urn:oneimlx:oidc:acr:idp";
 
         /// <summary>
-        /// The tenant for multi-tenancy.
-        /// </summary>
-        public const string Organization = "urn:oneimlx:oidc:acr:org";
-
-        /// <summary>
-        /// The subscribed chargeables.
+        /// The subscribed chargeable.
         /// </summary>
         public const string SubscribedChargeables = "urn:oneimlx:oidc:acr:schrgs";
 
         /// <summary>
-        /// The tenant for multi-tenancy.
+        /// The tenant identifier to enable multi-tenancy.
         /// </summary>
         public const string Tenant = "urn:oneimlx:oidc:acr:tenant";
+
+        /// <summary>
+        /// The tenant level1 identifier for scoping and access control within a tenant.
+        /// </summary>
+        public const string TenantLevel1 = "urn:oneimlx:oidc:acr:tl1";
+
+        /// <summary>
+        /// The tenant level2 identifier for scoping and access control within tenant level1.
+        /// </summary>
+        public const string TenantLevel2 = "urn:oneimlx:oidc:acr:tl2";
+
+        /// <summary>
+        /// The tenant level3 identifier for scoping and access control within tenant level2.
+        /// </summary>
+        public const string TenantLevel3 = "urn:oneimlx:oidc:acr:tl3";
+
+        /// <summary>
+        /// The tenant level4 identifier for scoping and access control within tenant level3.
+        /// </summary>
+        public const string TenantLevel4 = "urn:oneimlx:oidc:acr:tl4";
+
+        /// <summary>
+        /// The tenant level5 identifier for scoping and access control within tenant level4.
+        /// </summary>
+        public const string TenantLevel5 = "urn:oneimlx:oidc:acr:tl5";
     }
 }

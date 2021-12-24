@@ -2,6 +2,12 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
+*/
+/*
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
+    https://perpetualintelligence.com
+    https://api.perpetualintelligence.com
 */
 
 namespace PerpetualIntelligence.Protocols.Oidc

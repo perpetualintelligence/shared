@@ -2,6 +2,12 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
+*/
+/*
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
+    https://perpetualintelligence.com
+    https://api.perpetualintelligence.com
 */
 
 namespace PerpetualIntelligence.Protocols.Oidc
@@ -19,6 +25,12 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// value is a case sensitive string.
         /// </summary>
         public const string AccessTokenHash = "at_hash";
+
+        /// <summary>
+        /// String from the time zone database (http://www.twinsun.com/tz/tz-link.htm) representing the End-User's time
+        /// zone. For example, Europe/Paris or America/Los_Angeles.
+        /// </summary>
+        public const string Active = "active";
 
         /// <summary>
         /// The "act" (actor) claim provides a means within a JWT to express that delegation has occurred and identify
@@ -322,15 +334,23 @@ namespace PerpetualIntelligence.Protocols.Oidc
 
         /// <summary>
         /// </summary>
-        public const string Account = "urn:oneimlx:oidc:jwtclaims:account";
+        public const string TenantLevel1 = "urn:oneimlx:oidc:jwtclaims:tl1";
 
         /// <summary>
         /// </summary>
-        public const string Organization = "urn:oneimlx:oidc:jwtclaims:org";
+        public const string TenantLevel2 = "urn:oneimlx:oidc:jwtclaims:tl2";
 
         /// <summary>
         /// </summary>
-        public const string Department = "urn:oneimlx:oidc:jwtclaims:dept";
+        public const string TenantLevel3 = "urn:oneimlx:oidc:jwtclaims:tl3";
+
+        /// <summary>
+        /// </summary>
+        public const string TenantLevel4 = "urn:oneimlx:oidc:jwtclaims:tl4";
+
+        /// <summary>
+        /// </summary>
+        public const string TenantLevel5 = "urn:oneimlx:oidc:jwtclaims:tl5";
 
         /// <summary>
         /// Time the End-User's information was last updated. Its value is a JSON number representing the number of
@@ -349,11 +369,5 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// zone. For example, Europe/Paris or America/Los_Angeles.
         /// </summary>
         public const string ZoneInfo = "zoneinfo";
-
-        /// <summary>
-        /// String from the time zone database (http://www.twinsun.com/tz/tz-link.htm) representing the End-User's time
-        /// zone. For example, Europe/Paris or America/Los_Angeles.
-        /// </summary>
-        public const string Active = "active";
     }
 }

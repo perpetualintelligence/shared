@@ -16,19 +16,16 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// <summary>
         /// The assertion type.
         /// </summary>
-        [JsonPropertyName("type")]
         public string? Type { get; set; }
 
         /// <summary>
         /// The assertion value.
         /// </summary>
-        [JsonPropertyName("value")]
         public string? Value { get; set; }
 
         /// <summary>
         /// The client identifier <c>client_id</c>.
         /// </summary>
-        [JsonPropertyName("client_id")]
         public string? ClientId { get; set; }
     }
 }

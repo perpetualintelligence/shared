@@ -1,14 +1,14 @@
-﻿// Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-// https://perpetualintelligence.com
-// https://api.perpetualintelligence.com
+﻿/*
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
+    https://perpetualintelligence.com
+    https://api.perpetualintelligence.com
+    https://oneimlx.com
+*/
+
+// Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved https://perpetualintelligence.com https://api.perpetualintelligence.com
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Test.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PerpetualIntelligence.Protocols.Oidc
 {
@@ -18,7 +18,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
         [TestMethod]
         public void JwtClaimTypesConstantsTest()
         {
-            TestHelper.AssertConstantCount(typeof(JwtClaims), 52);
+            TestHelper.AssertConstantCount(typeof(JwtClaims), 54);
 
             Assert.AreEqual("active", JwtClaims.Active);
             Assert.AreEqual("at_hash", JwtClaims.AccessTokenHash);
@@ -66,9 +66,11 @@ namespace PerpetualIntelligence.Protocols.Oidc
             Assert.AreEqual("s_hash", JwtClaims.StateHash);
             Assert.AreEqual("sub", JwtClaims.Subject);
             Assert.AreEqual("urn:oneimlx:oidc:jwtclaims:tenant", JwtClaims.Tenant);
-            Assert.AreEqual("urn:oneimlx:oidc:jwtclaims:account", JwtClaims.Account);
-            Assert.AreEqual("urn:oneimlx:oidc:jwtclaims:org", JwtClaims.Organization);
-            Assert.AreEqual("urn:oneimlx:oidc:jwtclaims:dept", JwtClaims.Department);
+            Assert.AreEqual("urn:oneimlx:oidc:jwtclaims:tl1", JwtClaims.TenantLevel1);
+            Assert.AreEqual("urn:oneimlx:oidc:jwtclaims:tl2", JwtClaims.TenantLevel2);
+            Assert.AreEqual("urn:oneimlx:oidc:jwtclaims:tl3", JwtClaims.TenantLevel3);
+            Assert.AreEqual("urn:oneimlx:oidc:jwtclaims:tl4", JwtClaims.TenantLevel4);
+            Assert.AreEqual("urn:oneimlx:oidc:jwtclaims:tl5", JwtClaims.TenantLevel5);
             Assert.AreEqual("updated_at", JwtClaims.UpdatedAt);
             Assert.AreEqual("website", JwtClaims.WebSite);
             Assert.AreEqual("zoneinfo", JwtClaims.ZoneInfo);
