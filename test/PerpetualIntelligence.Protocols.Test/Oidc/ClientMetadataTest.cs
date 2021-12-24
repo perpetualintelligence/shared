@@ -24,9 +24,9 @@ namespace PerpetualIntelligence.Protocols.Oidc
             Assert.AreEqual("default_acr_values", ClientMetadata.DefaultAcrValues);
             Assert.AreEqual("default_max_age", ClientMetadata.DefaultMaxAge);
             Assert.AreEqual("grant_types", ClientMetadata.GrantTypes);
-            Assert.AreEqual("id_token_encrypted_response_alg", ClientMetadata.IdentityTokenEncryptedResponseAlgorithm);
-            Assert.AreEqual("id_token_encrypted_response_enc", ClientMetadata.IdentityTokenEncryptedResponseEncryption);
-            Assert.AreEqual("id_token_signed_response_alg", ClientMetadata.IdentityTokenSignedResponseAlgorithm);
+            Assert.AreEqual("id_token_encrypted_response_alg", ClientMetadata.IdTokenEncryptedResponseAlgorithm);
+            Assert.AreEqual("id_token_encrypted_response_enc", ClientMetadata.IdTokenEncryptedResponseEncryption);
+            Assert.AreEqual("id_token_signed_response_alg", ClientMetadata.IdTokenSignedResponseAlgorithm);
             Assert.AreEqual("initiate_login_uri", ClientMetadata.InitiateLoginUris);
             Assert.AreEqual("jwks", ClientMetadata.Jwks);
             Assert.AreEqual("jwks_uri", ClientMetadata.JwksUri);

@@ -2,17 +2,21 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
-
-using System.Text.Json.Serialization;
 
 namespace PerpetualIntelligence.Protocols.Oidc
 {
     /// <summary>
     /// The client assertion in an OAuth or OpenID Connect authorization flow.
-    /// </summary>    
+    /// </summary>
     public class ClientAssertion
     {
+        /// <summary>
+        /// The client identifier <c>client_id</c>.
+        /// </summary>
+        public string? ClientId { get; set; }
+
         /// <summary>
         /// The assertion type.
         /// </summary>
@@ -22,10 +26,5 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// The assertion value.
         /// </summary>
         public string? Value { get; set; }
-
-        /// <summary>
-        /// The client identifier <c>client_id</c>.
-        /// </summary>
-        public string? ClientId { get; set; }
     }
 }

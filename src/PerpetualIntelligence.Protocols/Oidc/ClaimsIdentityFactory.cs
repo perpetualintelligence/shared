@@ -2,9 +2,9 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
-using PerpetualIntelligence.Shared.Attributes;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
@@ -12,9 +12,8 @@ using System.Security.Cryptography.X509Certificates;
 namespace PerpetualIntelligence.Protocols.Oidc
 {
     /// <summary>
-    /// Creates <see cref="ClaimsIdentity"/> for OpenID Connect authentication.
+    /// Creates <see cref="ClaimsIdentity"/> for OAuth and OpenID Connect authentication.
     /// </summary>
-    [WriteDocumentation("Claims from certificate.")]
     public static class ClaimsIdentityFactory
     {
         /// <summary>
@@ -40,10 +39,11 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// <param name="allClaims">
         /// If <c>true</c> this method will add all the relevant <see cref="X509Certificate2"/> claims to the <see cref="ClaimsIdentity"/>.
         /// </param>
-        /// <returns>The <see cref="ClaimsIdentity"/> with authentication type and cliams.</returns>
+        /// <returns>The <see cref="ClaimsIdentity"/> with authentication type and claims.</returns>
         /// <remarks>
-        /// If all the claims are not requested, this method will only add <see cref="X509Certificate2.Thumbprint"/> and
-        /// <see cref="X509Certificate2.SubjectName"/> claims to the <see cref="ClaimsIdentity"/>.
+        /// If all the claims are not requested, <see cref="FromCertificate(X509Certificate2, string, bool?)"/> will
+        /// only add <see cref="X509Certificate2.Thumbprint"/> and <see cref="X509Certificate2.SubjectName"/> claims to
+        /// the <see cref="ClaimsIdentity"/>.
         /// </remarks>
         public static ClaimsIdentity FromCertificate(X509Certificate2 certificate, string authenticationType = "X.509", bool? allClaims = false)
         {
@@ -52,51 +52,51 @@ namespace PerpetualIntelligence.Protocols.Oidc
 
             claims.Add(new Claim("issuer", issuer));
 
-            var thumbprint = certificate.Thumbprint;
-            claims.Add(new Claim(ClaimTypes.Thumbprint, thumbprint, System.Security.Claims.ClaimValueTypes.Base64Binary, issuer));
+            var value = certificate.Thumbprint;
+            claims.Add(new Claim(ClaimTypes.Thumbprint, value, ClaimValueTypes.Base64Binary, issuer));
 
-            var name = certificate.SubjectName.Name;
-            if (string.IsNullOrWhiteSpace(name))
+            value = certificate.SubjectName.Name;
+            if (string.IsNullOrWhiteSpace(value))
             {
-                claims.Add(new Claim(ClaimTypes.X500DistinguishedName, name, System.Security.Claims.ClaimValueTypes.String, issuer));
+                claims.Add(new Claim(ClaimTypes.X500DistinguishedName, value, ClaimValueTypes.String, issuer));
             }
 
             if (allClaims.GetValueOrDefault())
             {
-                name = certificate.SerialNumber;
-                if (string.IsNullOrWhiteSpace(name))
+                value = certificate.SerialNumber;
+                if (string.IsNullOrWhiteSpace(value))
                 {
-                    claims.Add(new Claim(ClaimTypes.SerialNumber, name, System.Security.Claims.ClaimValueTypes.String, issuer));
+                    claims.Add(new Claim(ClaimTypes.SerialNumber, value, ClaimValueTypes.String, issuer));
                 }
 
-                name = certificate.GetNameInfo(X509NameType.DnsName, false);
-                if (string.IsNullOrWhiteSpace(name))
+                value = certificate.GetNameInfo(X509NameType.DnsName, false);
+                if (string.IsNullOrWhiteSpace(value))
                 {
-                    claims.Add(new Claim(ClaimTypes.Dns, name, System.Security.Claims.ClaimValueTypes.String, issuer));
+                    claims.Add(new Claim(ClaimTypes.Dns, value, ClaimValueTypes.String, issuer));
                 }
 
-                name = certificate.GetNameInfo(X509NameType.SimpleName, false);
-                if (string.IsNullOrWhiteSpace(name))
+                value = certificate.GetNameInfo(X509NameType.SimpleName, false);
+                if (string.IsNullOrWhiteSpace(value))
                 {
-                    claims.Add(new Claim(ClaimTypes.Name, name, System.Security.Claims.ClaimValueTypes.String, issuer));
+                    claims.Add(new Claim(ClaimTypes.Name, value, ClaimValueTypes.String, issuer));
                 }
 
-                name = certificate.GetNameInfo(X509NameType.EmailName, false);
-                if (string.IsNullOrWhiteSpace(name))
+                value = certificate.GetNameInfo(X509NameType.EmailName, false);
+                if (string.IsNullOrWhiteSpace(value))
                 {
-                    claims.Add(new Claim(ClaimTypes.Email, name, System.Security.Claims.ClaimValueTypes.String, issuer));
+                    claims.Add(new Claim(ClaimTypes.Email, value, ClaimValueTypes.String, issuer));
                 }
 
-                name = certificate.GetNameInfo(X509NameType.UpnName, false);
-                if (string.IsNullOrWhiteSpace(name))
+                value = certificate.GetNameInfo(X509NameType.UpnName, false);
+                if (string.IsNullOrWhiteSpace(value))
                 {
-                    claims.Add(new Claim(ClaimTypes.Upn, name, System.Security.Claims.ClaimValueTypes.String, issuer));
+                    claims.Add(new Claim(ClaimTypes.Upn, value, ClaimValueTypes.String, issuer));
                 }
 
-                name = certificate.GetNameInfo(X509NameType.UrlName, false);
-                if (string.IsNullOrWhiteSpace(name))
+                value = certificate.GetNameInfo(X509NameType.UrlName, false);
+                if (string.IsNullOrWhiteSpace(value))
                 {
-                    claims.Add(new Claim(ClaimTypes.Uri, name, System.Security.Claims.ClaimValueTypes.String, issuer));
+                    claims.Add(new Claim(ClaimTypes.Uri, value, ClaimValueTypes.String, issuer));
                 }
             }
 
@@ -108,7 +108,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// </summary>
         /// <param name="authenticationType">The authentication type.</param>
         /// <param name="claims">The claims to add.</param>
-        /// <returns>The <see cref="ClaimsIdentity"/> with authentication type and cliams.</returns>
+        /// <returns>The <see cref="ClaimsIdentity"/> with authentication type and claims.</returns>
         public static ClaimsIdentity FromClaims(string authenticationType, params Claim[] claims)
         {
             return new ClaimsIdentity(claims, authenticationType, JwtClaims.Name, JwtClaims.Role);

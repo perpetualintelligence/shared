@@ -2,9 +2,9 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
-using PerpetualIntelligence.Shared.Attributes;
 using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
 
@@ -13,9 +13,18 @@ namespace PerpetualIntelligence.Protocols.Oidc
     /// <summary>
     /// Creates <see cref="ClaimsPrincipal"/> for OpenID Connect authentication.
     /// </summary>
-    [WriteDocumentation("Claims from certificate.")]
     public static class ClaimsPrincipalFactory
     {
+        /// <summary>
+        /// Creates an anonymous <see cref="ClaimsPrincipal"/>. An anonymous claims principal contains an empty
+        /// <see cref="ClaimTypes.Name"/> claim.
+        /// </summary>
+        /// <returns>The anonymous <see cref="ClaimsIdentity"/>.</returns>
+        public static ClaimsPrincipal FromAnonymity()
+        {
+            return new ClaimsPrincipal(ClaimsIdentityFactory.FromAnonymity());
+        }
+
         /// <summary>
         /// Creates a <see cref="ClaimsIdentity"/> based on information found in an <see cref="X509Certificate2"/>.
         /// </summary>
@@ -26,22 +35,13 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// </param>
         /// <returns>The <see cref="ClaimsIdentity"/> with authentication type and claims.</returns>
         /// <remarks>
-        /// If all the claims are not requested, this method will only add <see cref="X509Certificate2.Thumbprint"/> and
-        /// <see cref="X509Certificate2.SubjectName"/> claims to the <see cref="ClaimsIdentity"/>.
+        /// If all the claims are not requested, <see cref="FromCertificate(X509Certificate2, string, bool?)"/> will
+        /// only add <see cref="X509Certificate2.Thumbprint"/> and <see cref="X509Certificate2.SubjectName"/> claims to
+        /// the <see cref="ClaimsIdentity"/>.
         /// </remarks>
         public static ClaimsPrincipal FromCertificate(X509Certificate2 certificate, string authenticationType = "X.509", bool? allClaims = false)
         {
             return new ClaimsPrincipal(ClaimsIdentityFactory.FromCertificate(certificate, authenticationType, allClaims));
-        }
-
-        /// <summary>
-        /// Creates an anonymous <see cref="ClaimsPrincipal"/>. An anonymous claims principal contains an empty
-        /// <see cref="ClaimTypes.Name"/> claim.
-        /// </summary>
-        /// <returns>The anonymous <see cref="ClaimsIdentity"/>.</returns>
-        public static ClaimsPrincipal FromAnonymity()
-        {
-            return new ClaimsPrincipal(ClaimsIdentityFactory.FromAnonymity());
         }
 
         /// <summary>

@@ -1,14 +1,12 @@
-﻿// Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-// https://perpetualintelligence.com
-// https://api.perpetualintelligence.com
+﻿/*
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
+    https://perpetualintelligence.com
+    https://api.perpetualintelligence.com
+    https://oneimlx.com
+*/
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Test.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PerpetualIntelligence.Protocols.Oidc
 {
@@ -18,10 +16,9 @@ namespace PerpetualIntelligence.Protocols.Oidc
         [TestMethod]
         public void TokenEndpointAuthMethodsConstantsTest()
         {
-            TestHelper.AssertConstantCount(typeof(ClientAuthenticationMethods), 7);
+            TestHelper.AssertConstantCount(typeof(ClientAuthenticationMethods), 6);
 
             Assert.AreEqual("client_secret_basic", ClientAuthenticationMethods.Basic);
-            Assert.AreEqual("none", ClientAuthenticationMethods.None);
             Assert.AreEqual("client_secret_post", ClientAuthenticationMethods.PostBody);
             Assert.AreEqual("private_key_jwt", ClientAuthenticationMethods.PrivateKeyJwt);
             Assert.AreEqual("client_secret_jwt", ClientAuthenticationMethods.SecretKeyJwt);

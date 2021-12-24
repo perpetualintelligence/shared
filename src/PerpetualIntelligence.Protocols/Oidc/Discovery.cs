@@ -2,14 +2,15 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 namespace PerpetualIntelligence.Protocols.Oidc
 {
     /// <summary>
-    /// The OpenID Connect discovery metadata. See
-    /// <see href="https://openid.net/specs/openid-connect-discovery-1_0.html"/> for more information.
+    /// The OpenID Connect discovery meta-data.
     /// </summary>
+    /// <seealso href="https://openid.net/specs/openid-connect-discovery-1_0.html"/>
     public static class Discovery
     {
         /// <summary>
@@ -24,24 +25,25 @@ namespace PerpetualIntelligence.Protocols.Oidc
 
         /// <summary>
         /// Authorization servers supporting this specification MUST provide their issuer identifier to enable clients
-        /// to validate the <c>iss</c> parameter effectively. See
-        /// <see href="https://tools.ietf.org/id/draft-meyerzuselhausen-oauth-iss-auth-resp-02.html"/> for more information.
+        /// to validate the <c>iss</c> parameter effectively.
         /// </summary>
+        /// <seealso href="https://datatracker.ietf.org/doc/html/rfc8414"/>
+        /// <seealso href="https://tools.ietf.org/id/draft-meyerzuselhausen-oauth-iss-auth-resp-02.html#RFC8414"/>
         public const string AuthorizationResponseIssParameterSupported = "authorization_response_iss_parameter_supported";
 
         /// <summary>
         /// Boolean value specifying whether the OP can pass a sid (session ID) Claim in the Logout Token to identify
         /// the RP session with the OP. If supported, the sid Claim is also included in ID Tokens issued by the OP. If
-        /// omitted, the default value is false. See
-        /// <see href="https://openid.net/specs/openid-connect-backchannel-1_0.html"/> for more information.
+        /// omitted, the default value is false.
         /// </summary>
+        /// <seealso href="https://openid.net/specs/openid-connect-backchannel-1_0.html"/>
         public const string BackChannelLogoutSessionSupported = "backchannel_logout_session_supported";
 
         /// <summary>
         /// Boolean value specifying whether the OP supports back-channel logout, with true indicating support. If
-        /// omitted, the default value is false. See
-        /// <see href="https://openid.net/specs/openid-connect-backchannel-1_0.html"/> for more information.
+        /// omitted, the default value is false.
         /// </summary>
+        /// <seealso href="https://openid.net/specs/openid-connect-backchannel-1_0.html"/>
         public const string BackChannelLogoutSupported = "backchannel_logout_supported";
 
         /// <summary>
@@ -49,9 +51,9 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// RP Client, using the HTML5 postMessage API. This URL MUST use the <c>https</c> scheme and MAY contain port,
         /// path, and query parameter components. The page is loaded from an invisible <c>iframe</c> embedded in an RP
         /// page so that it can run in the OP's security context. It accepts postMessage requests from the relevant RP
-        /// <c>iframe</c> and uses postMessage to post back the login status of the End-User at the OP. See
-        /// <see href="https://openid.net/specs/openid-connect-session-1_0.html"/> for more information.
+        /// <c>iframe</c> and uses postMessage to post back the login status of the End-User at the OP.
         /// </summary>
+        /// <seealso href="https://openid.net/specs/openid-connect-session-1_0.html"/>
         public const string CheckSessionIframe = "check_session_iframe";
 
         /// <summary>
@@ -80,15 +82,15 @@ namespace PerpetualIntelligence.Protocols.Oidc
         public const string ClaimTypesSupported = "claim_types_supported";
 
         /// <summary>
-        /// JSON array containing a list of code challenge as part of the OAuth 2.0 Authorization Request. See
-        /// <see href="https://datatracker.ietf.org/doc/html/rfc7636"/> for more information.
+        /// JSON array containing a list of code challenge as part of the OAuth 2.0 Authorization Request.
         /// </summary>
+        /// <seealso href="https://datatracker.ietf.org/doc/html/rfc7636"/>
         public const string CodeChallengeMethodsSupported = "code_challenge_methods_supported";
 
         /// <summary>
-        /// URL of the OP's OAuth 2.0 Device Authorization Endpoint. See
-        /// <see href="https://datatracker.ietf.org/doc/html/rfc8628"/> for more information.
+        /// URL of the OP's OAuth 2.0 Device Authorization Endpoint.
         /// </summary>
+        /// <seealso href="https://datatracker.ietf.org/doc/html/rfc8628"/>
         public const string DeviceAuthorizationEndpoint = "device_authorization_endpoint";
 
         /// <summary>
@@ -104,23 +106,23 @@ namespace PerpetualIntelligence.Protocols.Oidc
 
         /// <summary>
         /// URL at the OP to which an RP can perform a redirect to request that the End-User be logged out at the OP.
-        /// See <see href="https://openid.net/specs/openid-connect-session-1_0.html"/> for more information.
         /// </summary>
+        /// <seealso href="https://openid.net/specs/openid-connect-session-1_0.html"/>
         public const string EndSessionEndpoint = "end_session_endpoint";
 
         /// <summary>
         /// Boolean value specifying whether the OP can pass iss (issuer) and sid (session ID) query parameters to
         /// identify the RP session with the OP when the frontchannel_logout_uri is used. If supported, the sid Claim is
-        /// also included in ID Tokens issued by the OP. If omitted, the default value is false. See
-        /// <see href="https://openid.net/specs/openid-connect-frontchannel-1_0.html"/> for more information.
+        /// also included in ID Tokens issued by the OP. If omitted, the default value is false.
         /// </summary>
+        /// <seealso href="https://openid.net/specs/openid-connect-frontchannel-1_0.html"/>
         public const string FrontChannelLogoutSessionSupported = "frontchannel_logout_session_supported";
 
         /// <summary>
         /// Boolean value specifying whether the OP supports HTTP-based logout, with true indicating support. If
-        /// omitted, the default value is false. See
-        /// <see href="https://openid.net/specs/openid-connect-frontchannel-1_0.html"/> for more information.
+        /// omitted, the default value is false.
         /// </summary>
+        /// <seealso href="https://openid.net/specs/openid-connect-frontchannel-1_0.html"/>
         public const string FrontChannelLogoutSupported = "frontchannel_logout_supported";
 
         /// <summary>
@@ -151,9 +153,9 @@ namespace PerpetualIntelligence.Protocols.Oidc
         public const string IdTokenSigningAlgorithmsSupported = "id_token_signing_alg_values_supported";
 
         /// <summary>
-        /// URL of the OAuth 2.0 Token Introspection Endpoint. See
-        /// <see href="https://datatracker.ietf.org/doc/html/rfc7662"/> for more information.
+        /// URL of the OAuth 2.0 Token Introspection Endpoint.
         /// </summary>
+        /// <seealso href="https://datatracker.ietf.org/doc/html/rfc7662"/>
         public const string IntrospectionEndpoint = "introspection_endpoint";
 
         /// <summary>
@@ -186,9 +188,9 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// same name at the top level of metadata.When an endpoint is not present in "mtls_endpoint_aliases", then the
         /// client uses the conventional endpoint URL defined at the top level of the authorization server
         /// metadata.Metadata parameters within "mtls_endpoint_aliases" that do not define endpoints to which an OAuth
-        /// client makes a direct request have no meaning and SHOULD be ignored. /// See
-        /// <see href="https://datatracker.ietf.org/doc/html/rfc8705"/> for more information.
+        /// client makes a direct request have no meaning and SHOULD be ignored.
         /// </summary>
+        /// <seealso href="https://datatracker.ietf.org/doc/html/rfc8705"/>
         public const string MtlsEndpointAliases = "mtls_endpoint_aliases";
 
         /// <summary>
@@ -264,9 +266,9 @@ namespace PerpetualIntelligence.Protocols.Oidc
         public const string ResponseTypesSupported = "response_types_supported";
 
         /// <summary>
-        /// URL of the OAuth 2.0 Token Revocation endpoint. See
-        /// <see href="https://datatracker.ietf.org/doc/html/rfc7009"/> for more information.
+        /// URL of the OAuth 2.0 Token Revocation endpoint.
         /// </summary>
+        /// <seealso href="https://datatracker.ietf.org/doc/html/rfc7009"/>
         public const string RevocationEndpoint = "revocation_endpoint";
 
         /// <summary>
@@ -291,8 +293,9 @@ namespace PerpetualIntelligence.Protocols.Oidc
 
         /// <summary>
         /// Boolean value indicating server support for mutual-TLS client certificate-bound access tokens.If omitted,
-        /// the default value is "false". <see href="https://datatracker.ietf.org/doc/html/rfc8705"/> for more information.
+        /// the default value is "false".
         /// </summary>
+        /// <seealso href="https://datatracker.ietf.org/doc/html/rfc8705"/>
         public const string TlsClientCertificateBoundAccessTokens = "tls_client_certificate_bound_access_tokens";
 
         /// <summary>
