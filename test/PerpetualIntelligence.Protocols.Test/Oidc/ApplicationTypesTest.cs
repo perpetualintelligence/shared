@@ -16,7 +16,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
         [TestMethod]
         public void ApplicationTypesConstantTest()
         {
-            TestHelper.AssertConstantCount(typeof(Applications), 3);
+            TestHelper.AssertConstantCount(typeof(Applications), 2);
 
             Assert.AreEqual("native", Applications.Native);
             Assert.AreEqual("web", Applications.Web);

@@ -8,7 +8,7 @@
 namespace PerpetualIntelligence.Protocols.Oidc
 {
     /// <summary>
-    /// The OAuth or OpenID Connect client meta-data. See
+    /// The OAuth or OpenID Connect client meta-data.
     /// </summary>
     /// <seealso href="https://openid.net/specs/openid-connect-registration-1_0.html"/>
     public static class ClientMetadata
