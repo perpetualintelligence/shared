@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using PerpetualIntelligence.Shared.Attributes;
@@ -12,13 +13,15 @@ using System.Security.Claims;
 namespace PerpetualIntelligence.Protocols.Oidc
 {
     /// <summary>
-    /// The <see cref="Claim"/> comparer for OAuth or OpenID Connect authorization protocol. The comparer will check the
-    /// <see cref="Claim.Type"/>, <see cref="Claim.Value"/>, <see cref="Claim.ValueType"/> and
-    /// <see cref="Claim.Issuer"/> for equality. The string comparison for <see cref="Claim.ValueType"/> is
-    /// <see cref="StringComparison.Ordinal"/> for all others it is <see cref="StringComparison.OrdinalIgnoreCase"/>.
+    /// The <see cref="Claim"/> comparer for OAuth or OpenID Connect authorization protocol.
     /// </summary>
+    /// <remarks>
+    /// The <see cref="ClaimComparer"/> checks <see cref="Claim.Type"/>, <see cref="Claim.Value"/>,
+    /// <see cref="Claim.ValueType"/> and <see cref="Claim.Issuer"/> for equality. The string comparison for
+    /// <see cref="Claim.ValueType"/> is <see cref="StringComparison.Ordinal"/> for others it is <see cref="StringComparison.OrdinalIgnoreCase"/>.
+    /// </remarks>
     [WriteDocumentation("Explain comparison logic in docs.")]
-    [Todo("Do we need issuer an optional check ? 2 same claims from different issuer ? when can it happen")]
+    [Todo("Do we need to make issuer check optional and configurable ? Can there be a case of same claims from different issuer ? When can it happen ?")]
     public class ClaimComparer : EqualityComparer<Claim>
     {
         /// <inheritdoc/>
