@@ -4,7 +4,7 @@
     https://api.perpetualintelligence.com
 */
 
-namespace PerpetualIntelligence.Protocols.Abstractions
+namespace PerpetualIntelligence.Protocols.Abstractions.Events
 {
     /// <summary>
     /// The abstraction of an event in the publish/subscribe-style communication without requiring the components to

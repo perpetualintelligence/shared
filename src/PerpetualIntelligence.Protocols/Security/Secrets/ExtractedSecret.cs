@@ -2,9 +2,9 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
-using PerpetualIntelligence.Shared.Attributes;
 using PerpetualIntelligence.Shared.Infrastructure;
 
 namespace PerpetualIntelligence.Protocols.Security.Secrets
@@ -15,8 +15,6 @@ namespace PerpetualIntelligence.Protocols.Security.Secrets
     /// <seealso cref="Secret"/>
     /// <seealso cref="SecretTypes"/>
     /// <seealso cref="SecretComparer"/>
-    [Concept("Secrets Manager")]
-    [WriteUnitTest]
     public sealed class ExtractedSecret : OneImlxResult
     {
         /// <summary>

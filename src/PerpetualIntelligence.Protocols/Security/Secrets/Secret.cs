@@ -2,9 +2,9 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
-using PerpetualIntelligence.Shared.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
@@ -21,8 +21,6 @@ namespace PerpetualIntelligence.Protocols.Security.Secrets
     /// <seealso cref="ExtractedSecret"/>
     /// <seealso cref="SecretTypes"/>
     /// <seealso cref="SecretComparer"/>
-    [WriteUnitTest]
-    [Concept("Secrets Manager")]
     public sealed class Secret : IEquatable<Secret?>
     {
         /// <summary>
@@ -83,16 +81,12 @@ namespace PerpetualIntelligence.Protocols.Security.Secrets
         }
 
         /// <inheritdoc/>
-        [Todo("Hashcode for .NET2 why can't we use ^")]
         public override int GetHashCode()
         {
 #if NETSTANDARD2_1_OR_GREATER
             return HashCode.Combine(Type, Value);
 #else
-            int hashCode = 1265339359;
-            hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(Type);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string?>.Default.GetHashCode(Value);
-            return hashCode;
+            return EqualityComparer<string?>.Default.GetHashCode(Type) ^ EqualityComparer<string?>.Default.GetHashCode(Value);
 #endif
         }
 

@@ -5,24 +5,25 @@
     https://oneimlx.com
 */
 
+using PerpetualIntelligence.Protocols.Abstractions.Claims;
 using PerpetualIntelligence.Shared.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 
-namespace PerpetualIntelligence.Protocols.Oidc
+namespace PerpetualIntelligence.Protocols.Defaults.Claims
 {
     /// <summary>
-    /// The <see cref="Claim"/> comparer for OAuth or OpenID Connect authorization protocol.
+    /// The default <see cref="IClaimComparer"/> for OAuth or OpenID Connect authorization protocol.
     /// </summary>
     /// <remarks>
-    /// The <see cref="ClaimComparer"/> checks <see cref="Claim.Type"/>, <see cref="Claim.Value"/>,
+    /// The <see cref="DefaultClaimComparer"/> checks <see cref="Claim.Type"/>, <see cref="Claim.Value"/>,
     /// <see cref="Claim.ValueType"/> and <see cref="Claim.Issuer"/> for equality. The string comparison for
     /// <see cref="Claim.ValueType"/> is <see cref="StringComparison.Ordinal"/> for others it is <see cref="StringComparison.OrdinalIgnoreCase"/>.
     /// </remarks>
     [WriteDocumentation("Explain comparison logic in docs.")]
     [Todo("Do we need to make issuer check optional and configurable ? Can there be a case of same claims from different issuer ? When can it happen ?")]
-    public class ClaimComparer : EqualityComparer<Claim>
+    public class DefaultClaimComparer : EqualityComparer<Claim>, IClaimComparer
     {
         /// <inheritdoc/>
         public override bool Equals(Claim x, Claim y)

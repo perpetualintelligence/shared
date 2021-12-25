@@ -5,7 +5,7 @@
 */
 
 
-namespace PerpetualIntelligence.Protocols.Stores
+namespace PerpetualIntelligence.Protocols.Abstractions.Stores
 {
     /// <summary>
     /// Provides the tenancy information.

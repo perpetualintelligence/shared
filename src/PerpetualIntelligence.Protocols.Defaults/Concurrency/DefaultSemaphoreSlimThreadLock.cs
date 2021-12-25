@@ -4,7 +4,7 @@
     https://api.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Protocols.Concurrency;
+using PerpetualIntelligence.Protocols.Abstractions.Concurrency;
 using System;
 using System.Threading;
 using System.Threading.Tasks;

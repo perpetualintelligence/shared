@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -9,15 +10,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 
-namespace PerpetualIntelligence.Protocols.Oidc
+namespace PerpetualIntelligence.Protocols.Defaults.Claims
 {
     [TestClass]
-    public class ClaimComparisonTests
+    public class DefaultClaimComparerTests
     {
         [TestMethod]
         public void DefaultOptionsShouldResultInFourClaims()
         {
-            HashSet<Claim> hashSet = new(_claims, new ClaimComparer());
+            HashSet<Claim> hashSet = new(_claims, new DefaultClaimComparer());
             Assert.AreEqual(8, hashSet.Count);
 
             // 1

@@ -6,7 +6,7 @@
 
 using System.Threading.Tasks;
 
-namespace PerpetualIntelligence.Protocols.Stores
+namespace PerpetualIntelligence.Protocols.Abstractions.Stores
 {
     /// <summary>
     /// The abstraction of a back-end store.

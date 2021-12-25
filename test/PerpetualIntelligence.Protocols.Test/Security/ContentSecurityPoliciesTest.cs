@@ -17,10 +17,10 @@ namespace PerpetualIntelligence.Protocols.Security
         {
             TestHelper.AssertConstantCount(typeof(ContentSecurityPolicies), 3);
 
-            Assert.AreEqual("urn:pi:protocol:security:csp:l1", ContentSecurityPolicies.Level1);
-            Assert.AreEqual("urn:pi:protocol:security:csp:l2", ContentSecurityPolicies.Level2);
+            Assert.AreEqual("urn:oneimlx:security:csp:l1", ContentSecurityPolicies.Level1);
+            Assert.AreEqual("urn:oneimlx:security:csp:l2", ContentSecurityPolicies.Level2);
 #pragma warning disable CS0618 // Type or member is obsolete
-            Assert.AreEqual("urn:pi:protocol:security:csp:l3", ContentSecurityPolicies.Level3);
+            Assert.AreEqual("urn:oneimlx:security:csp:l3", ContentSecurityPolicies.Level3);
 #pragma warning restore CS0618 // Type or member is obsolete
         }
     }

@@ -2,8 +2,10 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
+using PerpetualIntelligence.Shared.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +24,7 @@ namespace PerpetualIntelligence.Shared.Extensions
         /// <typeparam name="TProp">The selector predicate.</typeparam>
         /// <param name="list">The sequence to check.</param>
         /// <param name="selector">The selector predicate.</param>
+        [WriteUnitTest]
         public static bool HasDuplicates<T, TProp>(this IEnumerable<T> list, Func<T, TProp> selector)
         {
             var d = new HashSet<TProp>();
@@ -41,7 +44,7 @@ namespace PerpetualIntelligence.Shared.Extensions
         /// <param name="list">The sequence to check.</param>
         public static bool IsNullOrEmpty<T>(this IEnumerable<T?>? list)
         {
-            if(list == null)
+            if (list == null)
             {
                 return true;
             }

@@ -6,7 +6,7 @@
 
 using System.Threading.Tasks;
 
-namespace PerpetualIntelligence.Protocols.Abstractions
+namespace PerpetualIntelligence.Protocols.Abstractions.Events
 {
     /// <summary>
     /// The abstraction to record an <see cref="IEvent"/> in the publish/subscribe-style communication without requiring

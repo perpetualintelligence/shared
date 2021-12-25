@@ -4,7 +4,7 @@
     https://api.perpetualintelligence.com
 */
 
-namespace PerpetualIntelligence.Protocols.Stores
+namespace PerpetualIntelligence.Protocols.Abstractions.Stores
 {
     /// <summary>
     /// The abstraction of a store result that yields multiple entities.

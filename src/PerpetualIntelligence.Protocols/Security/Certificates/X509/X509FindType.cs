@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 using PerpetualIntelligence.Shared.Attributes;
@@ -12,7 +13,7 @@ using System.Security.Cryptography.X509Certificates;
 namespace PerpetualIntelligence.Protocols.Security.Certificates.X509
 {
     /// <summary>
-    /// Manages the <see cref="System.Security.Cryptography.X509Certificates.X509FindType"/> for OpenID Connect authentication protocol.
+    /// Manages the <see cref="System.Security.Cryptography.X509Certificates.X509FindType"/>.
     /// </summary>
     /// <seealso cref="X509Certificate"/>
     /// <seealso cref="StoreLocation"/>
@@ -52,9 +53,11 @@ namespace PerpetualIntelligence.Protocols.Security.Certificates.X509
         /// <summary>
         /// Finds the <see cref="X509Certificate2"/>.
         /// </summary>
-        /// <param name="findValue"></param>
-        /// <param name="validOnly"></param>
-        /// <returns></returns>
+        /// <param name="findValue">The search criteria as an object.</param>
+        /// <param name="validOnly">
+        /// <c>true</c> to allow only valid certificates to be returned from the search; otherwise, <c>false</c>.
+        /// </param>
+        /// <returns>A <see cref="X509Certificate2"/> object.</returns>
         [WriteUnitTest]
         public IEnumerable<X509Certificate2> Find(object findValue, bool validOnly = true)
         {
