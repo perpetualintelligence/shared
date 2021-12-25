@@ -17,7 +17,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// <summary>
         /// The authentication type used to create the <see cref="ClaimsPrincipal"/>.
         /// </summary>
-        public const string AuthenticationType = OrgConstants.Oidc + ":auth";
+        public const string AuthenticationType = Protocols.Constants.OneImlxOidc + ":auth";
 
         /// <summary>
         /// The bearer token in authorization header.
@@ -52,17 +52,17 @@ namespace PerpetualIntelligence.Protocols.Oidc
         /// <summary>
         /// The <c>jwt</c> request key.
         /// </summary>
-        public const string DefaultJwtRequestClientKey = OrgConstants.Oidc + ":scheme:jwt";
+        public const string DefaultJwtRequestClientKey = Protocols.Constants.OneImlxOidc + ":scheme:jwt";
 
         /// <summary>
         /// The signout scheme.
         /// </summary>
-        public const string DefaultSignoutScheme = OrgConstants.Oidc + ":scheme:signout";
+        public const string DefaultSignoutScheme = Protocols.Constants.OneImlxOidc + ":scheme:signout";
 
         /// <summary>
         /// The local identity provider.
         /// </summary>
-        public const string LocalIdP = OrgConstants.Oidc + ":idp:local";
+        public const string LocalIdP = Protocols.Constants.OneImlxOidc + ":idp:local";
 
         /// <summary>
         /// The OpenID Connect authentication protocol.

@@ -2,6 +2,12 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
+*/
+/*
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
+    https://perpetualintelligence.com
+    https://api.perpetualintelligence.com
 */
 
 namespace PerpetualIntelligence.Protocols.OneImlx
@@ -34,21 +40,6 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// The logo.
         /// </summary>
         public const string LogoUrl = "https://en.gravatar.com/userimage/152742631/5c2800c8660bdabbfdcc1bf9497964d4.png";
-
-        /// <summary>
-        /// The <c>OAuth</c>, <c>oidc</c> or <c>OpenID Connect</c> protocol.
-        /// </summary>
-        public const string Oidc = "urn:oneimlx:oidc";
-
-        /// <summary>
-        /// The <c>cli</c> protocol.
-        /// </summary>
-        public const string Cli = "urn:oneimlx:cli";
-
-        /// <summary>
-        /// The <c>oneimlx</c> protocol.
-        /// </summary>
-        public const string OneImlx = "urn:oneimlx";
 
         /// <summary>
         /// The <c>oneimlx</c> protocol with organization namespace.

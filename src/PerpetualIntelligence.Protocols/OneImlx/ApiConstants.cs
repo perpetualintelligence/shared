@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 namespace PerpetualIntelligence.Protocols.OneImlx
@@ -12,19 +13,14 @@ namespace PerpetualIntelligence.Protocols.OneImlx
     public static class ApiConstants
     {
         /// <summary>
-        /// The imlx protocol identifier.
-        /// </summary>
-        public const string OneImlxId = "oneimlx";
-
-        /// <summary>
         /// The named HTTP client for an API server.
         /// </summary>
-        public const string ApiServerHttpClient = "urn:oneimlx:http:apiserver";
+        public const string ApiServerHttpClient = "urn:oneimlx:apiserver";
 
         /// <summary>
         /// The named HTTP client for the client application.
         /// </summary>
-        public const string ClientAppHttpClient = "urn:oneimlx:http:clientapp";
+        public const string ClientAppHttpClient = "urn:oneimlx:clientapp";
 
         /// <summary>
         /// The API form content type <c>application/x-www-form-urlencoded</c>.
@@ -44,7 +40,7 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// <summary>
         /// The API Multipart content type <c>multipart/form-data</c>.
         /// </summary>
-        public const string ContentTypeMultipart = "multipart/form-data";   
+        public const string ContentTypeMultipart = "multipart/form-data";
 
         /// <summary>
         /// The live mode of payments.
@@ -54,12 +50,17 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// <summary>
         /// The localhost endpoint.
         /// </summary>
-        public const string LocalhostEndpoint = "urn:oneimlx:host:local";
+        public const string LocalhostEndpoint = "urn:oneimlx:localhost";
+
+        /// <summary>
+        /// The imlx protocol identifier.
+        /// </summary>
+        public const string OneImlxId = "oneimlx";
 
         /// <summary>
         /// The production endpoint.
         /// </summary>
-        public const string ProductionEndpoint = "urn:oneimlx:host:prod";
+        public const string ProductionEndpoint = "urn:oneimlx:production";
 
         /// <summary>
         /// The test mode of payments.
