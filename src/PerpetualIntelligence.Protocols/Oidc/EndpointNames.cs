@@ -6,73 +6,58 @@
 
 using PerpetualIntelligence.Shared.Attributes;
 
-namespace PerpetualIntelligence.Protocols.OneImlx
+namespace PerpetualIntelligence.Protocols.Oidc
 {
     /// <summary>
     /// The <c>oneimlx</c> endpoint identifiers.
     /// </summary>
     [WriteDocumentation]
     [MustDo("Add links to OpenID connect standard for each endpoint.", BlockRelease = true)]
-    public static class EndpointIds
+    public static class EndpointNames
     {
         /// <summary>
         /// The authorization endpoint.
         /// </summary>
-        public const string Authorize = "urn:oneimlx:auth";
-
-        /// <summary>
-        /// The authorization callback endpoint.
-        /// </summary>
-        public const string AuthorizeCallback = "urn:oneimlx:authcb";
+        public const string Authorize = "authorize";
 
         /// <summary>
         /// The check session endpoint.
         /// </summary>
-        public const string CheckSession = "urn:oneimlx:checksession";
+        public const string CheckSession = "check_session";
 
         /// <summary>
         /// The device authorization endpoint.
         /// </summary>
-        public const string DeviceAuthorization = "urn:oneimlx:device";
+        public const string DeviceAuthorization = "device_authorization";
 
         /// <summary>
         /// The discovery well known configuration.
         /// </summary>
-        public const string DiscoveryConfiguration = "urn:oneimlx:discovery";
-
-        /// <summary>
-        /// The discovery json web keys endpoint.
-        /// </summary>
-        public const string DiscoveryWebKeys = "urn:oneimlx:jwks";
+        public const string Discovery = "discovery";
 
         /// <summary>
         /// The end session endpoint.
         /// </summary>
-        public const string EndSession = "urn:oneimlx:endsession";
-
-        /// <summary>
-        /// The end session callback endpoint.
-        /// </summary>
-        public const string EndSessionCallback = "urn:oneimlx:endsessioncb";
+        public const string EndSession = "end_session";
 
         /// <summary>
         /// The introspection callback endpoint.
         /// </summary>
-        public const string Introspection = "urn:oneimlx:introspection";
+        public const string Introspection = "introspection";
 
         /// <summary>
         /// The revocation callback endpoint.
         /// </summary>
-        public const string Revocation = "urn:oneimlx:revocation";
+        public const string Revocation = "revocation";
 
         /// <summary>
         /// The token endpoint.
         /// </summary>
-        public const string Token = "urn:oneimlx:token";
+        public const string Token = "token";
 
         /// <summary>
         /// The user information endpoint.
         /// </summary>
-        public const string UserInfo = "urn:oneimlx:userinfo";
+        public const string UserInfo = "user_info";
     }
 }

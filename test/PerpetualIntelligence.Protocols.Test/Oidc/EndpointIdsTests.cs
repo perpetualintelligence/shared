@@ -5,9 +5,10 @@
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerpetualIntelligence.Protocols.Oidc;
 using PerpetualIntelligence.Test.Services;
 
-namespace PerpetualIntelligence.Protocols.OneImlx
+namespace PerpetualIntelligence.Protocols.Oidc
 {
     [TestClass]
     public class EndpointIdsTests
