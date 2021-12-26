@@ -36,7 +36,17 @@ namespace PerpetualIntelligence.Protocols
         /// <summary>
         /// The Perpetual Intelligence's <c>oneimlx</c> extension for <c>OpenID Connect</c> authentication protocol.
         /// </summary>
-        public const string OneImlxOidc = "urn:oneimlx:oidc";
+        public const string OneImlxOpenIDConnect = "urn:oneimlx:oidc";
+
+        /// <summary>
+        /// The Perpetual Intelligence's <c>oneimlx</c> organization id.
+        /// </summary>
+        public const string OneImlxOrg = "PerpetualIntelligence.OneImlx";
+
+        /// <summary>
+        /// The Perpetual Intelligence's <c>oneimlx</c> extension for <c>Web Services Federation</c> protocol.
+        /// </summary>
+        public const string OneImlxWebServicesFederation = "urn:oneimlx:wsfed";
 
         /// <summary>
         /// The <c>OpenID Connect</c> authentication protocol.
@@ -45,7 +55,7 @@ namespace PerpetualIntelligence.Protocols
         public const string OpenIDConnect = "oidc";
 
         /// <summary>
-        /// The Web Services Federation protocol.
+        /// The <c>Web Services Federation</c> protocol.
         /// </summary>
         /// <seealso href="http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html"/>
         public const string WebServicesFederation = "wsfed";

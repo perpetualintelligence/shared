@@ -4,11 +4,6 @@
     https://api.perpetualintelligence.com
     https://oneimlx.com
 */
-/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
-*/
 
 namespace PerpetualIntelligence.Protocols.OneImlx
 {
@@ -21,6 +16,11 @@ namespace PerpetualIntelligence.Protocols.OneImlx
     /// </remarks>
     public static class OrgConstants
     {
+        /// <summary>
+        /// The code of conduct URL.
+        /// </summary>
+        public const string CodeOfConduct = "https://github.com/perpetualintelligence/terms/blob/main/CODE_OF_CONDUCT.md";
+
         /// <summary>
         /// The copyright.
         /// </summary>
@@ -37,14 +37,19 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         public const string FullName = "Perpetual Intelligence L.L.C.";
 
         /// <summary>
-        /// The logo.
+        /// The <c>GitHub</c> URL.
         /// </summary>
-        public const string LogoUrl = "https://en.gravatar.com/userimage/152742631/5c2800c8660bdabbfdcc1bf9497964d4.png";
+        public const string GitHub = "https://github.com/perpetualintelligence";
 
         /// <summary>
-        /// The <c>oneimlx</c> protocol with organization namespace.
+        /// The <c>GitHub</c> issues policy URL.
         /// </summary>
-        public const string OneImlxOrg = "PerpetualIntelligence.OneImlx";
+        public const string IssuesPolicy = "https://github.com/perpetualintelligence/terms/blob/main/issues-policy.md";
+
+        /// <summary>
+        /// The logo.
+        /// </summary>
+        public const string LogoUrl = "https://github.com/perpetualintelligence/terms/blob/main/logo/icon.png";
 
         /// <summary>
         /// The privacy URL.
