@@ -2,15 +2,16 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 namespace PerpetualIntelligence.Protocols.Oidc
 {
     /// <summary>
-    /// The OpenID Connect authentication protocol prompt modes.
+    /// The OpenID Connect authentication protocol prompts.
     /// </summary>
-    /// <seealso href="https://openid.net/specs/openid-connect-core-1_0.html">Authentication Request</seealso>
-    public static class PromptModes
+    /// <seealso href="https://openid.net/specs/openid-connect-core-1_0.html"></seealso>
+    public static class Prompts
     {
         /// <summary>
         /// The Authorization Server SHOULD prompt the End-User for consent before returning information to the Client.

@@ -10,7 +10,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
     /// The OpenID Connect authentication protocol display modes.
     /// </summary>
     /// <seealso href="https://openid.net/specs/openid-connect-basic-1_0.html"/>
-    public static class DisplayModes
+    public static class Displays
     {
         /// <summary>
         /// The Authorization Server SHOULD display the authentication and consent UI consistent with a full User Agent

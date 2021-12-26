@@ -27,7 +27,7 @@ namespace PerpetualIntelligence.Protocols.Security
         /// <summary>
         /// The authentication type used to create the <see cref="ClaimsPrincipal"/>.
         /// </summary>
-        public const string DefaultAuthenticationType = Protocols.Constants.OneImlxOpenIDConnect + ":auth";
+        public const string DefaultAuthenticationType = Protocols.Constants.OneImlxOpenIDConnectUrn + ":auth";
 
         /// <summary>
         /// The default <c>check_session</c> cookie name.
@@ -52,17 +52,17 @@ namespace PerpetualIntelligence.Protocols.Security
         /// <summary>
         /// The <c>jwt</c> request key scheme.
         /// </summary>
-        public const string DefaultJwtRequestClientKeyScheme = Protocols.Constants.OneImlx + ":scheme:jwt";
+        public const string DefaultJwtRequestClientKeyScheme = Protocols.Constants.OneImlxUrn + ":scheme:jwt";
 
         /// <summary>
         /// The local identity provider.
         /// </summary>
-        public const string DefaultLocalIdP = Protocols.Constants.OneImlx + ":scheme:lidp";
+        public const string DefaultLocalIdP = Protocols.Constants.OneImlxUrn + ":scheme:lidp";
 
         /// <summary>
         /// The signout scheme.
         /// </summary>
-        public const string DefaultSignoutScheme = Protocols.Constants.OneImlx + ":scheme:signout";
+        public const string DefaultSignoutScheme = Protocols.Constants.OneImlxUrn + ":scheme:signout";
 
         /// <summary>
         /// The default timeout for all <c>oidc</c> protocols.

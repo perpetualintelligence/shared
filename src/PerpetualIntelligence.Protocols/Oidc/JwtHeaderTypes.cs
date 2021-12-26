@@ -2,26 +2,42 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
-
-using PerpetualIntelligence.Shared.Attributes;
 
 namespace PerpetualIntelligence.Protocols.Oidc
 {
     /// <summary>
-    /// The default valid types that will be used to check against the JWT header's 'typ' claim.
+    /// The <c>oneimlx</c> JWT header's <c>type</c> claim for OAuth and OpenID Connect protocols.
     /// </summary>
-    [MustDo("Finalize the std format we cannot user urn format here. is this part of oauth spec ?")]
     public static class JwtHeaderTypes
     {
         /// <summary>
-        /// OAuth 2.0 access token
+        /// The <c>oneimlx</c> extension for OAuth 2.0 access token.
         /// </summary>
-        public const string AccessToken = "oneimlx-oidc-at+jwt";
+        /// <remarks>
+        /// The <see href="https://www.rfc-editor.org/info/rfc9068">RFC9068</see> specification registers the
+        /// "application/at+jwt" media type, which can be used to indicate that the content is a JWT access token. JWT
+        /// access tokens MUST include this media type in the "typ" header parameter to explicitly declare that the JWT
+        /// represents an access token complying with this profile. Per the definition of "typ" in Section 4.1.9 of
+        /// [RFC7515], it is RECOMMENDED that the "application/" prefix be omitted. Therefore, the "typ" value used
+        /// SHOULD be "at+jwt"
+        /// </remarks>
+        /// <seealso href="https://www.rfc-editor.org/info/rfc9068"/>
+        public const string AccessToken = "at+jwt";
 
         /// <summary>
-        /// JWT secured authorization request.
+        /// The <c>oneimlx</c> extension JWT secured authorization request.
         /// </summary>
-        public const string AuthorizationRequest = "oneimlx-oidc-ar+jwt";
+        /// <remarks>
+        /// The <see href="https://www.rfc-editor.org/info/rfc9101">RFC9101</see> specification registers the
+        /// "application/oauth-authz-req+jwt" media type, which can be used to indicate that the content is a JWT
+        /// containing Request Object claims. The server should a) check that the value of the "request_uri" parameter
+        /// does not point to an unexpected location, b) check that the media type of the response is
+        /// "application/oauth-authz-req+jwt", c) implement a timeout for obtaining the content of "request_uri", and d)
+        /// not perform recursive GET on the "request_uri".
+        /// </remarks>
+        /// <seealso href="https://www.rfc-editor.org/info/rfc9101"/>
+        public const string AuthorizationRequest = "oauth-authz-req+jwt";
     }
 }

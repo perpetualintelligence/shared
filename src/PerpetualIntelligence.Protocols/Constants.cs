@@ -26,22 +26,27 @@ namespace PerpetualIntelligence.Protocols
         /// <summary>
         /// The Perpetual Intelligence's <c>oneimlx</c> protocol.
         /// </summary>
-        public const string OneImlx = "urn:oneimlx";
+        public const string OneImlx = "oneimlx";
 
         /// <summary>
         /// The Perpetual Intelligence's <c>oneimlx</c> extension for <c>OAuth 2.0</c> authorization protocol.
         /// </summary>
-        public const string OneImlxOAuth2 = "urn:oneimlx:oauth2";
+        public const string OneImlxOAuth2Urn = "urn:oneimlx:oauth2";
 
         /// <summary>
         /// The Perpetual Intelligence's <c>oneimlx</c> extension for <c>OpenID Connect</c> authentication protocol.
         /// </summary>
-        public const string OneImlxOpenIDConnect = "urn:oneimlx:oidc";
+        public const string OneImlxOpenIDConnectUrn = "urn:oneimlx:oidc";
 
         /// <summary>
         /// The Perpetual Intelligence's <c>oneimlx</c> organization id.
         /// </summary>
         public const string OneImlxOrg = "PerpetualIntelligence.OneImlx";
+
+        /// <summary>
+        /// The Perpetual Intelligence's <c>oneimlx</c> protocol.
+        /// </summary>
+        public const string OneImlxUrn = "urn:oneimlx";
 
         /// <summary>
         /// The Perpetual Intelligence's <c>oneimlx</c> extension for <c>Web Services Federation</c> protocol.

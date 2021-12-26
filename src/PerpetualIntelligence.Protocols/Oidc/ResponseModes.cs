@@ -2,6 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
 
 namespace PerpetualIntelligence.Protocols.Oidc
@@ -10,9 +11,7 @@ namespace PerpetualIntelligence.Protocols.Oidc
     /// The OpenID Connect authentication protocol response modes.
     /// </summary>
     /// <seealso href="https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html"/>
-    /// <seealso href="https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html">
-    /// OAuth 2.0 Multiple Response Type Encoding Practices
-    /// </seealso>
+    /// <seealso href="https://openid.net/specs/oauth-v2-form-post-response-mode-1_0.html"></seealso>
     public static class ResponseModes
     {
         /// <summary>

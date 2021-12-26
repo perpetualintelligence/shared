@@ -15,8 +15,8 @@ namespace PerpetualIntelligence.Protocols.Oidc
         {
             TestHelper.AssertConstantCount(typeof(JwtHeaderTypes), 2);
 
-            Assert.AreEqual("oneimlx-oidc-at+jwt", JwtHeaderTypes.AccessToken);
-            Assert.AreEqual("oneimlx-oidc-ar+jwt", JwtHeaderTypes.AuthorizationRequest);
+            Assert.AreEqual("at+jwt", JwtHeaderTypes.AccessToken);
+            Assert.AreEqual("oauth-authz-req+jwt", JwtHeaderTypes.AuthorizationRequest);
         }
     }
 }

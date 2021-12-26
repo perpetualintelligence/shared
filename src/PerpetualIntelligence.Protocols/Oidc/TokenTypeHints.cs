@@ -2,16 +2,15 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
     https://perpetualintelligence.com
     https://api.perpetualintelligence.com
+    https://oneimlx.com
 */
-
-using PerpetualIntelligence.Shared.Attributes;
 
 namespace PerpetualIntelligence.Protocols.Oidc
 {
     /// <summary>
     /// The OAuth or OpenID Connect token type hints.
     /// </summary>
-    [MustDo("Why do we need this ? Why cant we just use the Tokens ? Does that make the URL long ?")]
+    /// <seealso href="https://datatracker.ietf.org/doc/html/rfc7009"/>
     public static class TokenTypeHints
     {
         /// <summary>

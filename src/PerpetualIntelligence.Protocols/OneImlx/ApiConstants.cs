@@ -53,11 +53,6 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         public const string LocalhostEndpoint = "urn:oneimlx:localhost";
 
         /// <summary>
-        /// The imlx protocol identifier.
-        /// </summary>
-        public const string OneImlxId = "oneimlx";
-
-        /// <summary>
         /// The production endpoint.
         /// </summary>
         public const string ProductionEndpoint = "urn:oneimlx:production";

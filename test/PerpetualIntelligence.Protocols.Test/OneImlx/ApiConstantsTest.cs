@@ -15,9 +15,8 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         [TestMethod]
         public void ConstantTest()
         {
-            TestHelper.AssertConstantCount(typeof(ApiConstants), 11);
+            TestHelper.AssertConstantCount(typeof(ApiConstants), 10);
 
-            Assert.AreEqual("oneimlx", ApiConstants.OneImlxId);
             Assert.AreEqual("urn:oneimlx:apiserver", ApiConstants.ApiServerHttpClient);
             Assert.AreEqual("urn:oneimlx:clientapp", ApiConstants.ClientAppHttpClient);
             Assert.AreEqual("application/x-www-form-urlencoded", ApiConstants.ContentTypeForm);

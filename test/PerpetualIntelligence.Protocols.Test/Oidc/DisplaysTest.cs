@@ -13,17 +13,17 @@ using System.Threading.Tasks;
 namespace PerpetualIntelligence.Protocols.Oidc
 {
     [TestClass]
-   public class PromptModesTest
+   public class DisplaysTest
     {
         [TestMethod]
-        public void PromptModesConstantsTest()
+        public void DisplayModesConstantsTest()
         {
-            TestHelper.AssertConstantCount(typeof(PromptModes), 4);
+            TestHelper.AssertConstantCount(typeof(Displays), 4);
 
-            Assert.AreEqual("consent", PromptModes.Consent);
-            Assert.AreEqual("login", PromptModes.Login);
-            Assert.AreEqual("none", PromptModes.None);
-            Assert.AreEqual("select_account", PromptModes.SelectAccount);
+            Assert.AreEqual("page", Displays.Page);
+            Assert.AreEqual("popup", Displays.Popup); 
+            Assert.AreEqual("touch", Displays.Touch);
+            Assert.AreEqual("wap", Displays.Wap);
         }
     }
 }

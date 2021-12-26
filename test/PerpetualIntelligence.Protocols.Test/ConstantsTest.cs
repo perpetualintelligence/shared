@@ -16,16 +16,17 @@ namespace PerpetualIntelligence.Protocols
         [TestMethod]
         public void ConstantTest()
         {
-            TestHelper.AssertConstantCount(typeof(Constants), 9);
+            TestHelper.AssertConstantCount(typeof(Constants), 10);
 
             Assert.AreEqual("urn:oneimlx:cli", Constants.Cli);
             Assert.AreEqual("OAuth2.0", Constants.OAuth2);
-            Assert.AreEqual("urn:oneimlx", Constants.OneImlx);
-            Assert.AreEqual("urn:oneimlx:oauth2", Constants.OneImlxOAuth2);
-            Assert.AreEqual("urn:oneimlx:oidc", Constants.OneImlxOpenIDConnect);
+            Assert.AreEqual("urn:oneimlx", Constants.OneImlxUrn);
+            Assert.AreEqual("urn:oneimlx:oauth2", Constants.OneImlxOAuth2Urn);
+            Assert.AreEqual("urn:oneimlx:oidc", Constants.OneImlxOpenIDConnectUrn);
             Assert.AreEqual("PerpetualIntelligence.OneImlx", Constants.OneImlxOrg);
             Assert.AreEqual("urn:oneimlx:wsfed", Constants.OneImlxWebServicesFederation);
             Assert.AreEqual("oidc", Constants.OpenIDConnect);
+            Assert.AreEqual("oneimlx", Constants.OneImlx);
             Assert.AreEqual("wsfed", Constants.WebServicesFederation);
         }
     }
