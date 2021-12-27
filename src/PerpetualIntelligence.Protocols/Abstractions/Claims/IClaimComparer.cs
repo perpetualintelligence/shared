@@ -1,8 +1,10 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
-    https://oneimlx.com
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    https://github.com/perpetualintelligence/terms/blob/main/tos.md
 */
 
 using System.Collections.Generic;

@@ -1,7 +1,11 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 */
 
 using System;
@@ -32,9 +36,7 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// Initializes a new instance.
         /// </summary>
         /// <param name="data">The cookie data.</param>
-        /// <param name="createStamp">
-        /// The create time-stamp expressed in the Coordinated Universal Time (UTC).
-        /// </param>
+        /// <param name="createStamp">The create time-stamp expressed in the Coordinated Universal Time (UTC).</param>
         public Message(TData data, DateTimeOffset createStamp)
         {
             CreateStamp = createStamp;

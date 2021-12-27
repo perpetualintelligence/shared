@@ -1,9 +1,12 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
-*/
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
+*/
 
 namespace PerpetualIntelligence.Protocols.Abstractions.Stores
 {
@@ -13,13 +16,13 @@ namespace PerpetualIntelligence.Protocols.Abstractions.Stores
     public interface IEntityTenancy : IEntity
     {
         /// <summary>
-        /// The tenant mode.
-        /// </summary>
-        string? TenantMode { get; }
-
-        /// <summary>
         /// The tenant identifier.
         /// </summary>
         string TenantId { get; }
+
+        /// <summary>
+        /// The tenant mode.
+        /// </summary>
+        string? TenantMode { get; }
     }
 }

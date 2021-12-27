@@ -1,32 +1,33 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 */
 
-using PerpetualIntelligence.Shared.Attributes;
 using System.Security.Cryptography.X509Certificates;
 
 namespace PerpetualIntelligence.Protocols.Security.Certificates.X509
 {
     /// <summary>
-    /// Manages the <see cref="X509Certificate"/> stores and provides the commonly used
-    /// <see cref="System.Security.Cryptography.X509Certificates.X509FindType"/> for OpenID Connect authentication protocol.
+    /// Finds the <see cref="X509Certificate"/> by commonly used <see cref="System.Security.Cryptography.X509Certificates.X509FindType"/>.
     /// </summary>
     /// <seealso cref="X509Certificate"/>
     /// <seealso cref="StoreLocation"/>
     /// <seealso cref="StoreName"/>
-    /// <seealso cref="X509StoreLocation"/>
-    /// <seealso cref="X509FindType"/>
-    [Todo("Add X509FindType for all the StoreName")]
-    public class X509StoreName
+    /// <seealso cref="FindByStore"/>
+    /// <seealso cref="FindMetadata"/>
+    public class FindByType
     {
         /// <summary>
         /// Initializes a new instance.
         /// </summary>
         /// <param name="location">The X.509 <see cref="StoreLocation"/>.</param>
         /// <param name="name">The X.509 <see cref="StoreName"/>.</param>
-        public X509StoreName(StoreLocation location, StoreName name)
+        public FindByType(StoreLocation location, StoreName name)
         {
             Location = location;
             Name = name;
@@ -35,7 +36,7 @@ namespace PerpetualIntelligence.Protocols.Security.Certificates.X509
         /// <summary>
         /// The X.509 <see cref="System.Security.Cryptography.X509Certificates.X509FindType.FindByIssuerName"/> find by type.
         /// </summary>
-        public X509FindType IssuerName => new(Location, Name, System.Security.Cryptography.X509Certificates.X509FindType.FindByIssuerName);
+        public FindMetadata IssuerName => new(Location, Name, System.Security.Cryptography.X509Certificates.X509FindType.FindByIssuerName);
 
         /// <summary>
         /// The X.509 <see cref="StoreLocation"/>.
@@ -51,18 +52,18 @@ namespace PerpetualIntelligence.Protocols.Security.Certificates.X509
         /// The X.509 <see cref="System.Security.Cryptography.X509Certificates.X509FindType.FindBySerialNumber"/> find
         /// by type.
         /// </summary>
-        public X509FindType SerialNumber => new(Location, Name, System.Security.Cryptography.X509Certificates.X509FindType.FindBySerialNumber);
+        public FindMetadata SerialNumber => new(Location, Name, System.Security.Cryptography.X509Certificates.X509FindType.FindBySerialNumber);
 
         /// <summary>
         /// The X.509
         /// <see cref="System.Security.Cryptography.X509Certificates.X509FindType.FindBySubjectDistinguishedName"/> find
         /// by type.
         /// </summary>
-        public X509FindType SubjectDistinguishedName => new(Location, Name, System.Security.Cryptography.X509Certificates.X509FindType.FindBySubjectDistinguishedName);
+        public FindMetadata SubjectDistinguishedName => new(Location, Name, System.Security.Cryptography.X509Certificates.X509FindType.FindBySubjectDistinguishedName);
 
         /// <summary>
         /// The X.509 <see cref="System.Security.Cryptography.X509Certificates.X509FindType.FindByThumbprint"/> find by type.
         /// </summary>
-        public X509FindType Thumbprint => new(Location, Name, System.Security.Cryptography.X509Certificates.X509FindType.FindByThumbprint);
+        public FindMetadata Thumbprint => new(Location, Name, System.Security.Cryptography.X509Certificates.X509FindType.FindByThumbprint);
     }
 }

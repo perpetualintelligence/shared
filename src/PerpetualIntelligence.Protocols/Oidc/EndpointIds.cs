@@ -1,78 +1,80 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
-*/
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-using PerpetualIntelligence.Shared.Attributes;
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
+*/
 
 namespace PerpetualIntelligence.Protocols.Oidc
 {
     /// <summary>
-    /// The <c>oneimlx</c> endpoint identifiers.
+    /// The <c>oneimlx</c> endpoint identifiers for OAuth and OpenID Connect protocols.
     /// </summary>
-    [WriteDocumentation]
-    [MustDo("Add links to OpenID connect standard for each endpoint.", BlockRelease = true)]
+    /// <seealso cref="EndpointNames"/>
     public static class EndpointIds
     {
         /// <summary>
-        /// The authorization endpoint.
+        /// The <c>authorize</c> endpoint.
         /// </summary>
+        /// <seealso href="https://datatracker.ietf.org/doc/html/rfc6749#section-4.2.1"/>
         public const string Authorize = "urn:oneimlx:auth";
 
         /// <summary>
-        /// The authorization callback endpoint.
+        /// The <c>check_session</c> or <c>check_session_iframe</c> endpoint.
         /// </summary>
-        public const string AuthorizeCallback = "urn:oneimlx:authcb";
-
-        /// <summary>
-        /// The check session endpoint.
-        /// </summary>
+        /// <seealso href="https://openid.net/specs/openid-connect-session-1_0.html"/>
         public const string CheckSession = "urn:oneimlx:checksession";
 
         /// <summary>
-        /// The device authorization endpoint.
+        /// The <c>device_authorization</c> endpoint.
         /// </summary>
+        /// <seealso href="https://datatracker.ietf.org/doc/html/rfc8628"/>
         public const string DeviceAuthorization = "urn:oneimlx:device";
 
         /// <summary>
-        /// The discovery well known configuration.
+        /// The <c>discovery</c> or <c>.well-known</c> configuration.
         /// </summary>
-        public const string DiscoveryConfiguration = "urn:oneimlx:discovery";
+        /// <seealso href="https://openid.net/specs/openid-connect-discovery-1_0.html"/>
+        public const string Discovery = "urn:oneimlx:discovery";
 
         /// <summary>
-        /// The discovery json web keys endpoint.
+        /// The <c>end_session</c> endpoint.
         /// </summary>
-        public const string DiscoveryWebKeys = "urn:oneimlx:jwks";
-
-        /// <summary>
-        /// The end session endpoint.
-        /// </summary>
+        /// <seealso href="https://openid.net/specs/openid-connect-session-1_0.html"/>
         public const string EndSession = "urn:oneimlx:endsession";
 
         /// <summary>
-        /// The end session callback endpoint.
+        /// The token introspection or <c>introspect</c> endpoint.
         /// </summary>
-        public const string EndSessionCallback = "urn:oneimlx:endsessioncb";
+        /// <seealso href="https://datatracker.ietf.org/doc/html/rfc7662#section-2"/>
+        public const string Introspect = "urn:oneimlx:introspect";
 
         /// <summary>
-        /// The introspection callback endpoint.
+        /// The json web keys or <c>jwks</c> endpoint.
         /// </summary>
-        public const string Introspection = "urn:oneimlx:introspection";
+        /// <seealso href="https://datatracker.ietf.org/doc/html/rfc7517"/>
+        public const string Jwks = "urn:oneimlx:jwks";
 
         /// <summary>
-        /// The revocation callback endpoint.
+        /// The token revocation or <c>revoke</c> endpoint.
         /// </summary>
-        public const string Revocation = "urn:oneimlx:revocation";
+        /// <seealso href="https://datatracker.ietf.org/doc/html/rfc7009#section-2.1"/>
+        public const string Revoke = "urn:oneimlx:revoke";
 
         /// <summary>
-        /// The token endpoint.
+        /// The <c>token</c> endpoint.
         /// </summary>
+        /// <seealso href="https://datatracker.ietf.org/doc/html/rfc6749#section-3.2"/>
+        /// <seealso href="https://openid.net/specs/openid-connect-core-1_0.html#HybridTokenEndpoint"/>
         public const string Token = "urn:oneimlx:token";
 
         /// <summary>
-        /// The user information endpoint.
+        /// The <c>user_info</c> or <c>userinfo</c> endpoint.
         /// </summary>
+        /// <seealso href="https://openid.net/specs/openid-connect-core-1_0.html#UserInfo"/>
         public const string UserInfo = "urn:oneimlx:userinfo";
     }
 }

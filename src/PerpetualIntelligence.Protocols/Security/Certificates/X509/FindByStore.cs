@@ -1,7 +1,11 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 */
 
 using PerpetualIntelligence.Shared.Attributes;
@@ -10,22 +14,22 @@ using System.Security.Cryptography.X509Certificates;
 namespace PerpetualIntelligence.Protocols.Security.Certificates.X509
 {
     /// <summary>
-    /// Manages the <see cref="X509Certificate"/> stores and provides the commonly used <see cref="StoreName"/> for
-    /// OpenID Connect authentication protocol.
+    /// Finds the <see cref="X509Certificate"/> by commonly used
+    /// <see cref="System.Security.Cryptography.X509Certificates.StoreLocation"/> and <see cref="System.Security.Cryptography.X509Certificates.StoreName"/>.
     /// </summary>
     /// <seealso cref="X509Certificate"/>
     /// <seealso cref="StoreLocation"/>
     /// <seealso cref="StoreName"/>
-    /// <seealso cref="X509StoreName"/>
-    /// <seealso cref="X509FindType"/>
+    /// <seealso cref="FindByType"/>
+    /// <seealso cref="FindMetadata"/>
     [Todo("Add X509StoreName for all the StoreName")]
-    public class X509StoreLocation
+    public class FindByStore
     {
         /// <summary>
         /// Initializes a new instance with the specified <see cref="StoreLocation"/>.
         /// </summary>
         /// <param name="location">The X.509 <see cref="StoreLocation"/>.</param>
-        public X509StoreLocation(StoreLocation location)
+        public FindByStore(StoreLocation location)
         {
             Location = location;
         }
@@ -33,41 +37,41 @@ namespace PerpetualIntelligence.Protocols.Security.Certificates.X509
         /// <summary>
         /// The X.509 certificate store used by <see cref="StoreLocation.CurrentUser"/>.
         /// </summary>
-        public static X509StoreLocation CurrentUser => new X509StoreLocation(StoreLocation.CurrentUser);
+        public static FindByStore CurrentUser => new(StoreLocation.CurrentUser);
 
         /// <summary>
         /// The X.509 certificate store assigned to <see cref="StoreLocation.LocalMachine"/>.
         /// </summary>
-        public static X509StoreLocation LocalMachine => new X509StoreLocation(StoreLocation.LocalMachine);
+        public static FindByStore LocalMachine => new(StoreLocation.LocalMachine);
 
         /// <summary>
         /// The X.509 <see cref="StoreName.AddressBook"/> certificate store.
         /// </summary>
-        public X509StoreName AddressBook => new X509StoreName(Location, StoreName.AddressBook);
+        public FindByType AddressBook => new(Location, StoreName.AddressBook);
 
         /// <summary>
         /// The X.509 <see cref="StoreName.CertificateAuthority"/> certificate store.
         /// </summary>
-        public X509StoreName CertificateAuthority => new X509StoreName(Location, StoreName.CertificateAuthority);
+        public FindByType CertificateAuthority => new(Location, StoreName.CertificateAuthority);
 
         /// <summary>
-        /// The X.509 store location.
+        /// The X509 <see cref="StoreLocation"/>.
         /// </summary>
         public StoreLocation Location { get; }
 
         /// <summary>
         /// The X.509 <see cref="StoreName.My"/> certificate store.
         /// </summary>
-        public X509StoreName My => new X509StoreName(Location, StoreName.My);
+        public FindByType My => new FindByType(Location, StoreName.My);
 
         /// <summary>
         /// The X.509 <see cref="StoreName.TrustedPeople"/> certificate store.
         /// </summary>
-        public X509StoreName TrustedPeople => new X509StoreName(Location, StoreName.TrustedPeople);
+        public FindByType TrustedPeople => new(Location, StoreName.TrustedPeople);
 
         /// <summary>
         /// The X.509 <see cref="StoreName.TrustedPublisher"/> certificate store.
         /// </summary>
-        public X509StoreName TrustedPublisher => new X509StoreName(Location, StoreName.TrustedPublisher);
+        public FindByType TrustedPublisher => new(Location, StoreName.TrustedPublisher);
     }
 }

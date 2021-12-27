@@ -1,7 +1,11 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 */
 
 namespace PerpetualIntelligence.Protocols.OneImlx
@@ -39,7 +43,7 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         public const string High = "urn:oneimlx:severity:high";
 
         /// <summary>
-        /// Low severities cosmetic changes.
+        /// Low severities or cosmetic changes.
         /// </summary>
         public const string Low = "urn:oneimlx:severity:low";
 

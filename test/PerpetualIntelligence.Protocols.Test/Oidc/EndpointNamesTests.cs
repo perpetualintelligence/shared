@@ -22,8 +22,8 @@ namespace PerpetualIntelligence.Protocols.Oidc
             Assert.AreEqual("device_authorization", EndpointNames.DeviceAuthorization);
             Assert.AreEqual("discovery", EndpointNames.Discovery);
             Assert.AreEqual("end_session", EndpointNames.EndSession);
-            Assert.AreEqual("introspection", EndpointNames.Introspection);
-            Assert.AreEqual("revocation", EndpointNames.Revocation);
+            Assert.AreEqual("introspect", EndpointNames.Introspect);
+            Assert.AreEqual("revoke", EndpointNames.Revoke);
             Assert.AreEqual("token", EndpointNames.Token);
             Assert.AreEqual("user_info", EndpointNames.UserInfo);
         }

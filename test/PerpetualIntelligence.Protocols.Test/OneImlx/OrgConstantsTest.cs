@@ -16,11 +16,9 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         [TestMethod]
         public void ConstantsTest()
         {
-            TestHelper.AssertConstantCount(typeof(OrgConstants), 10);
+            TestHelper.AssertConstantCount(typeof(OrgConstants), 8);
 
             Assert.AreEqual("https://github.com/perpetualintelligence/terms/blob/main/CODE_OF_CONDUCT.md", OrgConstants.CodeOfConduct);
-            Assert.AreEqual("Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved", OrgConstants.Copyright);
-            Assert.AreEqual("donotreply@perpetualintelligence.com", OrgConstants.DoNotReplyEmail);
             Assert.AreEqual("Perpetual Intelligence L.L.C.", OrgConstants.FullName);
             Assert.AreEqual("https://github.com/perpetualintelligence", OrgConstants.GitHub);
             Assert.AreEqual("https://github.com/perpetualintelligence/terms/blob/main/issues-policy.md", OrgConstants.IssuesPolicy);

@@ -12,45 +12,45 @@ namespace PerpetualIntelligence.Protocols.Security.Certificates.X509
         [TestMethod]
         public void CurrentUserLocationTest()
         {
-            Assert.AreEqual(System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser, X509StoreLocation.CurrentUser.Location);
+            Assert.AreEqual(System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser, FindByStore.CurrentUser.Location);
         }
 
         [TestMethod]
         public void LocalMachineLocationTest()
         {
-            Assert.AreEqual(System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine, X509StoreLocation.LocalMachine.Location);
+            Assert.AreEqual(System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine, FindByStore.LocalMachine.Location);
         }
 
 
         [TestMethod]
         public void StoreNamesTest()
         {
-            Assert.AreEqual(System.Security.Cryptography.X509Certificates.StoreName.My, X509StoreLocation.CurrentUser.My.Name);
-            Assert.AreEqual(System.Security.Cryptography.X509Certificates.StoreName.AddressBook, X509StoreLocation.CurrentUser.AddressBook.Name);
-            Assert.AreEqual(System.Security.Cryptography.X509Certificates.StoreName.TrustedPeople, X509StoreLocation.CurrentUser.TrustedPeople.Name);
-            Assert.AreEqual(System.Security.Cryptography.X509Certificates.StoreName.TrustedPublisher, X509StoreLocation.CurrentUser.TrustedPublisher.Name);
-            Assert.AreEqual(System.Security.Cryptography.X509Certificates.StoreName.CertificateAuthority, X509StoreLocation.CurrentUser.CertificateAuthority.Name);            
+            Assert.AreEqual(System.Security.Cryptography.X509Certificates.StoreName.My, FindByStore.CurrentUser.My.Name);
+            Assert.AreEqual(System.Security.Cryptography.X509Certificates.StoreName.AddressBook, FindByStore.CurrentUser.AddressBook.Name);
+            Assert.AreEqual(System.Security.Cryptography.X509Certificates.StoreName.TrustedPeople, FindByStore.CurrentUser.TrustedPeople.Name);
+            Assert.AreEqual(System.Security.Cryptography.X509Certificates.StoreName.TrustedPublisher, FindByStore.CurrentUser.TrustedPublisher.Name);
+            Assert.AreEqual(System.Security.Cryptography.X509Certificates.StoreName.CertificateAuthority, FindByStore.CurrentUser.CertificateAuthority.Name);            
         }
 
         [TestMethod]
         public void CurrentUserLocationNameMatchTest()
         {
-            Assert.AreEqual(X509StoreLocation.CurrentUser.My.Location, System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser);
-            Assert.AreEqual(X509StoreLocation.CurrentUser.AddressBook.Location, System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser);
-            Assert.AreEqual(X509StoreLocation.CurrentUser.TrustedPeople.Location, System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser);
-            Assert.AreEqual(X509StoreLocation.CurrentUser.TrustedPublisher.Location, System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser);
-            Assert.AreEqual(X509StoreLocation.CurrentUser.CertificateAuthority.Location, System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser);
+            Assert.AreEqual(FindByStore.CurrentUser.My.Location, System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser);
+            Assert.AreEqual(FindByStore.CurrentUser.AddressBook.Location, System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser);
+            Assert.AreEqual(FindByStore.CurrentUser.TrustedPeople.Location, System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser);
+            Assert.AreEqual(FindByStore.CurrentUser.TrustedPublisher.Location, System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser);
+            Assert.AreEqual(FindByStore.CurrentUser.CertificateAuthority.Location, System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser);
         }
 
 
         [TestMethod]
         public void LocalMachineLocationNameMatchTest()
         {
-            Assert.AreEqual(X509StoreLocation.LocalMachine.My.Location, System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine);
-            Assert.AreEqual(X509StoreLocation.LocalMachine.AddressBook.Location, System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine);
-            Assert.AreEqual(X509StoreLocation.LocalMachine.TrustedPeople.Location, System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine);
-            Assert.AreEqual(X509StoreLocation.LocalMachine.TrustedPublisher.Location, System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine);
-            Assert.AreEqual(X509StoreLocation.LocalMachine.CertificateAuthority.Location, System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine);
+            Assert.AreEqual(FindByStore.LocalMachine.My.Location, System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine);
+            Assert.AreEqual(FindByStore.LocalMachine.AddressBook.Location, System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine);
+            Assert.AreEqual(FindByStore.LocalMachine.TrustedPeople.Location, System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine);
+            Assert.AreEqual(FindByStore.LocalMachine.TrustedPublisher.Location, System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine);
+            Assert.AreEqual(FindByStore.LocalMachine.CertificateAuthority.Location, System.Security.Cryptography.X509Certificates.StoreLocation.LocalMachine);
         }
     }
 }

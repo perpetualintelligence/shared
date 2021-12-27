@@ -1,8 +1,11 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
-    https://oneimlx.com
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 */
 
 namespace PerpetualIntelligence.Protocols.OneImlx
@@ -20,16 +23,6 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// The code of conduct URL.
         /// </summary>
         public const string CodeOfConduct = "https://github.com/perpetualintelligence/terms/blob/main/CODE_OF_CONDUCT.md";
-
-        /// <summary>
-        /// The copyright.
-        /// </summary>
-        public const string Copyright = "Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved";
-
-        /// <summary>
-        /// The do not reply email.
-        /// </summary>
-        public const string DoNotReplyEmail = "donotreply@perpetualintelligence.com";
 
         /// <summary>
         /// The full name.

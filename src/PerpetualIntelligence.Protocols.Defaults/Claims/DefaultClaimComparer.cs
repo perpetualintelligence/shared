@@ -21,7 +21,6 @@ namespace PerpetualIntelligence.Protocols.Defaults.Claims
     /// <see cref="Claim.ValueType"/> and <see cref="Claim.Issuer"/> for equality. The string comparison for
     /// <see cref="Claim.ValueType"/> is <see cref="StringComparison.Ordinal"/> for others it is <see cref="StringComparison.OrdinalIgnoreCase"/>.
     /// </remarks>
-    [WriteDocumentation("Explain comparison logic in docs.")]
     [Todo("Do we need to make issuer check optional and configurable ? Can there be a case of same claims from different issuer ? When can it happen ?")]
     public class DefaultClaimComparer : EqualityComparer<Claim>, IClaimComparer
     {

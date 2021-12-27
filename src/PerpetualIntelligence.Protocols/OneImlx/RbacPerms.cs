@@ -1,7 +1,11 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 */
 
 using Microsoft.Extensions.Primitives;
@@ -198,9 +202,9 @@ namespace PerpetualIntelligence.Protocols.OneImlx
             }
 
             // https://stackoverflow.com/questions/19003055/convert-comma-separated-string-into-a-hashset
-            HashSet<string> permSet = new ();  // Or a more realistic size
+            HashSet<string> permSet = new();  // Or a more realistic size
             StringTokenizer st = new(permissions, new char[] { UserRoles.RbacSeperator });
-            foreach(StringSegment perm in st)
+            foreach (StringSegment perm in st)
             {
                 permSet.Add(perm.Value);
             }

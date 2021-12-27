@@ -1,10 +1,13 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 */
 
-using PerpetualIntelligence.Shared.Attributes;
 using System;
 using System.Security.Cryptography;
 
@@ -21,7 +24,7 @@ namespace PerpetualIntelligence.Protocols.Security
         /// <returns>The generated salt</returns>
         public static string NewSalt()
         {
-            return NewSalt(length:32, strip: true);
+            return NewSalt(length: 32, strip: true);
         }
 
         /// <summary>
@@ -47,7 +50,7 @@ namespace PerpetualIntelligence.Protocols.Security
                 byte[] bytes = new byte[length];
                 rng.GetBytes(bytes);
 
-                if(strip)
+                if (strip)
                 {
                     return BitConverter.ToString(bytes).Replace("-", "");
                 }
@@ -55,7 +58,6 @@ namespace PerpetualIntelligence.Protocols.Security
                 {
                     return BitConverter.ToString(bytes);
                 }
-                
             }
         }
     }

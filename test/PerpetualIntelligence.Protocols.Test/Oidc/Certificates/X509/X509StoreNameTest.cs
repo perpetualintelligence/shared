@@ -12,7 +12,7 @@ namespace PerpetualIntelligence.Protocols.Security.Certificates.X509
         [TestMethod]
         public void FindByTypessTest()
         {
-            X509StoreName name = new X509StoreName(System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser, System.Security.Cryptography.X509Certificates.StoreName.My);
+            FindByType name = new FindByType(System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser, System.Security.Cryptography.X509Certificates.StoreName.My);
 
             Assert.AreEqual(System.Security.Cryptography.X509Certificates.X509FindType.FindByThumbprint, name.Thumbprint.FindType);
             Assert.AreEqual(System.Security.Cryptography.X509Certificates.X509FindType.FindBySubjectDistinguishedName, name.SubjectDistinguishedName.FindType);
@@ -23,7 +23,7 @@ namespace PerpetualIntelligence.Protocols.Security.Certificates.X509
         [TestMethod]
         public void FindTypeLocationNameMatchTest()
         {
-            X509StoreName name = new X509StoreName(System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser, System.Security.Cryptography.X509Certificates.StoreName.My);
+            FindByType name = new FindByType(System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser, System.Security.Cryptography.X509Certificates.StoreName.My);
 
             Assert.AreEqual(System.Security.Cryptography.X509Certificates.StoreLocation.CurrentUser, name.Thumbprint.Location);
             Assert.AreEqual(System.Security.Cryptography.X509Certificates.StoreName.My, name.Thumbprint.Name);
