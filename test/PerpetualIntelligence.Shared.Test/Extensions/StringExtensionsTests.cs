@@ -1,7 +1,11 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
+    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -11,18 +15,6 @@ namespace PerpetualIntelligence.Shared.Extensions
     [TestClass]
     public class StringExtensionsTests
     {
-
-        [TestMethod]
-        public void StringRepeatShouldRepeadCorrectly()
-        {
-            Assert.AreEqual("xxxxxxxxxx", "x".Repeat(10));
-            Assert.AreEqual("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "x".Repeat(100));
-
-            Assert.AreEqual(10, "x".Repeat(10).Length);
-            Assert.AreEqual(100, "x".Repeat(100).Length);
-
-        }
-
         [TestMethod]
         public void IsNotNullOrWhiteSpaceTest()
         {
@@ -63,6 +55,16 @@ namespace PerpetualIntelligence.Shared.Extensions
         public void JoinSpaceTest()
         {
             Assert.AreEqual("test1 test2 test3", StringExtensions.JoinBySpace(new string[] { "test1", "test2", "test3" }));
+        }
+
+        [TestMethod]
+        public void StringRepeatShouldRepeadCorrectly()
+        {
+            Assert.AreEqual("xxxxxxxxxx", "x".Repeat(10));
+            Assert.AreEqual("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "x".Repeat(100));
+
+            Assert.AreEqual(10, "x".Repeat(10).Length);
+            Assert.AreEqual(100, "x".Repeat(100).Length);
         }
 
         [TestMethod]

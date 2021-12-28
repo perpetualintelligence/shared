@@ -1,34 +1,32 @@
-﻿// Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-// https://perpetualintelligence.com
-// https://api.perpetualintelligence.com
+﻿/*
+    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
+*/
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Test.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PerpetualIntelligence.Protocols.Oidc
 {
     [TestClass]
-   public class DiscoveryTest
+    public class DiscoveryTest
     {
         [TestMethod]
         public void DiscoveryConstantsTest()
         {
             TestHelper.AssertConstantCount(typeof(Discovery), 49);
 
-            // endpoints
             Assert.AreEqual("acr_values_supported", Discovery.AcrValuesSupported);
             Assert.AreEqual("authorization_endpoint", Discovery.AuthorizationEndpoint);
             Assert.AreEqual("authorization_response_iss_parameter_supported", Discovery.AuthorizationResponseIssParameterSupported);
             Assert.AreEqual("backchannel_logout_session_supported", Discovery.BackChannelLogoutSessionSupported);
             Assert.AreEqual("backchannel_logout_supported", Discovery.BackChannelLogoutSupported);
             Assert.AreEqual("check_session_iframe", Discovery.CheckSessionIframe);
-
-            // more capabilities
             Assert.AreEqual("claims_locales_supported", Discovery.ClaimsLocalesSupported);
             Assert.AreEqual("claims_parameter_supported", Discovery.ClaimsParameterSupported);
             Assert.AreEqual("claims_supported", Discovery.ClaimsSupported);
@@ -39,8 +37,6 @@ namespace PerpetualIntelligence.Protocols.Oidc
             Assert.AreEqual("display_values_supported", Discovery.DisplayValuesSupported);
             Assert.AreEqual("end_session_endpoint", Discovery.EndSessionEndpoint);
             Assert.AreEqual("frontchannel_logout_session_supported", Discovery.FrontChannelLogoutSessionSupported);
-
-            // common capabilities
             Assert.AreEqual("frontchannel_logout_supported", Discovery.FrontChannelLogoutSupported);
             Assert.AreEqual("grant_types_supported", Discovery.GrantTypesSupported);
             Assert.AreEqual("id_token_encryption_alg_values_supported", Discovery.IdTokenEncryptionAlgorithmsSupported);
