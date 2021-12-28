@@ -22,7 +22,6 @@ namespace PerpetualIntelligence.Protocols.Security.Certificates.X509
     /// <seealso cref="StoreName"/>
     /// <seealso cref="FindByType"/>
     /// <seealso cref="FindMetadata"/>
-    [Todo("Add X509StoreName for all the StoreName")]
     public class FindByStore
     {
         /// <summary>
