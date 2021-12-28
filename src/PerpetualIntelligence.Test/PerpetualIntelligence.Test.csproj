@@ -15,7 +15,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Description>The cross-platform test components for Perpetual Intelligence L.L.C. managed services, frameworks, and tools. Applications owners can use these components to build low-level or foundational test elements.</Description>
+        <Description>The cross-platform test components for Perpetual Intelligence L.L.C. managed services, frameworks, and tools. Application owners can use these components to build low-level or foundational test elements.</Description>
         <PackageTags>infrastructure test</PackageTags>
     </PropertyGroup>
 
