@@ -51,6 +51,17 @@
     <ItemGroup>
         <None Include="..\..\build\images\icon.png" Link="icon.png" Pack="true" PackagePath="\"/>
     </ItemGroup>
+
+
+    <!--
+        Package README.md - 
+        https://devblogs.microsoft.com/nuget/add-a-readme-to-your-nuget-package/
+        The Include location is relative to the src/<package>.csproj that will import the props file.
+    -->
+    <ItemGroup>
+        <None Include="..\..\README.md" Link="icon.png" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+
 </Project>
 
 
