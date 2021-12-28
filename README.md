@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/perpetualintelligence/build/_apis/build/status/Cadence/protocols-cadence?branchName=main)](https://dev.azure.com/perpetualintelligence/build/_build/latest?definitionId=43&branchName=main)
+
 This repository contains the cross-platform protocols and standards abstraction for Perpetual Intelligence L.L.C. managed services, frameworks, and tools. We build the following NuGet packages from this repository.
 
 [![Nuget](https://img.shields.io/nuget/vpre/PerpetualIntelligence.Shared?label=PerpetualIntelligence.Shared)](https://www.nuget.org/packages/PerpetualIntelligence.Shared)
