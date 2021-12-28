@@ -1,5 +1,5 @@
 /*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     Licensed under the Apache License, Version 2.0.
     https://github.com/perpetualintelligence/terms/blob/main/LICENSE
@@ -18,7 +18,12 @@ namespace PerpetualIntelligence.Protocols
         /// <summary>
         /// The Perpetual Intelligence's <c>cli</c> protocol.
         /// </summary>
-        public const string Cli = "urn:oneimlx:cli";
+        public const string Cli = "cli";
+
+        /// <summary>
+        /// The Perpetual Intelligence's <c>cli</c> protocol.
+        /// </summary>
+        public const string CliUrn = "urn:oneimlx:cli";
 
         /// <summary>
         /// The <c>OAuth</c> 2.0 authorization protocol.

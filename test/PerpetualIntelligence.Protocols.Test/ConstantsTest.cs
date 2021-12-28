@@ -16,9 +16,10 @@ namespace PerpetualIntelligence.Protocols
         [TestMethod]
         public void ConstantTest()
         {
-            TestHelper.AssertConstantCount(typeof(Constants), 10);
+            TestHelper.AssertConstantCount(typeof(Constants), 11);
 
-            Assert.AreEqual("urn:oneimlx:cli", Constants.Cli);
+            Assert.AreEqual("urn:oneimlx:cli", Constants.CliUrn);
+            Assert.AreEqual("cli", Constants.Cli);
             Assert.AreEqual("OAuth2.0", Constants.OAuth2);
             Assert.AreEqual("urn:oneimlx", Constants.OneImlxUrn);
             Assert.AreEqual("urn:oneimlx:oauth2", Constants.OneImlxOAuth2Urn);

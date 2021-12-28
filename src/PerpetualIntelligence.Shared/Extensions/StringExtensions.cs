@@ -90,9 +90,13 @@ namespace PerpetualIntelligence.Shared.Extensions
             string result = self;
             while (result.StartsWith(trim, System.StringComparison.Ordinal))
             {
+#if NETSTANDARD2_1_OR_GREATER
+                result = result[trim.Length..];
+#else
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
                 result = result.Substring(trim.Length);
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
+#endif
             }
 
             return result;

@@ -8,6 +8,7 @@
     https://github.com/perpetualintelligence/terms/blob/main/policies.md
 */
 
+using PerpetualIntelligence.Shared.Infrastructure;
 using System;
 
 namespace PerpetualIntelligence.Shared.Exceptions
@@ -17,6 +18,12 @@ namespace PerpetualIntelligence.Shared.Exceptions
     /// </summary>
     public class CheckerException : Exception
     {
+        /// <inheritdoc/>
+        public CheckerException(OneImlxResult result)
+        {
+            Result = result;
+        }
+
         /// <inheritdoc/>
         public CheckerException()
         { }
@@ -28,6 +35,11 @@ namespace PerpetualIntelligence.Shared.Exceptions
         public CheckerException(string message, Exception innerException) : base(message, innerException)
         {
         }
+
+        /// <summary>
+        /// The checker result.
+        /// </summary>
+        public OneImlxResult? Result { get; }
 
         /// <inheritdoc/>
         protected CheckerException(

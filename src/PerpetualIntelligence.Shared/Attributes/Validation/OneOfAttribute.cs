@@ -45,7 +45,7 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
             }
 
             // If value is an array compute the difference otherwise check if it exist in the allowed values.
-            bool isValid = false;
+            bool isValid;
             if (value is object?[] valArray)
             {
                 isValid = !valArray.Except(AllowedValues).Any();

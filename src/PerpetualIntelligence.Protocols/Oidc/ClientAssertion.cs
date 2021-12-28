@@ -1,5 +1,5 @@
 /*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     Licensed under the Apache License, Version 2.0.
     https://github.com/perpetualintelligence/terms/blob/main/LICENSE
