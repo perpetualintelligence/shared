@@ -1,4 +1,4 @@
-﻿This package contains the cross-platform test infrastructure components for Perpetual Intelligence L.L.C. managed services, frameworks, and tools. Application owners can use these components to build low-level or foundational elements.
+﻿This package contains the cross-platform test components for Perpetual Intelligence L.L.C. managed services, frameworks, and tools. Application owners can use these components to build low-level or foundational test elements.
 
 We track the [issues and tasks](https://github.com/perpetualintelligence/protocols/issues) here. We make our best effort to respond to issues in a timely fashion. You can read more about our procedures for classifying and resolving issues in our [Issues policy](https://github.com/perpetualintelligence/terms/blob/main/issues-policy.md) topic.
 
