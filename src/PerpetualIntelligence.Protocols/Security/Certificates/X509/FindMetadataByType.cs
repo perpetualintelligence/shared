@@ -13,21 +13,21 @@ using System.Security.Cryptography.X509Certificates;
 namespace PerpetualIntelligence.Protocols.Security.Certificates.X509
 {
     /// <summary>
-    /// Finds the <see cref="X509Certificate"/> by commonly used <see cref="System.Security.Cryptography.X509Certificates.X509FindType"/>.
+    /// Provides the <see cref="FindMetadata"/> by commonly used <see cref="System.Security.Cryptography.X509Certificates.X509FindType"/>.
     /// </summary>
     /// <seealso cref="X509Certificate"/>
     /// <seealso cref="StoreLocation"/>
     /// <seealso cref="StoreName"/>
-    /// <seealso cref="FindByStore"/>
+    /// <seealso cref="FindMetadataByStore"/>
     /// <seealso cref="FindMetadata"/>
-    public class FindByType
+    public class FindMetadataByType
     {
         /// <summary>
         /// Initializes a new instance.
         /// </summary>
         /// <param name="location">The X.509 <see cref="StoreLocation"/>.</param>
         /// <param name="name">The X.509 <see cref="StoreName"/>.</param>
-        public FindByType(StoreLocation location, StoreName name)
+        public FindMetadataByType(StoreLocation location, StoreName name)
         {
             Location = location;
             Name = name;

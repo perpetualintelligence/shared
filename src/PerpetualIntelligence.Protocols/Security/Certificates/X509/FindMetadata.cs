@@ -16,12 +16,13 @@ using System.Security.Cryptography.X509Certificates;
 namespace PerpetualIntelligence.Protocols.Security.Certificates.X509
 {
     /// <summary>
-    /// Finds the <see cref="X509Certificate2"/> based on <see cref="System.Security.Cryptography.X509Certificates.X509FindType"/>.
+    /// Finds the <see cref="X509Certificate2"/> based on
+    /// <see cref="System.Security.Cryptography.X509Certificates.X509FindType"/>, find value and certificate validity.
     /// </summary>
     /// <seealso cref="X509Certificate"/>
     /// <seealso cref="StoreLocation"/>
     /// <seealso cref="StoreName"/>
-    /// <seealso cref="FindByStore"/>
+    /// <seealso cref="FindMetadataByStore"/>
     public class FindMetadata
     {
         /// <summary>
