@@ -18,7 +18,7 @@
         Shared package properties.
     -->
     <PropertyGroup>
-        <Copyright>Copyright (c) 2021. All Rights Reserved. Perpetual Intelligence L.L.C.</Copyright>
+        <Copyright>Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.</Copyright>
         <Authors>Perpetual Intelligence</Authors>
         <Company>Perpetual Intelligence L.L.C.</Company>
         <Product>protocols</Product>
