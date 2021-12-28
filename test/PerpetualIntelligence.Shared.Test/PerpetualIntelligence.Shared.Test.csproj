@@ -14,8 +14,8 @@
         We do not use the project reference for PerpetualIntelligence.Test because that causes a cyclic dependency over the cadence pipeline of 
         PerpetualIntelligence.Shared package.
 
-        In the DevOps environment, we are in the middle of restoring, building, testing, and pushing PerpetualIntelligence.Shared, but the cadence 
-        fails to restore test project PerpetualIntelligence.Shared.Test while resolving its Nuget dependencies.
+        In the DevOps environment, when we are in the middle of CI/CD for PerpetualIntelligence.Shared, the cadence 
+        fails to restore dependencies for test project PerpetualIntelligence.Shared.Test.
 
         PerpetualIntelligence.Test
         |
@@ -31,7 +31,7 @@
 
         Cyclic Issue:
         1. To build and push PerpetualIntelligence.Shared the tests in PerpetualIntelligence.Shared.Test needs to pass.
-        2. PerpetualIntelligence.Shared.Test depends on PerpetualIntelligence.Test for common infrastructure test components.
+        2. PerpetualIntelligence.Shared.Test depends on PerpetualIntelligence.Test for common test components.
         3. PerpetualIntelligence.Test depend on PerpetualIntelligence.Shared for common infrastructure components
         4. PerpetualIntelligence.Shared.Test fails to restore PerpetualIntelligence.Test because PerpetualIntelligence.Test fails to restore PerpetualIntelligence.Shared because cadence package is not yet published
         
@@ -52,12 +52,15 @@
         TODO: Works for now ! but find a more scalable solution.
 	-->
 	<ItemGroup>
-      <!--<PackageReference Include="PerpetualIntelligence.Test" Version="2.3.4" />-->
-      <ProjectReference Include="..\..\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
+      <PackageReference Include="PerpetualIntelligence.Test" Version="2.3.5-preview.21112703" />
+      <!--<ProjectReference Include="..\..\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />-->
     </ItemGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\..\src\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />        
-    </ItemGroup>
+    <!--
+        Project reference to test the latest changes.
+    -->
+	<ItemGroup>
+	  <ProjectReference Include="..\..\src\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
+	</ItemGroup>
 
 </Project>
