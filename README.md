@@ -1,4 +1,4 @@
-This repository contains the protocols and standards abstraction for Perpetual Intelligence L.L.C. managed services, frameworks, and tools. We build the following NuGet packages from this repository.
+This repository contains the cross-platform protocols and standards abstraction for Perpetual Intelligence L.L.C. managed services, frameworks, and tools. We build the following NuGet packages from this repository.
 
 [![Nuget](https://img.shields.io/nuget/vpre/PerpetualIntelligence.Shared?label=PerpetualIntelligence.Shared)](https://www.nuget.org/packages/PerpetualIntelligence.Shared)
 
