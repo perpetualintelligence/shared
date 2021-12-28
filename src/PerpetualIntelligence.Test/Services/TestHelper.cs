@@ -1,7 +1,11 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
+    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 */
 
 using Microsoft.AspNetCore.Mvc;
@@ -27,16 +31,20 @@ using System.Threading.Tasks;
 namespace PerpetualIntelligence.Test.Services
 {
     /// <summary>
-    /// This class provides helper methods for unit tests. It is part of the Perpetual Intelligence infrastructure.
-    /// Please do not use it directly in the application code.
+    /// This class provides helper methods for unit tests.
     /// </summary>
+    /// <remarks>
+    /// <see cref="TestHelper"/> is part of the Perpetual Intelligence infrastructure. Please do not use it directly in
+    /// your application code.
+    /// </remarks>
+    [InternalInfrastructure]
     public static class TestHelper
     {
         /// <summary>
         /// Asserts the value is any of the specified values.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="anyOf"></param>
+        /// <param name="value">The value to check.</param>
+        /// <param name="anyOf">Allowed values.</param>
         public static void AssertAnyOf(string? value, params string[] anyOf)
         {
             if (!anyOf.Contains(value))

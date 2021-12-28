@@ -10,18 +10,15 @@
   <Import Project="..\..\build\props\PackageApache.props" />
 
     <PropertyGroup>
-        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
-        <Nullable>enable</Nullable>
-        <LangVersion>latest</LangVersion>
+        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>        
     </PropertyGroup>
 
-    <PropertyGroup Label="PiPackageProps">
-        <Product>protocols</Product>
-        <Description>Perpetual Intelligence's cross-platform protocols and default implementations.</Description>
-        <PackageTags>oauth2 oidc openid-connect security identity rbac multitenancy communication event endpoint</PackageTags>
+    <PropertyGroup>
+        <Description>The cross-platform default implementations for Perpetual Intelligence L.L.C. managed services, frameworks, and tools. Applications owners can use these components to build low-level or foundational identity, collaboration, and cli elements.</Description>
+        <PackageTags>oauth2 oidc openid-connect security identity rbac multitenancy communication event endpoint cli</PackageTags>
     </PropertyGroup>
 
-    <ItemGroup Label="PiExternalPackages">
+    <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
     </ItemGroup>
 

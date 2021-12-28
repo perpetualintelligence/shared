@@ -11,6 +11,18 @@ namespace PerpetualIntelligence.Shared.Extensions
     [TestClass]
     public class StringExtensionsTests
     {
+
+        [TestMethod]
+        public void StringRepeatShouldRepeadCorrectly()
+        {
+            Assert.AreEqual("xxxxxxxxxx", "x".Repeat(10));
+            Assert.AreEqual("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "x".Repeat(100));
+
+            Assert.AreEqual(10, "x".Repeat(10).Length);
+            Assert.AreEqual(100, "x".Repeat(100).Length);
+
+        }
+
         [TestMethod]
         public void IsNotNullOrWhiteSpaceTest()
         {

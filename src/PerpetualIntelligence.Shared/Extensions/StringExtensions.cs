@@ -1,11 +1,15 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
-    https://oneimlx.com
+    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 */
 
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PerpetualIntelligence.Shared.Extensions
 {
@@ -57,6 +61,18 @@ namespace PerpetualIntelligence.Shared.Extensions
             }
 
             return string.Join(" ", list).Trim();
+        }
+
+        /// <summary>
+        /// Repeats the string for the specified times.
+        /// </summary>
+        /// <param name="value">The value to repeat.</param>
+        /// <param name="count">The count.</param>
+        /// <returns>New repeated string.</returns>
+        public static string Repeat(this string value, int count)
+        {
+            var parts = new string[count];
+            return parts.Aggregate((x, y) => (x ?? value) + value);
         }
 
         /// <summary>

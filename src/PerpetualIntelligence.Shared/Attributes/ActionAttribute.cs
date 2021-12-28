@@ -1,7 +1,11 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
+    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 */
 
 using System;
@@ -14,21 +18,9 @@ namespace PerpetualIntelligence.Shared.Attributes
     public abstract class ActionAttribute : Attribute
     {
         /// <summary>
-        /// Initialize a new instance.
+        /// The action assignee.
         /// </summary>
-        protected ActionAttribute()
-        {
-        }
-
-        /// <summary>
-        /// Initialize a new instance.
-        /// </summary>
-        /// <param name="description"></param>
-        /// <exception cref="ArgumentNullException"></exception>
-        protected ActionAttribute(string description)
-        {
-            Description = description ?? throw new ArgumentNullException(nameof(description));
-        }
+        public string? Assignee { get; set; }
 
         /// <summary>
         /// The description.
@@ -46,8 +38,20 @@ namespace PerpetualIntelligence.Shared.Attributes
         public string? Version { get; set; }
 
         /// <summary>
-        /// The action assignee.
+        /// Initialize a new instance.
         /// </summary>
-        public string? Assignee { get; set; }
+        protected ActionAttribute()
+        {
+        }
+
+        /// <summary>
+        /// Initialize a new instance.
+        /// </summary>
+        /// <param name="description"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        protected ActionAttribute(string description)
+        {
+            Description = description ?? throw new ArgumentNullException(nameof(description));
+        }
     }
 }

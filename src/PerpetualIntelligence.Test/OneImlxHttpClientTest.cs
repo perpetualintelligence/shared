@@ -1,7 +1,11 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
+    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 */
 
 using Microsoft.AspNetCore.TestHost;
@@ -44,7 +48,7 @@ namespace PerpetualIntelligence.Test
                 HttpClient.Dispose();
             }
 
-            Logger.LogInformation("-------- End Http Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
+            Logger.LogInformation("-------- End HTTP Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
         }
 
         /// <summary>
@@ -53,7 +57,7 @@ namespace PerpetualIntelligence.Test
         [TestInitialize]
         public void ImlxLogTestInitialize()
         {
-            Logger.LogInformation("-------- Start Http Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
+            Logger.LogInformation("-------- Start HTTP Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
 
             HttpClient = GetTestServer().CreateClient();
 

@@ -24,6 +24,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{99A64035-E6B3-46D1-989E-71A804DB1048}"
 	ProjectSection(SolutionItems) = preProject
 		build\config\global.json = build\config\global.json
+		build\props\Package.props = build\props\Package.props
+		build\props\PackageApache.props = build\props\PackageApache.props
+		build\props\Test.props = build\props\Test.props
 	EndProjectSection
 EndProject
 Global

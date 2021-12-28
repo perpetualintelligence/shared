@@ -1,46 +1,46 @@
 <!--
-    Copyright (c) 2021. All Rights Reserved. Perpetual Intelligence L.L.C.
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
+    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 -->
 
 <!--
-Provide a set of shared build properties for all DevOps packages.
-https://docs.microsoft.com/en-us/cpp/build/reference/vcxproj-file-structure?view=msvc-160
+    Provide a set of shared build properties for all DevOps packages.
+    https://docs.microsoft.com/en-us/cpp/build/reference/vcxproj-file-structure?view=msvc-160
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
     <!-- 
         Shared package properties.
     -->
-    <PropertyGroup Label="PiPackageProps">
-        <Copyright>Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.</Copyright>
+    <PropertyGroup>
+        <Copyright>Copyright (c) 2021. All Rights Reserved. Perpetual Intelligence L.L.C.</Copyright>
         <Authors>Perpetual Intelligence</Authors>
         <Company>Perpetual Intelligence L.L.C.</Company>
-
+        <Product>protocols</Product>
         <PackageProjectUrl>https://github.com/perpetualintelligence/protocols</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/perpetualintelligence/protocols</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <PackageIcon>icon.png</PackageIcon>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-        <RepositoryUrl>https://github.com/perpetualintelligence/protocols</RepositoryUrl>        
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
 
         <!--
-            We are using Visual Studio Team Services/TFS and CI build process and that has versioning built-in. So we utilize msbuild's Condition attribute.
-            This will tell the .NET Core compiler to use whatever is in the BUILD_BUILDNUMBER environment variable if it's present, or fall-back to 1.0.2
+            AzureDevOps and CI/CD pipelines with versioning built-in. So we utilize msbuild's Condition attribute.
+            This will tell the .NET Core compiler to use whatever is in the BUILD_BUILDNUMBER environment variable if it's present, or fall-back to 1.0.2-local
             if you're doing a build on your local machine.
         -->
         <Version Condition="'$(BUILD_BUILDNUMBER)' == ''">1.0.2-local</Version>
         <Version Condition="'$(BUILD_BUILDNUMBER)' != ''">$(BUILD_BUILDNUMBER)</Version>
-
-        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-        <RepositoryType>git</RepositoryType>        
-    </PropertyGroup>
-
-    <!--
-        Package icon
-    -->
-    <PropertyGroup>
-        <PackageIcon>icon.png</PackageIcon>
     </PropertyGroup>
 
     <!--
@@ -51,11 +51,6 @@ https://docs.microsoft.com/en-us/cpp/build/reference/vcxproj-file-structure?view
     <ItemGroup>
         <None Include="..\..\build\images\icon.png" Link="icon.png" Pack="true" PackagePath="\"/>
     </ItemGroup>
-
-    <PropertyGroup Label="PiProjectConfig">        
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <WarningsAsErrors />
-    </PropertyGroup>
 </Project>
 
 

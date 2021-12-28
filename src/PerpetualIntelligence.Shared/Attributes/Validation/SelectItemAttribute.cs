@@ -1,7 +1,11 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
+    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 */
 
 using System;
@@ -40,13 +44,13 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
         public string Name { get; }
 
         /// <summary>
-        /// Item value.
-        /// </summary>
-        public string? Value { get; }
-
-        /// <summary>
         /// The item value is obsolete.
         /// </summary>
         public bool Obsolete { get; set; }
+
+        /// <summary>
+        /// Item value.
+        /// </summary>
+        public string? Value { get; }
     }
 }

@@ -1,7 +1,11 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
+    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 */
 
 using Microsoft.Extensions.Logging;
@@ -9,7 +13,7 @@ using Microsoft.Extensions.Logging;
 namespace PerpetualIntelligence.Test.Services
 {
     /// <summary>
-    /// The test logger.
+    /// The test logger provider.
     /// </summary>
     public static class TestLogger
     {

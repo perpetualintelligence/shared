@@ -1,13 +1,16 @@
-
 <!--
-    Copyright (c) 2021. All Rights Reserved. Perpetual Intelligence L.L.C.
-    https://perpetualintelligence.com
-    https://api.perpetualintelligence.com
+    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0.
+    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+
+    Additional terms and policies.
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 -->
 
 <!--
-Provide a set of shared build properties with Apache license.
-https://docs.microsoft.com/en-us/cpp/build/reference/vcxproj-file-structure?view=msvc-160
+    Provide a set of shared build properties.
+    https://docs.microsoft.com/en-us/cpp/build/reference/vcxproj-file-structure?view=msvc-160
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
