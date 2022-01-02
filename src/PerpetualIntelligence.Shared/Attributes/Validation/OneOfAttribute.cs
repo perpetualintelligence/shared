@@ -35,7 +35,12 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
         /// </summary>
         public object?[] AllowedValues { get; }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Validates the specified value with respect to the current validation attribute.
+        /// </summary>
+        /// <param name="value">The value to validate.</param>
+        /// <param name="validationContext">The context information about the validation operation.</param>
+        /// <returns>An instance of the <see cref="ValidationResult"/>.</returns>
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
             // Null value is OK, this may mean that user has not yet entered any value.

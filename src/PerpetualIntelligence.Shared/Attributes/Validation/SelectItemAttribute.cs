@@ -16,6 +16,7 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
     /// Specifies the allowed string values on the property.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true, Inherited = false)]
+    [Refactor("Move this to rendering.")]
     public class SelectItemAttribute : Attribute
     {
         /// <summary>

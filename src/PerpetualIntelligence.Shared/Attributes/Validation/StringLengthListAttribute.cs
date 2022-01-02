@@ -43,5 +43,35 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
                 return false;
             }
         }
+
+        /// <summary>
+        /// Validates the specified value with respect to the current validation attribute.
+        /// </summary>
+        /// <param name="value">The value to validate.</param>
+        /// <param name="validationContext">The context information about the validation operation.</param>
+        /// <returns>An instance of the <see cref="ValidationResult"/>.</returns>
+        protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
+        {
+            if (value == null)
+            {
+                return ValidationResult.Success;
+            }
+
+            bool valid = false;
+            if (value is IList<string> arr)
+            {
+                // If any of the string length is not valid the entire collection is invalid.
+                valid = !arr.Any(e => e.Length > MaximumLength || e.Length < MinimumLength);
+            }
+
+            if (valid)
+            {
+                return ValidationResult.Success;
+            }
+            else
+            {
+                return new ValidationResult("The field value must have a valid string length.");
+            }
+        }
     }
 }
