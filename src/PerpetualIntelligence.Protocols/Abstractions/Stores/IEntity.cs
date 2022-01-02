@@ -5,7 +5,7 @@
     https://github.com/perpetualintelligence/terms/blob/main/LICENSE
 
     Additional terms and policies.
-    https://github.com/perpetualintelligence/terms/blob/main/policies.md
+    https://terms.perpetualintelligence.com/articles/intro.html
 */
 
 using PerpetualIntelligence.Shared.Infrastructure;
@@ -27,12 +27,12 @@ namespace PerpetualIntelligence.Protocols.Abstractions.Stores
         string? ConcurrencyStamp { get; }
 
         /// <summary>
-        /// The create timestamp expressed in Coordinated Universal Time (UTC).
+        /// The create time-stamp expressed in Coordinated Universal Time (UTC).
         /// </summary>
         DateTimeOffset? CreateStamp { get; }
 
         /// <summary>
-        /// Delete request timestamp of the entity expressed in the Coordinated Universal Time (UTC).
+        /// Delete request time-stamp of the entity expressed in the Coordinated Universal Time (UTC).
         /// </summary>
         DateTimeOffset? DeleteStamp { get; }
 
@@ -52,7 +52,7 @@ namespace PerpetualIntelligence.Protocols.Abstractions.Stores
         string[]? Tags { get; }
 
         /// <summary>
-        /// The update timestamp expressed in Coordinated Universal Time (UTC).
+        /// The update time-stamp expressed in Coordinated Universal Time (UTC).
         /// </summary>
         DateTimeOffset? UpdateStamp { get; }
 

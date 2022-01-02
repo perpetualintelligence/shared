@@ -11,18 +11,21 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Test.Services;
 
-namespace PerpetualIntelligence.Protocols.Oidc
+namespace PerpetualIntelligence.Protocols.Defaults
 {
     [TestClass]
-    public class AccessTokenTypeTest
+    public class AssemblyTests
     {
         [TestMethod]
-        public void AccessTokenTypeTestConstantsTest()
+        public void TypesNamespaceTest()
         {
-            TestHelper.AssertConstantCount(typeof(AccessTokens), 2);
+            TestHelper.AssertNamespace(typeof(Claims.DefaultClaimComparer).Assembly, "PerpetualIntelligence.Protocols.Defaults");
+        }
 
-            Assert.AreEqual("urn:oneimlx:oidc:at:jwt", AccessTokens.Jwt);
-            Assert.AreEqual("urn:oneimlx:oidc:at:opaque", AccessTokens.Opaque);
+        [TestMethod]
+        public void TypesTypesLocationTest()
+        {
+            TestHelper.AssertAssemblyTypesLocation(typeof(Claims.DefaultClaimComparer).Assembly);
         }
     }
 }

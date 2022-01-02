@@ -5,7 +5,7 @@
     https://github.com/perpetualintelligence/terms/blob/main/LICENSE
 
     Additional terms and policies.
-    https://github.com/perpetualintelligence/terms/blob/main/policies.md
+    https://terms.perpetualintelligence.com/articles/intro.html
 */
 
 namespace PerpetualIntelligence.Protocols.Abstractions.AuthServer
