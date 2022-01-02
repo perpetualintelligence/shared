@@ -1,4 +1,4 @@
-[![Build Status](https://dev.azure.com/perpetualintelligence/build/_apis/build/status/Cadence/protocols-cadence?branchName=main)](https://dev.azure.com/perpetualintelligence/build/_build/latest?definitionId=43&branchName=main)
+> **Note:** This is a ***preview*** release, not ready for production usage. It is also subject to design changes without any advance notice.
 
 This repository contains the cross-platform protocols and standards abstraction for Perpetual Intelligence L.L.C. managed services, frameworks, and tools. We build the following NuGet packages from this repository.
 
