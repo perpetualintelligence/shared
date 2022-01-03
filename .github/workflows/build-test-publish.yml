@@ -26,6 +26,13 @@ on:
         - preview
         - rc
         - release
+      registry:
+        type: choice
+        description: 'Define the package registry'
+        required: true
+        options:
+        - nuget
+        - github
         
 
 jobs:
@@ -88,8 +95,7 @@ jobs:
       
     # Test
     - name: Test
-      run: dotnet test --no-build --verbosity normal   
- 
+      run: dotnet test --no-build --verbosity normal    
         
      # Pack
     - name: Pack
@@ -100,4 +106,10 @@ jobs:
     # Enumerate
     - name: Enumerate
       run : ls -l
+      working-directory: _packages
+      
+    # Nuget Push
+    - name: Nuget Push
+      if: ${{ github.event.inputs.suffix == 'nuget' }}
+      run: dotnet nuget push "PerpetualIntelligence.*.nupkg" --skip-duplicate --no-symbols --api-key {{ secrets.PI_NUGET_API_KEY }}
       working-directory: _packages
