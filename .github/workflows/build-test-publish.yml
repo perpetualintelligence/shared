@@ -8,7 +8,7 @@
 
 # This pipelinebuilds, tests and packs the protocol src projects. It does not publish any package.
 
-name: build-test-publish-manual
+name: build-test-publish
 
 # 1 deployment at a time
 # https://docs.github.com/en/actions/deployment/about-deployments/deploying-with-github-actions
