@@ -117,5 +117,5 @@ jobs:
     # Github Push
     - name: Nuget Push
       if: ${{ github.event.inputs.suffix == 'github' }}
-      run: dotnet nuget push "PerpetualIntelligence.*.nupkg" --skip-duplicate --no-symbols --api-key {{ secrets.PI_GITHUB_TOKEN }} --source "github"
+      run: dotnet nuget push "PerpetualIntelligence.*.nupkg" --skip-duplicate --no-symbols --api-key {{ secrets.PI_GITHUB_PAT }} --source "github"
       working-directory: _packages
