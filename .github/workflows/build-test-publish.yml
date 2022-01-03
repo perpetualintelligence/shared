@@ -111,5 +111,11 @@ jobs:
     # Nuget Push
     - name: Nuget Push
       if: ${{ github.event.inputs.suffix == 'nuget' }}
-      run: dotnet nuget push "PerpetualIntelligence.*.nupkg" --skip-duplicate --no-symbols --api-key {{ secrets.PI_NUGET_API_KEY }}
+      run: dotnet nuget push "PerpetualIntelligence.*.nupkg" --skip-duplicate --no-symbols --api-key {{ secrets.PI_NUGET_API_KEY }} --source "nuget.org"
+      working-directory: _packages
+      
+    # Github Push
+    - name: Nuget Push
+      if: ${{ github.event.inputs.suffix == 'github' }}
+      run: dotnet nuget push "PerpetualIntelligence.*.nupkg" --skip-duplicate --no-symbols --api-key {{ secrets.PI_NUGET_API_KEY }} --source "github"
       working-directory: _packages
