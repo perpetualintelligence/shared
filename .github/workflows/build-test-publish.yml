@@ -30,7 +30,7 @@ jobs:
     - name: Setup environment
       run: |
         cat .github/package_version.env >> $GITHUB_ENV
-        echo "PI_BUILD_NUMBER=$(date + '%m%d%Y').${{ github.run_number }}${{ github.run_attempt }}" >> $GITHUB_ENV
+        echo "PI_BUILD_NUMBER=$(date +'%m%d%Y').${{ github.run_number }}${{ github.run_attempt }}" >> $GITHUB_ENV
       continue-on-error: false
       
     # Setup versions
