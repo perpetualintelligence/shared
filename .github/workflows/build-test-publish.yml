@@ -68,7 +68,7 @@ jobs:
     - name: Pack
       run: |
         echo branch=${{ github.ref_name }} version=${{ env.PI_PACKAGE_VERSION }} version-suffix=${{ env.PI_PACKAGE_SUFFIX }}
-        dotnet pack -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} --version-suffix "${{ PI_PACKAGE_SUFFIX }}" -c Release --nologo --no-restore -o _packages -v m 
+        dotnet pack -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} --version-suffix "${{ env.PI_PACKAGE_SUFFIX }}" -c Release --nologo --no-restore -o _packages -v m 
     
     # Enumerate
     - name: Enumerate
