@@ -36,7 +36,7 @@ jobs:
     - name: Setup environment
       run: |
         cat .github/package_version.env >> $GITHUB_ENV
-        echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MAJOR_VERSION }}.${{ env.PI_BUILD_VERSION }}" >> $GITHUB_ENV
+        echo "PI_PACKAGE_VERSION=$PI_MAJOR_VERSION.$PI_MAJOR_VERSION.$PI_BUILD_VERSION" >> $GITHUB_ENV
         echo "PI_PREVIEW_SUFFIX=preview.${{ env.GITHUB_RUN_ATTEMPT }}" >> $GITHUB_ENV
         echo "PI_PREVIEW_RC=rc.${{ env.GITHUB_RUN_ATTEMPT }}" >> $GITHUB_ENV
       continue-on-error: false
