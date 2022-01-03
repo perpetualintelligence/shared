@@ -18,17 +18,22 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:    
+  build: 
   
     # OS/Platform
     runs-on: ubuntu-latest
-
+    
+    # Environment Variables
+    env:
+      PI_GITHUB_USERNAME_ENV: ${{ secrets.PI_GITHUB_USERNAME }}
+      PI_GITHUB_PAT_ENV: ${{ secrets.PI_GITHUB_PAT }}
+      
     steps:
     - uses: actions/checkout@v2 
     
     # Setup Environment
     # Establish a unique build number for today YYMMDD{RUN_NUMBER}{RUN_ATTEMPT} e.g. 2201032602
-    - name: Setup environment
+    - name: Build metadata
       run: |
         cat .github/package_version.env >> $GITHUB_ENV
         echo "PI_BUILD_NUMBER=$(date +'%y%m%d')${{ github.run_number }}${{ github.run_attempt }}" >> $GITHUB_ENV
@@ -37,13 +42,13 @@ jobs:
     # Setup versions
     # Establish CI package versions
     # Format: <package>.2.3.6-ci.202201032602
-    - name: Setup environment
+    - name: Package metadata
       run: |
         echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}-${{ env.PI_CI_SUFFIX }}.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
       continue-on-error: false
     
     # Print all env
-    - name: Print Environement
+    - name: Print
       if: ${{ false }}  # Debug
       run: env
     
