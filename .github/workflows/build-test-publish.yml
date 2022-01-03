@@ -1,0 +1,42 @@
+#    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+#
+#    Licensed under the Apache License, Version 2.0.
+#    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+#
+#    Additional terms and policies.
+#    https://github.com/perpetualintelligence/terms/blob/main/policies.md
+
+# Builds, tests and publishes the packages to GitHub registry.
+
+name: build-test-publish
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    # OS/Platform
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    # Setup .Net with global.json
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      
+    # Restore dependencies
+    - name: Restore dependencies
+      run: dotnet restore
+      
+    # Build
+    - name: Build
+      run: dotnet build --no-restore
+      
+    # Test
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
