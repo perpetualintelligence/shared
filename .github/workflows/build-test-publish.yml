@@ -20,6 +20,12 @@ on:
 jobs:
   build:
   
+    # Define the environment
+    env:
+      PI_PACKAGE_VERSION: ""
+      PI_PREVIEW_SUFFIX: ""
+      PI_RC_SUFFIX: ""
+  
     # OS/Platform
     runs-on: ubuntu-latest
 
@@ -28,11 +34,12 @@ jobs:
     
     # Setup Environment
     - name: Setup environment
-      run: cat .github/package_version.env >> $GITHUB_ENV
-      env:
-        PI_PACKAGE_VERSION: "${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MAJOR_VERSION }}.${{ env.PI_BUILD_VERSION }}"
-        PI_PREVIEW_SUFFIX: "preview.${{ env.GITHUB_RUN_ATTEMPT }}"
-        PI_RC_SUFFIX: "rc.${{ env.GITHUB_RUN_ATTEMPT }}"
+      run: |
+        cat .github/package_version.env >> $GITHUB_ENV
+        echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MAJOR_VERSION }}.${{ env.PI_BUILD_VERSION }}" >> $GITHUB_ENV
+        echo "PI_PREVIEW_SUFFIX=preview.${{ env.GITHUB_RUN_ATTEMPT }}" >> $GITHUB_ENV
+        echo "PI_PREVIEW_RC=rc.${{ env.GITHUB_RUN_ATTEMPT }}" >> $GITHUB_ENV
+      continue-on-error: false
     
     # Print all env
     - name: Print Environement
@@ -76,8 +83,8 @@ jobs:
     - name: Pack Release
       if: github.ref_name == 'main'
       run: |
-        echo branch="${{ env.GITHUB_REF_NAME }}" version="${{ env.PI_PACKAGE_VERSION }}"
-        dotnet pack -p:PackageVersion="${{ env.PI_PACKAGE_VERSION }}" -c Release --nologo --no-restore -o _packages -v m" 
+        echo "branch=${{ env.GITHUB_REF_NAME }} version=${{ env.PI_PACKAGE_VERSION }}"
+        dotnet pack -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} -c Release --nologo --no-restore -o _packages -v m
     
     # Enumerate
     - name: Enumerate
