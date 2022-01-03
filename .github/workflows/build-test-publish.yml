@@ -6,7 +6,7 @@
 #    Additional terms and policies.
 #    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 
-# Builds, tests and publishes the packages to GitHub registry.
+# This pipelinebuilds, tests and packs the protocol src projects. It does not publish any package.
 
 name: build-test-publish
 
@@ -27,7 +27,7 @@ jobs:
     - uses: actions/checkout@v2 
     
     # Setup Environment
-    # Read the versions and establish a unique build numenr for today YYYYMMDD{RUN_NUMBER}{RUN_ATTEMPT} e.g. 202201032602
+    # Establish a unique build numenr for today YYYYMMDD{RUN_NUMBER}{RUN_ATTEMPT} e.g. 202201032602
     - name: Setup environment
       run: |
         cat .github/package_version.env >> $GITHUB_ENV
@@ -35,18 +35,16 @@ jobs:
       continue-on-error: false
       
     # Setup versions
-    # https://docs.github.com/en/actions/learn-github-actions/workflow-commands-for-github-actions#setting-an-environment-variable
-    # Make sure we do it in a next step so package_version.env are available.
+    # Establish CI package versions
     - name: Setup environment
       run: |
-        echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MAJOR_VERSION }}.${{ env.PI_BUILD_VERSION }}" >> $GITHUB_ENV
-        echo "PI_PREVIEW_SUFFIX=preview.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
-        echo "PI_RC_SUFFIX=rc.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV        
+        echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}" >> $GITHUB_ENV
+        echo "PI_PACKAGE_SUFFIX=-${{ env.PI_BUILD_SUFFIX }}.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
       continue-on-error: false
     
     # Print all env
     - name: Print Environement
-      if: ${{ false }}  # disable for now
+      if: ${{ true }}  # disable for now
       run: env
     
     # Setup .Net with global.json
@@ -63,28 +61,14 @@ jobs:
       
     # Test
     - name: Test
-      run: dotnet test --no-build --verbosity normal
-    
-    # Pack Preview
-    - name: Pack Preview
-      if: github.head_ref == 'preview'
-      run: |
-        echo branch=${{ github.head_ref }} version=${{ env.PI_PACKAGE_VERSION }} version-suffix=${{ env.PI_PREVIEW_SUFFIX }}
-        dotnet pack -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} --version-suffix ${{ env.PI_PREVIEW_SUFFIX }} -c Release --nologo --no-restore -o _packages -v m
-    
-    # Pack Rc
-    - name: Pack RC
-      if: github.head_ref == 'rc'
-      run: |
-        echo branch=${{ github.head_ref }} version=${{ env.PI_PACKAGE_VERSION }} version-suffix=${{ env.PI_RC_SUFFIX }}
-        dotnet pack -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} --version-suffix ${{ env.PI_RC_SUFFIX }} -c Release --nologo --no-restore -o _packages -v m
+      run: dotnet test --no-build --verbosity normal   
+ 
         
-     # Pack Release
-    - name: Pack Release
-      if: github.ref_name == 'main'
+     # Pack
+    - name: Pack
       run: |
-        echo branch=${{ github.ref_name }} version=${{ env.PI_PACKAGE_VERSION }}
-        dotnet pack -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} -c Release --nologo --no-restore -o _packages -v m
+        echo branch=${{ github.ref_name }} version=${{ env.PI_PACKAGE_VERSION }} version-suffix=${{ env.PI_PACKAGE_SUFFIX }}
+        dotnet pack -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} --version-suffix "${{ PI_PACKAGE_SUFFIX }}" -c Release --nologo --no-restore -o _packages -v m 
     
     # Enumerate
     - name: Enumerate
