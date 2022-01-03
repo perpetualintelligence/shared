@@ -69,21 +69,21 @@ jobs:
     - name: Pack Preview
       if: github.head_ref == 'preview'
       run: |
-        echo branch="${{ github.ref_name }}" version="${{ env.PI_PACKAGE_VERSION }}" version-suffix="${{ env.PI_PREVIEW_SUFFIX }}"
-        dotnet pack -p:PackageVersion="${{ env.PI_PACKAGE_VERSION }}" --version-suffix ${{ env.PI_PREVIEW_SUFFIX }} -c Release --nologo --no-restore -o _packages -v m" 
+        echo branch=${{ github.ref_name }} version=${{ env.PI_PACKAGE_VERSION }} version-suffix=${{ env.PI_PREVIEW_SUFFIX }}
+        dotnet pack -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} --version-suffix ${{ env.PI_PREVIEW_SUFFIX }} -c Release --nologo --no-restore -o _packages -v m
     
     # Pack Rc
     - name: Pack RC
       if: github.head_ref == 'rc'
       run: |
-        echo branch="${{ github.ref_name }}" version="${{ env.PI_PACKAGE_VERSION }}" version-suffix="${{ env.PI_RC_SUFFIX }}"
-        dotnet pack -p:PackageVersion="${{ env.PI_PACKAGE_VERSION }}" --version-suffix ${{ env.PI_RC_SUFFIX }} -c Release --nologo --no-restore -o _packages -v m" 
+        echo branch=${{ github.ref_name }} version=${{ env.PI_PACKAGE_VERSION }} version-suffix=${{ env.PI_RC_SUFFIX }}
+        dotnet pack -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }}" --version-suffix ${{ env.PI_RC_SUFFIX }} -c Release --nologo --no-restore -o _packages -v m
         
      # Pack Release
     - name: Pack Release
       if: github.ref_name == 'main'
       run: |
-        echo "branch=${{ github.ref_name }} version=${{ env.PI_PACKAGE_VERSION }}"
+        echo branch=${{ github.ref_name }} version=${{ env.PI_PACKAGE_VERSION }}
         dotnet pack -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} -c Release --nologo --no-restore -o _packages -v m
     
     # Enumerate
