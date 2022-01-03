@@ -5,12 +5,13 @@
     https://github.com/perpetualintelligence/terms/blob/main/LICENSE
 
     Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Test.Services;
 using System;
+using System.IO;
 
 namespace PerpetualIntelligence.Shared.Services
 {
@@ -20,15 +21,27 @@ namespace PerpetualIntelligence.Shared.Services
         [TestMethod]
         public void GetParentTest()
         {
-            Assert.AreEqual(@"C:\Users\pisuser2\AppData\Local\Programs", IOHelper.GetParent(@"C:\Users\pisuser2\AppData\Local\Programs\Opera"));
+            // Support linux and windows
+            string path = Path.Combine("home", "protocols", "protocols", "src", "bin", "debug");
+            string expPath = Path.Combine("home", "protocols", "protocols", "src", "bin");
+            Assert.AreEqual(expPath, IOHelper.GetParent(path));
+
+            string path2 = Path.Combine("home", "protocols", "protocols", "src", "bin", "debug", "file.txt");
+            string expPath2 = Path.Combine("home", "protocols", "protocols", "src", "bin", "debug");
+            Assert.AreEqual(expPath2, IOHelper.GetParent(path2));
         }
 
         [TestMethod]
         public void GetParentTestLevels()
         {
-            Assert.AreEqual(@"C:\Users\pisuser2\AppData", IOHelper.GetParent(@"C:\Users\pisuser2\AppData\Local\Programs\Opera", 3));
+            // Support linux and windows
+            string path = Path.Combine("home", "protocols", "protocols", "src", "bin", "debug");
+            string expPath = Path.Combine("home", "protocols", "protocols");
+            Assert.AreEqual(expPath, IOHelper.GetParent(path, 3));
 
-            Assert.AreEqual(@"C:\Users", IOHelper.GetParent(@"C:\Users\pisuser2\AppData\Local\Programs\Opera", 5));
+            string path2 = Path.Combine("home", "protocols", "protocols", "src", "bin", "debug", "file.txt");
+            string expPath2 = Path.Combine("home", "protocols", "protocols", "src");
+            Assert.AreEqual(expPath2, IOHelper.GetParent(path2, 3));
         }
 
         [TestMethod]
