@@ -5,9 +5,10 @@
     https://github.com/perpetualintelligence/terms/blob/main/LICENSE
 
     Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 */
 
+using PerpetualIntelligence.Shared.Extensions;
 using System;
 using System.IO;
 
@@ -27,6 +28,7 @@ namespace PerpetualIntelligence.Shared.Services
         /// file path denotes a root.
         /// </returns>
         /// <exception cref="ArgumentException">Path is null or empty.</exception>
+        /// <seealso cref="Directory.GetParent(string)"/>
         public static string? GetParent(string path)
         {
             if (string.IsNullOrWhiteSpace(path))
@@ -34,15 +36,17 @@ namespace PerpetualIntelligence.Shared.Services
                 throw new ArgumentException("Invalid path.", nameof(path));
             }
 
-            DirectoryInfo info = new(path);
-            if (info.Parent != null)
+            if (!Path.IsPathRooted(path))
             {
-                return info.Parent.FullName;
+                // Full name return the current directory for relative paths.
+                string parentPath = Directory.GetParent(path).FullName.TrimStart(Directory.GetCurrentDirectory());
+                if (!path.StartsWith("" + Path.DirectorySeparatorChar, StringComparison.Ordinal))
+                {
+                    return parentPath.TrimStart(Path.DirectorySeparatorChar);
+                }
             }
-            else
-            {
-                return null;
-            }
+
+            return Directory.GetParent(path).FullName;
         }
 
         /// <summary>
@@ -62,17 +66,10 @@ namespace PerpetualIntelligence.Shared.Services
                 throw new ArgumentException("Invalid path.", nameof(path));
             }
 
-            string? parent = path;
+            string parent = path;
             for (uint i = 1; i <= level; ++i)
             {
-                DirectoryInfo info = new(parent);
-                if (info.Parent == null)
-                {
-                    parent = null;
-                    break;
-                }
-
-                parent = info.Parent.FullName;
+                parent = GetParent(parent);
             }
 
             return parent;
