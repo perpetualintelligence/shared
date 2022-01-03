@@ -51,25 +51,22 @@ jobs:
     # Setup preview package versions
     # Format: <package>.2.3.6-preview.202201032602
     - name: Setup environment
-      run: |
-        if: ${{ inputs.suffix == 'preview' }}
-        echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}-preview.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
+      if: ${{ github.event.inputs.suffix == 'preview' }}
+      run: echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}-preview.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
       continue-on-error: false
       
     # Setup rc package versions
     # Format: <package>.2.3.6-rc.202201032602
     - name: Setup environment
-      run: |
-        if: ${{ inputs.suffix == 'rc' }}
-        echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}-rc.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
+      if: ${{ github.event.inputs.suffix == 'rc' }}
+      run: echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}-rc.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
       continue-on-error: false
       
     # Setup release package versions
     # Format: <package>.2.3.6
     - name: Setup environment
-      run: |
-        if: ${{ inputs.cadence == 'release' }}
-        echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}" >> $GITHUB_ENV
+      if: ${{ github.event.inputs.cadence == 'release' }}
+      run: echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}" >> $GITHUB_ENV
       continue-on-error: false
     
     # Print all env
