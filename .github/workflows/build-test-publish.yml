@@ -49,13 +49,14 @@ jobs:
     env:
       PI_GITHUB_USERNAME_ENV: ${{ secrets.PI_GITHUB_USERNAME }}
       PI_GITHUB_PAT_ENV: ${{ secrets.PI_GITHUB_PAT }}
+      PI_NUGET_PAT_ENV: ${{ secrets.PI_NUGET_API_KEY }}
 
     steps:
     - uses: actions/checkout@v2 
     
-    # Setup Environment
+    # Setup build metadata
     # Establish a unique build number for today YYMMDD{RUN_NUMBER}{RUN_ATTEMPT} e.g. 2201032602
-    - name: Setup environment
+    - name: Build metadata
       run: |
         cat .github/package_version.env >> $GITHUB_ENV        
         echo "PI_BUILD_NUMBER=$(date +'%y%m%d')${{ github.run_number }}${{ github.run_attempt }}" >> $GITHUB_ENV
@@ -63,27 +64,27 @@ jobs:
       
     # Setup preview package versions
     # Format: <package>.2.3.6-preview.2201032602
-    - name: Setup environment
+    - name: Preview metadata
       if: ${{ github.event.inputs.suffix == 'preview' }}
       run: echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}-preview.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
       continue-on-error: false
       
     # Setup rc package versions
     # Format: <package>.2.3.6-rc.2201032602
-    - name: Setup environment
+    - name: RC metadata
       if: ${{ github.event.inputs.suffix == 'rc' }}
       run: echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}-rc.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
       continue-on-error: false
       
     # Setup release package versions
     # Format: <package>.2.3.6
-    - name: Setup environment
+    - name: Release metadata
       if: ${{ github.event.inputs.cadence == 'release' }}
       run: echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}" >> $GITHUB_ENV
       continue-on-error: false
     
     # Print all env
-    - name: Print Environement
+    - name: Print
       if: ${{ false }}  # Debug
       run: env
     
@@ -117,11 +118,11 @@ jobs:
     # Nuget Push
     - name: Nuget Push
       if: ${{ github.event.inputs.registry == 'nuget' }}
-      run: dotnet nuget push "PerpetualIntelligence.*.nupkg" --skip-duplicate --no-symbols --api-key {{ secrets.PI_NUGET_API_KEY }} --source "nuget.org"
+      run: dotnet nuget push "PerpetualIntelligence.*.nupkg" --skip-duplicate --no-symbols --api-key ${{ env.PI_NUGET_PAT_ENV }} --source "nuget.org"
       working-directory: _packages
       
     # Github Push
     - name: Github Push
       if: ${{ github.event.inputs.registry == 'github' }}
-      run: dotnet nuget push "PerpetualIntelligence.*.nupkg" --skip-duplicate --no-symbols --api-key {{ secrets.PI_GITHUB_PAT }} --source "github"
+      run: dotnet nuget push "PerpetualIntelligence.*.nupkg" --skip-duplicate --no-symbols --api-key ${{ env.PI_GITHUB_PAT_ENV }} --source "github"
       working-directory: _packages
