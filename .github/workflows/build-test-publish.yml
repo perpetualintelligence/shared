@@ -34,6 +34,10 @@ jobs:
         PI_PREVIEW_SUFFIX: "preview.${{ env.GITHUB_RUN_ATTEMPT }}"
         PI_RC_SUFFIX: "rc.${{ env.GITHUB_RUN_ATTEMPT }}"
     
+    # Print all env
+    - name: Print Environement
+      run: env
+    
     # Setup .Net with global.json
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
@@ -58,22 +62,22 @@ jobs:
     - name: Pack Preview
       if: github.ref_name == 'preview'
       run: |
-        echo branch=${{ env.GITHUB_REF_NAME }} version=${{ env.PI_PACKAGE_VERSION }} version-suffix=${{ env.PI_PREVIEW_SUFFIX }}
-        dotnet pack -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} --version-suffix ${{ env.PI_PREVIEW_SUFFIX }} -c Release --nologo --no-restore -o _packages -v m" 
+        echo branch="${{ env.GITHUB_REF_NAME }}" version="${{ env.PI_PACKAGE_VERSION }}" version-suffix="${{ env.PI_PREVIEW_SUFFIX }}"
+        dotnet pack -p:PackageVersion="${{ env.PI_PACKAGE_VERSION }}" --version-suffix ${{ env.PI_PREVIEW_SUFFIX }} -c Release --nologo --no-restore -o _packages -v m" 
     
     # Pack Rc
     - name: Pack RC
       if: github.ref_name == 'rc'
       run: |
-        echo branch=${{ env.GITHUB_REF_NAME }} version=${{ env.PI_PACKAGE_VERSION }} version-suffix=${{ env.PI_RC_SUFFIX }}
-        dotnet pack -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} --version-suffix ${{ env.PI_RC_SUFFIX }} -c Release --nologo --no-restore -o _packages -v m" 
+        echo branch="${{ env.GITHUB_REF_NAME }}" version="${{ env.PI_PACKAGE_VERSION }}" version-suffix="${{ env.PI_RC_SUFFIX }}"
+        dotnet pack -p:PackageVersion="${{ env.PI_PACKAGE_VERSION }}" --version-suffix ${{ env.PI_RC_SUFFIX }} -c Release --nologo --no-restore -o _packages -v m" 
         
      # Pack Release
     - name: Pack Release
       if: github.ref_name == 'main'
       run: |
-        echo branch=${{ env.GITHUB_REF_NAME }} version=${{ env.PI_PACKAGE_VERSION }}
-        dotnet pack -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} -c Release --nologo --no-restore -o _packages -v m" 
+        echo branch="${{ env.GITHUB_REF_NAME }}" version="${{ env.PI_PACKAGE_VERSION }}"
+        dotnet pack -p:PackageVersion="${{ env.PI_PACKAGE_VERSION }}" -c Release --nologo --no-restore -o _packages -v m" 
     
     # Enumerate
     - name: Enumerate
