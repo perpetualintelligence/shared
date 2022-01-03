@@ -43,6 +43,11 @@ jobs:
     
     # Environment
     environment: PI_PROTOCOL_ENV
+    
+    # Environment Variables
+    env:
+      PI_GITHUB_USERNAME_ENV: ${{ secrets.PI_GITHUB_USERNAME }}
+      PI_GITHUB_PAT_ENV: ${{ secrets.PI_GITHUB_PAT }}
 
     steps:
     - uses: actions/checkout@v2 
