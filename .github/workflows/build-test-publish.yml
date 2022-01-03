@@ -40,3 +40,20 @@ jobs:
     # Test
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    
+    # Pack Preview
+    - name: Pack
+      if: github.ref_name == 'preview'
+      run: |
+        echo Branch=$GITHUB_REF_NAME Version=
+        dotnet -c Release --nologo --no-restore -o _packages -v m 
+      
+    # Pack Rc
+    - name: Pack
+      if: github.ref_name == 'rc'
+      run: dotnet -c Release --nologo --no-restore -o _packages -v m --version-suffix "preview.$GITHUB_RUN_ATTEMPT" 
+      
+      if: github.branch_name == 'preview'
+      run: dotnet -c Release --nologo --no-restore -o _packages -v m 
+      if: github.branch_name == 'preview'
+      run: dotnet -c Release --nologo --no-restore -o _packages -v m 
