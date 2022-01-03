@@ -63,19 +63,18 @@ jobs:
       
     # Test
     - name: Test
-      if: ${{ false }}  # disable for now
       run: dotnet test --no-build --verbosity normal
     
     # Pack Preview
     - name: Pack Preview
-      if: github.ref_name == 'preview'
+      if: github.head_ref == 'preview'
       run: |
         echo branch="${{ github.ref_name }}" version="${{ env.PI_PACKAGE_VERSION }}" version-suffix="${{ env.PI_PREVIEW_SUFFIX }}"
         dotnet pack -p:PackageVersion="${{ env.PI_PACKAGE_VERSION }}" --version-suffix ${{ env.PI_PREVIEW_SUFFIX }} -c Release --nologo --no-restore -o _packages -v m" 
     
     # Pack Rc
     - name: Pack RC
-      if: github.ref_name == 'rc'
+      if: github.head_ref == 'rc'
       run: |
         echo branch="${{ github.ref_name }}" version="${{ env.PI_PACKAGE_VERSION }}" version-suffix="${{ env.PI_RC_SUFFIX }}"
         dotnet pack -p:PackageVersion="${{ env.PI_PACKAGE_VERSION }}" --version-suffix ${{ env.PI_RC_SUFFIX }} -c Release --nologo --no-restore -o _packages -v m" 
