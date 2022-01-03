@@ -20,12 +20,6 @@ on:
 jobs:
   build:
   
-    # Define the environment
-    env:
-      PI_PACKAGE_VERSION: ""
-      PI_PREVIEW_SUFFIX: ""
-      PI_RC_SUFFIX: ""
-  
     # OS/Platform
     runs-on: ubuntu-latest
 
