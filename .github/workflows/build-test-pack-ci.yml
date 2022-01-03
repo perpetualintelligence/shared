@@ -27,11 +27,11 @@ jobs:
     - uses: actions/checkout@v2 
     
     # Setup Environment
-    # Establish a unique build number for today YYYYMMDD{RUN_NUMBER}{RUN_ATTEMPT} e.g. 202201032602
+    # Establish a unique build number for today YYMMDD{RUN_NUMBER}{RUN_ATTEMPT} e.g. 2201032602
     - name: Setup environment
       run: |
         cat .github/package_version.env >> $GITHUB_ENV
-        echo "PI_BUILD_NUMBER=$(date +'%Y%m%d')${{ github.run_number }}${{ github.run_attempt }}" >> $GITHUB_ENV
+        echo "PI_BUILD_NUMBER=$(date +'%y%m%d')${{ github.run_number }}${{ github.run_attempt }}" >> $GITHUB_ENV
       continue-on-error: false
       
     # Setup versions
@@ -39,12 +39,12 @@ jobs:
     # Format: <package>.2.3.6-ci.202201032602
     - name: Setup environment
       run: |
-        echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}-${{ env.PI_BUILD_SUFFIX }}.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
+        echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}-${{ env.PI_CI_SUFFIX }}.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
       continue-on-error: false
     
     # Print all env
     - name: Print Environement
-      if: ${{ false }}  # disable for now
+      if: ${{ false }}  # Debug
       run: env
     
     # Setup .Net with global.json
@@ -52,7 +52,7 @@ jobs:
       uses: actions/setup-dotnet@v1
       
     # Restore dependencies
-    - name: Restore dependencies
+    - name: Restore
       run: dotnet restore
       
     # Build
