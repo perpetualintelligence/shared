@@ -48,6 +48,7 @@ jobs:
       
     # Test
     - name: Test
+      if: ${{ false }}  # disable for now
       run: dotnet test --no-build --verbosity normal
     
     # --- Pack based on cadence --- #
