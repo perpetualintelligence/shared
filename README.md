@@ -1,5 +1,6 @@
 ![Preview](https://img.shields.io/badge/release-preview-orange) 
 [![build-test-pack-ci](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-pack-ci.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-pack-ci.yml)
+[![build-test-publish](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-publish.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-publish.yml)
 
 > **Note:** This is a ***preview*** release, not ready for production usage. It is also subject to design changes without any advance notice.
 
