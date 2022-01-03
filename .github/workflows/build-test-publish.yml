@@ -18,7 +18,7 @@ concurrency: pi-protocols-deployment
 on:
   workflow_dispatch:
     inputs:
-      cadence:
+      suffix:
         type: choice
         description: 'Define the package deployment suffix'
         required: true
@@ -44,8 +44,7 @@ jobs:
     # Establish a unique build number for today YYYYMMDD{RUN_NUMBER}{RUN_ATTEMPT} e.g. 202201032602
     - name: Setup environment
       run: |
-        cat .github/package_version.env >> $GITHUB_ENV
-        echo "PI_PACKAGE_SUFFIX=${{ inputs.cadence }}" >> $GITHUB_ENV
+        cat .github/package_version.env >> $GITHUB_ENV        
         echo "PI_BUILD_NUMBER=$(date +'%Y%m%d')${{ github.run_number }}${{ github.run_attempt }}" >> $GITHUB_ENV
       continue-on-error: false
       
@@ -53,23 +52,23 @@ jobs:
     # Format: <package>.2.3.6-preview.202201032602
     - name: Setup environment
       run: |
-        if: ${{ env.PI_PACKAGE_SUFFIX == 'preview' }}
-        echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}-${{ env.PI_PACKAGE_SUFFIX }}.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
+        if: ${{ inputs.suffix == 'preview' }}
+        echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}-preview.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
       continue-on-error: false
       
     # Setup rc package versions
     # Format: <package>.2.3.6-rc.202201032602
     - name: Setup environment
       run: |
-        if: ${{ env.PI_PACKAGE_SUFFIX == 'rc' }}
-        echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}-${{ env.PI_PACKAGE_SUFFIX }}.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
+        if: ${{ inputs.suffix == 'rc' }}
+        echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}-rc.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
       continue-on-error: false
       
     # Setup release package versions
     # Format: <package>.2.3.6
     - name: Setup environment
       run: |
-        if: ${{ env.PI_PACKAGE_SUFFIX == 'release' }}
+        if: ${{ inputs.cadence == 'release' }}
         echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}" >> $GITHUB_ENV
       continue-on-error: false
     
