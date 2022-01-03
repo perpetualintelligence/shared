@@ -30,14 +30,18 @@ jobs:
     - name: Setup environment
       run: |
         cat .github/package_version.env >> $GITHUB_ENV
+        echo PI_BUILD_NUMBER:$(date + "%m-%d-%Y").${{ env.GITHUB_RUN_NUMBER }}
       continue-on-error: false
       
     # Setup versions
+    # https://docs.github.com/en/actions/learn-github-actions/workflow-commands-for-github-actions#setting-an-environment-variable
+    # Make sure we do it in a next step so package_version.env are available.
     - name: Setup environment
       run: |
         echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MAJOR_VERSION }}.${{ env.PI_BUILD_VERSION }}" >> $GITHUB_ENV
-        echo "PI_PREVIEW_SUFFIX=preview.${{ env.GITHUB_RUN_ATTEMPT }}" >> $GITHUB_ENV
-        echo "PI_PREVIEW_RC=rc.${{ env.GITHUB_RUN_ATTEMPT }}" >> $GITHUB_ENV
+        echo "PI_PREVIEW_SUFFIX=preview.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
+        echo "PI_RC_SUFFIX=rc.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
+        
       continue-on-error: false
     
     # Print all env
