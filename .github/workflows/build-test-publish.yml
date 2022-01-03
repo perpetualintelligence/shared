@@ -18,6 +18,13 @@ on:
 
 jobs:
   build:
+  
+    # Specifiy the environment to read the pipeline metadata
+    environment: PI_PROTOCOLS_ENV
+    
+    # Define package version
+    env:
+      PI_PACKAGE_VERSION: "${{ secrets.PI_MAJOR_VERSION }}.${{ secrets.PI_MAJOR_VERSION }}.${{ secrets.PI_BUILD_VERSION }}"            
 
     # OS/Platform
     runs-on: ubuntu-latest
@@ -42,18 +49,27 @@ jobs:
       run: dotnet test --no-build --verbosity normal
     
     # Pack Preview
-    - name: Pack
+    - name: Pack Preview
       if: github.ref_name == 'preview'
       run: |
-        echo Branch=$GITHUB_REF_NAME Version=
-        dotnet -c Release --nologo --no-restore -o _packages -v m 
+        echo branch=$GITHUB_REF_NAME version=$PI_PACKAGE_VERSION version-suffix=preview.$GITHUB_RUN_ATTEMPT"
+        dotnet pack -p:PackageVersion=$PI_PACKAGE_VERSION -c Release --nologo --no-restore -o _packages -v m --version-suffix "preview.$GITHUB_RUN_ATTEMPT" 
       
     # Pack Rc
-    - name: Pack
+    - name: Pack RC
       if: github.ref_name == 'rc'
-      run: dotnet -c Release --nologo --no-restore -o _packages -v m --version-suffix "preview.$GITHUB_RUN_ATTEMPT" 
-      
-      if: github.branch_name == 'preview'
-      run: dotnet -c Release --nologo --no-restore -o _packages -v m 
-      if: github.branch_name == 'preview'
-      run: dotnet -c Release --nologo --no-restore -o _packages -v m 
+      run: |
+        echo branch=$GITHUB_REF_NAME version=$PI_PACKAGE_VERSION version-suffix=rc.$GITHUB_RUN_ATTEMPT
+        dotnet pack -p:PackageVersion=$PI_PACKAGE_VERSION -c Release --nologo --no-restore -o _packages -v m --version-suffix "rc.$GITHUB_RUN_ATTEMPT" 
+        
+     # Pack Release
+    - name: Pack Release
+      if: github.ref_name == 'main'
+      run: |
+        echo branch=$GITHUB_REF_NAME version=$PI_PACKAGE_VERSION suffix=preview attempt-id="rc.$GITHUB_RUN_ATTEMPT"
+        dotnet pack -p:PackageVersion=$PI_PACKAGE_VERSION -c Release --nologo --no-restore -o _packages -v m
+    
+    # Enumerate
+    - name: Enumerate
+      run : ls -l
+      working-directory: _packages
