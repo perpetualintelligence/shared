@@ -66,10 +66,16 @@ namespace PerpetualIntelligence.Shared.Services
                 throw new ArgumentException("Invalid path.", nameof(path));
             }
 
-            string parent = path;
+            string? parent = path;
             for (uint i = 1; i <= level; ++i)
             {
+                if(parent == null)
+                {
+                    throw new InvalidOperationException("Reached root.");
+                }
+
                 parent = GetParent(parent);
+                
             }
 
             return parent;
