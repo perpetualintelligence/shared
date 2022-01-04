@@ -78,7 +78,7 @@ jobs:
     # Setup release package versions
     # Format: <package>.2.3.6
     - name: Release metadata
-      if: ${{ github.event.inputs.cadence == 'release' }}
+      if: ${{ github.event.inputs.suffix == 'release' }}
       run: echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}" >> $GITHUB_ENV
       continue-on-error: false
     
@@ -97,11 +97,11 @@ jobs:
       
     # Build
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build -c Release --no-restore
       
     # Test
     - name: Test
-      run: dotnet test --no-build --verbosity normal    
+      run: dotnet test -c Release --no-build --verbosity normal    
         
      # Pack
     - name: Pack
