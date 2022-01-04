@@ -19,11 +19,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  build: 
+  build-ubunto: 
   
     # OS/Platform
-    runs-on: ubuntu-latest
-    
+    runs-on: [ ubuntu-latest, macos-latest, windows-latest]
+
     # Environment Variables
     env:     
       # GitHub package authentication
@@ -33,29 +33,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2 
     
-    # Setup Environment
-    # Establish a unique build number for today YYMMDD{RUN_NUMBER}{RUN_ATTEMPT} e.g. 2201032602
+    # Build Environment
     # CI is always local for a single repo
     - name: Build metadata
       run: |
-        cat .github/package_version.env >> $GITHUB_ENV
-        echo "PI_BUILD_NUMBER=$(date +'%y%m%d')${{ github.run_number }}${{ github.run_attempt }}" >> $GITHUB_ENV        
         echo "PI_CI_REFERENCE=local" >> $GITHUB_ENV
       continue-on-error: false
       
-    # Setup versions
-    # Establish CI package versions
-    # Format: <package>.2.3.6-ci.202201032602
-    - name: Package metadata
-      run: |
-        echo "PI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}-${{ env.PI_CI_SUFFIX }}.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
-      continue-on-error: false
-    
-    # Print all env
-    - name: Print
-      if: ${{ false }}  # Debug
-      run: env
-    
     # Setup .Net with global.json
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
