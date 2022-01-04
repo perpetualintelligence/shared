@@ -104,7 +104,7 @@ jobs:
       with:
         project: PerpetualIntelligence.Shared
         config: Release
-        version: ${{ env.PI_PACKAGE_VERSSION }}
+        version: ${{ env.PI_PACKAGE_VERSION }}
         ghapikey: ${{ env.PI_GITHUB_PAT_ENV }}
         nugetapikey: ${{ env.PI_NUGET_PAT_ENV }}
         registry: ${{ github.event.inputs.registry }}
