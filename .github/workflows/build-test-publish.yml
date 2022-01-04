@@ -38,7 +38,7 @@ on:
 jobs:
   setup:    
     runs-on: ubuntu-latest
-    environment: release
+    #environment: release
     
     # Define environment variables to authenticate the package feeds
     env:
