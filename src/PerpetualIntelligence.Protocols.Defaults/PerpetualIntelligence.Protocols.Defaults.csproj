@@ -22,10 +22,6 @@
         <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
     </ItemGroup>
 
-
-    <!--
-        Honor the pipeline suffix or use the published package version.
-    -->
     <Choose>
         <!-- Undefined, local, cross suffix will use project references-->
         <When Condition="'$(PI_CSPROJ_REFERENCE)'=='' Or '$(PI_CSPROJ_REFERENCE)'=='local' Or '$(PI_CSPROJ_REFERENCE)'=='cross'">

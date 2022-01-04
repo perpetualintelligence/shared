@@ -26,9 +26,6 @@
         <PackageReference Include="MSTest.TestFramework" Version="2.2.8" />
     </ItemGroup>
 
-    <!--
-        Perpetual Intelligence reference resolution
-    -->
     <Choose>
         <!-- Undefined, local, cross will use project references-->
         <When Condition="'$(PI_CSPROJ_REFERENCE)'=='' Or '$(PI_CSPROJ_REFERENCE)'=='local' Or '$(PI_CSPROJ_REFERENCE)'=='cross'" >

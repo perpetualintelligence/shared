@@ -23,44 +23,10 @@
         <PackageReference Include="Microsoft.Extensions.Primitives" Version="6.0.0" />
     </ItemGroup>
 
-    <!--
-        CAUTION: DO NOT EDIT UNLESS YOU ARE KNOWLEDGEABLE ABOUT THE PERPETUAL INTELLIGENCE'S AZURE AND GITHUB DEVOPS INTEGRATION.
-
-        Purpose: Runtime reference resolution (Project references Vs Nuget Packages)
-
-        Design: All the packages in a pipeline will have same configuration and same sematic versions.
-
-        Pipeline: protocols
-
-        Cadence:
-            PI_CSPROJ_REFERENCE: Azure pipeline library environment variable that determines the release cadence.
-            Undefined/Local: Project References in both Debug and Release mode.
-            preview: Preview Packages
-            rc: Release Candidate Packages
-            release: Released Packages
-
-        Pipeline Package Versioning:
-            PI_PACKAGE_VERSION: Azure pipeline environment variable that determines package version.
-        
-        Important:
-            These environment variables are set in the Azure DevOps and will not be available on the local machine unless you define
-            them explicitly defined as system environment variables.
-
-        Magic:
-            The Azure pipeline takes care of creating a correct PI_PACKAGE_VERSION based on PI_CSPROJ_REFERENCE.
-    -->
     <Choose>
-        <!-- Undefined or local environment -->
-        <When Condition="'$(PI_CSPROJ_REFERENCE)'=='' Or '$(PI_CSPROJ_REFERENCE)'=='local'">
+        <!-- Undefined, local, cross suffix will use project references-->
+        <When Condition="'$(PI_CSPROJ_REFERENCE)'=='' Or '$(PI_CSPROJ_REFERENCE)'=='local' Or '$(PI_CSPROJ_REFERENCE)'=='cross'">
             <ItemGroup>
-                <ProjectReference Include="..\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
-            </ItemGroup>
-        </When>
-
-        <!-- cross repo environment -->
-        <When Condition="'$(PI_CSPROJ_REFERENCE)'=='cross'">
-            <ItemGroup>
-                <!-- Same repo project references -->
                 <ProjectReference Include="..\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
             </ItemGroup>
         </When>
