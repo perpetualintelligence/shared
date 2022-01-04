@@ -1,0 +1,79 @@
+#    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+#
+#    Licensed under the Apache License, Version 2.0.
+#    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
+#
+#    Additional terms and policies.
+#    https://github.com/perpetualintelligence/terms/blob/main/policies.md
+
+# Deletes the specified package name
+name: delete-package
+
+# Controls when the workflow will run
+on:
+  workflow_dispatch:
+    inputs:
+      keep:
+        type: choice
+        description: 'The minimum versions to keep'
+        required: true
+        options:
+        - '1'
+        - '2'
+        - '3'
+        - '0'
+        default: '1'  
+      package:
+        type: choice
+        description: 'The package name to delete'
+        required: true
+        options:
+        - PerpetualIntelligence.Shared
+        - PerpetualIntelligence.Test
+        - PerpetualIntelligence.Protocols
+        - PerpetualIntelligence.Protocols.Default
+        - All
+        default: 'PerpetualIntelligence.Shared'  
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+
+    # OS/Platform
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Delete
+        if: ${{ github.event.inputs.package != 'All' }}
+        uses: actions/delete-package-versions@v2       
+        with:
+          package-name: ${{ github.event.inputs.package }}
+          min-versions-to-keep: ${{ github.event.inputs.keep }}  
+          
+      - name: Delete All
+        if: ${{ github.event.inputs.package == 'All' }}
+        uses: actions/delete-package-versions@v2       
+        with:
+          package-name: PerpetualIntelligence.Shared
+          min-versions-to-keep: ${{ github.event.inputs.keep }}
+          
+      - name: Delete All
+        if: ${{ github.event.inputs.package == 'All' }}
+        uses: actions/delete-package-versions@v2       
+        with:
+          package-name: PerpetualIntelligence.Test
+          min-versions-to-keep: ${{ github.event.inputs.keep }}
+          
+      - name: Delete All
+        if: ${{ github.event.inputs.package == 'All' }}
+        uses: actions/delete-package-versions@v2       
+        with:
+          package-name: PerpetualIntelligence.Protocols
+          min-versions-to-keep: ${{ github.event.inputs.keep }}
+      
+      - name: Delete All
+        if: ${{ github.event.inputs.package == 'All' }}
+        uses: actions/delete-package-versions@v2       
+        with:
+          package-name: PerpetualIntelligence.Protocols.Defaults
+          min-versions-to-keep: ${{ github.event.inputs.keep }}
