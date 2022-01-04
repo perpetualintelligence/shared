@@ -19,11 +19,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-ubunto: 
-  
-    # OS/Platform
-    runs-on: [ ubuntu-latest, macos-latest, windows-latest]
-
+  build-ubunto:   
+    runs-on: ubuntu-latest
+    
     # Environment Variables
     env:     
       # GitHub package authentication
@@ -54,5 +52,40 @@ jobs:
       
     # Test
     - name: Test
-      run: dotnet test --no-build --verbosity normal   
+      run: dotnet test --no-build --verbosity normal
+      
+  build-macos:   
+    runs-on: macos-latest
+    
+    # Environment Variables
+    env:     
+      # GitHub package authentication
+      PI_GITHUB_USERNAME_ENV: ${{ secrets.PI_GITHUB_USERNAME }}
+      PI_GITHUB_PAT_ENV: ${{ secrets.PI_GITHUB_PAT }}
+      
+    steps:
+    - uses: actions/checkout@v2 
+    
+    # Build Environment
+    # CI is always local for a single repo
+    - name: Build metadata
+      run: |
+        echo "PI_CI_REFERENCE=local" >> $GITHUB_ENV
+      continue-on-error: false
+      
+    # Setup .Net with global.json
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      
+    # Restore dependencies
+    - name: Restore
+      run: dotnet restore
+      
+    # Build
+    - name: Build
+      run: dotnet build --no-restore
+      
+    # Test
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
     
