@@ -37,41 +37,41 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build:
+  delete:
 
     # OS/Platform
     runs-on: ubuntu-latest
 
     steps:
-      - name: Delete
+      - name: ${{ github.event.inputs.package }}
         if: ${{ github.event.inputs.package != 'All' }}
         uses: actions/delete-package-versions@v2       
         with:
           package-name: ${{ github.event.inputs.package }}
           min-versions-to-keep: ${{ github.event.inputs.keep }}  
           
-      - name: Delete All
+      - name: PerpetualIntelligence.Shared
         if: ${{ github.event.inputs.package == 'All' }}
         uses: actions/delete-package-versions@v2       
         with:
           package-name: PerpetualIntelligence.Shared
           min-versions-to-keep: ${{ github.event.inputs.keep }}
           
-      - name: Delete All
+      - name: PerpetualIntelligence.Test
         if: ${{ github.event.inputs.package == 'All' }}
         uses: actions/delete-package-versions@v2       
         with:
           package-name: PerpetualIntelligence.Test
           min-versions-to-keep: ${{ github.event.inputs.keep }}
           
-      - name: Delete All
+      - name: PerpetualIntelligence.Protocols
         if: ${{ github.event.inputs.package == 'All' }}
         uses: actions/delete-package-versions@v2       
         with:
           package-name: PerpetualIntelligence.Protocols
           min-versions-to-keep: ${{ github.event.inputs.keep }}
       
-      - name: Delete All
+      - name: PerpetualIntelligence.Protocols.Defaults
         if: ${{ github.event.inputs.package == 'All' }}
         uses: actions/delete-package-versions@v2       
         with:
