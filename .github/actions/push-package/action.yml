@@ -43,7 +43,7 @@ runs:
       
     # Test
     - name: Test
-      if: {{ inputs.skiptest == 'false' }}
+      if: ${{ inputs.skiptest == 'false' }}
       run: dotnet test ./test/${{ inputs.project }}.Test/${{ inputs.project }}.Test.csproj -c ${{ inputs.config }} --verbosity minimal    
       shell: bash
 
