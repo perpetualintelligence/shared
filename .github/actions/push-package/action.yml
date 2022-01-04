@@ -6,7 +6,7 @@ inputs:
     required: true
   skiptest:
     description: 'The project does not have a test project'
-    default: false
+    default: 'false'
   config:
     description: 'The build configuration'
     type: choice
