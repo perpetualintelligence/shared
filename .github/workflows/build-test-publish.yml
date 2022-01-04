@@ -114,6 +114,7 @@ jobs:
       uses: ./.github/actions/push-package
       with:
         project: PerpetualIntelligence.Test
+        skiptest: true
         config: Release
         version: ${{ env.PI_PACKAGE_VERSION }}
         ghapikey: ${{ env.PI_GITHUB_PAT_ENV }}
