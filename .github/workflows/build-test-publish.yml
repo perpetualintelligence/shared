@@ -108,27 +108,36 @@ jobs:
         ghapikey: ${{ env.PI_GITHUB_PAT_ENV }}
         nugetapikey: ${{ env.PI_NUGET_PAT_ENV }}
         registry: ${{ github.event.inputs.registry }}
-      
-    # Build
-    - name: Build
-      run: dotnet build ./src/PerpetualIntelligence.Shared/PerpetualIntelligence.Shared.csproj -c Release --verbosity minimal
-      
-    # Test
-    - name: Test
-      run: dotnet test ./test/PerpetualIntelligence.Shared.Test/PerpetualIntelligence.Shared.Test.csproj -c Release --verbosity minimal    
 
-    # Pack
-    - name: Pack
-      run: |
-        echo branch=${{ github.ref_name }} version=${{ env.PI_PACKAGE_VERSION }}
-        dotnet pack ./src/PerpetualIntelligence.Shared/PerpetualIntelligence.Shared.csproj -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} --no-build -c Release -o _packages -v minimal
-      
-    # Github Push
-    - name: Github Push
-      if: ${{ github.event.inputs.registry == 'github' }}
-      run: nuget push _packages/PerpetualIntelligence.Shared.${{ env.PI_PACKAGE_VERSION }}.nupkg -SkipDuplicate -NoSymbols -NonInteractive -ApiKey ${{ env.PI_GITHUB_PAT_ENV }} -Source github
-    
-      # Nuget Push
-    - name: Nuget Push
-      if: ${{ github.event.inputs.registry == 'nuget' }}
-      run: nuget push _packages/PerpetualIntelligence.Shared.${{ env.PI_PACKAGE_VERSION }}.nupkg -SkipDuplicate -NoSymbols -NonInteractive -ApiKey ${{ env.PI_NUGET_PAT_ENV }} -Source nuget.org
+    # Publish PerpetualIntelligence.Test
+    - name: PerpetualIntelligence.Test
+      uses: ./.github/actions/push-package
+      with:
+        project: PerpetualIntelligence.Test
+        config: Release
+        version: ${{ env.PI_PACKAGE_VERSION }}
+        ghapikey: ${{ env.PI_GITHUB_PAT_ENV }}
+        nugetapikey: ${{ env.PI_NUGET_PAT_ENV }}
+        registry: ${{ github.event.inputs.registry }}
+
+    # Publish PerpetualIntelligence.Protocols
+    - name: PerpetualIntelligence.Protocols
+      uses: ./.github/actions/push-package
+      with:
+        project: PerpetualIntelligence.Protocols
+        config: Release
+        version: ${{ env.PI_PACKAGE_VERSION }}
+        ghapikey: ${{ env.PI_GITHUB_PAT_ENV }}
+        nugetapikey: ${{ env.PI_NUGET_PAT_ENV }}
+        registry: ${{ github.event.inputs.registry }}
+
+    # Publish PerpetualIntelligence.Protocols.Defaults
+    - name: PerpetualIntelligence.Protocols.Defaults
+      uses: ./.github/actions/push-package
+      with:
+        project: PerpetualIntelligence.Protocols.Defaults
+        config: Release
+        version: ${{ env.PI_PACKAGE_VERSION }}
+        ghapikey: ${{ env.PI_GITHUB_PAT_ENV }}
+        nugetapikey: ${{ env.PI_NUGET_PAT_ENV }}
+        registry: ${{ github.event.inputs.registry }}    
