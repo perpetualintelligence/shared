@@ -24,7 +24,7 @@
     </ItemGroup>
 
     <Choose>
-        <When Condition="'$(PI_CSPROJ_REFERENCE)'=='' Or '$(PI_CSPROJ_REFERENCE)'=='local' Or '$(PI_CSPROJ_REFERENCE)'=='cross'">
+        <When Condition="'$(PI_CI_REFERENCE)'=='' Or '$(PI_CI_REFERENCE)'=='local' Or '$(PI_CI_REFERENCE)'=='cross'">
             <ItemGroup>
                 <ProjectReference Include="..\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
             </ItemGroup>
