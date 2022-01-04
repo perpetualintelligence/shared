@@ -98,7 +98,7 @@ jobs:
       
     # Build
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build -c Release --no-restore
       
     # Test
     - name: Test
