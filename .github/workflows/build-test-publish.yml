@@ -100,7 +100,7 @@ jobs:
 
     # Publish PerpetualIntelligence.Shared
     - name: PerpetualIntelligence.Shared
-      uses: actions/push-package@v1
+      uses: ./.github/actions/push-package
       with:
         project: PerpetualIntelligence.Shared
         config: Release
