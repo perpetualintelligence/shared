@@ -120,9 +120,9 @@ jobs:
     # Github Push
     - name: Github Push
       if: ${{ github.event.inputs.registry == 'github' }}
-      run: nuget push "_packages/PerpetualIntelligence.Shared.${{ env.PI_PACKAGE_VERSION }}.nupkg" -SkipDuplicate -NoSymbols -NonInteractive -ApiKey ${{ env.PI_GITHUB_PAT_ENV }} -Source github
+      run: nuget push _packages/PerpetualIntelligence.Shared.${{ env.PI_PACKAGE_VERSION }}.nupkg -SkipDuplicate -NoSymbols -NonInteractive -ApiKey ${{ env.PI_GITHUB_PAT_ENV }} -Source github
     
       # Nuget Push
     - name: Nuget Push
       if: ${{ github.event.inputs.registry == 'nuget' }}
-      run: nuget push "_packages/PerpetualIntelligence.Shared.${{ env.PI_PACKAGE_VERSION }}.nupkg" -SkipDuplicate -NoSymbols -NonInteractive -ApiKey ${{ env.PI_NUGET_PAT_ENV }} -Source nuget.org
+      run: nuget push _packages/PerpetualIntelligence.Shared.${{ env.PI_PACKAGE_VERSION }}.nupkg -SkipDuplicate -NoSymbols -NonInteractive -ApiKey ${{ env.PI_NUGET_PAT_ENV }} -Source nuget.org
