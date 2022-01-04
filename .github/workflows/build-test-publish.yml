@@ -85,7 +85,7 @@ jobs:
         echo 'Print environment variables'
         env
         echo 'Print directory structure'
-        dir /s
+        echo dir /s
     
     # Setup .Net with global.json
     - name: Setup .NET
