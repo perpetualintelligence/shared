@@ -10,6 +10,7 @@
 
 name: build-test-pack-ci
 
+# Triggers
 on:
   push:
     branches: [ main ]
@@ -24,7 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     
     # Environment Variables
-    env:
+    env:     
+      # GitHub package authentication
       PI_GITHUB_USERNAME_ENV: ${{ secrets.PI_GITHUB_USERNAME }}
       PI_GITHUB_PAT_ENV: ${{ secrets.PI_GITHUB_PAT }}
       
@@ -33,10 +35,12 @@ jobs:
     
     # Setup Environment
     # Establish a unique build number for today YYMMDD{RUN_NUMBER}{RUN_ATTEMPT} e.g. 2201032602
+    # CI is always local for a single repo
     - name: Build metadata
       run: |
         cat .github/package_version.env >> $GITHUB_ENV
-        echo "PI_BUILD_NUMBER=$(date +'%y%m%d')${{ github.run_number }}${{ github.run_attempt }}" >> $GITHUB_ENV
+        echo "PI_BUILD_NUMBER=$(date +'%y%m%d')${{ github.run_number }}${{ github.run_attempt }}" >> $GITHUB_ENV        
+        echo "PI_CI_REFERENCE=local" >> $GITHUB_ENV
       continue-on-error: false
       
     # Setup versions
@@ -67,15 +71,4 @@ jobs:
     # Test
     - name: Test
       run: dotnet test --no-build --verbosity normal   
- 
-        
-     # Pack
-    - name: Pack
-      run: |
-        echo branch=${{ github.ref_name }} version=${{ env.PI_PACKAGE_VERSION }}
-        dotnet pack -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} -c Release --nologo --no-restore -o _packages -v m 
     
-    # Enumerate
-    - name: Enumerate
-      run : ls -l
-      working-directory: _packages
