@@ -40,7 +40,7 @@ jobs:
   deployment:    
   
     # OS/Platform
-    runs-on: ubuntu_latest
+    runs-on: windows_latest
     
     # Environment
     environment: PI_PROTOCOL_ENV
@@ -108,12 +108,7 @@ jobs:
     - name: Pack
       run: |
         echo branch=${{ github.ref_name }} version=${{ env.PI_PACKAGE_VERSION }}
-        dotnet pack -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} -c Release --nologo --no-restore -o _packages -v m 
-    
-    # Enumerate
-    - name: Enumerate
-      run : dir
-      working-directory: _packages         
+        dotnet pack -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} -c Release --nologo --no-restore -o _packages -v m      
       
     # Github Push
     - name: Github Push
