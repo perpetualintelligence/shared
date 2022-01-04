@@ -108,8 +108,7 @@ jobs:
       
     # Enumerate
     - name: Enumerate
-      run : |
-        echo ls
+      run : ls
       working-directory: _packages
       
     # Github Push
