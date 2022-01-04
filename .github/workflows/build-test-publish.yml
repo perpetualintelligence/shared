@@ -39,6 +39,7 @@ jobs:
   setup:    
     runs-on: ubuntu-latest
     #environment: release
+    timeout-minutes: 10
     
     # Define environment variables to authenticate the package feeds
     env:
@@ -97,17 +98,17 @@ jobs:
       
     # Test
     - name: Test
-    - run: dotnet test ./test/PerpetualIntelligence.Shared.Test/PerpetualIntelligence.Shared.Test.csproj -c Release --verbosity normal    
+      run: dotnet test ./test/PerpetualIntelligence.Shared.Test/PerpetualIntelligence.Shared.Test.csproj -c Release --verbosity normal    
 
     # Pack
     - name: Pack
-    - run: |
+      run: |
         echo branch=${{ github.ref_name }} version=${{ env.PI_PACKAGE_VERSION }}
         dotnet pack ./src/PerpetualIntelligence.Shared/PerpetualIntelligence.Shared.csproj -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} --no-build -o _packages -v minimal
       
     # Enumerate
     - name: Enumerate
-    - run : |
+      run : |
         echo ls
       working-directory: _packages
       
