@@ -11,6 +11,11 @@ name: delete-packages
 
 # Controls when the workflow will run
 on:
+  # Weekly authomated run 10.30 PM UTC on Friday
+  # Default values: keep 1 latest version for all packages
+  schedule:
+    - cron:  '30 22 * * 5'
+  # Manual
   workflow_dispatch:
     inputs:
       keep:
@@ -33,7 +38,7 @@ on:
         - PerpetualIntelligence.Protocols
         - PerpetualIntelligence.Protocols.Default
         - All
-        default: 'PerpetualIntelligence.Shared'  
+        default: 'All'  
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
