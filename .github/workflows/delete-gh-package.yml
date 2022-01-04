@@ -7,7 +7,7 @@
 #    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 
 # Deletes the specified package name
-name: delete-all-except-latest
+name: delete-gh-package
 
 # Controls when the workflow will run
 on:
@@ -32,7 +32,8 @@ on:
         - PerpetualIntelligence.Test
         - PerpetualIntelligence.Protocols
         - PerpetualIntelligence.Protocols.Default
-        - ''        
+        - ''
+        default: 'PerpetualIntelligence.Shared'  
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
