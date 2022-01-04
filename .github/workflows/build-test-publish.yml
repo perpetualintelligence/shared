@@ -50,12 +50,15 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    # Setup build metadata
+    # Read env    
+    - name: Read Env
+      run: cat .github/package_version.env >> $GITHUB_ENV                
+      continue-on-error: false
+    
+    # Build Number
     # Establish a unique build number for current run YYMMDD{RUN_NUMBER}{RUN_ATTEMPT} e.g. 2201032602
-    - name: Build metadata
-      run: |
-        cat .github/package_version.env >> $GITHUB_ENV        
-        echo "PI_BUILD_NUMBER=$(date +'%y%m%d')${{ github.run_number }}${{ github.run_attempt }}" >> $GITHUB_ENV
+    - name: Build Number
+      run: echo "PI_BUILD_NUMBER=$(date +'%y%m%d')${{ github.run_number }}${{ github.run_attempt }}" >> $GITHUB_ENV
       continue-on-error: false
       
     # Setup preview package versions
@@ -83,10 +86,9 @@ jobs:
     - name: Print
       if: ${{ true }}  # Debug
       run: |
-        echo 'Print environment variables'
         env
-        echo 'Print directory structure'
         ls
+      shell: bash
     
     # Setup .Net with global.json
     - name: Setup .NET
