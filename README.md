@@ -1,7 +1,7 @@
 ![Preview](https://img.shields.io/badge/release-preview-orange) 
 [![build-test-ci](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-ci.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-ci.yml)
 [![build-test-publish](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-publish.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-publish.yml)
-[![delete-gh-package](https://github.com/perpetualintelligence/protocols/actions/workflows/delete-gh-package.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/delete-gh-package.yml)
+[![delete-package](https://github.com/perpetualintelligence/protocols/actions/workflows/delete-packages.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/delete-packages.yml)
 
 > **Note:** This is a ***preview*** release, not ready for production usage. It is also subject to design changes without any advance notice.
 
