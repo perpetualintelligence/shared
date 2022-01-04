@@ -107,6 +107,11 @@ jobs:
           echo branch=${{ github.ref_name }} version=${{ env.PI_PACKAGE_VERSION }}
           dotnet pack src/PerpetualIntelligence.Shared/PerpetualIntelligence.Shared.csproj -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} --no-build -o _packages -v minimal      
       
+      # Enumerate
+      - name: Enumerate
+        run : |
+          echo ls
+      
       # Github Push
       - name: Github Push
         if: ${{ github.event.inputs.registry == 'github' }}
