@@ -125,4 +125,4 @@ jobs:
       # Nuget Push
     - name: Nuget Push
       if: ${{ github.event.inputs.registry == 'nuget' }}
-      run: dotnet nuget push "_packages/PerpetualIntelligence.Shared.${{ env.PI_PACKAGE_VERSION }}.nupkg" --skip-duplicate --no-symbols --api-key "${{ env.PI_NUGET_PAT_ENV }}" --source nuget.org
+      run: nuget push "_packages/PerpetualIntelligence.Shared.${{ env.PI_PACKAGE_VERSION }}.nupkg" -SkipDuplicate -NoSymbols -NonInteractive -ApiKey ${{ env.PI_NUGET_PAT_ENV }} -Source nuget.org
