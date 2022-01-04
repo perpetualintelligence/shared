@@ -7,7 +7,7 @@
 #    https://github.com/perpetualintelligence/terms/blob/main/policies.md
 
 # Deletes the specified package name
-name: delete-package
+name: delete-packages
 
 # Controls when the workflow will run
 on:
