@@ -27,14 +27,11 @@
     </ItemGroup>
 
     <Choose>
-        <!-- Undefined, local, cross will use project references-->
         <When Condition="'$(PI_CSPROJ_REFERENCE)'=='' Or '$(PI_CSPROJ_REFERENCE)'=='local' Or '$(PI_CSPROJ_REFERENCE)'=='cross'" >
             <ItemGroup>
                 <ProjectReference Include="..\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
             </ItemGroup>
         </When>
-
-        <!-- Otherwise use the Nuget package -->
         <Otherwise>
             <ItemGroup>
                 <PackageReference Include="PerpetualIntelligence.Shared" Version="$(PI_PACKAGE_VERSION)" />

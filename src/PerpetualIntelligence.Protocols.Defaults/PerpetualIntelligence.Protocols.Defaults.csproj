@@ -23,14 +23,11 @@
     </ItemGroup>
 
     <Choose>
-        <!-- Undefined, local, cross suffix will use project references-->
         <When Condition="'$(PI_CSPROJ_REFERENCE)'=='' Or '$(PI_CSPROJ_REFERENCE)'=='local' Or '$(PI_CSPROJ_REFERENCE)'=='cross'">
             <ItemGroup>
                 <ProjectReference Include="..\PerpetualIntelligence.Protocols\PerpetualIntelligence.Protocols.csproj" />
             </ItemGroup>
         </When>
-
-        <!--Honor the cadence and use Nuget references-->
         <Otherwise>
             <ItemGroup>
                 <PackageReference Include="PerpetualIntelligence.Protocols" Version="$(PI_PACKAGE_VERSION)" />
