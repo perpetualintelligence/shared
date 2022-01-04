@@ -39,10 +39,10 @@ jobs:
   deployment:    
   
     # OS/Platform
-    runs-on: windows-2022
+    runs-on: windows-latest
     
     # Environment
-    environment: PI_PROTOCOL_ENV
+    environment: PI_PROTOCOLS_ENV
     
     # Environment Variables
     env:
