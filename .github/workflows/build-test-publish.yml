@@ -94,17 +94,17 @@ jobs:
 
     # Build
     - name: Build
-      run: dotnet build ./src/PerpetualIntelligence.Shared/PerpetualIntelligence.Shared.csproj -c Release
+      run: dotnet build ./src/PerpetualIntelligence.Shared/PerpetualIntelligence.Shared.csproj -c Release --verbosity minimal
       
     # Test
     - name: Test
-      run: dotnet test ./test/PerpetualIntelligence.Shared.Test/PerpetualIntelligence.Shared.Test.csproj -c Release --verbosity normal    
+      run: dotnet test ./test/PerpetualIntelligence.Shared.Test/PerpetualIntelligence.Shared.Test.csproj -c Release --verbosity minimal    
 
     # Pack
     - name: Pack
       run: |
         echo branch=${{ github.ref_name }} version=${{ env.PI_PACKAGE_VERSION }}
-        dotnet pack ./src/PerpetualIntelligence.Shared/PerpetualIntelligence.Shared.csproj -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} --no-build -o _packages -v minimal
+        dotnet pack ./src/PerpetualIntelligence.Shared/PerpetualIntelligence.Shared.csproj -p:PackageVersion=${{ env.PI_PACKAGE_VERSION }} --no-build -c Release -o _packages -v minimal
       
     # Enumerate
     - name: Enumerate
