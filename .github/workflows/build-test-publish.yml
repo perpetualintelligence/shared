@@ -80,8 +80,12 @@ jobs:
     
     # Print all env
     - name: Print
-      if: ${{ false }}  # Debug
-      run: env
+      if: ${{ true }}  # Debug
+      run: |
+        echo 'Print environment variables'
+        env
+        echo 'Print director structure'
+        ls -R
     
     # Setup .Net with global.json
     - name: Setup .NET
