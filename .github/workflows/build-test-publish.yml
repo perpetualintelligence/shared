@@ -40,7 +40,7 @@ jobs:
   deployment:    
   
     # OS/Platform
-    runs-on: windows_latest
+    runs-on: ubuntu_latest
     
     # Environment
     environment: PI_PROTOCOL_ENV
