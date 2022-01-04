@@ -33,32 +33,32 @@
         Pipeline: protocols
 
         Cadence:
-            PI_LIBRARY_CADENCE: Azure pipeline library environment variable that determines the release cadence.
+            PI_CSPROJ_REFERENCE: Azure pipeline library environment variable that determines the release cadence.
             Undefined/Local: Project References in both Debug and Release mode.
             preview: Preview Packages
             rc: Release Candidate Packages
             release: Released Packages
 
         Pipeline Package Versioning:
-            PI_LIBRARY_PACKAGEVERSION: Azure pipeline environment variable that determines package version.
+            PI_PACKAGE_VERSION: Azure pipeline environment variable that determines package version.
         
         Important:
             These environment variables are set in the Azure DevOps and will not be available on the local machine unless you define
             them explicitly defined as system environment variables.
 
         Magic:
-            The Azure pipeline takes care of creating a correct PI_LIBRARY_PACKAGEVERSION based on PI_LIBRARY_CADENCE.
+            The Azure pipeline takes care of creating a correct PI_PACKAGE_VERSION based on PI_CSPROJ_REFERENCE.
     -->
     <Choose>
         <!-- Undefined or local environment -->
-        <When Condition="'$(PI_LIBRARY_CADENCE)'=='' Or '$(PI_LIBRARY_CADENCE)'=='local'">
+        <When Condition="'$(PI_CSPROJ_REFERENCE)'=='' Or '$(PI_CSPROJ_REFERENCE)'=='local'">
             <ItemGroup>
                 <ProjectReference Include="..\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
             </ItemGroup>
         </When>
 
         <!-- cross repo environment -->
-        <When Condition="'$(PI_LIBRARY_CADENCE)'=='cross'">
+        <When Condition="'$(PI_CSPROJ_REFERENCE)'=='cross'">
             <ItemGroup>
                 <!-- Same repo project references -->
                 <ProjectReference Include="..\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
@@ -68,7 +68,7 @@
         <!--Honor the cadence and use Nuget references-->
         <Otherwise>
             <ItemGroup>
-                <PackageReference Include="PerpetualIntelligence.Shared" Version="$(PI_LIBRARY_PACKAGEVERSION)" />
+                <PackageReference Include="PerpetualIntelligence.Shared" Version="$(PI_PACKAGE_VERSION)" />
             </ItemGroup>
         </Otherwise>
     </Choose>
