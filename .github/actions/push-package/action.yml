@@ -1,0 +1,58 @@
+name: 'push-package'
+description: 'Build, test, pack and publish a package'
+inputs:
+  project: 
+    description: 'The project file name with src and test structure'
+    required: true
+  config:
+    description: 'The build configuration'
+    type: choice
+    options:
+    - Debug
+    - Release
+    default: Release
+    required: true
+  version:
+    description: 'The package version'
+    required: true
+  ghapikey:
+    description: 'The Git Hub Api Key Key for package feed'
+    required: true
+  nugetapikey:
+    description: 'The Nuget Api Key Key for package feed'
+    required: true
+  registry:
+    description: 'The package registry'
+    type: choice
+    options:
+    - github
+    - nuget
+    default: github
+    required: true
+runs:
+  using: "composite"
+  steps:
+
+    # Build
+    - name: Build
+      run: dotnet build ./src/${{ inputs.project }}/${{ inputs.project }}.csproj -c ${{ inputs.config }} --verbosity minimal
+      
+    # Test
+    - name: Test
+      run: dotnet test ./test/${{ inputs.project }}.Test/${{ inputs.project }}.Test.csproj -c ${{ inputs.config }} --verbosity minimal    
+
+    # Pack
+    - name: Pack
+      run: |
+        echo branch=${{ github.ref_name }} version=${{ inputs.version }}
+        dotnet pack ./src/${{ inputs.project }}/${{ inputs.project }}.csproj -p:PackageVersion=${{ inputs.version }} --no-build -c ${{ inputs.config }} -o _packages -v minimal
+
+    # Github Push
+    - name: Github Push
+      if: ${{ inputs.registry == 'github' }}
+      run: nuget push _packages/${{ inputs.project }}.${{ inputs.version }}.nupkg -SkipDuplicate -NoSymbols -NonInteractive -ApiKey ${{ inputs.ghapikey }} -Source github
+    
+      # Nuget Push
+    - name: Nuget Push
+      if: ${{ inputs.registry == 'nuget' }}
+      run: nuget push _packages/${{ inputs.project }}.${{ inputs.version }}.nupkg -SkipDuplicate -NoSymbols -NonInteractive -ApiKey ${{ inputs.nugetapikey }} -Source nuget.org
