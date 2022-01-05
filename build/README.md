@@ -1,5 +1,5 @@
-## Introduction
-This folder contains the ***protocols*** CI/CD pipelines for generating and publishing [Nuget](https://www.nuget.org/profiles/perpetualintelligencellc) and [GitHub](https://github.com/orgs/perpetualintelligence/packages?repo_name=protocols) packages. 
+## Workflow
+This workflow folder contains the ***protocols*** CI/CD pipelines for generating and publishing [Nuget](https://www.nuget.org/profiles/perpetualintelligencellc) and [GitHub](https://github.com/orgs/perpetualintelligence/packages?repo_name=protocols) packages. 
 
 The build and deploy include:
 1. ***build-test-ci.yml***: The automated CI builds and tests the code changes.
@@ -8,10 +8,10 @@ The build and deploy include:
 
 > The manual release requires approval.
 
-## Package Versions
+### Package Versions
 All packages within protocols follow [sematic](https://semver.org/) versioning schemes. The env file ***package_version.env*** defines the package versions.
 
-## CI References
+### CI References
 The *.csproj* references for CI and local development has the following syntax:
 - ***local***: Project references for local development within the same repo
 - ***cross***: Project references for local development across repos
@@ -19,5 +19,5 @@ The *.csproj* references for CI and local development has the following syntax:
 
 > PI_CI_REFERENCE environment variable (***local*** or ***cross***) needs to be set on dev machine . The ***package*** value is not supported on dev machine. 
 
-## Composite Actions
+### Composite Actions
 The ***push-package*** composite action builds, tests, packs, and publishes the package to the feed.
