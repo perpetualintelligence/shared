@@ -46,6 +46,7 @@ jobs:
 
     # OS/Platform
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: ${{ github.event.inputs.package }}
