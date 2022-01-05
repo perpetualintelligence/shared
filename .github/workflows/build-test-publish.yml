@@ -85,7 +85,7 @@ jobs:
     
     # Print all env
     - name: Print
-      if: ${{ true }}  # Debug
+      if: ${{ false }}  # Debug
       run: |
         env
         ls
