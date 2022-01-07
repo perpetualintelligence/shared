@@ -15,7 +15,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Description>The cross-platform test components for Perpetual Intelligence L.L.C. managed services, frameworks, and tools. Application owners can use these components to build low-level or foundational test elements.</Description>
+        <Description>The cross-platform test components for managed services, frameworks, and tools. Application owners can use these components to build low-level or foundational test elements.</Description>
         <PackageTags>infrastructure test</PackageTags>
     </PropertyGroup>
 
@@ -34,7 +34,7 @@
         </When>
         <Otherwise>
             <ItemGroup>
-                <PackageReference Include="PerpetualIntelligence.Shared" Version="$(PI_PACKAGE_VERSION)" />
+                <PackageReference Include="PerpetualIntelligence.Shared" Version="$(PI_CI_PACKAGE_VERSION)" />
             </ItemGroup>
         </Otherwise>
     </Choose>

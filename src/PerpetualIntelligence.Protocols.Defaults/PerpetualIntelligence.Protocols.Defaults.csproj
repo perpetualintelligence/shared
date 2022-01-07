@@ -14,7 +14,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Description>The cross-platform default implementations for Perpetual Intelligence L.L.C. managed services, frameworks, and tools. Application owners can use these components to build low-level or foundational identity, collaboration, and cli elements.</Description>
+        <Description>The cross-platform default implementations for managed services, frameworks, and tools. Application owners can use these components to build low-level or foundational identity, collaboration, and cli elements.</Description>
         <PackageTags>oauth2 oidc openid-connect security identity rbac multitenancy communication event endpoint cli</PackageTags>
     </PropertyGroup>
 
@@ -30,7 +30,7 @@
         </When>
         <Otherwise>
             <ItemGroup>
-                <PackageReference Include="PerpetualIntelligence.Protocols" Version="$(PI_PACKAGE_VERSION)" />
+                <PackageReference Include="PerpetualIntelligence.Protocols" Version="$(PI_CI_PACKAGE_VERSION)" />
             </ItemGroup>
         </Otherwise>
     </Choose>
