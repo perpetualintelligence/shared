@@ -12,7 +12,7 @@ name: build-test-publish
 
 # 1 release at a time
 # https://docs.github.com/en/actions/deployment/about-deployments/deploying-with-github-actions
-concurrency: gh-release
+concurrency: github-release
 
 # Manual trigger for deployment
 on:
@@ -39,7 +39,7 @@ on:
 jobs:
   setup:    
     runs-on: ubuntu-latest
-    environment: gh-release
+    environment: github-release
     timeout-minutes: 10
     
     # Define environment variables to authenticate the package feeds
