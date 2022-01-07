@@ -11,7 +11,7 @@ name: delete-packages
 
 # Controls when the workflow will run
 on:
-  # Weekly authomated run 10.30 PM UTC on Friday
+  # Weekly automated run 10.30 PM UTC on Friday
   # Default values: keep 1 latest version for all packages
   schedule:
     - cron:  '30 22 * * 5'

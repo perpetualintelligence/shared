@@ -7,29 +7,22 @@ inputs:
   skiptest:
     description: 'The project does not have a test project'
     default: 'false'
+    required: false
   config:
-    description: 'The build configuration'
-    type: choice
-    options:
-    - Debug
-    - Release
+    description: 'The build configuration (Build or Release)'
     default: Release
     required: true
   version:
     description: 'The package version'
     required: true
   ghapikey:
-    description: 'The Git Hub Api Key Key for package feed'
+    description: 'The Git Hub Api Key for package feed'
     required: true
   nugetapikey:
-    description: 'The Nuget Api Key Key for package feed'
+    description: 'The Nuget Api Key for package feed'
     required: true
   registry:
-    description: 'The package registry'
-    type: choice
-    options:
-    - github
-    - nuget
+    description: 'The package registry (github or nuget)'
     default: github
     required: true
 runs:
