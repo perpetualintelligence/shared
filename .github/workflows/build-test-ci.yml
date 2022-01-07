@@ -28,17 +28,11 @@ jobs:
       # GitHub package authentication
       PI_GITHUB_USERNAME_ENV: ${{ secrets.PI_GITHUB_USERNAME }}
       PI_GITHUB_PAT_ENV: ${{ secrets.PI_GITHUB_PAT }}
+      PI_CI_REFERENCE: local
       
     steps:
     - uses: actions/checkout@v2 
     
-    # Build Environment
-    # CI is always local for a single repo
-    - name: Build metadata
-      run: |
-        echo "PI_CI_REFERENCE=local" >> $GITHUB_ENV
-      continue-on-error: false
-      
     # Setup .Net with global.json
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
@@ -64,16 +58,10 @@ jobs:
       # GitHub package authentication
       PI_GITHUB_USERNAME_ENV: ${{ secrets.PI_GITHUB_USERNAME }}
       PI_GITHUB_PAT_ENV: ${{ secrets.PI_GITHUB_PAT }}
+      PI_CI_REFERENCE: local
       
     steps:
-    - uses: actions/checkout@v2 
-    
-    # Build Environment
-    # CI is always local for a single repo
-    - name: Build metadata
-      run: |
-        echo "PI_CI_REFERENCE=local" >> $GITHUB_ENV
-      continue-on-error: false
+    - uses: actions/checkout@v2  
       
     # Setup .Net with global.json
     - name: Setup .NET
@@ -100,17 +88,11 @@ jobs:
       # GitHub package authentication
       PI_GITHUB_USERNAME_ENV: ${{ secrets.PI_GITHUB_USERNAME }}
       PI_GITHUB_PAT_ENV: ${{ secrets.PI_GITHUB_PAT }}
+      PI_CI_REFERENCE: local
       
     steps:
     - uses: actions/checkout@v2 
     
-    # Build Environment
-    # CI is always local for a single repo
-    - name: Build metadata
-      run: |
-        echo "PI_CI_REFERENCE=local" >> $GITHUB_ENV
-      continue-on-error: false
-      
     # Setup .Net with global.json
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
