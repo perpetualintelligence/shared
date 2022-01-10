@@ -25,20 +25,17 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         public const string FullName = "Perpetual Intelligence L.L.C.";
 
         /// <summary>
-        /// The terms of use, operation and data policies.
-        /// </summary>
-        public const string Policies = "https://terms.perpetualintelligence.com/articles/intro.html";
-
-        /// <summary>
         /// The <c>GitHub</c> URL.
         /// </summary>
         public const string GitHub = "https://github.com/perpetualintelligence";
-
         /// <summary>
         /// The logo.
         /// </summary>
         public const string LogoUrl = "https://github.com/perpetualintelligence/terms/blob/main/logo/icon.png";
-
+        /// <summary>
+        /// The terms of use, operation and data policies.
+        /// </summary>
+        public const string Policies = "https://terms.perpetualintelligence.com/articles/intro.html";
         /// <summary>
         /// The short name.
         /// </summary>

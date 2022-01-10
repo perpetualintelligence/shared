@@ -1,13 +1,9 @@
 <!--
     Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 -->
-
 <!--
     Provide a set of shared build properties.
     https://docs.microsoft.com/en-us/cpp/build/reference/vcxproj-file-structure?view=msvc-160
@@ -30,5 +26,23 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
     </ItemGroup>
+
+
+    <!--
+        CI CONFIG:
+    -->
+    <Choose>
+        <When Condition="'$(PI_CI_REFERENCE)'=='cross'">
+            <ItemGroup>
+                <ProjectReference Include="..\..\..\protocols\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
+            </ItemGroup>
+        </When>
+        <Otherwise>
+            <ItemGroup>
+                <PackageReference Include="PerpetualIntelligence.Test" Version="$(PI_PROTOCOLS_PACKAGE_VERSION)" />
+            </ItemGroup>
+        </Otherwise>
+    </Choose>
+
 </Project>
 

@@ -47,9 +47,11 @@ jobs:
       PI_GITHUB_USERNAME_ENV: ${{ secrets.PI_GITHUB_USERNAME }}
       PI_GITHUB_PAT_ENV: ${{ secrets.PI_GITHUB_PAT }}
       PI_NUGET_PAT_ENV: ${{ secrets.PI_NUGET_API_KEY }}
+      PI_CI_REFERENCE: package
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout
+      uses: actions/checkout@v2
 
     # Read env    
     - name: Read Env

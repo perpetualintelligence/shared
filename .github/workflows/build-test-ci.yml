@@ -31,7 +31,8 @@ jobs:
       PI_CI_REFERENCE: local
       
     steps:
-    - uses: actions/checkout@v2 
+    - name: Checkout
+      uses: actions/checkout@v2 
     
     # Setup .Net with global.json
     - name: Setup .NET
@@ -61,7 +62,8 @@ jobs:
       PI_CI_REFERENCE: local
       
     steps:
-    - uses: actions/checkout@v2  
+    - name: Checkout
+      uses: actions/checkout@v2 
       
     # Setup .Net with global.json
     - name: Setup .NET
@@ -91,7 +93,8 @@ jobs:
       PI_CI_REFERENCE: local
       
     steps:
-    - uses: actions/checkout@v2 
+    - name: Checkout
+      uses: actions/checkout@v2 
     
     # Setup .Net with global.json
     - name: Setup .NET
