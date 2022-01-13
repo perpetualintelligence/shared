@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using PerpetualIntelligence.Shared.Attributes;
@@ -22,6 +19,7 @@ namespace PerpetualIntelligence.Test
     /// </remarks>
 
     [InternalInfrastructure]
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
     public sealed class OneImlxTestIdAttribute : Attribute
     {
         /// <summary>
@@ -31,7 +29,12 @@ namespace PerpetualIntelligence.Test
         /// <exception cref="ArgumentNullException"></exception>
         public OneImlxTestIdAttribute(string id)
         {
-            Id = id ?? throw new ArgumentNullException(nameof(id));
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                throw new ArgumentException($"The OneImlx test '{nameof(id)}' cannot be null or whitespace.", nameof(id));
+            }
+
+            Id = id;
         }
 
         /// <summary>
