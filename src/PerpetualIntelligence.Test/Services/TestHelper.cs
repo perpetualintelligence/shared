@@ -739,20 +739,20 @@ namespace PerpetualIntelligence.Test.Services
         {
             Assert.IsTrue(result.IsError);
             Assert.IsNotNull(result.FirstError);
-            Assert.AreEqual(error, result.FirstError.Error);
+            Assert.AreEqual(error, result.FirstError.ErrorCode);
             Assert.AreEqual(errorDescription, result.FirstError.ErrorDescription);
         }
 
         /// <summary>
-        /// Asserts <see cref="OneImlxError"/>
+        /// Asserts <see cref="Error"/>
         /// </summary>
         /// <param name="error"></param>
         /// <param name="errorCode"></param>
         /// <param name="errorDescription"></param>
-        public static void AssertOneImlxError(OneImlxError error, string errorCode, string? errorDescription)
+        public static void AssertOneImlxError(Error error, string errorCode, string? errorDescription)
         {
             Assert.IsNotNull(error);
-            Assert.AreEqual(errorCode, error.Error);
+            Assert.AreEqual(errorCode, error.ErrorCode);
             Assert.AreEqual(errorDescription, error.ErrorDescription);
         }
 

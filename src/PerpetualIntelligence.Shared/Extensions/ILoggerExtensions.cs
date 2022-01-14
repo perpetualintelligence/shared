@@ -1,11 +1,8 @@
 ﻿/*
     Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using Microsoft.Extensions.Logging;
@@ -21,24 +18,6 @@ namespace PerpetualIntelligence.Shared.Extensions
     public static class ILoggerExtensions
     {
         /// <summary>
-        /// Formats the message for downstream processing.
-        /// </summary>
-        /// <param name="logger">The logger.</param>
-        /// <param name="loggingOptions">The logging options. See <see cref="OneImlxLoggingOptions"/>.</param>
-        /// <param name="message">The message to format.</param>
-        /// <param name="args">The format arguments.</param>
-        /// <returns></returns>
-        public static string Format(this ILogger logger, OneImlxLoggingOptions loggingOptions, string message, params object?[] args)
-        {
-            if (logger == null)
-            {
-                throw new InvalidOperationException("The logger is required.");
-            }
-
-            return FormatMessage(loggingOptions, message, args).Item1;
-        }
-
-        /// <summary>
         /// Logs the formated message and returns the logged message for downstream processing.
         /// </summary>
         /// <param name="logger"></param>
@@ -47,7 +26,7 @@ namespace PerpetualIntelligence.Shared.Extensions
         /// <param name="message"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        public static string FormatAndLog(this ILogger logger, LogLevel logLevel, OneImlxLoggingOptions loggingOptions, string message, params object?[] args)
+        public static string FormatAndLog(this ILogger logger, LogLevel logLevel, OneImlxLoggingOptions loggingOptions, string message, params object[] args)
         {
             // For downstream processing
             Tuple<string, object?[]>? formatted = FormatMessage(loggingOptions, message, args);

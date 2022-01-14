@@ -22,8 +22,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         {
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
 #pragma warning disable CA1806 // Do not ignore method results
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => new OneImlxError(null), "'error' cannot be null or whitespace. (Parameter 'error')");
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => new OneImlxError("   "), "'error' cannot be null or whitespace. (Parameter 'error')");
+            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => new Error(null), "'error' cannot be null or whitespace. (Parameter 'error')");
+            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => new Error("   "), "'error' cannot be null or whitespace. (Parameter 'error')");
 #pragma warning restore CA1806 // Do not ignore method results
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
         }
@@ -31,8 +31,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void CtorShouldSetCorrectly()
         {
-            OneImlxError error = new("error", "desc", "uri", "rid");
-            Assert.AreEqual("error", error.Error);
+            Error error = new("error", "desc", "uri", "rid");
+            Assert.AreEqual("error", error.ErrorCode);
             Assert.AreEqual("desc", error.ErrorDescription);
             Assert.AreEqual("uri", error.ErrorUri);
             Assert.AreEqual("rid", error.RequestId);
@@ -41,18 +41,18 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void JsonPropertyNameShoudBeValid()
         {
-            Type type = typeof(OneImlxError);
-            TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(OneImlxError.Error)), "error");
-            TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(OneImlxError.ErrorDescription)), "error_description");
-            TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(OneImlxError.ErrorUri)), "error_uri");
-            TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(OneImlxError.RequestId)), "request_id");
+            Type type = typeof(Error);
+            TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(Error.ErrorCode)), "error");
+            TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(Error.ErrorDescription)), "error_description");
+            TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(Error.ErrorUri)), "error_uri");
+            TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(Error.RequestId)), "request_id");
         }
 
         [TestMethod]
         public void NewInstanceShouldError()
         {
-            OneImlxError error = new();
-            Assert.AreEqual("unexpected_error", error.Error);
+            Error error = new();
+            Assert.AreEqual("unexpected_error", error.ErrorCode);
             Assert.IsNull(error.ErrorDescription);
             Assert.IsNull(error.ErrorUri);
             Assert.IsNull(error.RequestId);
@@ -61,7 +61,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void SetErrorNoErrorShouldThrow()
         {
-            var error = new OneImlxError();
+            var error = new Error();
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
             TestHelper.AssertThrowsWithMessage<ArgumentException>(() => error.SetError(null), "'error' cannot be null or whitespace. (Parameter 'error')");
@@ -73,9 +73,9 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void SetErrorShouldSetCorrectly()
         {
-            OneImlxError error = new();
+            Error error = new();
             error.SetError("error", "desc", "uri", "rid");
-            Assert.AreEqual("error", error.Error);
+            Assert.AreEqual("error", error.ErrorCode);
             Assert.AreEqual("desc", error.ErrorDescription);
             Assert.AreEqual("uri", error.ErrorUri);
             Assert.AreEqual("rid", error.RequestId);

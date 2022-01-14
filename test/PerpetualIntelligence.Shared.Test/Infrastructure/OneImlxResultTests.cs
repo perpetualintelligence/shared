@@ -22,9 +22,9 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         {
             OneImlxResult result = new();
 
-            OneImlxError error = new()
+            Error error = new()
             {
-                Error = "test_error",
+                ErrorCode = "test_error",
                 ErrorDescription = "test_error_desc",
                 ErrorUri = "test_error_uri",
                 RequestId = "test_request_id",
@@ -34,8 +34,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             Assert.IsNotNull(result.Errors);
             Assert.AreEqual(1, result.Errors.Length);
 
-            OneImlxError error2 = result.Errors[0];
-            Assert.AreEqual("test_error", error2.Error);
+            Error error2 = result.Errors[0];
+            Assert.AreEqual("test_error", error2.ErrorCode);
             Assert.AreEqual("test_error_desc", error2.ErrorDescription);
             Assert.AreEqual("test_error_uri", error2.ErrorUri);
             Assert.AreEqual("test_request_id", error2.RequestId);
@@ -45,9 +45,9 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         public void AddErrorObjWithoutErrorCodeShouldThrow()
         {
             OneImlxResult result = new();
-            OneImlxError error = new()
+            Error error = new()
             {
-                Error = ""
+                ErrorCode = ""
             };
 
             TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.AddError(error), "'Error' cannot be null or whitespace. (Parameter 'error')");
@@ -62,8 +62,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             Assert.IsNotNull(result.Errors);
             Assert.AreEqual(1, result.Errors.Length);
 
-            OneImlxError error = result.Errors[0];
-            Assert.AreEqual("test_error", error.Error);
+            Error error = result.Errors[0];
+            Assert.AreEqual("test_error", error.ErrorCode);
             Assert.AreEqual("test_error_desc", error.ErrorDescription);
             Assert.AreEqual("test_error_uri", error.ErrorUri);
             Assert.AreEqual("test_request_id", error.RequestId);
@@ -112,16 +112,16 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             result.AddError("test_error3");
 
             Assert.IsNotNull(result.FirstError);
-            Assert.AreEqual("test_error1", result.FirstError.Error);
+            Assert.AreEqual("test_error1", result.FirstError.ErrorCode);
             Assert.AreEqual("test_error1", result.FirstErrorCode);
         }
 
         [TestMethod]
         public void NewErrorShouldHaveErrorParms()
         {
-            OneImlxError error = new()
+            Error error = new()
             {
-                Error = "test_error",
+                ErrorCode = "test_error",
                 ErrorDescription = "test_error_desc",
                 ErrorUri = "test_error_uri",
                 RequestId = "test_request_id"
@@ -130,7 +130,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             var result = OneImlxResult.NewError<OneImlxResult>(error);
             Assert.IsTrue(result.IsError);
             Assert.IsNotNull(result.FirstError);
-            Assert.AreEqual("test_error", result.FirstError.Error);
+            Assert.AreEqual("test_error", result.FirstError.ErrorCode);
             Assert.AreEqual("test_error_desc", result.FirstError.ErrorDescription);
             Assert.AreEqual("test_error_uri", result.FirstError.ErrorUri);
             Assert.AreEqual("test_request_id", result.FirstError.RequestId);
@@ -138,7 +138,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             var result2 = OneImlxResult.NewError<OneImlxResult>("test_error2", "test_error_desc2", "test_error_uri2", "test_request_id2");
             Assert.IsTrue(result2.IsError);
             Assert.IsNotNull(result2.FirstError);
-            Assert.AreEqual("test_error2", result2.FirstError.Error);
+            Assert.AreEqual("test_error2", result2.FirstError.ErrorCode);
             Assert.AreEqual("test_error_desc2", result2.FirstError.ErrorDescription);
             Assert.AreEqual("test_error_uri2", result2.FirstError.ErrorUri);
             Assert.AreEqual("test_request_id2", result2.FirstError.RequestId);
@@ -147,7 +147,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             var result3 = OneImlxResult.NewError<OneImlxResult>(result2);
             Assert.IsTrue(result3.IsError);
             Assert.IsNotNull(result3.FirstError);
-            Assert.AreEqual("test_error2", result3.FirstError.Error);
+            Assert.AreEqual("test_error2", result3.FirstError.ErrorCode);
             Assert.AreEqual("test_error_desc2", result3.FirstError.ErrorDescription);
             Assert.AreEqual("test_error_uri2", result3.FirstError.ErrorUri);
             Assert.AreEqual("test_request_id2", result3.FirstError.RequestId);
@@ -196,14 +196,14 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             Assert.IsNotNull(result.Errors);
             Assert.AreEqual(2, result.Errors.Length);
             Assert.IsTrue(result.IsError);
-            Assert.AreEqual("test_error1", result.Errors[0].Error);
-            Assert.AreEqual("test_error2", result.Errors[1].Error);
+            Assert.AreEqual("test_error1", result.Errors[0].ErrorCode);
+            Assert.AreEqual("test_error2", result.Errors[1].ErrorCode);
 
             result.SetError("test_error3");
             Assert.IsNotNull(result.Errors);
             Assert.AreEqual(1, result.Errors.Length);
             Assert.IsTrue(result.IsError);
-            Assert.AreEqual("test_error3", result.Errors[0].Error);
+            Assert.AreEqual("test_error3", result.Errors[0].ErrorCode);
         }
 
         [TestMethod]
@@ -217,10 +217,10 @@ namespace PerpetualIntelligence.Shared.Infrastructure
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.SetError(new OneImlxError(null)), "'error' cannot be null or whitespace. (Parameter 'error')");
+            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.SetError(new Error(null)), "'error' cannot be null or whitespace. (Parameter 'error')");
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.SetError(new OneImlxError("  ")), "'error' cannot be null or whitespace. (Parameter 'error')");
+            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.SetError(new Error("  ")), "'error' cannot be null or whitespace. (Parameter 'error')");
         }
 
         [TestMethod]
@@ -238,8 +238,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             Assert.IsNotNull(result.Errors);
             Assert.AreEqual(1, result.Errors.Length);
 
-            OneImlxError syncError = result.Errors[0];
-            Assert.AreEqual("test_error3", syncError.Error);
+            Error syncError = result.Errors[0];
+            Assert.AreEqual("test_error3", syncError.ErrorCode);
             Assert.AreEqual("test_error_desc3", syncError.ErrorDescription);
             Assert.AreEqual("test_error_uri3", syncError.ErrorUri);
             Assert.AreEqual("test_request_id3", syncError.RequestId);

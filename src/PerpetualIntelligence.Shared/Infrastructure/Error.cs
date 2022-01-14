@@ -1,11 +1,8 @@
 ﻿/*
     Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using System.Text.Json.Serialization;
@@ -15,12 +12,12 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     /// <summary>
     /// The generic <c>oneimlx</c> error.
     /// </summary>
-    public class OneImlxError
+    public class Error
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        public OneImlxError()
+        public Error()
         {
         }
 
@@ -31,14 +28,14 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <param name="errorDescription">The error description.</param>
         /// <param name="errorUri">The error URI.</param>
         /// <param name="requestId">The request id.</param>
-        public OneImlxError(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null)
+        public Error(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null)
         {
             if (string.IsNullOrWhiteSpace(error))
             {
                 throw new System.ArgumentException($"'{nameof(error)}' cannot be null or whitespace.", nameof(error));
             }
 
-            Error = error;
+            ErrorCode = error;
             ErrorDescription = errorDescription;
             ErrorUri = errorUri;
             RequestId = requestId;
@@ -48,7 +45,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// The <c>error</c> code. Defaults to <c>unexpected_error</c>.
         /// </summary>
         [JsonPropertyName("error")]
-        public string Error { get; set; } = "unexpected_error";
+        public string ErrorCode { get; set; } = "unexpected_error";
 
         /// <summary>
         /// The <c>error_description</c>.
@@ -81,7 +78,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
                 throw new System.ArgumentException($"'{nameof(error)}' cannot be null or whitespace.", nameof(error));
             }
 
-            Error = error;
+            ErrorCode = error;
             ErrorDescription = errorDescription;
             ErrorUri = errorUri;
             RequestId = requestId;

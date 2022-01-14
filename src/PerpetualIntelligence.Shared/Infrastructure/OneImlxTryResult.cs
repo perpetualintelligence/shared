@@ -26,7 +26,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        public OneImlxTryResult(OneImlxError error)
+        public OneImlxTryResult(Error error)
         {
             SetError(error);
         }
