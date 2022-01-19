@@ -19,13 +19,14 @@ namespace PerpetualIntelligence.Protocols.Cli
         [TestMethod]
         public void AssertErrorsAreValid()
         {
-            TestHelper.AssertConstantCount(typeof(Errors), 7);
+            TestHelper.AssertConstantCount(typeof(Errors), 8);
 
             Assert.AreEqual("invalid_command", Errors.InvalidCommand);
             Assert.AreEqual("invalid_configuration", Errors.InvalidConfiguration);
             Assert.AreEqual("invalid_argument", Errors.InvalidArgument);
             Assert.AreEqual("invalid_request", Errors.InvalidRequest);
             Assert.AreEqual("unsupported_argument", Errors.UnsupportedArgument);
+            Assert.AreEqual("unsupported_command", Errors.UnsupportedCommand);
             Assert.AreEqual("server_error", Errors.ServerError);
             Assert.AreEqual("missing_argument", Errors.MissingArgument);
         }

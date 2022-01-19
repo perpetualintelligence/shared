@@ -21,8 +21,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void RequestIdTest()
         {
-            Type type = typeof(OneImlxWarning);
-            PropertyInfo? prop = type.GetProperty(nameof(OneImlxWarning.RequestId));
+            Type type = typeof(Warning);
+            PropertyInfo? prop = type.GetProperty(nameof(Warning.RequestId));
 
             Assert.IsNotNull(prop);
 
@@ -34,8 +34,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void WarningDescriptionTest()
         {
-            Type type = typeof(OneImlxWarning);
-            PropertyInfo? prop = type.GetProperty(nameof(OneImlxWarning.WarningDescription));
+            Type type = typeof(Warning);
+            PropertyInfo? prop = type.GetProperty(nameof(Warning.WarningDescription));
 
             Assert.IsNotNull(prop);
 
@@ -47,8 +47,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void WarningTest()
         {
-            Type type = typeof(OneImlxWarning);
-            PropertyInfo? prop = type.GetProperty(nameof(OneImlxWarning.Warning));
+            Type type = typeof(Warning);
+            PropertyInfo? prop = type.GetProperty(nameof(Warning.WarningCode));
 
             Assert.IsNotNull(prop);
 
@@ -60,8 +60,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void WarningUriTest()
         {
-            Type type = typeof(OneImlxWarning);
-            PropertyInfo? prop = type.GetProperty(nameof(OneImlxWarning.WarningUri));
+            Type type = typeof(Warning);
+            PropertyInfo? prop = type.GetProperty(nameof(Warning.WarningUri));
 
             Assert.IsNotNull(prop);
 

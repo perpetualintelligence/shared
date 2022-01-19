@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using Microsoft.AspNetCore.Mvc;
@@ -701,6 +698,12 @@ namespace PerpetualIntelligence.Test.Services
             IEnumerable<string>? files = Directory.EnumerateFiles(namespaceDir, "*.cs");
             foreach (Type type in types)
             {
+                // Delegates can be in any file
+                if (IsDelegate(type))
+                {
+                    continue;
+                }
+
                 string? typeFile = null;
                 if (type.IsGenericType)
                 {
@@ -1261,6 +1264,16 @@ namespace PerpetualIntelligence.Test.Services
             //Console.WriteLine($"Type={type.FullName} Namespace={type.Namespace} CompilerGenerated=False");
 
             return false;
+        }
+
+        /// <summary>
+        /// Determines if the type is a delegate.
+        /// </summary>
+        /// <param name="type">The type to check.</param>
+        /// <returns><c>true</c> if the type is sub class of <see cref="Delegate"/>, otherwise <c>false</c>.</returns>
+        public static bool IsDelegate(Type type)
+        {
+            return type.IsSubclassOf(typeof(Delegate));
         }
 
         /// <summary>

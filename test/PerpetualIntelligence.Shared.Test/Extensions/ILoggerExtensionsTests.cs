@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -52,37 +49,6 @@ namespace PerpetualIntelligence.Shared.Extensions
             };
 
             string? message = Logger.FormatAndLog(Microsoft.Extensions.Logging.LogLevel.Debug, loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
-            Assert.AreEqual("Test message. client_id=**** scope=**** test=****", message);
-        }
-
-        [TestMethod]
-        public void FormatDefaultShouldNotEnableArguments()
-        {
-            OneImlxLoggingOptions loggingOptions = new();
-            string message = Logger.Format(loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
-            Assert.AreEqual("Test message. client_id=**** scope=**** test=****", message);
-        }
-
-        [TestMethod]
-        public void FormatShouldEnableArguments()
-        {
-            OneImlxLoggingOptions loggingOptions = new()
-            {
-                RevealErrorArguments = true
-            };
-            string message = Logger.Format(loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
-            Assert.AreEqual("Test message. client_id=test_client_id scope=test_scope test=test_value", message);
-        }
-
-        [TestMethod]
-        public void FormatShouldNotEnableArguments()
-        {
-            OneImlxLoggingOptions loggingOptions = new()
-            {
-                RevealErrorArguments = false
-            };
-
-            string message = Logger.Format(loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
             Assert.AreEqual("Test message. client_id=**** scope=**** test=****", message);
         }
     }

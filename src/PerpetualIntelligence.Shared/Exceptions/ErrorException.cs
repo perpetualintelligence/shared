@@ -1,12 +1,10 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Shared.Infrastructure;
-using PerpetualIntelligence.Shared.Services;
 using System;
 
 namespace PerpetualIntelligence.Shared.Exceptions
@@ -28,13 +26,18 @@ namespace PerpetualIntelligence.Shared.Exceptions
         /// </summary>
         /// <param name="error">The error code.</param>
         /// <param name="errorDescription">The error description.</param>
-        /// <param name="formatArgs">The error description format arguments.</param>
-        public ErrorException(string error, string errorDescription, params object[]? formatArgs)
+        /// <param name="args">The error description format arguments.</param>
+        public ErrorException(string error, string errorDescription, params object[]? args)
         {
             Error = error;
             ErrorDescription = errorDescription;
-            FormatArgs = formatArgs;
+            Args = args;
         }
+
+        /// <summary>
+        /// The error description format arguments.
+        /// </summary>
+        public object[]? Args { get; }
 
         /// <summary>
         /// The error code.
@@ -51,23 +54,18 @@ namespace PerpetualIntelligence.Shared.Exceptions
         /// </summary>
         public string? ErrorUri { get; set; }
 
-        /// <summary>
-        /// The error description format arguments.
-        /// </summary>
-        public object[]? FormatArgs { get; }
-
         /// <inheritdoc/>
         public override string Message
         {
             get
             {
-                if (FormatArgs == null)
+                if (Args == null)
                 {
                     return ErrorDescription;
                 }
                 else
                 {
-                    return string.Format(ErrorDescription, FormatArgs);
+                    return string.Format(ErrorDescription, Args);
                 }
             }
         }
@@ -76,15 +74,5 @@ namespace PerpetualIntelligence.Shared.Exceptions
         /// The request id.
         /// </summary>
         public string? RequestId { get; set; }
-
-        /// <summary>
-        /// Formats the <see cref="ErrorDescription"/> based on the specified <see cref="OneImlxLoggingOptions"/>.
-        /// </summary>
-        /// <param name="options"></param>
-        /// <returns></returns>
-        public string Format(OneImlxLoggingOptions options)
-        {
-            ErrorFormatter.Format(options, ErrorDescription, FormatArgs);
-        }
     }
 }

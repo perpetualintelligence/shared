@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using System.Collections.Generic;
@@ -76,11 +73,32 @@ namespace PerpetualIntelligence.Shared.Extensions
         }
 
         /// <summary>
-        /// Removes the leading occurrence of a string.
+        /// Removes the trailing occurrence of a string recursively.
         /// </summary>
         /// <param name="self">The string to trim.</param>
         /// <param name="trim">The string to trim from start.</param>
-        public static string TrimStart(this string self, string? trim)
+        public static string TrimEndRecursive(this string self, string? trim)
+        {
+            if (string.IsNullOrEmpty(trim))
+            {
+                return self;
+            }
+
+            string result = self;
+            while (result.EndsWith(trim, System.StringComparison.Ordinal))
+            {
+                result = result.Remove(result.LastIndexOf(trim, System.StringComparison.Ordinal));
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Removes the leading occurrence of a string recursively.
+        /// </summary>
+        /// <param name="self">The string to trim.</param>
+        /// <param name="trim">The string to trim from start.</param>
+        public static string TrimStartRecursive(this string self, string? trim)
         {
             if (string.IsNullOrEmpty(trim))
             {

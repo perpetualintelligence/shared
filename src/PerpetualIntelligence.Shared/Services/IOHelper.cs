@@ -39,7 +39,7 @@ namespace PerpetualIntelligence.Shared.Services
             if (!Path.IsPathRooted(path))
             {
                 // Full name return the current directory for relative paths.
-                string parentPath = Directory.GetParent(path).FullName.TrimStart(Directory.GetCurrentDirectory());
+                string parentPath = Directory.GetParent(path).FullName.TrimStartRecursive(Directory.GetCurrentDirectory());
                 if (!path.StartsWith("" + Path.DirectorySeparatorChar, StringComparison.Ordinal))
                 {
                     return parentPath.TrimStart(Path.DirectorySeparatorChar);

@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com
@@ -7,8 +7,8 @@
 
 using Microsoft.Extensions.Logging;
 using PerpetualIntelligence.Shared.Infrastructure;
+using PerpetualIntelligence.Shared.Services;
 using System;
-using System.Linq;
 
 namespace PerpetualIntelligence.Shared.Extensions
 {
@@ -26,10 +26,10 @@ namespace PerpetualIntelligence.Shared.Extensions
         /// <param name="message"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        public static string FormatAndLog(this ILogger logger, LogLevel logLevel, OneImlxLoggingOptions loggingOptions, string message, params object[] args)
+        public static string FormatAndLog(this ILogger logger, LogLevel logLevel, OneImlxLoggingOptions loggingOptions, string message, params object[]? args)
         {
             // For downstream processing
-            Tuple<string, object?[]>? formatted = FormatMessage(loggingOptions, message, args);
+            Tuple<string, object[]?> formatted = FormatMessage(loggingOptions, message, args);
 
             // For actual logging
             switch (logLevel)
@@ -74,18 +74,17 @@ namespace PerpetualIntelligence.Shared.Extensions
             return formatted.Item1;
         }
 
-        private static Tuple<string, object?[]> FormatMessage(OneImlxLoggingOptions loggingOptions, string message, params object?[] args)
+        private static Tuple<string, object[]?> FormatMessage(OneImlxLoggingOptions loggingOptions, string message, params object[]? args)
         {
-            object?[] argsToUse = args;
             if (args != null)
             {
-                if (!loggingOptions.RevealErrorArguments.GetValueOrDefault())
-                {
-                    argsToUse = Enumerable.Repeat(loggingOptions.ObscureErrorArgumentString, args.Length).ToArray();
-                }
+                object[]? argsToUse = ErrorFormatter.Obscure(loggingOptions, args);
+                return new(string.Format(message, argsToUse), argsToUse);
             }
-
-            return new(string.Format(message, argsToUse), argsToUse);
+            else
+            {
+                return new(message, null); ;
+            }
         }
     }
 }

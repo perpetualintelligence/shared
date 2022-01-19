@@ -50,7 +50,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
                 ErrorCode = ""
             };
 
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.AddError(error), "'Error' cannot be null or whitespace. (Parameter 'error')");
+            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.AddError(error), "'ErrorCode' cannot be null or whitespace. (Parameter 'error')");
         }
 
         [TestMethod]

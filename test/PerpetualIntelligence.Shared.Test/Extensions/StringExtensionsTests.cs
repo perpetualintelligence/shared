@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -68,53 +65,103 @@ namespace PerpetualIntelligence.Shared.Extensions
         }
 
         [TestMethod]
-        public void TrimStart()
+        public void TrimEndRecursive()
         {
-            string test = "#arg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("#"));
+            string test = "arg=value#";
+            Assert.AreEqual("arg=value", test.TrimEndRecursive("#"));
 
-            test = "#~arg=value";
-            Assert.AreEqual("~arg=value", test.TrimStart("#"));
+            test = "~arg=value#";
+            Assert.AreEqual("~arg=value", test.TrimEndRecursive("#"));
 
-            test = "####arg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("#"));
+            test = "arg=value####";
+            Assert.AreEqual("arg=value", test.TrimEndRecursive("#"));
 
-            test = "####arg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("##"));
+            test = "arg=value####";
+            Assert.AreEqual("arg=value", test.TrimEndRecursive("##"));
 
-            test = "####arg=value";
-            Assert.AreEqual("#arg=value", test.TrimStart("###"));
+            test = "arg=value####";
+            Assert.AreEqual("arg=value#", test.TrimEndRecursive("###"));
 
-            test = "####arg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("####"));
+            test = "arg=value####";
+            Assert.AreEqual("arg=value", test.TrimEndRecursive("####"));
 
-            test = "##  ##arg=value";
-            Assert.AreEqual("##  ##arg=value", test.TrimStart("####"));
+            test = "arg=value##  ##";
+            Assert.AreEqual("arg=value##  ##", test.TrimEndRecursive("####"));
         }
 
         [TestMethod]
-        public void TrimStartUnicode()
+        public void TrimEndRecursiveUnicode()
         {
-            string test = "ööarg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("öö"));
+            string test = "arg=valueöö";
+            Assert.AreEqual("arg=value", test.TrimEndRecursive("öö"));
 
-            test = "ööarg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("ö"));
+            test = "arg=valueöö";
+            Assert.AreEqual("arg=value", test.TrimEndRecursive("ö"));
 
-            test = "माणूसarg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("माणूस"));
+            test = "arg=valueमाणूस";
+            Assert.AreEqual("arg=value", test.TrimEndRecursive("माणूस"));
 
-            test = "माणूसarg=value";
-            Assert.AreEqual("सarg=value", test.TrimStart("माणू"));
+            test = "arg=valueमाणूस";
+            Assert.AreEqual("arg=valueमा", test.TrimEndRecursive("णूस"));
 
-            test = "माणू    सarg=value";
-            Assert.AreEqual("    सarg=value", test.TrimStart("माणू"));
+            test = "arg=valueमा    णूस";
+            Assert.AreEqual("arg=valueमा    ", test.TrimEndRecursive("णूस"));
 
             test = "माणूस की चान अहे";
-            Assert.AreEqual("चान अहे", test.TrimStart("माणूस की "));
+            Assert.AreEqual("माणूस की", test.TrimEndRecursive(" चान अहे"));
+
+            test = "माणूस की चान अहे माणूसमाणूमाणू";
+            Assert.AreEqual("माणूस की चान अहे माणूस", test.TrimEndRecursive("माणू"));
+        }
+
+        [TestMethod]
+        public void TrimStartRecursive()
+        {
+            string test = "#arg=value";
+            Assert.AreEqual("arg=value", test.TrimStartRecursive("#"));
+
+            test = "#~arg=value";
+            Assert.AreEqual("~arg=value", test.TrimStartRecursive("#"));
+
+            test = "####arg=value";
+            Assert.AreEqual("arg=value", test.TrimStartRecursive("#"));
+
+            test = "####arg=value";
+            Assert.AreEqual("arg=value", test.TrimStartRecursive("##"));
+
+            test = "####arg=value";
+            Assert.AreEqual("#arg=value", test.TrimStartRecursive("###"));
+
+            test = "####arg=value";
+            Assert.AreEqual("arg=value", test.TrimStartRecursive("####"));
+
+            test = "##  ##arg=value";
+            Assert.AreEqual("##  ##arg=value", test.TrimStartRecursive("####"));
+        }
+
+        [TestMethod]
+        public void TrimStartRecursiveUnicode()
+        {
+            string test = "ööarg=value";
+            Assert.AreEqual("arg=value", test.TrimStartRecursive("öö"));
+
+            test = "ööarg=value";
+            Assert.AreEqual("arg=value", test.TrimStartRecursive("ö"));
+
+            test = "माणूसarg=value";
+            Assert.AreEqual("arg=value", test.TrimStartRecursive("माणूस"));
+
+            test = "माणूसarg=value";
+            Assert.AreEqual("सarg=value", test.TrimStartRecursive("माणू"));
+
+            test = "माणू    सarg=value";
+            Assert.AreEqual("    सarg=value", test.TrimStartRecursive("माणू"));
+
+            test = "माणूस की चान अहे";
+            Assert.AreEqual("चान अहे", test.TrimStartRecursive("माणूस की "));
 
             test = "माणूमाणूसमाणूस माणूस की चान अहे";
-            Assert.AreEqual("समाणूस माणूस की चान अहे", test.TrimStart("माणू"));
+            Assert.AreEqual("समाणूस माणूस की चान अहे", test.TrimStartRecursive("माणू"));
         }
     }
 }

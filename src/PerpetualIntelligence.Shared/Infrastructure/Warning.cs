@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using System.Text.Json.Serialization;
@@ -15,23 +12,23 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     /// <summary>
     /// The generic <c>oneimlx</c> warning.
     /// </summary>
-    public class OneImlxWarning
+    public class Warning
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        public OneImlxWarning()
+        public Warning()
         {
-            Warning = "unexpected_warning";
+            WarningCode = "unexpected_warning";
         }
 
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
         /// <param name="warning"></param>
-        public OneImlxWarning(string warning)
+        public Warning(string warning)
         {
-            Warning = warning;
+            WarningCode = warning;
         }
 
         /// <summary>
@@ -42,9 +39,9 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <param name="warningUri"></param>
         /// <param name="requestId"></param>
         /// <param name="httpStatusCode"></param>
-        public OneImlxWarning(string warning, string? warningDescription = null, string? warningUri = null, string? requestId = null, int? httpStatusCode = null)
+        public Warning(string warning, string? warningDescription = null, string? warningUri = null, string? requestId = null, int? httpStatusCode = null)
         {
-            Warning = warning;
+            WarningCode = warning;
             WarningDescription = warningDescription;
             WarningUri = warningUri;
             RequestId = requestId;
@@ -66,7 +63,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// The <c>warning</c> code.
         /// </summary>
         [JsonPropertyName("warning")]
-        public string Warning { get; set; }
+        public string WarningCode { get; set; }
 
         /// <summary>
         /// The <c>warning_description</c>.

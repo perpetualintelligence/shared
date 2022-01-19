@@ -21,8 +21,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void InformationDescriptionTest()
         {
-            Type type = typeof(OneImlxInformation);
-            PropertyInfo? prop = type.GetProperty(nameof(OneImlxInformation.InformationDescription));
+            Type type = typeof(Information);
+            PropertyInfo? prop = type.GetProperty(nameof(Information.InformationDescription));
 
             Assert.IsNotNull(prop);
 
@@ -34,8 +34,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void InformationTest()
         {
-            Type type = typeof(OneImlxInformation);
-            PropertyInfo? prop = type.GetProperty(nameof(OneImlxInformation.Information));
+            Type type = typeof(Information);
+            PropertyInfo? prop = type.GetProperty(nameof(Information.InformationCode));
 
             Assert.IsNotNull(prop);
 
@@ -47,8 +47,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void InformationUriTest()
         {
-            Type type = typeof(OneImlxInformation);
-            PropertyInfo? prop = type.GetProperty(nameof(OneImlxInformation.InformationUri));
+            Type type = typeof(Information);
+            PropertyInfo? prop = type.GetProperty(nameof(Information.InformationUri));
 
             Assert.IsNotNull(prop);
 

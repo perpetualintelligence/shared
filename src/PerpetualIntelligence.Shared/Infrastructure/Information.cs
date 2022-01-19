@@ -15,12 +15,12 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     /// <summary>
     /// The generic <c>oneimlx</c> information.
     /// </summary>
-    public class OneImlxInformation
+    public class Information
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        public OneImlxInformation()
+        public Information()
         {
         }
 
@@ -31,9 +31,9 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <param name="informationDescription"></param>
         /// <param name="informationUri"></param>
         /// <param name="requestId"></param>
-        public OneImlxInformation(string information, string? informationDescription = null, string? informationUri = null, string? requestId = null)
+        public Information(string information, string? informationDescription = null, string? informationUri = null, string? requestId = null)
         {
-            Information = information;
+            InformationCode = information;
             InformationDescription = informationDescription;
             InformationUri = informationUri;
             RequestId = requestId;
@@ -43,7 +43,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// The <c>information</c> code. Defaults to <c>unexpected_information</c>.
         /// </summary>
         [JsonPropertyName("information")]
-        public string Information { get; set; } = "unexpected_information";
+        public string InformationCode { get; set; } = "unexpected_information";
 
         /// <summary>
         /// The <c>information_description</c>.
