@@ -19,7 +19,7 @@ namespace PerpetualIntelligence.Shared.Exceptions
     public class CheckerException : Exception
     {
         /// <inheritdoc/>
-        public CheckerException(OneImlxResult result)
+        public CheckerException(Result result)
         {
             Result = result;
         }
@@ -39,7 +39,7 @@ namespace PerpetualIntelligence.Shared.Exceptions
         /// <summary>
         /// The checker result.
         /// </summary>
-        public OneImlxResult? Result { get; }
+        public Result? Result { get; }
 
         /// <inheritdoc/>
         protected CheckerException(

@@ -733,12 +733,12 @@ namespace PerpetualIntelligence.Test.Services
         }
 
         /// <summary>
-        /// Asserts <see cref="OneImlxResult"/> is an error.
+        /// Asserts <see cref="Result"/> is an error.
         /// </summary>
         /// <param name="result"></param>
         /// <param name="error"></param>
         /// <param name="errorDescription"></param>
-        public static void AssertOneImlxError(OneImlxResult result, string error, string? errorDescription)
+        public static void AssertOneImlxError(Result result, string error, string? errorDescription)
         {
             Assert.IsTrue(result.IsError);
             Assert.IsNotNull(result.FirstError);
@@ -763,9 +763,9 @@ namespace PerpetualIntelligence.Test.Services
         /// </summary>
         /// <param name="result"></param>
         /// <param name="exceptionMessage"></param>
-        public static void AssertOneImlxHttpResultException(OneImlxHttpResult result, string exceptionMessage)
+        public static void AssertOneImlxHttpResultException(HttpResult result, string exceptionMessage)
         {
-            Assert.AreEqual(OneImlxHttpResultType.Exception, result.ResultType);
+            Assert.AreEqual(HttpResultType.Exception, result.ResultType);
             Assert.IsNotNull(result.Exception);
             Assert.AreEqual(exceptionMessage, result.Exception.Message);
             Assert.IsNull(result.HttpResponse);
@@ -779,9 +779,9 @@ namespace PerpetualIntelligence.Test.Services
         /// <param name="httpStatusCode"></param>
         /// <param name="reasonPhrase"></param>
         /// <param name="raw"></param>
-        public static void AssertOneImlxHttpResultResponse(OneImlxHttpResult result, HttpStatusCode httpStatusCode, string? reasonPhrase, string? raw)
+        public static void AssertOneImlxHttpResultResponse(HttpResult result, HttpStatusCode httpStatusCode, string? reasonPhrase, string? raw)
         {
-            Assert.AreEqual(OneImlxHttpResultType.HttpResponse, result.ResultType);
+            Assert.AreEqual(HttpResultType.HttpResponse, result.ResultType);
             Assert.IsNotNull(result.HttpResponse);
             Assert.AreEqual(httpStatusCode, result.HttpResponse.StatusCode);
             Assert.AreEqual(reasonPhrase, result.HttpResponse.ReasonPhrase);

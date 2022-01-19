@@ -1,11 +1,8 @@
 /*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 namespace PerpetualIntelligence.Shared.Infrastructure
@@ -13,7 +10,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     /// <summary>
     /// The generic <c>oneimlx</c> logging configuration options.
     /// </summary>
-    public class OneImlxLoggingOptions
+    public class LoggingOptions
     {
         /// <summary>
         /// The string used to obscure error arguments. Defaults to <c>****</c>.

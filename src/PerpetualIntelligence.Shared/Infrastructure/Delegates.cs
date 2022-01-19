@@ -12,5 +12,5 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     /// <summary>
     /// The delegate that returns a result for the specified context.
     /// </summary>
-    public delegate Task<TResult> ResultDelegate<TContext, TResult>(TContext context) where TContext : class where TResult : OneImlxResult;
+    public delegate Task<TResult> ResultDelegate<TContext, TResult>(TContext context) where TContext : class where TResult : Result;
 }

@@ -23,7 +23,7 @@ namespace PerpetualIntelligence.Shared.Services
     public static class ErrorFormatter
     {
         /// <summary>
-        /// Ensures that the action returns a <see cref="OneImlxResult"/>.
+        /// Ensures that the action returns a <see cref="Result"/>.
         /// </summary>
         /// <typeparam name="TContext">The context type.</typeparam>
         /// <typeparam name="TResult">The result type.</typeparam>
@@ -32,7 +32,7 @@ namespace PerpetualIntelligence.Shared.Services
         /// <param name="logger">The logger.</param>
         /// <param name="options">The configuration option.</param>
         /// <returns></returns>
-        public static Task<TResult> EnsureResultAsync<TContext, TResult>(ResultDelegate<TContext, TResult> action, TContext context, ILogger logger, OneImlxLoggingOptions options) where TContext : class where TResult : OneImlxResult
+        public static Task<TResult> EnsureResultAsync<TContext, TResult>(ResultDelegate<TContext, TResult> action, TContext context, ILogger logger, LoggingOptions options) where TContext : class where TResult : Result
         {
             try
             {
@@ -41,34 +41,34 @@ namespace PerpetualIntelligence.Shared.Services
             catch (ErrorException ee)
             {
                 string errorDesc = logger.FormatAndLog(Microsoft.Extensions.Logging.LogLevel.Error, options, ee.ErrorDescription, ee.Args);
-                return Task.FromResult(OneImlxResult.NewError<TResult>(ee.Error, errorDesc));
+                return Task.FromResult(Result.NewError<TResult>(ee.Error, errorDesc));
             }
             catch (Exception ex)
             {
                 string errorDesc = logger.FormatAndLog(Microsoft.Extensions.Logging.LogLevel.Error, options, "The request resulted in an unexpected error. additonal_info={0}", ex.Message);
-                return Task.FromResult(OneImlxResult.NewError<TResult>("unexpected_error", errorDesc));
+                return Task.FromResult(Result.NewError<TResult>("unexpected_error", errorDesc));
             }
         }
 
         /// <summary>
         /// Formats the error message for downstream processing.
         /// </summary>
-        /// <param name="loggingOptions">The logging options. See <see cref="OneImlxLoggingOptions"/>.</param>
+        /// <param name="loggingOptions">The logging options. See <see cref="LoggingOptions"/>.</param>
         /// <param name="message">The message to format.</param>
         /// <param name="args">The format arguments.</param>
         /// <returns>The formatted error message.</returns>
-        public static string Format(OneImlxLoggingOptions loggingOptions, string message, params object[]? args)
+        public static string Format(LoggingOptions loggingOptions, string message, params object[]? args)
         {
             return string.Format(message, Obscure(loggingOptions, args));
         }
 
         /// <summary>
-        /// Obscures the arguments based on <see cref="OneImlxLoggingOptions"/>.
+        /// Obscures the arguments based on <see cref="LoggingOptions"/>.
         /// </summary>
         /// <param name="loggingOptions">The logging options.</param>
         /// <param name="args">The arguments to obscure.</param>
         /// <returns>The obscured arguments.</returns>
-        public static object[]? Obscure(OneImlxLoggingOptions loggingOptions, params object[]? args)
+        public static object[]? Obscure(LoggingOptions loggingOptions, params object[]? args)
         {
             object[]? argsToUse = args;
             if (args != null)

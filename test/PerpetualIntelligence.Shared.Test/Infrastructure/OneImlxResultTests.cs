@@ -20,7 +20,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void AddErrorObjectShouldAddTheError()
         {
-            OneImlxResult result = new();
+            Result result = new();
 
             Error error = new()
             {
@@ -44,7 +44,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void AddErrorObjWithoutErrorCodeShouldThrow()
         {
-            OneImlxResult result = new();
+            Result result = new();
             Error error = new()
             {
                 ErrorCode = ""
@@ -56,7 +56,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void AddErrorShouldAddTheError()
         {
-            OneImlxResult result = new();
+            Result result = new();
 
             result.AddError("test_error", "test_error_desc", "test_error_uri", "test_request_id");
             Assert.IsNotNull(result.Errors);
@@ -72,7 +72,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void AddErrorWithoutErrorCodeShouldThrow()
         {
-            OneImlxResult result = new();
+            Result result = new();
 
             // null
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
@@ -86,14 +86,14 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void DefaultInstanceShouldNotContainAnyError()
         {
-            OneImlxResult result = new();
+            Result result = new();
             Assert.IsFalse(result.IsError);
         }
 
         [TestMethod]
         public void FirstErrorDescriptionShouldReturnCorrectDescription()
         {
-            OneImlxResult result = new();
+            Result result = new();
             result.AddError("test_error1", "test_error_desc1");
             result.AddError("test_error2", "test_error_desc2");
             result.AddError("test_error3", "test_error_desc3");
@@ -106,7 +106,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void FirstErrorShouldReturnCorrectError()
         {
-            OneImlxResult result = new();
+            Result result = new();
             result.AddError("test_error1");
             result.AddError("test_error2");
             result.AddError("test_error3");
@@ -127,7 +127,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
                 RequestId = "test_request_id"
             };
 
-            var result = OneImlxResult.NewError<OneImlxResult>(error);
+            var result = Result.NewError<Result>(error);
             Assert.IsTrue(result.IsError);
             Assert.IsNotNull(result.FirstError);
             Assert.AreEqual("test_error", result.FirstError.ErrorCode);
@@ -135,7 +135,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             Assert.AreEqual("test_error_uri", result.FirstError.ErrorUri);
             Assert.AreEqual("test_request_id", result.FirstError.RequestId);
 
-            var result2 = OneImlxResult.NewError<OneImlxResult>("test_error2", "test_error_desc2", "test_error_uri2", "test_request_id2");
+            var result2 = Result.NewError<Result>("test_error2", "test_error_desc2", "test_error_uri2", "test_request_id2");
             Assert.IsTrue(result2.IsError);
             Assert.IsNotNull(result2.FirstError);
             Assert.AreEqual("test_error2", result2.FirstError.ErrorCode);
@@ -144,7 +144,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             Assert.AreEqual("test_request_id2", result2.FirstError.RequestId);
 
             // Sync from result
-            var result3 = OneImlxResult.NewError<OneImlxResult>(result2);
+            var result3 = Result.NewError<Result>(result2);
             Assert.IsTrue(result3.IsError);
             Assert.IsNotNull(result3.FirstError);
             Assert.AreEqual("test_error2", result3.FirstError.ErrorCode);
@@ -159,21 +159,21 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void NewInstanceShouldNotError()
         {
-            OneImlxResult oneImlxResult = new();
+            Result oneImlxResult = new();
             Assert.IsFalse(oneImlxResult.IsError);
         }
 
         [TestMethod]
         public void NewSuccessShouldNotError()
         {
-            var result = OneImlxResult.NewSuccess<OneImlxResult>();
+            var result = Result.NewSuccess<Result>();
             Assert.IsFalse(result.IsError);
         }
 
         [TestMethod]
         public void NoErrorShouldRemoveAllError()
         {
-            OneImlxResult result = new();
+            Result result = new();
             result.AddError("test_error1");
             result.AddError("test_error2");
 
@@ -189,7 +189,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void SetErrorShouldRemovePreviousErrors()
         {
-            OneImlxResult result = new();
+            Result result = new();
             result.AddError("test_error1");
             result.AddError("test_error2");
 
@@ -211,7 +211,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         {
             // Bug: Microsoft returns ''error
 
-            OneImlxResult result = new();
+            Result result = new();
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
             TestHelper.AssertThrowsWithMessage<ArgumentNullException>(() => result.SetError(error: null), "'error' cannot be null. (Parameter 'error')");
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
@@ -226,12 +226,12 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void SyncErrorShouldRemovePreviousAndSetInputError()
         {
-            OneImlxResult result = new();
+            Result result = new();
             result.AddError("test_error1");
             result.AddError("test_error2");
             result.AddError("test_error3");
 
-            OneImlxResult input = new();
+            Result input = new();
             input.AddError("test_error3", "test_error_desc3", "test_error_uri3", "test_request_id3");
 
             result.SyncError(input);

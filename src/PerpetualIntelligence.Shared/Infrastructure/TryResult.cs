@@ -14,19 +14,19 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     /// The <c>oneimlx</c> result of a try method.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public sealed class OneImlxTryResult<T> : OneImlxResult
+    public sealed class TryResult<T> : Result
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        public OneImlxTryResult()
+        public TryResult()
         {
         }
 
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        public OneImlxTryResult(Error error)
+        public TryResult(Error error)
         {
             SetError(error);
         }
@@ -35,7 +35,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// Initialize a new instance.
         /// </summary>
         /// <param name="result"></param>
-        public OneImlxTryResult(T result)
+        public TryResult(T result)
         {
             Result = result;
         }

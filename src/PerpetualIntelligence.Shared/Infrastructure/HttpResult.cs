@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using PerpetualIntelligence.Shared.Attributes;
@@ -20,15 +17,15 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     /// <summary>
     /// The generic <c>oneimlx</c> HTTP result.
     /// </summary>
-    public class OneImlxHttpResult : OneImlxResult, IDisposable
+    public class HttpResult : Result, IDisposable
     {
         /// <summary>
-        /// The exception instance if <see cref="ResultType"/> is <see cref="OneImlxHttpResultType.Exception"/>.
+        /// The exception instance if <see cref="ResultType"/> is <see cref="HttpResultType.Exception"/>.
         /// </summary>
         public Exception? Exception { get; protected set; }
 
         /// <summary>
-        /// The HTTP response instance if <see cref="ResultType"/> is <see cref="OneImlxHttpResultType.HttpResponse"/>..
+        /// The HTTP response instance if <see cref="ResultType"/> is <see cref="HttpResultType.HttpResponse"/>..
         /// </summary>
         public HttpResponseMessage? HttpResponse { get; protected set; }
 
@@ -45,22 +42,22 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <summary>
         /// The result type.
         /// </summary>
-        public OneImlxHttpResultType ResultType { get; protected set; }
+        public HttpResultType ResultType { get; protected set; }
 
         /// <summary>
-        /// Initializes a new <see cref="OneImlxHttpResult"/> from an exception.
+        /// Initializes a new <see cref="HttpResult"/> from an exception.
         /// </summary>
         /// <typeparam name="T">The result type.</typeparam>
         /// <param name="ex">The exception.</param>
         /// <param name="additionalInfo">The additional information.</param>
         /// <returns></returns>
-        public static T FromException<T>(Exception ex, string? additionalInfo = null) where T : OneImlxHttpResult, new()
+        public static T FromException<T>(Exception ex, string? additionalInfo = null) where T : HttpResult, new()
         {
             // Set the exception
             T response = new()
             {
                 Exception = ex,
-                ResultType = OneImlxHttpResultType.Exception,
+                ResultType = HttpResultType.Exception,
             };
 
             // Set the onetime error info
@@ -69,18 +66,18 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         }
 
         /// <summary>
-        /// Initializes a new <see cref="OneImlxHttpResult"/> from the HTTP response.
+        /// Initializes a new <see cref="HttpResult"/> from the HTTP response.
         /// </summary>
         /// <typeparam name="T">The result type</typeparam>
         /// <param name="httpResponse">The HTTP response.</param>
         /// <param name="addtionalInfo">The additional information.</param>
         /// <param name="additionalData">The additional data.</param>
-        public static async Task<T> FromHttpResponseAsync<T>(HttpResponseMessage httpResponse, string? addtionalInfo = null, [Refactor("Remove this and find a better way to do this ?")] object? additionalData = null) where T : OneImlxHttpResult, new()
+        public static async Task<T> FromHttpResponseAsync<T>(HttpResponseMessage httpResponse, string? addtionalInfo = null, [Refactor("Remove this and find a better way to do this ?")] object? additionalData = null) where T : HttpResult, new()
         {
             T response = new()
             {
                 HttpResponse = httpResponse,
-                ResultType = OneImlxHttpResultType.HttpResponse
+                ResultType = HttpResultType.HttpResponse
             };
 
             // Read the raw response content.

@@ -26,7 +26,7 @@ namespace PerpetualIntelligence.Shared.Extensions
         /// <param name="message"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        public static string FormatAndLog(this ILogger logger, LogLevel logLevel, OneImlxLoggingOptions loggingOptions, string message, params object[]? args)
+        public static string FormatAndLog(this ILogger logger, LogLevel logLevel, LoggingOptions loggingOptions, string message, params object[]? args)
         {
             // For downstream processing
             Tuple<string, object[]?> formatted = FormatMessage(loggingOptions, message, args);
@@ -74,7 +74,7 @@ namespace PerpetualIntelligence.Shared.Extensions
             return formatted.Item1;
         }
 
-        private static Tuple<string, object[]?> FormatMessage(OneImlxLoggingOptions loggingOptions, string message, params object[]? args)
+        private static Tuple<string, object[]?> FormatMessage(LoggingOptions loggingOptions, string message, params object[]? args)
         {
             if (args != null)
             {

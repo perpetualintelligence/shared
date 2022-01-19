@@ -33,6 +33,6 @@ namespace PerpetualIntelligence.Protocols.Abstractions
         /// </summary>
         /// <param name="context">The router context.</param>
         /// <returns>The request handler.</returns>
-        Task<OneImlxTryResult<THandler>> TryFindHandlerAsync(TContext context);
+        Task<TryResult<THandler>> TryFindHandlerAsync(TContext context);
     }
 }

@@ -18,7 +18,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     /// The generic <c>oneimlx</c> result.
     /// </summary>
     /// <seealso cref="Error"/>
-    public class OneImlxResult : IOneImlxResult
+    public class Result : IOneImlxResult
     {
         /// <summary>
         /// The result errors.
@@ -86,7 +86,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// </summary>
         /// <param name="error">The error.</param>
         /// <seealso cref="NewError(string, string?, string?, string?)"/>
-        public static T NewError<T>(Error error) where T : OneImlxResult
+        public static T NewError<T>(Error error) where T : Result
         {
             T tInst = Activator.CreateInstance<T>();
             tInst.SetError(error);
@@ -101,7 +101,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <param name="errorUri">The error URI.</param>
         /// <param name="requestId">The request id.</param>
         /// <seealso cref="NewError{T}(Error)"/>
-        public static T NewError<T>(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null) where T : OneImlxResult
+        public static T NewError<T>(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null) where T : Result
         {
             T tInst = Activator.CreateInstance<T>();
             tInst.SetError(error, errorDescription, errorUri, requestId);
@@ -113,7 +113,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// </summary>
         /// <param name="errorException">The error exception.</param>
         /// <seealso cref="NewError{T}(Error)"/>
-        public static T NewError<T>(ErrorException errorException) where T : OneImlxResult
+        public static T NewError<T>(ErrorException errorException) where T : Result
         {
             T tInst = Activator.CreateInstance<T>();
             tInst.SetError(errorException.Error, errorException.ErrorDescription, errorException.ErrorUri, errorException.RequestId);
@@ -124,7 +124,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// Creates a new error instance synced with specified result.
         /// </summary>
         /// <param name="result">The result instance.</param>
-        public static T NewError<T>(OneImlxResult result) where T : OneImlxResult
+        public static T NewError<T>(Result result) where T : Result
         {
             T tInst = Activator.CreateInstance<T>();
             tInst.SyncError(result);
@@ -134,7 +134,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <summary>
         /// Creates a new success instance.
         /// </summary>
-        public static T NewSuccess<T>() where T : OneImlxResult
+        public static T NewSuccess<T>() where T : Result
         {
             return Activator.CreateInstance<T>();
         }
@@ -174,7 +174,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// Appends all the errors from the input to this instance.
         /// </summary>
         [WriteUnitTest]
-        public void AppendError(OneImlxResult input)
+        public void AppendError(Result input)
         {
             if (input.IsError)
             {
@@ -223,7 +223,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <summary>
         /// Syncs all the errors from the input to this instance.
         /// </summary>
-        public void SyncError(OneImlxResult input)
+        public void SyncError(Result input)
         {
             if (input.IsError)
             {

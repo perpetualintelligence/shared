@@ -22,7 +22,7 @@ namespace PerpetualIntelligence.Shared.Extensions
         [TestMethod]
         public void FormatAndLogDefaultShouldNotEnableArguments()
         {
-            OneImlxLoggingOptions loggingOptions = new();
+            LoggingOptions loggingOptions = new();
 
             string? message = Logger.FormatAndLog(Microsoft.Extensions.Logging.LogLevel.Warning, loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
             Assert.AreEqual("Test message. client_id=**** scope=**** test=****", message);
@@ -31,7 +31,7 @@ namespace PerpetualIntelligence.Shared.Extensions
         [TestMethod]
         public void FormatAndLogShouldEnableArguments()
         {
-            OneImlxLoggingOptions loggingOptions = new()
+            LoggingOptions loggingOptions = new()
             {
                 RevealErrorArguments = true
             };
@@ -43,7 +43,7 @@ namespace PerpetualIntelligence.Shared.Extensions
         [TestMethod]
         public void FormatAndLogShouldNotEnableArguments()
         {
-            OneImlxLoggingOptions loggingOptions = new()
+            LoggingOptions loggingOptions = new()
             {
                 RevealErrorArguments = false
             };

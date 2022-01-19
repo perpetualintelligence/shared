@@ -16,7 +16,7 @@ namespace PerpetualIntelligence.Shared.Services
         [TestMethod]
         public void FormatDefaultShouldNotEnableArguments()
         {
-            OneImlxLoggingOptions loggingOptions = new();
+            LoggingOptions loggingOptions = new();
             string message = ErrorFormatter.Format(loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
             Assert.AreEqual("Test message. client_id=**** scope=**** test=****", message);
         }
@@ -24,7 +24,7 @@ namespace PerpetualIntelligence.Shared.Services
         [TestMethod]
         public void FormatShouldEnableArguments()
         {
-            OneImlxLoggingOptions loggingOptions = new()
+            LoggingOptions loggingOptions = new()
             {
                 RevealErrorArguments = true
             };
@@ -35,7 +35,7 @@ namespace PerpetualIntelligence.Shared.Services
         [TestMethod]
         public void FormatShouldNotEnableArguments()
         {
-            OneImlxLoggingOptions loggingOptions = new()
+            LoggingOptions loggingOptions = new()
             {
                 RevealErrorArguments = false
             };

@@ -18,7 +18,7 @@ namespace PerpetualIntelligence.Protocols.Security.Secrets
     /// <seealso cref="Secret"/>
     /// <seealso cref="SecretTypes"/>
     /// <seealso cref="SecretComparer"/>
-    public sealed class ExtractedSecret : OneImlxResult
+    public sealed class ExtractedSecret : Result
     {
         /// <summary>
         /// The secret identifier.
