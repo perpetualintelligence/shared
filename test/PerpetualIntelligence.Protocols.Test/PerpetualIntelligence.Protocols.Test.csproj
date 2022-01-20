@@ -15,4 +15,8 @@
         <ProjectReference Include="..\..\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Security\Certificates\" />
+    </ItemGroup>
+
 </Project>
