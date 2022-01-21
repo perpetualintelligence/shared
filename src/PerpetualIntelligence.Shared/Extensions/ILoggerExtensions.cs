@@ -78,7 +78,7 @@ namespace PerpetualIntelligence.Shared.Extensions
         {
             if (args != null)
             {
-                object[]? argsToUse = ErrorFormatter.Obscure(loggingOptions, args);
+                object[]? argsToUse = Formatter.Obscure(loggingOptions, args);
                 return new(string.Format(message, argsToUse), argsToUse);
             }
             else

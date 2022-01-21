@@ -11,13 +11,13 @@ using PerpetualIntelligence.Shared.Infrastructure;
 namespace PerpetualIntelligence.Shared.Services
 {
     [TestClass]
-    public class ErrorFormatterTests
+    public class FormatterTests
     {
         [TestMethod]
         public void FormatDefaultShouldNotEnableArguments()
         {
             LoggingOptions loggingOptions = new();
-            string message = ErrorFormatter.Format(loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
+            string message = Formatter.Format(loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
             Assert.AreEqual("Test message. client_id=**** scope=**** test=****", message);
         }
 
@@ -28,7 +28,7 @@ namespace PerpetualIntelligence.Shared.Services
             {
                 RevealErrorArguments = true
             };
-            string message = ErrorFormatter.Format(loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
+            string message = Formatter.Format(loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
             Assert.AreEqual("Test message. client_id=test_client_id scope=test_scope test=test_value", message);
         }
 
@@ -40,7 +40,7 @@ namespace PerpetualIntelligence.Shared.Services
                 RevealErrorArguments = false
             };
 
-            string message = ErrorFormatter.Format(loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
+            string message = Formatter.Format(loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
             Assert.AreEqual("Test message. client_id=**** scope=**** test=****", message);
         }
     }

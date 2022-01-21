@@ -20,7 +20,7 @@ namespace PerpetualIntelligence.Shared.Services
     /// Provides methods to format error.
     /// </summary>
     [WriteUnitTest]
-    public static class ErrorFormatter
+    public static class Formatter
     {
         /// <summary>
         /// Ensures that the action returns a <see cref="Result"/>.
