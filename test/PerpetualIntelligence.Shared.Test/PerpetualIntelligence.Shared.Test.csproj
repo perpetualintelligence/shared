@@ -8,7 +8,7 @@
         <Configurations>Debug;Release</Configurations>
     </PropertyGroup>
 
-    <Import Project="..\..\build\props\Test.props" />
+    <Import Project="..\..\build\props\TestSpecial.props" />
 
     <!--
         We do not use the project reference for PerpetualIntelligence.Test because that causes a cyclic dependency over the cadence pipeline of 
@@ -53,7 +53,7 @@
 	-->
 	<ItemGroup>
       <!--<PackageReference Include="PerpetualIntelligence.Test" Version="2.3.8-preview.220104921" />-->
-      <!--<ProjectReference Include="..\..\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />-->
+        <ProjectReference Include="..\..\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
     </ItemGroup>
 
     <!--
