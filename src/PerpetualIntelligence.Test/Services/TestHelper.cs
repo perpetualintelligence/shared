@@ -687,7 +687,7 @@ namespace PerpetualIntelligence.Test.Services
             string nonRootNamspace = @namespace.Replace(assembly.GetName().Name!, "").TrimStart('.');
 
             // check namespace dir. Start with project dir and combine all namespace.
-            List<string> nDirs = new List<string>() { prjDir };
+            List<string> nDirs = new() { prjDir };
             nDirs.AddRange(nonRootNamspace.Split('.'));
             string namespaceDir = Path.Combine(nDirs.ToArray());
             Assert.IsTrue(Directory.Exists(namespaceDir), $"The namespace '{@namespace}' is not valid. The namespace component '{nonRootNamspace}' must be a directory.");
@@ -712,7 +712,7 @@ namespace PerpetualIntelligence.Test.Services
                     int index = typeName.IndexOf("`");
                     if (index >= 0)
                     {
-                        typeName = typeName.Substring(0, index);
+                        typeName = typeName[..index];
                     }
 
                     typeFile = Path.Combine(namespaceDir, $"{typeName}.cs");
@@ -1208,7 +1208,7 @@ namespace PerpetualIntelligence.Test.Services
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static IEnumerable<PropertyInfo> GetAllProperties(this Type type)
+        private static IEnumerable<PropertyInfo> GetAllProperties(this Type type)
         {
             if (!type.IsInterface)
                 return type.GetProperties();
@@ -1224,7 +1224,7 @@ namespace PerpetualIntelligence.Test.Services
         /// </summary>
         /// <param name="arg"></param>
         /// <returns></returns>
-        public static bool IsCompilerGenerated(Attribute arg)
+        private static bool IsCompilerGenerated(Attribute arg)
         {
             return IsCompilerGenerated(arg.GetType());
         }
@@ -1233,35 +1233,23 @@ namespace PerpetualIntelligence.Test.Services
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static bool IsCompilerGenerated(Type type)
+        private static bool IsCompilerGenerated(Type type)
         {
             if (type.IsDefined(typeof(CompilerGeneratedAttribute)))
             {
                 return true;
             }
 
-            //if (type.IsDefined(typeof(ExcludeFromCodeCoverage)))
-            //{
-            //    return true;
-            //}
-
             if (type.Namespace == null)
             {
                 return true;
             }
-
-            //if (type.Namespace == "System.Runtime.CompilerServices" || type.Namespace == "System.Diagnostics" || type.Namespace == "Microsoft.CodeAnalysis")
-            //{
-            //    return true;
-            //}
 
             // https://github.com/coverlet-coverage/coverlet/issues/1191
             if (type.Namespace == "Coverlet.Core.Instrumentation.Tracker")
             {
                 return true;
             }
-
-            //Console.WriteLine($"Type={type.FullName} Namespace={type.Namespace} CompilerGenerated=False");
 
             return false;
         }
@@ -1271,24 +1259,9 @@ namespace PerpetualIntelligence.Test.Services
         /// </summary>
         /// <param name="type">The type to check.</param>
         /// <returns><c>true</c> if the type is sub class of <see cref="Delegate"/>, otherwise <c>false</c>.</returns>
-        public static bool IsDelegate(Type type)
+        private static bool IsDelegate(Type type)
         {
             return type.IsSubclassOf(typeof(Delegate));
-        }
-
-        /// <summary>
-        /// </summary>
-        public static bool IsReleasePipelineConfig()
-        {
-            string? pipelineConfig = System.Environment.GetEnvironmentVariable("PIDEVOPSPIPELINECONFIGURATION");
-
-            // Null for local env
-            if (pipelineConfig == null)
-            {
-                return false;
-            }
-
-            return pipelineConfig == "Release";
         }
     }
 }

@@ -11,27 +11,27 @@ using System;
 namespace PerpetualIntelligence.Test
 {
     /// <summary>
-    /// Represents a unique <c>OneImlx</c> test id.
+    /// Represents a test id.
     /// </summary>
     /// <remarks>
-    /// <see cref="OneImlxTestIdAttribute"/> is part of the Perpetual Intelligence infrastructure. Please do not use it
+    /// <see cref="TestIdAttribute"/> is part of the Perpetual Intelligence infrastructure. Please do not use it
     /// directly in your application code.
     /// </remarks>
 
     [InternalInfrastructure]
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
-    public sealed class OneImlxTestIdAttribute : Attribute
+    public sealed class TestIdAttribute : Attribute
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
         /// <param name="id">The test id.</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public OneImlxTestIdAttribute(string id)
+        public TestIdAttribute(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
             {
-                throw new ArgumentException($"The OneImlx test '{nameof(id)}' cannot be null or whitespace.", nameof(id));
+                throw new ArgumentException($"The test '{nameof(id)}' cannot be null or whitespace.", nameof(id));
             }
 
             Id = id;

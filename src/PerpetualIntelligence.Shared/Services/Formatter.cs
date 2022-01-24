@@ -57,7 +57,7 @@ namespace PerpetualIntelligence.Shared.Services
         /// <param name="message">The message to format.</param>
         /// <param name="args">The format arguments.</param>
         /// <returns>The formatted error message.</returns>
-        public static string Format(LoggingOptions loggingOptions, string message, params object[]? args)
+        public static string Format(LoggingOptions loggingOptions, string message, params object?[] args)
         {
             return string.Format(message, Obscure(loggingOptions, args));
         }
@@ -68,9 +68,9 @@ namespace PerpetualIntelligence.Shared.Services
         /// <param name="loggingOptions">The logging options.</param>
         /// <param name="args">The arguments to obscure.</param>
         /// <returns>The obscured arguments.</returns>
-        public static object[]? Obscure(LoggingOptions loggingOptions, params object[]? args)
+        public static object?[] Obscure(LoggingOptions loggingOptions, params object?[] args)
         {
-            object[]? argsToUse = args;
+            object?[] argsToUse = args;
             if (args != null)
             {
                 if (!loggingOptions.RevealErrorArguments.GetValueOrDefault())

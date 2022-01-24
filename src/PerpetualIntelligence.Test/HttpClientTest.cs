@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using Microsoft.AspNetCore.TestHost;
@@ -17,15 +14,15 @@ using System.Net.Http;
 namespace PerpetualIntelligence.Test
 {
     /// <summary>
-    /// Represents a test class that provides the HTTP client and logs the test.
+    /// Represents a <see cref="ContextTest"/> that provides the <see cref="HttpClient"/>.
     /// </summary>
-    public abstract class OneImlxHttpClientTest : OneImlxTest
+    public abstract class HttpClientTest : ContextTest
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
         /// <param name="logger"></param>
-        public OneImlxHttpClientTest(ILogger logger)
+        public HttpClientTest(ILogger logger)
         {
             Logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }

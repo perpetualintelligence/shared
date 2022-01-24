@@ -26,10 +26,10 @@ namespace PerpetualIntelligence.Shared.Extensions
         /// <param name="message"></param>
         /// <param name="args"></param>
         /// <returns></returns>
-        public static string FormatAndLog(this ILogger logger, LogLevel logLevel, LoggingOptions loggingOptions, string message, params object[]? args)
+        public static string FormatAndLog(this ILogger logger, LogLevel logLevel, LoggingOptions loggingOptions, string message, params object?[] args)
         {
             // For downstream processing
-            Tuple<string, object[]?> formatted = FormatMessage(loggingOptions, message, args);
+            Tuple<string, object?[]> formatted = FormatMessage(loggingOptions, message, args);
 
             // For actual logging
             switch (logLevel)
@@ -74,16 +74,16 @@ namespace PerpetualIntelligence.Shared.Extensions
             return formatted.Item1;
         }
 
-        private static Tuple<string, object[]?> FormatMessage(LoggingOptions loggingOptions, string message, params object[]? args)
+        private static Tuple<string, object?[]> FormatMessage(LoggingOptions loggingOptions, string message, params object?[] args)
         {
             if (args != null)
             {
-                object[]? argsToUse = Formatter.Obscure(loggingOptions, args);
+                object?[] argsToUse = Formatter.Obscure(loggingOptions, args);
                 return new(string.Format(message, argsToUse), argsToUse);
             }
             else
             {
-                return new(message, null); ;
+                return new(message, Array.Empty<object?>()); ;
             }
         }
     }

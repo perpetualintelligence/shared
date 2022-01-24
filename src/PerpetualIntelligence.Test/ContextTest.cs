@@ -1,0 +1,22 @@
+﻿/*
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
+
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
+*/
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace PerpetualIntelligence.Test
+{
+    /// <summary>
+    /// Represents a test class that provides <see cref="TestContext"/>.
+    /// </summary>
+    public abstract class ContextTest
+    {
+        /// <summary>
+        /// The test context. This property is set automatically by the test engine.
+        /// </summary>
+        public TestContext TestContext { get; set; } = null!;
+    }
+}

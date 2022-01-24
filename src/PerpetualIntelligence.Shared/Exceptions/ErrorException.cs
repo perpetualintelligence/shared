@@ -19,6 +19,7 @@ namespace PerpetualIntelligence.Shared.Exceptions
         {
             Error = error;
             ErrorDescription = errorDescription;
+            Args = Array.Empty<object?>();
         }
 
         /// <summary>
@@ -27,7 +28,7 @@ namespace PerpetualIntelligence.Shared.Exceptions
         /// <param name="error">The error code.</param>
         /// <param name="errorDescription">The error description.</param>
         /// <param name="args">The error description format arguments.</param>
-        public ErrorException(string error, string errorDescription, params object[]? args)
+        public ErrorException(string error, string errorDescription, params object?[] args)
         {
             Error = error;
             ErrorDescription = errorDescription;
@@ -37,7 +38,7 @@ namespace PerpetualIntelligence.Shared.Exceptions
         /// <summary>
         /// The error description format arguments.
         /// </summary>
-        public object[]? Args { get; }
+        public object?[] Args { get; }
 
         /// <summary>
         /// The error code.

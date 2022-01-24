@@ -13,7 +13,7 @@ using PerpetualIntelligence.Test.Services;
 namespace PerpetualIntelligence.Shared.Extensions
 {
     [TestClass]
-    public class ILoggerExtensionsTests : OneImlxLogTest
+    public class ILoggerExtensionsTests : LogTest
     {
         public ILoggerExtensionsTests() : base(TestLogger.Create<ILoggerExtensionsTests>())
         {

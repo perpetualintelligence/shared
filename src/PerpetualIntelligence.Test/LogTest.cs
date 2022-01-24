@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using Microsoft.Extensions.Logging;
@@ -14,15 +11,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace PerpetualIntelligence.Test
 {
     /// <summary>
-    /// Represents a test class that provides the test context and logger.
+    /// Represents a <see cref="ContextTest"/> that provides the <see cref="ILogger"/>.
     /// </summary>
-    public abstract class OneImlxLogTest : OneImlxTest
+    public abstract class LogTest : ContextTest
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
         /// <param name="logger"></param>
-        public OneImlxLogTest(ILogger logger)
+        public LogTest(ILogger logger)
         {
             Logger = logger;
         }
@@ -36,7 +33,7 @@ namespace PerpetualIntelligence.Test
         /// The test cleanup method that logs and calls <see cref="OnTestCleanup"/>.
         /// </summary>
         [TestCleanup]
-        public void ImlxLogTestCleanup()
+        public void Cleanup()
         {
             OnTestCleanup();
             Logger.LogInformation("-------- End Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
@@ -46,7 +43,7 @@ namespace PerpetualIntelligence.Test
         /// The test initialize method that logs and calls <see cref="OnTestInitialize"/>.
         /// </summary>
         [TestInitialize]
-        public void ImlxLogTestInitialize()
+        public void Initialize()
         {
             Logger.LogInformation("-------- Start Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
             OnTestInitialize();
