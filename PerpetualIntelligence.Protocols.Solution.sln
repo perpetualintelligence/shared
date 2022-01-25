@@ -26,7 +26,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{99A64035
 		build\props\Package.props = build\props\Package.props
 		build\props\PackageApache.props = build\props\PackageApache.props
 		build\props\Test.props = build\props\Test.props
-		build\props\TestSpecial.props = build\props\TestSpecial.props
 	EndProjectSection
 EndProject
 Global

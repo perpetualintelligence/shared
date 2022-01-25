@@ -5,6 +5,7 @@
     https://terms.perpetualintelligence.com
 */
 
+using PerpetualIntelligence.Shared.Attributes;
 using PerpetualIntelligence.Shared.Extensions;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
     /// </summary>
     /// <seealso href="https://tools.ietf.org/html/rfc6749#section-3.1.1"/>
     /// <seealso href="https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html"/>
+    [Performance("Check performance implications of HashSet ?")]
     public class DefaultResponseTypeComparer : IEqualityComparer<string?>
     {
         /// <summary>

@@ -31,18 +31,9 @@
     <!--
         CI CONFIG:
     -->
-    <Choose>
-        <When Condition="'$(PI_CI_REFERENCE)'=='cross'">
-            <ItemGroup>
-                <ProjectReference Include="..\..\..\protocols\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
-            </ItemGroup>
-        </When>
-        <Otherwise>
-            <ItemGroup>
-                <PackageReference Include="PerpetualIntelligence.Test" Version="$(PI_PROTOCOLS_PACKAGE_VERSION)" />
-            </ItemGroup>
-        </Otherwise>
-    </Choose>
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
+    </ItemGroup>
 
 </Project>
 

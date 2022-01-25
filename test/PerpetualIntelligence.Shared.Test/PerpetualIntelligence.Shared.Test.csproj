@@ -8,7 +8,7 @@
         <Configurations>Debug;Release</Configurations>
     </PropertyGroup>
 
-    <Import Project="..\..\build\props\TestSpecial.props" />
+    <Import Project="..\..\build\props\Test.props" />
 
     <!--
         PerpetualIntelligence.Shared and PerpetualIntelligence.Test causes a cyclic dependency over the CI pipeline of PerpetualIntelligence.Shared package.
