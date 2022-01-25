@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com
@@ -16,12 +16,6 @@ namespace PerpetualIntelligence.Protocols.Abstractions.AuthServer
     public interface IAuthServerHandler<TContext, TResult> : IHandler<TContext, TResult> where TContext : class where TResult : class
     {
         /// <summary>
-        /// Determines whether the handler issues a callback.
-        /// </summary>
-        /// <value><c>true</c> is the handler issues a callback, otherwise <c>fasle</c>.</value>
-        bool? Callback { get; }
-
-        /// <summary>
         /// Determines whether the handler is disabled.
         /// </summary>
         /// <value><c>true</c> is the handler is disabled, otherwise <c>fasle</c>.</value>
@@ -32,5 +26,11 @@ namespace PerpetualIntelligence.Protocols.Abstractions.AuthServer
         /// </summary>
         /// <value>The endpoint identifier.</value>
         string EndpointId { get; }
+
+        /// <summary>
+        /// Determines whether the handler issues a redirect callback.
+        /// </summary>
+        /// <value><c>true</c> is the handler issues a redirect callback, otherwise <c>fasle</c>.</value>
+        bool? Redirect { get; }
     }
 }

@@ -1263,5 +1263,20 @@ namespace PerpetualIntelligence.Test.Services
         {
             return type.IsSubclassOf(typeof(Delegate));
         }
+
+        /// <summary>
+        /// </summary>
+        public static bool IsReleasePipelineConfig()
+        {
+            string? pipelineConfig = System.Environment.GetEnvironmentVariable("PIDEVOPSPIPELINECONFIGURATION");
+
+            // Null for local env
+            if (pipelineConfig == null)
+            {
+                return false;
+            }
+
+            return pipelineConfig == "Release";
+        }
     }
 }

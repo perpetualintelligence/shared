@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 
-namespace PerpetualIntelligence.Protocols.Defaults.Claims
+namespace PerpetualIntelligence.Protocols.Defaults.Oidc
 {
     [TestClass]
     public class DefaultClaimComparerTests

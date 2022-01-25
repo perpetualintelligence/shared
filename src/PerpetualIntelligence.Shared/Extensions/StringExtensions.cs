@@ -5,6 +5,7 @@
     https://terms.perpetualintelligence.com
 */
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -48,8 +49,8 @@ namespace PerpetualIntelligence.Shared.Extensions
         /// <summary>
         /// Joins the string collection with a space separator.
         /// </summary>
-        /// <param name="list"></param>
-        /// <returns></returns>
+        /// <param name="list">A collection of string to join.</param>
+        /// <returns>A joined string.</returns>
         public static string JoinBySpace(this IEnumerable<string> list)
         {
             if (list == null)
@@ -57,7 +58,7 @@ namespace PerpetualIntelligence.Shared.Extensions
                 return string.Empty;
             }
 
-            return string.Join(" ", list).Trim();
+            return string.Join(" ", list);
         }
 
         /// <summary>
@@ -73,11 +74,27 @@ namespace PerpetualIntelligence.Shared.Extensions
         }
 
         /// <summary>
+        /// Splits the string with a space separator.
+        /// </summary>
+        /// <param name="self">The string to split.</param>
+        /// <returns>An array of string split by space separator.</returns>
+        public static string[] SplitBySpace(this string? self)
+        {
+            if (self == null)
+            {
+                return Array.Empty<string>();
+            }
+
+            return self.Split(' ');
+        }
+
+        /// <summary>
         /// Removes the trailing occurrence of a string recursively.
         /// </summary>
         /// <param name="self">The string to trim.</param>
         /// <param name="trim">The string to trim from start.</param>
-        public static string TrimEndRecursive(this string self, string? trim)
+        /// <remarks>The method compares the trim string with <see cref="StringComparison.Ordinal"/> sort rules.</remarks>
+        public static string TrimEnd(this string self, string? trim)
         {
             if (string.IsNullOrEmpty(trim))
             {
@@ -98,7 +115,8 @@ namespace PerpetualIntelligence.Shared.Extensions
         /// </summary>
         /// <param name="self">The string to trim.</param>
         /// <param name="trim">The string to trim from start.</param>
-        public static string TrimStartRecursive(this string self, string? trim)
+        /// <remarks>The method compares the trim string with <see cref="StringComparison.Ordinal"/> sort rules.</remarks>
+        public static string TrimStart(this string self, string? trim)
         {
             if (string.IsNullOrEmpty(trim))
             {

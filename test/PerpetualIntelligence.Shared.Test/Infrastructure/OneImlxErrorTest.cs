@@ -39,7 +39,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         }
 
         [TestMethod]
-        public void JsonPropertyNameShoudBeValid()
+        public void JsonPropertyNameShouldBeValid()
         {
             Type type = typeof(Error);
             TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(Error.ErrorCode)), "error");

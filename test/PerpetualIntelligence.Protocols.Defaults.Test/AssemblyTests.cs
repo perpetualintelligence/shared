@@ -19,13 +19,13 @@ namespace PerpetualIntelligence.Protocols.Defaults
         [TestMethod]
         public void TypesNamespaceTest()
         {
-            TestHelper.AssertNamespace(typeof(Claims.DefaultClaimComparer).Assembly, "PerpetualIntelligence.Protocols.Defaults");
+            TestHelper.AssertNamespace(typeof(Oidc.DefaultClaimComparer).Assembly, "PerpetualIntelligence.Protocols.Defaults");
         }
 
         [TestMethod]
         public void TypesTypesLocationTest()
         {
-            TestHelper.AssertAssemblyTypesLocation(typeof(Claims.DefaultClaimComparer).Assembly);
+            TestHelper.AssertAssemblyTypesLocation(typeof(Oidc.DefaultClaimComparer).Assembly);
         }
     }
 }

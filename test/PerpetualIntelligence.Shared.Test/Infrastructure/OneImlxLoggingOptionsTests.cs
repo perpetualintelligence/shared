@@ -16,7 +16,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     public class OneImlxLoggingOptionsTests
     {
         [TestMethod]
-        public void DefaultValuesShoudBeCorrect()
+        public void DefaultValuesShouldBeCorrect()
         {
             LoggingOptions options = new LoggingOptions();
             Assert.IsNull(options.RevealErrorArguments);
