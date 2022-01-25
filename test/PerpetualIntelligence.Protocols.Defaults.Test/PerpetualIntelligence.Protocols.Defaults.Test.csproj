@@ -10,8 +10,7 @@
     <Import Project="..\..\build\props\Test.props" />
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\PerpetualIntelligence.Protocols.Defaults\PerpetualIntelligence.Protocols.Defaults.csproj" />
-        <ProjectReference Include="..\..\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
+        <ProjectReference Include="..\..\src\PerpetualIntelligence.Protocols.Defaults\PerpetualIntelligence.Protocols.Defaults.csproj" />        
     </ItemGroup>
 
 </Project>

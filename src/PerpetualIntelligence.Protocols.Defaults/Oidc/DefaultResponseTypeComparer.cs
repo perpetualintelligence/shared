@@ -5,8 +5,8 @@
     https://terms.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Shared.Attributes;
 using PerpetualIntelligence.Shared.Extensions;
+using System;
 using System.Collections.Generic;
 
 namespace PerpetualIntelligence.Protocols.Defaults.Oidc
@@ -16,8 +16,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
     /// values is irrelevant. E.g., the "code id_token token" is equivalent to "code token id_token".
     /// </summary>
     /// <seealso href="https://tools.ietf.org/html/rfc6749#section-3.1.1"/>
-    /// <seealso href="http://openid.net/specs/oauth-v2-multiple-response-types-1_0-03.html#terminology"/>
-    [WriteUnitTest]
+    /// <seealso href="https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html"/>
     public class DefaultResponseTypeComparer : IEqualityComparer<string?>
     {
         /// <summary>
@@ -43,8 +42,8 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
                 return false;
             }
 
-            HashSet<string> xSet = new(x.SplitBySpace());
-            HashSet<string> ySet = new(y.SplitBySpace());
+            HashSet<string> xSet = new(x.SplitBySpace(), StringComparer.Ordinal);
+            HashSet<string> ySet = new(y.SplitBySpace(), StringComparer.Ordinal);
             return xSet.SetEquals(ySet);
         }
 
@@ -62,7 +61,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
                 return 0;
             }
 
-            HashSet<string> valueSet = new(value.SplitBySpace());
+            HashSet<string> valueSet = new(value.SplitBySpace(), StringComparer.Ordinal);
             if (valueSet.Count == 1)
             {
                 return value.GetHashCode();
