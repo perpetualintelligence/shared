@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com
@@ -15,7 +15,7 @@ using System.Linq;
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
-    /// The generic <c>oneimlx</c> result.
+    /// The generic result.
     /// </summary>
     /// <seealso cref="Error"/>
     public class Result : IOneImlxResult
@@ -101,7 +101,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <param name="errorUri">The error URI.</param>
         /// <param name="requestId">The request id.</param>
         /// <seealso cref="NewError{T}(Error)"/>
-        public static T NewError<T>(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null) where T : Result
+        public static T NewError<T>(string error, string errorDescription, string? errorUri = null, string? requestId = null) where T : Result
         {
             T tInst = Activator.CreateInstance<T>();
             tInst.SetError(error, errorDescription, errorUri, requestId);
@@ -116,7 +116,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         public static T NewError<T>(ErrorException errorException) where T : Result
         {
             T tInst = Activator.CreateInstance<T>();
-            tInst.SetError(errorException.Error, errorException.ErrorDescription, errorException.ErrorUri, errorException.RequestId);
+            tInst.SetError(errorException.Error);
             return tInst;
         }
 
@@ -142,9 +142,9 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <summary>
         /// Adds an error to the result.
         /// </summary>
-        public void AddError(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null)
+        public void AddError(string error, string errorDescription, string? errorUri = null, string? requestId = null)
         {
-            AddError(new Error(error, errorDescription, errorUri, requestId));
+            AddError(new Error(error, errorDescription, null, errorUri, requestId));
         }
 
         /// <summary>
@@ -200,10 +200,10 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// Set an error on the result. This will clear all the existing errors and set the specified error.
         /// </summary>
         /// <seealso cref="AddError(Error)"/>
-        /// <seealso cref="AddError(string, string?, string?, string?)"/>
-        public void SetError(string error, string? errorDescription = null, string? errorUri = null, string? requestId = null)
+        /// <seealso cref="AddError(string, string, string?, string?)"/>
+        public void SetError(string error, string errorDescription, string? errorUri = null, string? requestId = null)
         {
-            SetError(new Error(error, errorDescription, errorUri, requestId));
+            SetError(new Error(error, errorDescription, null, errorUri, requestId));
         }
 
         /// <summary>

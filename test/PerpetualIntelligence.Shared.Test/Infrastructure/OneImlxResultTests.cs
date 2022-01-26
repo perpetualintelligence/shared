@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -76,11 +73,25 @@ namespace PerpetualIntelligence.Shared.Infrastructure
 
             // null
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.AddError(error: null, errorDescription: null), "'error' cannot be null or whitespace. (Parameter 'error')");
+            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.AddError(error: null, "test1"), "'error' cannot be null or whitespace. (Parameter 'error')");
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 
             // whitespace
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.AddError(error: "  "), "'error' cannot be null or whitespace. (Parameter 'error')");
+            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.AddError(error: "  ", "test1"), "'error' cannot be null or whitespace. (Parameter 'error')");
+        }
+
+        [TestMethod]
+        public void AddErrorWithoutErrorDescriptionShouldThrow()
+        {
+            Result result = new();
+
+            // null
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
+            //TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.AddError("test1", null), "'errorDescription' cannot be null or whitespace. (Parameter 'errorDescription')");
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
+
+            // whitespace
+            //TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.AddError("test1", "   "), "'errorDescription' cannot be null or whitespace. (Parameter 'errorDescription')");
         }
 
         [TestMethod]
@@ -107,9 +118,9 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         public void FirstErrorShouldReturnCorrectError()
         {
             Result result = new();
-            result.AddError("test_error1");
-            result.AddError("test_error2");
-            result.AddError("test_error3");
+            result.AddError("test_error1", "test_desc1");
+            result.AddError("test_error2", "test_desc2");
+            result.AddError("test_error3", "test_desc3");
 
             Assert.IsNotNull(result.FirstError);
             Assert.AreEqual("test_error1", result.FirstError.ErrorCode);
@@ -174,8 +185,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         public void NoErrorShouldRemoveAllError()
         {
             Result result = new();
-            result.AddError("test_error1");
-            result.AddError("test_error2");
+            result.AddError("test_error1", "test_desc1");
+            result.AddError("test_error2", "test_desc2");
 
             Assert.IsNotNull(result.Errors);
             Assert.AreEqual(2, result.Errors.Length);
@@ -190,8 +201,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         public void SetErrorShouldRemovePreviousErrors()
         {
             Result result = new();
-            result.AddError("test_error1");
-            result.AddError("test_error2");
+            result.AddError("test_error1", "test_desc1");
+            result.AddError("test_error2", "test_desc2");
 
             Assert.IsNotNull(result.Errors);
             Assert.AreEqual(2, result.Errors.Length);
@@ -199,7 +210,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             Assert.AreEqual("test_error1", result.Errors[0].ErrorCode);
             Assert.AreEqual("test_error2", result.Errors[1].ErrorCode);
 
-            result.SetError("test_error3");
+            result.SetError("test_error3", "test_desc3");
             Assert.IsNotNull(result.Errors);
             Assert.AreEqual(1, result.Errors.Length);
             Assert.IsTrue(result.IsError);
@@ -217,19 +228,25 @@ namespace PerpetualIntelligence.Shared.Infrastructure
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.SetError(new Error(null)), "'error' cannot be null or whitespace. (Parameter 'error')");
+            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.SetError(new Error(null, "test")), "'error' cannot be null or whitespace. (Parameter 'error')");
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.SetError(new Error("  ")), "'error' cannot be null or whitespace. (Parameter 'error')");
+            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.SetError(new Error("  ", "test")), "'error' cannot be null or whitespace. (Parameter 'error')");
+
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
+            //TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.SetError(new Error("test", null)), "'errorDescription' cannot be null or whitespace. (Parameter 'errorDescription')");
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
+
+            //TestHelper.AssertThrowsWithMessage<ArgumentException>(() => result.SetError(new Error("test", "    ")), "'errorDescription' cannot be null or whitespace. (Parameter 'errorDescription')");
         }
 
         [TestMethod]
         public void SyncErrorShouldRemovePreviousAndSetInputError()
         {
             Result result = new();
-            result.AddError("test_error1");
-            result.AddError("test_error2");
-            result.AddError("test_error3");
+            result.AddError("test_error1", "test_desc1");
+            result.AddError("test_error2", "test_desc2");
+            result.AddError("test_error3", "test_desc3");
 
             Result input = new();
             input.AddError("test_error3", "test_error_desc3", "test_error_uri3", "test_request_id3");

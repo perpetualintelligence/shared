@@ -5,10 +5,8 @@
     https://terms.perpetualintelligence.com
 */
 
-using Microsoft.Extensions.Logging;
 using PerpetualIntelligence.Shared.Attributes;
 using PerpetualIntelligence.Shared.Exceptions;
-using PerpetualIntelligence.Shared.Extensions;
 using PerpetualIntelligence.Shared.Infrastructure;
 using System;
 using System.Linq;
@@ -23,30 +21,28 @@ namespace PerpetualIntelligence.Shared.Services
     public static class Formatter
     {
         /// <summary>
-        /// Ensures that the action returns a <see cref="Result"/>.
+        /// Ensures that an action returns a result or an <see cref="Error"/> but does not throw any exception.
         /// </summary>
         /// <typeparam name="TContext">The context type.</typeparam>
         /// <typeparam name="TResult">The result type.</typeparam>
         /// <param name="action">The action to execute.</param>
         /// <param name="context">The action context.</param>
-        /// <param name="logger">The logger.</param>
-        /// <param name="options">The configuration option.</param>
-        /// <returns></returns>
-        public static Task<TResult> EnsureResultAsync<TContext, TResult>(ResultDelegate<TContext, TResult> action, TContext context, ILogger logger, LoggingOptions options) where TContext : class where TResult : Result
+        /// <returns><see cref="TryResult{T}"/> instance that contains the result or an <see cref="Error"/> instance.</returns>
+        public static async Task<TryResultError<TResult>> EnsureResultAsync<TContext, TResult>(ResultDelegate<TContext, TResult> action, TContext context) where TContext : class where TResult : class
         {
             try
             {
-                return action(context);
+                TResult result = await action(context);
+                return new TryResultError<TResult>(result);
             }
             catch (ErrorException ee)
             {
-                string errorDesc = logger.FormatAndLog(Microsoft.Extensions.Logging.LogLevel.Error, options, ee.ErrorDescription, ee.Args);
-                return Task.FromResult(Result.NewError<TResult>(ee.Error, errorDesc));
+                return new TryResultError<TResult>(ee.Error);
             }
             catch (Exception ex)
             {
-                string errorDesc = logger.FormatAndLog(Microsoft.Extensions.Logging.LogLevel.Error, options, "The request resulted in an unexpected error. additonal_info={0}", ex.Message);
-                return Task.FromResult(Result.NewError<TResult>("unexpected_error", errorDesc));
+                Error error = new(Error.Unexpected, "The request resulted in an unexpected error. additonal_info={0}", new object?[] { ex.Message });
+                return new TryResultError<TResult>(error);
             }
         }
 

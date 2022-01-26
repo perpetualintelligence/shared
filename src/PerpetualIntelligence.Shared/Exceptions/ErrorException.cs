@@ -5,6 +5,7 @@
     https://terms.perpetualintelligence.com
 */
 
+using PerpetualIntelligence.Shared.Infrastructure;
 using System;
 
 namespace PerpetualIntelligence.Shared.Exceptions
@@ -14,12 +15,40 @@ namespace PerpetualIntelligence.Shared.Exceptions
     /// </summary>
     public class ErrorException : Exception
     {
-        /// <inheritdoc/>
+        /// <summary>
+        /// Initialize a new instance.
+        /// </summary>
+        public ErrorException()
+        {
+            Error = new Error(Error.Unknown, "");
+        }
+
+        /// <summary>
+        /// Initialize a new instance.
+        /// </summary>
+        /// <param name="error">The error.</param>
+        public ErrorException(Error error)
+        {
+            Error = error ?? throw new ArgumentNullException(nameof(error));
+        }
+
+        /// <summary>
+        /// Initialize a new instance.
+        /// </summary>
+        /// <param name="message">The exception message.</param>
+        public ErrorException(string message) : base(message)
+        {
+            Error = new Error(Error.Unknown, "");
+        }
+
+        /// <summary>
+        /// Initialize a new instance.
+        /// </summary>
+        /// <param name="error">The error code.</param>
+        /// <param name="errorDescription">The error description.</param>
         public ErrorException(string error, string errorDescription)
         {
-            Error = error;
-            ErrorDescription = errorDescription;
-            Args = Array.Empty<object?>();
+            Error = new Error(error, errorDescription);
         }
 
         /// <summary>
@@ -30,50 +59,31 @@ namespace PerpetualIntelligence.Shared.Exceptions
         /// <param name="args">The error description format arguments.</param>
         public ErrorException(string error, string errorDescription, params object?[] args)
         {
-            Error = error;
-            ErrorDescription = errorDescription;
-            Args = args;
+            Error = new Error(error, errorDescription, args);
         }
 
         /// <summary>
-        /// The error description format arguments.
+        /// The error.
         /// </summary>
-        public object?[] Args { get; }
+        public Error Error { get; set; }
 
         /// <summary>
-        /// The error code.
+        /// The exception message.
         /// </summary>
-        public string Error { get; set; }
-
-        /// <summary>
-        /// The error description.
-        /// </summary>
-        public string ErrorDescription { get; set; }
-
-        /// <summary>
-        /// The error Uri.
-        /// </summary>
-        public string? ErrorUri { get; set; }
-
-        /// <inheritdoc/>
         public override string Message
         {
             get
             {
-                if (Args == null)
+                // FOMAC: we need to make sure ErrorDescription is never null
+                if (Error.ErrorDescription == null)
                 {
-                    return ErrorDescription;
+                    return base.Message;
                 }
                 else
                 {
-                    return string.Format(ErrorDescription, Args);
+                    return Error.FormatDescription();
                 }
             }
         }
-
-        /// <summary>
-        /// The request id.
-        /// </summary>
-        public string? RequestId { get; set; }
     }
 }

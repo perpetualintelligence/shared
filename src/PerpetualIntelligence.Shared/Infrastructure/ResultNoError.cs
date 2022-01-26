@@ -5,12 +5,14 @@
     https://terms.perpetualintelligence.com
 */
 
-using System.Threading.Tasks;
-
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
-    /// The delegate that returns a result for the specified context.
+    /// The generic result that does not support handling explicit errors, instead they rely on exception handling to
+    /// propagate any errors.
     /// </summary>
-    public delegate Task<TResult> ResultDelegate<TContext, TResult>(TContext context) where TContext : class where TResult : class;
+    /// <seealso cref="Result"/>
+    public abstract class ResultNoError
+    {
+    }
 }

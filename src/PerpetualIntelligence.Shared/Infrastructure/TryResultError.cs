@@ -8,34 +8,32 @@
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
-    /// The <c>oneimlx</c> result of a try method.
+    /// The generic result of a try method.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public sealed class TryResult<T> : Result where T : class
+    public sealed class TryResultError<T> where T : class
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        public TryResult()
+        public TryResultError(Error error)
         {
-        }
-
-        /// <summary>
-        /// Initialize a new instance.
-        /// </summary>
-        public TryResult(Error error)
-        {
-            SetError(error);
+            Error = error ?? throw new System.ArgumentNullException(nameof(error));
         }
 
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
         /// <param name="result"></param>
-        public TryResult(T result)
+        public TryResultError(T result)
         {
-            Result = result;
+            Result = result ?? throw new System.ArgumentNullException(nameof(result));
         }
+
+        /// <summary>
+        /// The result of a try.
+        /// </summary>
+        public Error? Error { get; set; }
 
         /// <summary>
         /// The result of a try.

@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Shared.Attributes;
 using PerpetualIntelligence.Shared.Attributes.Api;
+using PerpetualIntelligence.Shared.Exceptions;
+using PerpetualIntelligence.Shared.Extensions;
 using PerpetualIntelligence.Shared.Infrastructure;
 using PerpetualIntelligence.Shared.Services;
 using System;
@@ -743,7 +745,7 @@ namespace PerpetualIntelligence.Test.Services
             Assert.IsTrue(result.IsError);
             Assert.IsNotNull(result.FirstError);
             Assert.AreEqual(error, result.FirstError.ErrorCode);
-            Assert.AreEqual(errorDescription, result.FirstError.ErrorDescription);
+            Assert.AreEqual(errorDescription, result.FirstError.FormatDescription());
         }
 
         /// <summary>
@@ -756,7 +758,7 @@ namespace PerpetualIntelligence.Test.Services
         {
             Assert.IsNotNull(error);
             Assert.AreEqual(errorCode, error.ErrorCode);
-            Assert.AreEqual(errorDescription, error.ErrorDescription);
+            Assert.AreEqual(errorDescription, error.FormatDescription());
         }
 
         /// <summary>
@@ -1079,12 +1081,11 @@ namespace PerpetualIntelligence.Test.Services
         /// <typeparam name="TException"></typeparam>
         /// <param name="action"></param>
         /// <param name="message"></param>
-        public static void AssertThrowsAsyncWithMessage<TException>(Func<Task> action, string message) where TException : Exception
+        public static async Task AssertThrowsWithMessageAsync<TException>(Func<Task> action, string message) where TException : Exception
         {
             try
             {
-                Task task = action.Invoke();
-                task.GetAwaiter().GetResult();
+                await action.Invoke();
             }
             catch (Exception ex)
             {
@@ -1107,6 +1108,78 @@ namespace PerpetualIntelligence.Test.Services
             }
 
             Assert.Fail($"Expected exception '{typeof(TException).Name}', but not exception was thrown.");
+        }
+
+        /// <summary>
+        /// Ensures that an action throws <see cref="ErrorException"/>.
+        /// </summary>
+        /// <param name="funcTask">The task to execute.</param>
+        /// <param name="errorCode">The expected error code.</param>
+        /// <param name="errorDescription">The expected error description.</param>
+        /// <returns><see cref="TryResult{T}"/> instance that contains the result or an <see cref="Error"/> instance.</returns>
+        public static async Task AssertThrowsErrorExceptionAsync(Func<Task> funcTask, string errorCode, string errorDescription)
+        {
+            try
+            {
+                // We take Func<Task> so that the task does not execute before AssertThrowsErrorExceptionAsync is called.
+                await funcTask.Invoke();
+            }
+            catch (ErrorException ee)
+            {
+                Assert.IsNotNull(ee.Error);
+                Assert.IsNotNull(ee.Error.ErrorCode);
+                Assert.IsNotNull(ee.Error.ErrorDescription);
+                Assert.AreEqual(errorCode, ee.Error.ErrorCode);
+                Assert.AreEqual(errorDescription, ee.Error.FormatDescription());
+
+                // All good, expected error validated
+                return;
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail($"The action did not throw '{nameof(ErrorException)}', instead it threw '{ex.GetType().Name}'.");
+            }
+
+            Assert.Fail($"The action did not throw '{nameof(ErrorException)}' with error '{errorCode}' and error description '{errorDescription}'.");
+        }
+
+        /// <summary>
+        /// Ensures that a task throws <see cref="MultiErrorException"/> asynchronously.
+        /// </summary>
+        /// <param name="funcTask">The task to execute.</param>
+        /// <param name="errorCount">The expected error count.</param>
+        /// <param name="errorCodes">The expected error codes.</param>
+        /// <param name="errorDescriptions">The expected error descriptions.</param>
+        public static async Task AssertThrowsMultiErrorExceptionAsync(Func<Task> funcTask, int errorCount, string[] errorCodes, string[] errorDescriptions)
+        {
+            try
+            {
+                // We take Func<Task> so that the task does not execute before AssertThrowsMultiErrorExceptionAsync is called.
+                await funcTask.Invoke();
+            }
+            catch (MultiErrorException me)
+            {
+                Assert.AreEqual(errorCount, me.Errors.Length, "The task did not throw expected errors.");
+
+                for (int idx = 0; idx < me.Errors.Length; idx++)
+                {
+                    Error ee = me.Errors[idx];
+                    Assert.IsNotNull(ee);
+                    Assert.IsNotNull(ee.ErrorCode);
+                    Assert.IsNotNull(ee.ErrorDescription);
+                    Assert.AreEqual(errorCodes[idx], ee.ErrorCode);
+                    Assert.AreEqual(errorDescriptions[idx], ee.FormatDescription());
+                }
+
+                // All good, expected validation pass
+                return;
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail($"The task did not throw '{nameof(MultiErrorException)}', instead it threw '{ex.GetType().Name}'.");
+            }
+
+            Assert.Fail($"The task did not throw '{nameof(MultiErrorException)}' with errors '{errorCodes.JoinBySpace()}' and error descriptions '{errorDescriptions.JoinBySpace()}'.");
         }
 
         /// <summary>
@@ -1206,6 +1279,21 @@ namespace PerpetualIntelligence.Test.Services
 
         /// <summary>
         /// </summary>
+        public static bool IsReleasePipelineConfig()
+        {
+            string? pipelineConfig = System.Environment.GetEnvironmentVariable("PIDEVOPSPIPELINECONFIGURATION");
+
+            // Null for local env
+            if (pipelineConfig == null)
+            {
+                return false;
+            }
+
+            return pipelineConfig == "Release";
+        }
+
+        /// <summary>
+        /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
         private static IEnumerable<PropertyInfo> GetAllProperties(this Type type)
@@ -1262,21 +1350,6 @@ namespace PerpetualIntelligence.Test.Services
         private static bool IsDelegate(Type type)
         {
             return type.IsSubclassOf(typeof(Delegate));
-        }
-
-        /// <summary>
-        /// </summary>
-        public static bool IsReleasePipelineConfig()
-        {
-            string? pipelineConfig = System.Environment.GetEnvironmentVariable("PIDEVOPSPIPELINECONFIGURATION");
-
-            // Null for local env
-            if (pipelineConfig == null)
-            {
-                return false;
-            }
-
-            return pipelineConfig == "Release";
         }
     }
 }
