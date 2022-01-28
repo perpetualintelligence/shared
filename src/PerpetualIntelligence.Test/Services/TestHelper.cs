@@ -1076,41 +1076,6 @@ namespace PerpetualIntelligence.Test.Services
         }
 
         /// <summary>
-        /// Throws async with message.
-        /// </summary>
-        /// <typeparam name="TException"></typeparam>
-        /// <param name="action"></param>
-        /// <param name="message"></param>
-        public static async Task AssertThrowsWithMessageAsync<TException>(Func<Task> action, string message) where TException : Exception
-        {
-            try
-            {
-                await action.Invoke();
-            }
-            catch (Exception ex)
-            {
-                if (ex is TException)
-                {
-                    if (!ex.Message.Equals(message))
-                    {
-                        Assert.Fail($"Expected Message={message} Actual Message={ex.Message}");
-                    }
-                    else
-                    {
-                        // Good to go, expected exception with message thrown.
-                        return;
-                    }
-                }
-                else
-                {
-                    Assert.Fail($"Expected Exception={typeof(TException).Name} Actual Exception={ex.GetType().Name}");
-                }
-            }
-
-            Assert.Fail($"Expected exception '{typeof(TException).Name}', but not exception was thrown.");
-        }
-
-        /// <summary>
         /// Ensures that an action throws <see cref="ErrorException"/>.
         /// </summary>
         /// <param name="funcTask">The task to execute.</param>
@@ -1159,11 +1124,12 @@ namespace PerpetualIntelligence.Test.Services
             }
             catch (MultiErrorException me)
             {
-                Assert.AreEqual(errorCount, me.Errors.Length, "The task did not throw expected errors.");
+                Assert.AreEqual(errorCount, me.Errors.Count(), "The task did not throw expected errors.");
 
-                for (int idx = 0; idx < me.Errors.Length; idx++)
+                Error[] errs = me.Errors.ToArray();
+                for (int idx = 0; idx < errs.Length; idx++)
                 {
-                    Error ee = me.Errors[idx];
+                    Error ee = errs[idx];
                     Assert.IsNotNull(ee);
                     Assert.IsNotNull(ee.ErrorCode);
                     Assert.IsNotNull(ee.ErrorDescription);
@@ -1193,6 +1159,41 @@ namespace PerpetualIntelligence.Test.Services
             try
             {
                 action.Invoke();
+            }
+            catch (Exception ex)
+            {
+                if (ex is TException)
+                {
+                    if (!ex.Message.Equals(message))
+                    {
+                        Assert.Fail($"Expected Message={message} Actual Message={ex.Message}");
+                    }
+                    else
+                    {
+                        // Good to go, expected exception with message thrown.
+                        return;
+                    }
+                }
+                else
+                {
+                    Assert.Fail($"Expected Exception={typeof(TException).Name} Actual Exception={ex.GetType().Name}");
+                }
+            }
+
+            Assert.Fail($"Expected exception '{typeof(TException).Name}', but not exception was thrown.");
+        }
+
+        /// <summary>
+        /// Throws async with message.
+        /// </summary>
+        /// <typeparam name="TException"></typeparam>
+        /// <param name="action"></param>
+        /// <param name="message"></param>
+        public static async Task AssertThrowsWithMessageAsync<TException>(Func<Task> action, string message) where TException : Exception
+        {
+            try
+            {
+                await action.Invoke();
             }
             catch (Exception ex)
             {

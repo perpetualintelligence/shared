@@ -7,6 +7,7 @@
 
 using PerpetualIntelligence.Shared.Infrastructure;
 using System;
+using System.Collections.Generic;
 
 namespace PerpetualIntelligence.Shared.Exceptions
 {
@@ -27,7 +28,7 @@ namespace PerpetualIntelligence.Shared.Exceptions
         /// Initialize a new instance with the specified errors.
         /// </summary>
         /// <param name="errors">The errors.</param>
-        public MultiErrorException(Error[] errors)
+        public MultiErrorException(IEnumerable<Error> errors)
         {
             Errors = errors ?? throw new ArgumentNullException(nameof(errors));
         }
@@ -45,6 +46,6 @@ namespace PerpetualIntelligence.Shared.Exceptions
         /// <summary>
         /// The errors in this exception.
         /// </summary>
-        public Error[] Errors { get; }       
+        public IEnumerable<Error> Errors { get; }
     }
 }
