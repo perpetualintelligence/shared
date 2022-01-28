@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using PerpetualIntelligence.Shared.Attributes;
@@ -13,7 +10,7 @@ using PerpetualIntelligence.Shared.Attributes;
 namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
-    /// The Perpetual Intelligence command line arguments. Argument names must start with 'oneimlxarg' and contain
+    /// The Perpetual Intelligence command line arguments. argument ids must start with 'oneimlxarg' and contain
     /// characters a-z, A-Z, and letters 0-9. No special characters are allowed.
     /// </summary>
     /// <remarks>
