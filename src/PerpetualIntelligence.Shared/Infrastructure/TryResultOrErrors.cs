@@ -5,26 +5,34 @@
     https://terms.perpetualintelligence.com
 */
 
+using System;
+
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
-    /// The <c>oneimlx</c> result of a try method.
+    /// The generic result of a trying method. The trying method must return errors or a valid result. Both
+    /// <see cref="Result.Errors"/> and <see cref="Result"/> cannot be null.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public sealed class TryResult<T> : Result where T : class
+    /// <typeparam name="T">The result type.</typeparam>
+    public sealed class TryResultOrErrors<T> : Result where T : class
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        public TryResult()
+        public TryResultOrErrors()
         {
         }
 
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        public TryResult(Error error)
+        public TryResultOrErrors(Error error)
         {
+            if (error is null)
+            {
+                throw new ArgumentNullException(nameof(error));
+            }
+
             SetError(error);
         }
 
@@ -32,9 +40,9 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// Initialize a new instance.
         /// </summary>
         /// <param name="result"></param>
-        public TryResult(T result)
+        public TryResultOrErrors(T result)
         {
-            Result = result;
+            Result = result ?? throw new System.ArgumentNullException(nameof(result));
         }
 
         /// <summary>

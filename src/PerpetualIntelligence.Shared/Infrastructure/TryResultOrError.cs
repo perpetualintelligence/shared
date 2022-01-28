@@ -8,15 +8,16 @@
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
-    /// The generic result of a try method.
+    /// The generic result of a trying method. The trying method must return an error or a valid result. Both
+    /// <see cref="Error"/> and <see cref="Result"/> cannot be null.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public sealed class TryResultError<T> where T : class
+    /// <typeparam name="T">The result type.</typeparam>
+    public sealed class TryResultOrError<T> where T : class
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        public TryResultError(Error error)
+        public TryResultOrError(Error error)
         {
             Error = error ?? throw new System.ArgumentNullException(nameof(error));
         }
@@ -25,7 +26,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// Initialize a new instance.
         /// </summary>
         /// <param name="result"></param>
-        public TryResultError(T result)
+        public TryResultOrError(T result)
         {
             Result = result ?? throw new System.ArgumentNullException(nameof(result));
         }
@@ -33,11 +34,11 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <summary>
         /// The result of a try.
         /// </summary>
-        public Error? Error { get; set; }
+        public Error? Error { get; }
 
         /// <summary>
         /// The result of a try.
         /// </summary>
-        public T? Result { get; set; }
+        public T? Result { get; }
     }
 }

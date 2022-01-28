@@ -1081,7 +1081,7 @@ namespace PerpetualIntelligence.Test.Services
         /// <param name="funcTask">The task to execute.</param>
         /// <param name="errorCode">The expected error code.</param>
         /// <param name="errorDescription">The expected error description.</param>
-        /// <returns><see cref="TryResult{T}"/> instance that contains the result or an <see cref="Error"/> instance.</returns>
+        /// <returns><see cref="TryResultOrErrors{T}"/> instance that contains the result or an <see cref="Error"/> instance.</returns>
         public static async Task AssertThrowsErrorExceptionAsync(Func<Task> funcTask, string errorCode, string errorDescription)
         {
             try
@@ -1276,6 +1276,21 @@ namespace PerpetualIntelligence.Test.Services
                     Assert.AreEqual(description, documentationAttribute.Description, $"Member '{member.DeclaringType.FullName}.{member.Name}' has attribute '{typeof(WriteDocumentationAttribute).Name}' but its description is invalid.");
                 }
             }
+        }
+
+        /// <summary>
+        /// Asserts <see cref="TryResultOrError{T}"/> has an <see cref="Error"/> and
+        /// <see cref="TryResultOrError{T}.Result"/> is <c>null</c>.
+        /// </summary>
+        /// <param name="result">The result to check.</param>
+        /// <param name="error">The expected error.</param>
+        /// <param name="errorDescription">The expected error description.</param>
+        public static void AssertTryResultError<TResult>(TryResultOrError<TResult> result, string error, string? errorDescription) where TResult : class
+        {
+            Assert.IsNull(result.Result);
+            Assert.IsNotNull(result.Error);
+            Assert.AreEqual(error, result.Error.ErrorCode);
+            Assert.AreEqual(errorDescription, result.Error.FormatDescription());
         }
 
         /// <summary>

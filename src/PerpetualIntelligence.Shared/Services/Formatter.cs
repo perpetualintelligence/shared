@@ -27,22 +27,22 @@ namespace PerpetualIntelligence.Shared.Services
         /// <typeparam name="TResult">The result type.</typeparam>
         /// <param name="action">The action to execute.</param>
         /// <param name="context">The action context.</param>
-        /// <returns><see cref="TryResult{T}"/> instance that contains the result or an <see cref="Error"/> instance.</returns>
-        public static async Task<TryResultError<TResult>> EnsureResultAsync<TContext, TResult>(ResultDelegate<TContext, TResult> action, TContext context) where TContext : class where TResult : class
+        /// <returns><see cref="TryResultOrErrors{T}"/> instance that contains the result or an <see cref="Error"/> instance.</returns>
+        public static async Task<TryResultOrError<TResult>> EnsureResultAsync<TContext, TResult>(ResultDelegate<TContext, TResult> action, TContext context) where TContext : class where TResult : class
         {
             try
             {
                 TResult result = await action(context);
-                return new TryResultError<TResult>(result);
+                return new TryResultOrError<TResult>(result);
             }
             catch (ErrorException ee)
             {
-                return new TryResultError<TResult>(ee.Error);
+                return new TryResultOrError<TResult>(ee.Error);
             }
             catch (Exception ex)
             {
                 Error error = new(Error.Unexpected, "The request resulted in an unexpected error. additonal_info={0}", new object?[] { ex.Message });
-                return new TryResultError<TResult>(error);
+                return new TryResultOrError<TResult>(error);
             }
         }
 
