@@ -93,8 +93,11 @@ namespace PerpetualIntelligence.Shared.Extensions
         /// </summary>
         /// <param name="self">The string to trim.</param>
         /// <param name="trim">The string to trim from start.</param>
-        /// <remarks>The method compares the trim string with <see cref="StringComparison.Ordinal"/> sort rules.</remarks>
-        public static string TrimEnd(this string self, string? trim)
+        /// <param name="stringComparison">The string comparison. Defaults to <see cref="StringComparison.Ordinal"/>.</param>
+        /// <remarks>
+        /// The method compares the trim string with default <see cref="StringComparison.Ordinal"/> sort rules.
+        /// </remarks>
+        public static string TrimEnd(this string self, string? trim, StringComparison stringComparison = StringComparison.Ordinal)
         {
             if (string.IsNullOrEmpty(trim))
             {
@@ -102,9 +105,9 @@ namespace PerpetualIntelligence.Shared.Extensions
             }
 
             string result = self;
-            while (result.EndsWith(trim, System.StringComparison.Ordinal))
+            while (result.EndsWith(trim, stringComparison))
             {
-                result = result.Remove(result.LastIndexOf(trim, System.StringComparison.Ordinal));
+                result = result.Remove(result.LastIndexOf(trim, stringComparison));
             }
 
             return result;
@@ -115,8 +118,11 @@ namespace PerpetualIntelligence.Shared.Extensions
         /// </summary>
         /// <param name="self">The string to trim.</param>
         /// <param name="trim">The string to trim from start.</param>
-        /// <remarks>The method compares the trim string with <see cref="StringComparison.Ordinal"/> sort rules.</remarks>
-        public static string TrimStart(this string self, string? trim)
+        /// <param name="stringComparison">The string comparison. Defaults to <see cref="StringComparison.Ordinal"/></param>
+        /// <remarks>
+        /// The method compares the trim string with default <see cref="StringComparison.Ordinal"/> sort rules.
+        /// </remarks>
+        public static string TrimStart(this string self, string? trim, StringComparison stringComparison = StringComparison.Ordinal)
         {
             if (string.IsNullOrEmpty(trim))
             {
@@ -124,7 +130,7 @@ namespace PerpetualIntelligence.Shared.Extensions
             }
 
             string result = self;
-            while (result.StartsWith(trim, System.StringComparison.Ordinal))
+            while (result.StartsWith(trim, stringComparison))
             {
 #if NETSTANDARD2_1_OR_GREATER
                 result = result[trim.Length..];
