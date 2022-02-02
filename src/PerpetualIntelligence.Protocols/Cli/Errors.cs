@@ -13,6 +13,11 @@ namespace PerpetualIntelligence.Protocols.Cli
     public static class Errors
     {
         /// <summary>
+        /// The argument is not already added to the command.
+        /// </summary>
+        public const string DuplicateArgument = "duplicate_argument";
+
+        /// <summary>
         /// The argument is not valid.
         /// </summary>
         public const string InvalidArgument = "invalid_argument";
