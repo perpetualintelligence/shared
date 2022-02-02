@@ -87,7 +87,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// The <c>error_description</c>.
         /// </summary>
         [JsonPropertyName("error_description")]
-        public string ErrorDescription { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? ErrorDescription { get; set; }
 
         /// <summary>
         /// The <c>error_uri</c>.
@@ -112,7 +113,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         {
             if (Args == null)
             {
-                return ErrorDescription;
+                return ErrorDescription ?? string.Empty;
             }
             else
             {

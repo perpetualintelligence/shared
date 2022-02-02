@@ -170,9 +170,9 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             return Task.CompletedTask;
         }
 
-        private void SetErrorWithAdditionalInfo(string error, string? errorDescription = null, string? additionalInfo = null)
+        private void SetErrorWithAdditionalInfo(string error, string errorDescription, string? additionalInfo = null)
         {
-            string? localEd = errorDescription;
+            string localEd = errorDescription;
             if (additionalInfo != null)
             {
                 localEd = $"{errorDescription} additional_info={additionalInfo}";
