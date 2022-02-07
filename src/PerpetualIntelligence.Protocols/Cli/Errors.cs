@@ -43,6 +43,11 @@ namespace PerpetualIntelligence.Protocols.Cli
         public const string MissingArgument = "missing_argument";
 
         /// <summary>
+        /// The request is canceled.
+        /// </summary>
+        public const string RequestCanceled = "request_canceled";
+
+        /// <summary>
         /// The server error.
         /// </summary>
         public const string ServerError = "server_error";

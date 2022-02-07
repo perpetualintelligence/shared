@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -19,7 +16,7 @@ namespace PerpetualIntelligence.Protocols.Cli
         [TestMethod]
         public void AssertErrorsAreValid()
         {
-            TestHelper.AssertConstantCount(typeof(Errors), 9);
+            TestHelper.AssertConstantCount(typeof(Errors), 10);
 
             Assert.AreEqual("invalid_command", Errors.InvalidCommand);
             Assert.AreEqual("invalid_configuration", Errors.InvalidConfiguration);
@@ -30,6 +27,7 @@ namespace PerpetualIntelligence.Protocols.Cli
             Assert.AreEqual("unsupported_command", Errors.UnsupportedCommand);
             Assert.AreEqual("server_error", Errors.ServerError);
             Assert.AreEqual("missing_argument", Errors.MissingArgument);
+            Assert.AreEqual("request_canceled", Errors.RequestCanceled);
         }
     }
 }
