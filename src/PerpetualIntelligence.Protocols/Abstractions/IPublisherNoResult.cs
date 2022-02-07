@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using System.Threading.Tasks;
@@ -13,14 +10,14 @@ using System.Threading.Tasks;
 namespace PerpetualIntelligence.Protocols.Abstractions
 {
     /// <summary>
-    /// An abstraction of a context specific publisher.
+    /// An abstraction of a context specific publisher with no explicit result.
     /// </summary>
     /// <typeparam name="TContext">The publisher context.</typeparam>
     /// <remarks>
-    /// The <see cref="INoResultPublisher{TContext}"/> does not return any result during publish. See
+    /// The <see cref="IPublisherNoResult{TContext}"/> does not return any result during publish. See
     /// <see cref="IPublisher{TContext, TResult}"/> for publisher with result.
     /// </remarks>
-    public interface INoResultPublisher<TContext> where TContext : class
+    public interface IPublisherNoResult<TContext> where TContext : class
     {
         /// <summary>
         /// Publishes asynchronously.

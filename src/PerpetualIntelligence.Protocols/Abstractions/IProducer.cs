@@ -18,6 +18,6 @@ namespace PerpetualIntelligence.Protocols.Abstractions
         /// Produces the result asynchronously.
         /// </summary>
         /// <param name="context">The producer context.</param>
-        Task<TResult> ProduceResponseAsync(TContext context);
+        Task<TResult> ProduceAsync(TContext context);
     }
 }
