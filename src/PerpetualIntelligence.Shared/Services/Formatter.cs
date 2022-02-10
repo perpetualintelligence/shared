@@ -27,7 +27,9 @@ namespace PerpetualIntelligence.Shared.Services
         /// <typeparam name="TResult">The result type.</typeparam>
         /// <param name="action">The action to execute.</param>
         /// <param name="context">The action context.</param>
-        /// <returns><see cref="TryResultOrErrors{T}"/> instance that contains the result or an <see cref="Error"/> instance.</returns>
+        /// <returns>
+        /// <see cref="TryResultOrErrors{T}"/> instance that contains the result or an <see cref="Error"/> instance.
+        /// </returns>
         public static async Task<TryResultOrError<TResult>> EnsureResultAsync<TContext, TResult>(ResultDelegate<TContext, TResult> action, TContext context) where TContext : class where TResult : class
         {
             try
@@ -56,6 +58,32 @@ namespace PerpetualIntelligence.Shared.Services
         public static string Format(LoggingOptions loggingOptions, string message, params object?[] args)
         {
             return string.Format(message, Obscure(loggingOptions, args));
+        }
+
+        /// <summary>
+        /// Returns a minimum positive of the two numbers or zero.
+        /// </summary>
+        /// <param name="num1">First number to check.</param>
+        /// <param name="num2">Second number to check.</param>
+        /// <returns>A minimum positive number or zero.</returns>
+        public static int MinPositiveOrZero(int num1, int num2)
+        {
+            if (num1 < 0 && num2 < 0)
+            {
+                return 0;
+            }
+
+            if (num1 < 0)
+            {
+                return num2;
+            }
+
+            if (num2 < 0)
+            {
+                return num1;
+            }
+
+            return Math.Min(num1, num2);
         }
 
         /// <summary>
