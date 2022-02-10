@@ -189,7 +189,7 @@ namespace PerpetualIntelligence.Test.Services
             string assemblyDir = Path.GetDirectoryName(assemblyPath)!;
 
             // check services dir For Azure pipileing this will be the working directory for the downloaded sources
-            string servicesDir = IOHelper.GetParent(assemblyPath, 6) ?? throw new InvalidOperationException("Services dir not found.");
+            string servicesDir = SharedHelper.GetParent(assemblyPath, 6) ?? throw new InvalidOperationException("Services dir not found.");
 
             // check /<services>/test dir
             string testDir = Path.Combine(servicesDir, "test");
@@ -1081,7 +1081,9 @@ namespace PerpetualIntelligence.Test.Services
         /// <param name="funcTask">The task to execute.</param>
         /// <param name="errorCode">The expected error code.</param>
         /// <param name="errorDescription">The expected error description.</param>
-        /// <returns><see cref="TryResultOrErrors{T}"/> instance that contains the result or an <see cref="Error"/> instance.</returns>
+        /// <returns>
+        /// <see cref="TryResultOrErrors{T}"/> instance that contains the result or an <see cref="Error"/> instance.
+        /// </returns>
         public static async Task AssertThrowsErrorExceptionAsync(Func<Task> funcTask, string errorCode, string errorDescription)
         {
             try

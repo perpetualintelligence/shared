@@ -5,23 +5,23 @@
     https://terms.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Shared.Attributes;
 using PerpetualIntelligence.Shared.Exceptions;
+using PerpetualIntelligence.Shared.Extensions;
 using PerpetualIntelligence.Shared.Infrastructure;
 using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace PerpetualIntelligence.Shared.Services
 {
     /// <summary>
-    /// Provides methods to format error.
+    /// Provides helper methods shared across application stack.
     /// </summary>
-    [WriteUnitTest]
-    public static class Formatter
+    public static class SharedHelper
     {
         /// <summary>
-        /// Ensures that an action returns a result or an <see cref="Error"/> but does not throw any exception.
+        /// Ensures an action returns a result or an <see cref="Error"/> but does not throw any exception.
         /// </summary>
         /// <typeparam name="TContext">The context type.</typeparam>
         /// <typeparam name="TResult">The result type.</typeparam>
@@ -57,7 +57,68 @@ namespace PerpetualIntelligence.Shared.Services
         /// <returns>The formatted error message.</returns>
         public static string Format(LoggingOptions loggingOptions, string message, params object?[] args)
         {
-            return string.Format(message, Obscure(loggingOptions, args));
+            return string.Format(message, loggingOptions.RevealErrorArguments.GetValueOrDefault() ? args : Obscure(loggingOptions.ObscureErrorArgumentString, args));
+        }
+
+        /// <summary>
+        /// Gets the parent directory of a specified path or sub-directory.
+        /// </summary>
+        /// <param name="path">Path or sub-directory.</param>
+        /// <returns>
+        /// The parent directory returned by <see cref="DirectoryInfo.Parent"/> property or <see langword="null"/> if
+        /// file path denotes a root.
+        /// </returns>
+        /// <exception cref="ArgumentException">Path is null or empty.</exception>
+        /// <seealso cref="Directory.GetParent(string)"/>
+        public static string? GetParent(string path)
+        {
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                throw new ArgumentException("Invalid path.", nameof(path));
+            }
+
+            if (!Path.IsPathRooted(path))
+            {
+                // Full name return the current directory for relative paths.
+                string parentPath = Directory.GetParent(path).FullName.TrimStart(Directory.GetCurrentDirectory());
+                if (!path.StartsWith("" + Path.DirectorySeparatorChar, StringComparison.Ordinal))
+                {
+                    return parentPath.TrimStart(Path.DirectorySeparatorChar);
+                }
+            }
+
+            return Directory.GetParent(path).FullName;
+        }
+
+        /// <summary>
+        /// Gets the parent directory at the specified level of a specified path or sub-directory.
+        /// </summary>
+        /// <param name="path">Path or sub-directory.</param>
+        /// <param name="level">The levels to go up.</param>
+        /// <returns>
+        /// The parent directory returned by <see cref="DirectoryInfo.Parent"/> for specified level or
+        /// <see langword="null"/> if file path denotes a root.
+        /// </returns>
+        /// <exception cref="ArgumentException">Path is null or empty.</exception>
+        public static string? GetParent(string path, uint level)
+        {
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                throw new ArgumentException("Invalid path.", nameof(path));
+            }
+
+            string? parent = path;
+            for (uint i = 1; i <= level; ++i)
+            {
+                if (parent == null)
+                {
+                    throw new InvalidOperationException("Reached root.");
+                }
+
+                parent = GetParent(parent);
+            }
+
+            return parent;
         }
 
         /// <summary>
@@ -87,20 +148,17 @@ namespace PerpetualIntelligence.Shared.Services
         }
 
         /// <summary>
-        /// Obscures the arguments based on <see cref="LoggingOptions"/>.
+        /// Obscures the arguments based on the specified mask.
         /// </summary>
-        /// <param name="loggingOptions">The logging options.</param>
+        /// <param name="mask">The obscure mask.</param>
         /// <param name="args">The arguments to obscure.</param>
         /// <returns>The obscured arguments.</returns>
-        public static object?[] Obscure(LoggingOptions loggingOptions, params object?[] args)
+        public static object?[] Obscure(string mask, params object?[] args)
         {
             object?[] argsToUse = args;
             if (args != null)
             {
-                if (!loggingOptions.RevealErrorArguments.GetValueOrDefault())
-                {
-                    argsToUse = Enumerable.Repeat(loggingOptions.ObscureErrorArgumentString, args.Length).ToArray();
-                }
+                argsToUse = Enumerable.Repeat(mask, args.Length).ToArray();
             }
             return argsToUse;
         }
