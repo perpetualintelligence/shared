@@ -13,7 +13,7 @@ namespace PerpetualIntelligence.Protocols.Abstractions.AuthServer
     /// <typeparam name="TContext">The handler context.</typeparam>
     /// <typeparam name="TResult">The handler result.</typeparam>
     /// <remarks>An authorization server typically provides both authorization and authentication capabilities.</remarks>
-    public interface IAuthServerHandler<TContext, TResult> : IHandler<TContext, TResult> where TContext : class where TResult : class
+    public interface IAuthHandler<TContext, TResult> : IHandler<TContext, TResult> where TContext : class where TResult : class
     {
         /// <summary>
         /// Determines whether the handler is disabled.
