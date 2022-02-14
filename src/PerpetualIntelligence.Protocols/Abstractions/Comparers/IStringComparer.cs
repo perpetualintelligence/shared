@@ -6,14 +6,13 @@
 */
 
 using System.Collections.Generic;
-using System.Security.Claims;
 
 namespace PerpetualIntelligence.Protocols.Abstractions.Comparers
 {
     /// <summary>
-    /// An abstraction of <see cref="Claim"/> comparer.
+    /// An abstraction to compare <see cref="string"/>.
     /// </summary>
-    public interface IClaimComparer : IEqualityComparer<Claim>
+    public interface IStringComparer : IEqualityComparer<string>
     {
     }
 }

@@ -5,7 +5,7 @@
     https://terms.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Protocols.Abstractions.Claims;
+using PerpetualIntelligence.Protocols.Abstractions.Comparers;
 using PerpetualIntelligence.Shared.Attributes;
 using System;
 using System.Collections.Generic;

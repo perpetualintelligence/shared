@@ -5,7 +5,7 @@
     https://terms.perpetualintelligence.com
 */
 
-namespace PerpetualIntelligence.Protocols.Abstractions.AuthServer
+namespace PerpetualIntelligence.Protocols.Abstractions.Authorization
 {
     /// <summary>
     /// An abstraction of a generic <c>OAuth</c> and <c>OpenID Connect</c> request handler.
