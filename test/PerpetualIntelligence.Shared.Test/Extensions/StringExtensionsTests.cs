@@ -88,100 +88,100 @@ namespace PerpetualIntelligence.Shared.Extensions
         public void TrimEndRecursive()
         {
             string test = "arg=value#";
-            Assert.AreEqual("arg=value", test.TrimEnd("#"));
+            Assert.AreEqual("arg=value", test.TrimEnd("#", System.StringComparison.InvariantCulture));
 
             test = "~arg=value#";
-            Assert.AreEqual("~arg=value", test.TrimEnd("#"));
+            Assert.AreEqual("~arg=value", test.TrimEnd("#", System.StringComparison.InvariantCulture));
 
             test = "arg=value####";
-            Assert.AreEqual("arg=value", test.TrimEnd("#"));
+            Assert.AreEqual("arg=value", test.TrimEnd("#", System.StringComparison.InvariantCulture));
 
             test = "arg=value####";
-            Assert.AreEqual("arg=value", test.TrimEnd("##"));
+            Assert.AreEqual("arg=value", test.TrimEnd("##", System.StringComparison.InvariantCulture));
 
             test = "arg=value####";
-            Assert.AreEqual("arg=value#", test.TrimEnd("###"));
+            Assert.AreEqual("arg=value#", test.TrimEnd("###", System.StringComparison.InvariantCulture));
 
             test = "arg=value####";
-            Assert.AreEqual("arg=value", test.TrimEnd("####"));
+            Assert.AreEqual("arg=value", test.TrimEnd("####", System.StringComparison.InvariantCulture));
 
             test = "arg=value##  ##";
-            Assert.AreEqual("arg=value##  ##", test.TrimEnd("####"));
+            Assert.AreEqual("arg=value##  ##", test.TrimEnd("####", System.StringComparison.InvariantCulture));
         }
 
         [TestMethod]
         public void TrimEndRecursiveUnicode()
         {
             string test = "arg=valueöö";
-            Assert.AreEqual("arg=value", test.TrimEnd("öö"));
+            Assert.AreEqual("arg=value", test.TrimEnd("öö", System.StringComparison.Ordinal));
 
             test = "arg=valueöö";
-            Assert.AreEqual("arg=value", test.TrimEnd("ö"));
+            Assert.AreEqual("arg=value", test.TrimEnd("ö", System.StringComparison.Ordinal));
 
             test = "arg=valueमाणूस";
-            Assert.AreEqual("arg=value", test.TrimEnd("माणूस"));
+            Assert.AreEqual("arg=value", test.TrimEnd("माणूस", System.StringComparison.Ordinal));
 
             test = "arg=valueमाणूस";
-            Assert.AreEqual("arg=valueमा", test.TrimEnd("णूस"));
+            Assert.AreEqual("arg=valueमा", test.TrimEnd("णूस", System.StringComparison.Ordinal));
 
             test = "arg=valueमा    णूस";
-            Assert.AreEqual("arg=valueमा    ", test.TrimEnd("णूस"));
+            Assert.AreEqual("arg=valueमा    ", test.TrimEnd("णूस", System.StringComparison.Ordinal));
 
             test = "माणूस की चान अहे";
-            Assert.AreEqual("माणूस की", test.TrimEnd(" चान अहे"));
+            Assert.AreEqual("माणूस की", test.TrimEnd(" चान अहे", System.StringComparison.Ordinal));
 
             test = "माणूस की चान अहे माणूसमाणूमाणू";
-            Assert.AreEqual("माणूस की चान अहे माणूस", test.TrimEnd("माणू"));
+            Assert.AreEqual("माणूस की चान अहे माणूस", test.TrimEnd("माणू", System.StringComparison.Ordinal));
         }
 
         [TestMethod]
         public void TrimStartRecursive()
         {
             string test = "#arg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("#"));
+            Assert.AreEqual("arg=value", test.TrimStart("#", System.StringComparison.InvariantCulture));
 
             test = "#~arg=value";
-            Assert.AreEqual("~arg=value", test.TrimStart("#"));
+            Assert.AreEqual("~arg=value", test.TrimStart("#", System.StringComparison.InvariantCulture));
 
             test = "####arg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("#"));
+            Assert.AreEqual("arg=value", test.TrimStart("#", System.StringComparison.InvariantCulture));
 
             test = "####arg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("##"));
+            Assert.AreEqual("arg=value", test.TrimStart("##", System.StringComparison.InvariantCulture));
 
             test = "####arg=value";
-            Assert.AreEqual("#arg=value", test.TrimStart("###"));
+            Assert.AreEqual("#arg=value", test.TrimStart("###", System.StringComparison.InvariantCulture));
 
             test = "####arg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("####"));
+            Assert.AreEqual("arg=value", test.TrimStart("####", System.StringComparison.InvariantCulture));
 
             test = "##  ##arg=value";
-            Assert.AreEqual("##  ##arg=value", test.TrimStart("####"));
+            Assert.AreEqual("##  ##arg=value", test.TrimStart("####", System.StringComparison.InvariantCulture));
         }
 
         [TestMethod]
         public void TrimStartRecursiveUnicode()
         {
             string test = "ööarg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("öö"));
+            Assert.AreEqual("arg=value", test.TrimStart("öö", System.StringComparison.Ordinal));
 
             test = "ööarg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("ö"));
+            Assert.AreEqual("arg=value", test.TrimStart("ö", System.StringComparison.Ordinal));
 
             test = "माणूसarg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("माणूस"));
+            Assert.AreEqual("arg=value", test.TrimStart("माणूस", System.StringComparison.Ordinal));
 
             test = "माणूसarg=value";
-            Assert.AreEqual("सarg=value", test.TrimStart("माणू"));
+            Assert.AreEqual("सarg=value", test.TrimStart("माणू", System.StringComparison.Ordinal));
 
             test = "माणू    सarg=value";
-            Assert.AreEqual("    सarg=value", test.TrimStart("माणू"));
+            Assert.AreEqual("    सarg=value", test.TrimStart("माणू", System.StringComparison.Ordinal));
 
             test = "माणूस की चान अहे";
-            Assert.AreEqual("चान अहे", test.TrimStart("माणूस की "));
+            Assert.AreEqual("चान अहे", test.TrimStart("माणूस की ", System.StringComparison.Ordinal));
 
             test = "माणूमाणूसमाणूस माणूस की चान अहे";
-            Assert.AreEqual("समाणूस माणूस की चान अहे", test.TrimStart("माणू"));
+            Assert.AreEqual("समाणूस माणूस की चान अहे", test.TrimStart("माणू", System.StringComparison.Ordinal));
         }
     }
 }

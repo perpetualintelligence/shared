@@ -93,11 +93,8 @@ namespace PerpetualIntelligence.Shared.Extensions
         /// </summary>
         /// <param name="self">The string to trim.</param>
         /// <param name="trim">The string to trim from start.</param>
-        /// <param name="stringComparison">The string comparison. Defaults to <see cref="StringComparison.Ordinal"/>.</param>
-        /// <remarks>
-        /// The method compares the trim string with default <see cref="StringComparison.Ordinal"/> sort rules.
-        /// </remarks>
-        public static string TrimEnd(this string self, string? trim, StringComparison stringComparison = StringComparison.Ordinal)
+        /// <param name="stringComparison">The string comparison.</param>
+        public static string TrimEnd(this string self, string? trim, StringComparison stringComparison)
         {
             if (string.IsNullOrEmpty(trim))
             {
@@ -118,11 +115,8 @@ namespace PerpetualIntelligence.Shared.Extensions
         /// </summary>
         /// <param name="self">The string to trim.</param>
         /// <param name="trim">The string to trim from start.</param>
-        /// <param name="stringComparison">The string comparison. Defaults to <see cref="StringComparison.Ordinal"/></param>
-        /// <remarks>
-        /// The method compares the trim string with default <see cref="StringComparison.Ordinal"/> sort rules.
-        /// </remarks>
-        public static string TrimStart(this string self, string? trim, StringComparison stringComparison = StringComparison.Ordinal)
+        /// <param name="stringComparison">The string comparison.</param>
+        public static string TrimStart(this string self, string? trim, StringComparison stringComparison)
         {
             if (string.IsNullOrEmpty(trim))
             {

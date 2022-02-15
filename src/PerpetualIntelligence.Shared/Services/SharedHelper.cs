@@ -79,8 +79,9 @@ namespace PerpetualIntelligence.Shared.Services
 
             if (!Path.IsPathRooted(path))
             {
-                // Full name return the current directory for relative paths.
-                string parentPath = Directory.GetParent(path).FullName.TrimStart(Directory.GetCurrentDirectory());
+                // FOMAC: Take string comparison ?
+                // - Full name return the current directory for relative paths.
+                string parentPath = Directory.GetParent(path).FullName.TrimStart(Directory.GetCurrentDirectory(), StringComparison.Ordinal);
                 if (!path.StartsWith("" + Path.DirectorySeparatorChar, StringComparison.Ordinal))
                 {
                     return parentPath.TrimStart(Path.DirectorySeparatorChar);
