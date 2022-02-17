@@ -57,7 +57,7 @@ namespace PerpetualIntelligence.Shared.Services
         /// <returns>The formatted error message.</returns>
         public static string Format(LoggingOptions loggingOptions, string message, params object?[] args)
         {
-            return string.Format(message, loggingOptions.RevealErrorArguments.GetValueOrDefault() ? args : Obscure(loggingOptions.ObscureErrorArgumentString, args));
+            return string.Format(message, loggingOptions.ObsureErrorArguments ? Obscure(loggingOptions.ObscureErrorArgumentString, args) : args);
         }
 
         /// <summary>

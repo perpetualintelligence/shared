@@ -19,7 +19,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         public void DefaultValuesShouldBeCorrect()
         {
             LoggingOptions options = new LoggingOptions();
-            Assert.IsNull(options.RevealErrorArguments);
+            Assert.IsTrue(options.ObsureErrorArguments);
             Assert.AreEqual("****", options.ObscureErrorArgumentString);
         }
     }

@@ -1078,6 +1078,40 @@ namespace PerpetualIntelligence.Test.Services
         /// <summary>
         /// Ensures that an action throws <see cref="ErrorException"/>.
         /// </summary>
+        /// <param name="action">The action to execute.</param>
+        /// <param name="errorCode">The expected error code.</param>
+        /// <param name="errorDescription">The expected error description.</param>
+        /// <returns>
+        /// <see cref="TryResultOrErrors{T}"/> instance that contains the result or an <see cref="Error"/> instance.
+        /// </returns>
+        public static void AssertThrowsErrorException(Action action, string errorCode, string errorDescription)
+        {
+            try
+            {
+                action.Invoke();
+            }
+            catch (ErrorException ee)
+            {
+                Assert.IsNotNull(ee.Error);
+                Assert.IsNotNull(ee.Error.ErrorCode);
+                Assert.IsNotNull(ee.Error.ErrorDescription);
+                Assert.AreEqual(errorCode, ee.Error.ErrorCode);
+                Assert.AreEqual(errorDescription, ee.Error.FormatDescription());
+
+                // All good, expected error validated
+                return;
+            }
+            catch (Exception ex)
+            {
+                Assert.Fail($"The action did not throw '{nameof(ErrorException)}', instead it threw '{ex.GetType().Name}'.");
+            }
+
+            Assert.Fail($"The action did not throw '{nameof(ErrorException)}' with error '{errorCode}' and error description '{errorDescription}'.");
+        }
+
+        /// <summary>
+        /// Ensures that an action throws <see cref="ErrorException"/>.
+        /// </summary>
         /// <param name="funcTask">The task to execute.</param>
         /// <param name="errorCode">The expected error code.</param>
         /// <param name="errorDescription">The expected error description.</param>

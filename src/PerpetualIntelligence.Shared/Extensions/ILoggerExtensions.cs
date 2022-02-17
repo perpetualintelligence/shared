@@ -78,7 +78,7 @@ namespace PerpetualIntelligence.Shared.Extensions
         {
             if (args != null)
             {
-                object?[] argsToUse = loggingOptions.RevealErrorArguments.GetValueOrDefault() ? args : SharedHelper.Obscure(loggingOptions.ObscureErrorArgumentString, args);
+                object?[] argsToUse = loggingOptions.ObsureErrorArguments ? SharedHelper.Obscure(loggingOptions.ObscureErrorArgumentString, args) : args;
                 return new(string.Format(message, argsToUse), argsToUse);
             }
             else

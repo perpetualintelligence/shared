@@ -25,11 +25,11 @@ namespace PerpetualIntelligence.Shared.Services
         }
 
         [TestMethod]
-        public void FormatShouldNotRevealArguments()
+        public void FormatShouldObsureArguments()
         {
             LoggingOptions loggingOptions = new()
             {
-                RevealErrorArguments = false
+                ObsureErrorArguments = true
             };
 
             string message = SharedHelper.Format(loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
@@ -37,11 +37,11 @@ namespace PerpetualIntelligence.Shared.Services
         }
 
         [TestMethod]
-        public void FormatShouldRevealArguments()
+        public void FormatShouldNotObsureArguments()
         {
             LoggingOptions loggingOptions = new()
             {
-                RevealErrorArguments = true
+                ObsureErrorArguments = false
             };
             string message = SharedHelper.Format(loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
             Assert.AreEqual("Test message. client_id=test_client_id scope=test_scope test=test_value", message);

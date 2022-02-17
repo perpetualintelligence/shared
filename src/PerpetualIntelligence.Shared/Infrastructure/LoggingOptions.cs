@@ -8,21 +8,21 @@
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
-    /// The generic <c>oneimlx</c> logging configuration options.
+    /// The generic logging configuration options.
     /// </summary>
     public class LoggingOptions
     {
         /// <summary>
         /// The string used to obscure error arguments. Defaults to <c>****</c>.
         /// </summary>
-        /// <seealso cref="RevealErrorArguments"/>
+        /// <seealso cref="ObsureErrorArguments"/>
         public string ObscureErrorArgumentString { get; set; } = "****";
 
         /// <summary>
-        /// Reveals the arguments in the error description. By default, the arguments are obscured to hide the sensitive
-        /// information. Use <see cref="ObscureErrorArgumentString"/> to configure the obscure string.
+        /// Obscures the arguments in the error description to hide the sensitive data. Defaults to <c>true</c>.
         /// </summary>
+        /// <remarks>Use <see cref="ObscureErrorArgumentString"/> to configure the obscure string.</remarks>
         /// <seealso cref="ObscureErrorArgumentString"/>
-        public bool? RevealErrorArguments { get; set; }
+        public bool ObsureErrorArguments { get; set; } = true;
     }
 }

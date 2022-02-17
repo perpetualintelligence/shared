@@ -20,7 +20,7 @@ namespace PerpetualIntelligence.Shared.Extensions
         }
 
         [TestMethod]
-        public void FormatAndLogDefaultShouldNotEnableArguments()
+        public void FormatAndLogDefaultShouldObsureArgumentsArguments()
         {
             LoggingOptions loggingOptions = new();
 
@@ -29,11 +29,11 @@ namespace PerpetualIntelligence.Shared.Extensions
         }
 
         [TestMethod]
-        public void FormatAndLogShouldEnableArguments()
+        public void FormatAndLogShouldNotObsureArguments()
         {
             LoggingOptions loggingOptions = new()
             {
-                RevealErrorArguments = true
+                ObsureErrorArguments = false
             };
 
             string? message = Logger.FormatAndLog(Microsoft.Extensions.Logging.LogLevel.Error, loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
@@ -41,11 +41,11 @@ namespace PerpetualIntelligence.Shared.Extensions
         }
 
         [TestMethod]
-        public void FormatAndLogShouldNotEnableArguments()
+        public void FormatAndLogShouldObsureArguments()
         {
             LoggingOptions loggingOptions = new()
             {
-                RevealErrorArguments = false
+                ObsureErrorArguments = true
             };
 
             string? message = Logger.FormatAndLog(Microsoft.Extensions.Logging.LogLevel.Debug, loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
