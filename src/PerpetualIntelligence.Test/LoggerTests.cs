@@ -7,21 +7,29 @@
 
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerpetualIntelligence.Test.Services;
 
 namespace PerpetualIntelligence.Test
 {
     /// <summary>
-    /// Represents a <see cref="ContextTest"/> that provides the <see cref="ILogger"/>.
+    /// Represents a <see cref="ContextTests"/> that provides the <see cref="ILogger"/>.
     /// </summary>
-    public abstract class LogTest : ContextTest
+    public abstract class LoggerTests<T> : ContextTests
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        /// <param name="logger"></param>
-        public LogTest(ILogger logger)
+        public LoggerTests(ILogger logger)
         {
             Logger = logger;
+        }
+
+        /// <summary>
+        /// Initialize a new instance.
+        /// </summary>
+        public LoggerTests()
+        {
+            Logger = TestLogger.Create<T>();
         }
 
         /// <summary>

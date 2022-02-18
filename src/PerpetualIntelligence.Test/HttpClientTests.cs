@@ -14,15 +14,15 @@ using System.Net.Http;
 namespace PerpetualIntelligence.Test
 {
     /// <summary>
-    /// Represents a <see cref="ContextTest"/> that provides the <see cref="HttpClient"/>.
+    /// Represents a <see cref="ContextTests"/> that provides the <see cref="HttpClient"/>.
     /// </summary>
-    public abstract class HttpClientTest : ContextTest
+    public abstract class HttpClientTests : ContextTests
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
         /// <param name="logger"></param>
-        public HttpClientTest(ILogger logger)
+        public HttpClientTests(ILogger logger)
         {
             Logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
@@ -30,7 +30,7 @@ namespace PerpetualIntelligence.Test
         /// <summary>
         /// The logger.
         /// </summary>
-        public ILogger Logger { get; }
+        public ILogger? Logger { get; }
 
         /// <summary>
         /// The test cleanup method that logs and calls <see cref="OnTestCleanup"/>.
@@ -45,7 +45,7 @@ namespace PerpetualIntelligence.Test
                 HttpClient.Dispose();
             }
 
-            Logger.LogInformation("-------- End HTTP Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
+            Logger?.LogInformation("-------- End HTTP Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
         }
 
         /// <summary>
@@ -54,11 +54,19 @@ namespace PerpetualIntelligence.Test
         [TestInitialize]
         public void ImlxLogTestInitialize()
         {
-            Logger.LogInformation("-------- Start HTTP Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
+            Logger?.LogInformation("-------- Start HTTP Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
+
+            // Make sure we init first
+            OnTestInitialize();
 
             HttpClient = GetTestServer().CreateClient();
+        }
 
-            OnTestInitialize();
+        /// <summary>
+        /// Initialize a new instance.
+        /// </summary>
+        protected HttpClientTests()
+        {
         }
 
         /// <summary>

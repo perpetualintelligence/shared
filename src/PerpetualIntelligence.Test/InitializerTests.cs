@@ -7,27 +7,35 @@
 
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PerpetualIntelligence.Test.Services;
 
 namespace PerpetualIntelligence.Test
 {
     /// <summary>
-    /// Represents a <see cref="ContextTest"/> that provides the <see cref="ILogger"/>.
+    /// Represents a <see cref="ContextTests"/> that provides the initialization and cleanup methods.
     /// </summary>
-    public abstract class LogTestWithLogger<T> : ContextTest
+    public abstract class InitializerTests : ContextTests
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        public LogTestWithLogger()
+        /// <param name="logger"></param>
+        public InitializerTests(ILogger logger)
         {
-            Logger = TestLogger.Create<T>();
+            Logger = logger;
+        }
+
+        /// <summary>
+        /// Initialize a new instance.
+        /// </summary>
+
+        public InitializerTests()
+        {
         }
 
         /// <summary>
         /// The logger.
         /// </summary>
-        public ILogger Logger { get; }
+        public ILogger? Logger { get; }
 
         /// <summary>
         /// The test cleanup method that logs and calls <see cref="OnTestCleanup"/>.
@@ -36,7 +44,7 @@ namespace PerpetualIntelligence.Test
         public void Cleanup()
         {
             OnTestCleanup();
-            Logger.LogInformation("-------- End Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
+            Logger?.LogInformation("-------- End Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
         }
 
         /// <summary>
@@ -45,7 +53,7 @@ namespace PerpetualIntelligence.Test
         [TestInitialize]
         public void Initialize()
         {
-            Logger.LogInformation("-------- Start Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
+            Logger?.LogInformation("-------- Start Test={0} --------", $"{TestContext.FullyQualifiedTestClassName}.{TestContext.TestName}");
             OnTestInitialize();
         }
 

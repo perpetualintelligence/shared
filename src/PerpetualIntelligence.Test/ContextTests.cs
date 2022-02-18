@@ -12,7 +12,7 @@ namespace PerpetualIntelligence.Test
     /// <summary>
     /// Represents a test class that provides <see cref="TestContext"/>.
     /// </summary>
-    public abstract class ContextTest
+    public abstract class ContextTests
     {
         /// <summary>
         /// The test context. This property is set automatically by the test engine.

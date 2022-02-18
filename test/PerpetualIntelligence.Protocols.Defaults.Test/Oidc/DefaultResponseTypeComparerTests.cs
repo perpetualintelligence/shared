@@ -13,7 +13,7 @@ using System.Collections.Generic;
 namespace PerpetualIntelligence.Protocols.Defaults.Oidc
 {
     [TestClass]
-    public class DefaultResponseTypeComparerTests : LogTest
+    public class DefaultResponseTypeComparerTests : InitializerTests
     {
         public DefaultResponseTypeComparerTests() : base(TestLogger.Create<DefaultResponseTypeComparerTests>())
         {
