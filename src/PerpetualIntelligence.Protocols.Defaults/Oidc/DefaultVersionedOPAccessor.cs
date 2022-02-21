@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using Microsoft.Extensions.Configuration;
@@ -13,20 +10,20 @@ using PerpetualIntelligence.Protocols.Oidc;
 using PerpetualIntelligence.Protocols.OneImlx;
 using PerpetualIntelligence.Shared.Abstractions;
 
-namespace PerpetualIntelligence.Protocols.Defaults.Versioning
+namespace PerpetualIntelligence.Protocols.Defaults.Oidc
 {
     /// <summary>
     /// The default versioned <see cref="IOPAccessor"/>. The version information is added in the URL path.
     /// </summary>
     /// <seealso cref="IOPAccessor"/>
-    public sealed class DefaultUrlVersionEndpointAccessor : IOPAccessor
+    public sealed class DefaultVersionedOPAccessor : IOPAccessor
     {
         /// <summary>
         /// Initializes a new instance.
         /// </summary>
         /// <param name="configuration">The configuration.</param>
         /// <param name="urlVersionAccessor">The URL version accessor.</param>
-        public DefaultUrlVersionEndpointAccessor(IConfiguration configuration, IUrlVersionAccessor urlVersionAccessor)
+        public DefaultVersionedOPAccessor(IConfiguration configuration, IUrlVersionAccessor urlVersionAccessor)
         {
             Configuration = configuration;
             UrlVersionAccessor = urlVersionAccessor;

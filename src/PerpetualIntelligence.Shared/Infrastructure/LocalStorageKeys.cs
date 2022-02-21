@@ -1,14 +1,11 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
-namespace PerpetualIntelligence.Protocols.OneImlx
+namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
     /// The <c>oneimlx</c> local storage keys.
@@ -23,5 +20,10 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// Determines the diagnostic state from the local storage.
         /// </summary>
         public const string IsDiagnostic = "urn:oneimlx:lsk:isdiag";
+
+        /// <summary>
+        /// Determines the layer luminance for the <c>fast</c> color theme.
+        /// </summary>
+        public const string LayerLuminance = "urn:oneimlx:lsk:layer";
     }
 }

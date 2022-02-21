@@ -11,7 +11,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Test.Services;
 
-namespace PerpetualIntelligence.Protocols.OneImlx
+namespace PerpetualIntelligence.Shared.Infrastructure
 {
     [TestClass]
     public class LocalStorageKeysTest
@@ -19,9 +19,10 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         [TestMethod]
         public void InternalLocalStorageKeysConstantTest()
         {
-            TestHelper.AssertConstantCount(typeof(LocalStorageKeys), 1);
+            TestHelper.AssertConstantCount(typeof(LocalStorageKeys), 2);
 
             Assert.AreEqual("urn:oneimlx:lsk:isdiag", LocalStorageKeys.IsDiagnostic);
+            Assert.AreEqual("urn:oneimlx:lsk:layer", LocalStorageKeys.LayerLuminance);
         }
     }
 }
