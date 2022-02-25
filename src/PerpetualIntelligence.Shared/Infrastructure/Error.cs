@@ -154,5 +154,11 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// </summary>
         [JsonIgnore]
         public const string Unknown = "unknown_error";
+
+        /// <summary>
+        /// The unauthorized error.
+        /// </summary>
+        [JsonIgnore]
+        public const string Unauthorized = "unauthorized_access";
     }
 }
