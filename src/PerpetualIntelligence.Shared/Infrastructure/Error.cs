@@ -6,6 +6,7 @@
 */
 
 using PerpetualIntelligence.Shared.Attributes;
+using System.Net;
 using System.Text.Json.Serialization;
 
 namespace PerpetualIntelligence.Shared.Infrastructure
@@ -122,6 +123,25 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         }
 
         /// <summary>
+        /// Maps the <see cref="ErrorCode"/> to <see cref="HttpStatusCode"/>
+        /// </summary>
+        /// <returns></returns>
+        public HttpStatusCode MapHttpStatusCode()
+        {
+            switch (ErrorCode)
+            {
+                case Unauthorized:
+                    {
+                        return HttpStatusCode.Unauthorized;
+                    }
+                default:
+                    {
+                        return HttpStatusCode.BadRequest;
+                    }
+            }
+        }
+
+        /// <summary>
         /// Set an error.
         /// </summary>
         public void SetError(string error, string errorDescription, object?[]? args = null, string? errorUri = null, string? requestId = null)
@@ -144,6 +164,12 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         }
 
         /// <summary>
+        /// The unauthorized error.
+        /// </summary>
+        [JsonIgnore]
+        public const string Unauthorized = "unauthorized_access";
+
+        /// <summary>
         /// The unexpected error.
         /// </summary>
         [JsonIgnore]
@@ -154,11 +180,5 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// </summary>
         [JsonIgnore]
         public const string Unknown = "unknown_error";
-
-        /// <summary>
-        /// The unauthorized error.
-        /// </summary>
-        [JsonIgnore]
-        public const string Unauthorized = "unauthorized_access";
     }
 }
