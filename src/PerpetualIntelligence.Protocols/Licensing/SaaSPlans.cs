@@ -5,13 +5,36 @@
     https://terms.perpetualintelligence.com
 */
 
-namespace PerpetualIntelligence.Protocols.SaaS
+namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
     /// Defines the SaaS pricing plans.
     /// </summary>
-    public class PricingPlans
+    public class SaaSPlans
     {
+        /// <summary>
+        /// Determines if the plan is valid.
+        /// </summary>
+        /// <returns><c>true</c> if the plan is valid; otherwise, <c>false</c>.</returns>
+        public static bool IsValid(string plan)
+        {
+            switch (plan)
+            {
+                case Community:
+                case Micro:
+                case SMB:
+                case Custom:
+                case Enterprise:
+                    {
+                        return true;
+                    }
+                default:
+                    {
+                        return false;
+                    }
+            }
+        }
+
         /// <summary>
         /// The community SaaS pricing plan.
         /// </summary>
@@ -25,7 +48,7 @@ namespace PerpetualIntelligence.Protocols.SaaS
         /// <summary>
         /// The enterprise SaaS pricing plan.
         /// </summary>
-        public const string Enterprise = "urn:oneimlx:saas:enterprise";
+        public const string Enterprise = "urn:oneimlx:saas:enterprise";        
 
         /// <summary>
         /// The solo or micro SaaS pricing plan.
