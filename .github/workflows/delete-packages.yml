@@ -66,7 +66,7 @@ jobs:
 
       # Delete specific
       - name: Delete ${{ env.PI_DELETE_PACKAGES }}
-        if: ${{ ${{ env.PI_DELETE_PACKAGES }} != 'All' }}
+        if: ${{ env.PI_DELETE_PACKAGES != 'All' }}
         uses: actions/delete-package-versions@v2       
         with:
           package-name: ${{ env.PI_DELETE_PACKAGES }}
@@ -74,7 +74,7 @@ jobs:
       
       # Delete PerpetualIntelligence.Shared
       - name: Delete PerpetualIntelligence.Shared
-        if: ${{ ${{ env.PI_DELETE_PACKAGES }} == 'All' }}
+        if: ${{ env.PI_DELETE_PACKAGES == 'All' }}
         uses: actions/delete-package-versions@v2       
         with:
           package-name: PerpetualIntelligence.Shared
@@ -82,7 +82,7 @@ jobs:
       
       # Delete PerpetualIntelligence.Test
       - name: Delete PerpetualIntelligence.Test
-        if: ${{ ${{ env.PI_DELETE_PACKAGES }} == 'All' }}
+        if: ${{ env.PI_DELETE_PACKAGES == 'All' }}
         uses: actions/delete-package-versions@v2       
         with:
           package-name: PerpetualIntelligence.Test
@@ -90,7 +90,7 @@ jobs:
       
       # Delete PerpetualIntelligence.Protocols
       - name: Delete PerpetualIntelligence.Protocols
-        if: ${{ ${{ env.PI_DELETE_PACKAGES }} == 'All' }}
+        if: ${{ env.PI_DELETE_PACKAGES == 'All' }}
         uses: actions/delete-package-versions@v2       
         with:
           package-name: PerpetualIntelligence.Protocols
@@ -98,7 +98,7 @@ jobs:
      
       # Delete PerpetualIntelligence.Protocols.Defaults
       - name: Delete PerpetualIntelligence.Protocols.Defaults
-        if: ${{ ${{ env.PI_DELETE_PACKAGES }} == 'All' }}
+        if: ${{ env.PI_DELETE_PACKAGES == 'All' }}
         uses: actions/delete-package-versions@v2       
         with:
           package-name: PerpetualIntelligence.Protocols.Defaults
