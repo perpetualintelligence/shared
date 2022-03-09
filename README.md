@@ -1,5 +1,4 @@
-![Preview](https://img.shields.io/badge/release-preview-orange) 
-[![build-test-ci](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-ci.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-ci.yml)
+[![build-test-cross-manual](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-cross-manual.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-cross-manual.yml)
 [![build-test-publish](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-publish.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-publish.yml)
 [![delete-package](https://github.com/perpetualintelligence/protocols/actions/workflows/delete-packages.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/delete-packages.yml)
 
