@@ -16,6 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Cli\" />
       <Folder Include="Security\Certificates\" />
     </ItemGroup>
 

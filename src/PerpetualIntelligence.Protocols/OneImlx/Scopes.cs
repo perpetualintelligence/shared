@@ -1,16 +1,13 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using PerpetualIntelligence.Shared.Attributes;
 
-namespace PerpetualIntelligence.Protocols.Oidc
+namespace PerpetualIntelligence.Protocols.OneImlx
 {
     /// <summary>
     /// The scopes supported by the <c>OAuth2.0</c>, <c>OpenID Connect</c> and <c>oneimlx</c> protocols.
