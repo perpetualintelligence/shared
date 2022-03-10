@@ -20,7 +20,7 @@ namespace PerpetualIntelligence.Shared.Exceptions
         /// </summary>
         public ErrorException()
         {
-            Error = new Error(Error.Unknown, "");
+            Error = new Error(Error.Unexpected, "");
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace PerpetualIntelligence.Shared.Exceptions
         /// <param name="message">The exception message.</param>
         public ErrorException(string message) : base(message)
         {
-            Error = new Error(Error.Unknown, "");
+            Error = new Error(Error.Unexpected, "");
         }
 
         /// <summary>

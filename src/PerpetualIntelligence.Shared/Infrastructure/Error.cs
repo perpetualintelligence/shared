@@ -206,11 +206,5 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// </summary>
         [JsonIgnore]
         public const string Unexpected = "unexpected_error";
-
-        /// <summary>
-        /// The unknown error.
-        /// </summary>
-        [JsonIgnore]
-        public const string Unknown = "unknown_error";
     }
 }

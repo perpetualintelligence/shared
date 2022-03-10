@@ -16,10 +16,12 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void DefaultErrorCodeShouldBeValid()
         {
-            TestHelper.AssertConstantCount(typeof(Error), 3);
+            TestHelper.AssertConstantCount(typeof(Error), 5);
 
+            Assert.AreEqual("invalid_configuration", Error.InvalidConfiguration);
+            Assert.AreEqual("invalid_request", Error.InvalidRequest);
+            Assert.AreEqual("server_request", Error.ServerError);
             Assert.AreEqual("unauthorized_access", Error.Unauthorized);
-            Assert.AreEqual("unknown_error", Error.Unknown);
             Assert.AreEqual("unexpected_error", Error.Unexpected);
         }
     }
