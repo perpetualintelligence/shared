@@ -23,12 +23,12 @@ namespace PerpetualIntelligence.Protocols.Abstractions.Stores
         string? ConcurrencyStamp { get; }
 
         /// <summary>
-        /// The create time-stamp expressed in Coordinated Universal Time (UTC).
+        /// The create stamp expressed in Coordinated Universal Time (UTC).
         /// </summary>
         DateTimeOffset? CreateStamp { get; }
 
         /// <summary>
-        /// Delete request time-stamp of the entity expressed in the Coordinated Universal Time (UTC).
+        /// Delete request stamp of the entity expressed in the Coordinated Universal Time (UTC).
         /// </summary>
         DateTimeOffset? DeleteStamp { get; }
 
@@ -36,11 +36,6 @@ namespace PerpetualIntelligence.Protocols.Abstractions.Stores
         /// The locked state.
         /// </summary>
         bool? Disabled { get; }
-
-        /// <summary>
-        /// The entity id
-        /// </summary>
-        string Id { get; }
 
         /// <summary>
         /// The locked state.

@@ -10,10 +10,10 @@ namespace PerpetualIntelligence.Protocols.Abstractions.Stores
     /// <summary>
     /// An abstraction of a multi-tenant entity that establishes a commercial relationship between businesses, precisely
     /// provider and consumer. It is a typical model when a business or a company sells its products or services
-    /// directly to other companies. The consumers or customers of a product or service are the users, collaborators, or
+    /// directly to other companies. The customers of a product or service are the users, collaborators, or
     /// employees within the consumer business.
     /// </summary>
-    public interface IB2BTenancyEntity : IEntity
+    public interface IB2BTenancyEntity
     {
         /// <summary>
         /// The consumer tenant id.

@@ -144,6 +144,10 @@ namespace PerpetualIntelligence.Shared.Infrastructure
                     {
                         return HttpStatusCode.Unauthorized;
                     }
+                case ServerError:
+                    {
+                        return HttpStatusCode.InternalServerError;
+                    }
                 default:
                     {
                         return HttpStatusCode.BadRequest;
@@ -177,7 +181,19 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// The invalid request error.
         /// </summary>
         [JsonIgnore]
-        public const string Invalid = "invalid_request";
+        public const string InvalidConfiguration = "invalid_configuration";
+
+        /// <summary>
+        /// The invalid request error.
+        /// </summary>
+        [JsonIgnore]
+        public const string InvalidRequest = "invalid_request";
+
+        /// <summary>
+        /// The server error.
+        /// </summary>
+        [JsonIgnore]
+        public const string ServerError = "server_request";
 
         /// <summary>
         /// The unauthorized error.
