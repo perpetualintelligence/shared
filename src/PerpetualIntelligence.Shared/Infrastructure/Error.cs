@@ -152,6 +152,10 @@ namespace PerpetualIntelligence.Shared.Infrastructure
                     {
                         return HttpStatusCode.NotFound;
                     }
+                case AlreadyExist:
+                    {
+                        return HttpStatusCode.Conflict;
+                    }
                 default:
                     {
                         return HttpStatusCode.BadRequest;
@@ -216,6 +220,12 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// </summary>
         [JsonIgnore]
         public const string NotFound = "not_found";
+
+        /// <summary>
+        /// The not found error.
+        /// </summary>
+        [JsonIgnore]
+        public const string AlreadyExist = "already_exist";
 
     }
 }

@@ -16,8 +16,9 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void DefaultErrorCodeShouldBeValid()
         {
-            TestHelper.AssertConstantCount(typeof(Error), 6);
+            TestHelper.AssertConstantCount(typeof(Error), 7);
 
+            Assert.AreEqual("already_exist", Error.AlreadyExist);
             Assert.AreEqual("invalid_configuration", Error.InvalidConfiguration);
             Assert.AreEqual("invalid_request", Error.InvalidRequest);
             Assert.AreEqual("not_found", Error.NotFound);
