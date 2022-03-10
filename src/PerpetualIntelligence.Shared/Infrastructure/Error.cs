@@ -148,6 +148,10 @@ namespace PerpetualIntelligence.Shared.Infrastructure
                     {
                         return HttpStatusCode.InternalServerError;
                     }
+                case NotFound:
+                    {
+                        return HttpStatusCode.NotFound;
+                    }
                 default:
                     {
                         return HttpStatusCode.BadRequest;
@@ -206,5 +210,12 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// </summary>
         [JsonIgnore]
         public const string Unexpected = "unexpected_error";
+
+        /// <summary>
+        /// The not found error.
+        /// </summary>
+        [JsonIgnore]
+        public const string NotFound = "not_found";
+
     }
 }
