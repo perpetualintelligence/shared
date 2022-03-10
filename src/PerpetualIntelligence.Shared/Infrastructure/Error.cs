@@ -123,6 +123,16 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         }
 
         /// <summary>
+        /// Creates a new <see cref="Error"/> instance with formated <see cref="ErrorDescription"/> with the <see cref="Args"/>.
+        /// </summary>
+        /// <returns>Formatted error instance.</returns>
+        [WriteUnitTest]
+        public Error FormatError()
+        {
+            return new Error(ErrorCode, FormatDescription(), null, ErrorUri, RequestId);
+        }
+
+        /// <summary>
         /// Maps the <see cref="ErrorCode"/> to <see cref="HttpStatusCode"/>
         /// </summary>
         /// <returns></returns>
@@ -162,6 +172,12 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             ErrorUri = errorUri;
             RequestId = requestId;
         }
+
+        /// <summary>
+        /// The invalid request error.
+        /// </summary>
+        [JsonIgnore]
+        public const string Invalid = "invalid_request";
 
         /// <summary>
         /// The unauthorized error.

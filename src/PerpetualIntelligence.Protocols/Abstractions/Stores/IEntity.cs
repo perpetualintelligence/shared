@@ -1,21 +1,17 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Shared.Infrastructure;
 using System;
 using System.Collections.Generic;
 
 namespace PerpetualIntelligence.Protocols.Abstractions.Stores
 {
     /// <summary>
-    /// The abstraction of a store entity.
+    /// The abstraction of a persisted entity.
     /// </summary>
     /// <see cref="IStore{TSContext, TMContext, TSResult, TMResult}"/>
     /// <seealso cref="ITrackedStore{TSContext, TMContext, TSResult, TMResult}"/>
@@ -37,6 +33,21 @@ namespace PerpetualIntelligence.Protocols.Abstractions.Stores
         DateTimeOffset? DeleteStamp { get; }
 
         /// <summary>
+        /// The locked state.
+        /// </summary>
+        bool? Disabled { get; }
+
+        /// <summary>
+        /// The entity id
+        /// </summary>
+        string Id { get; }
+
+        /// <summary>
+        /// The locked state.
+        /// </summary>
+        bool? Locked { get; }
+
+        /// <summary>
         /// The entity name.
         /// </summary>
         string? Name { get; }
@@ -55,11 +66,5 @@ namespace PerpetualIntelligence.Protocols.Abstractions.Stores
         /// The update time-stamp expressed in Coordinated Universal Time (UTC).
         /// </summary>
         DateTimeOffset? UpdateStamp { get; }
-
-        /// <summary>
-        /// Returns the store entity identity.
-        /// </summary>
-        /// <returns></returns>
-        Identity GetIdentity();
     }
 }
