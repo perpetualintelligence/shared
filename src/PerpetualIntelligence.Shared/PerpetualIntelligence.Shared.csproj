@@ -15,7 +15,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Description>The cross-platform infrastructure components for managed services, frameworks, and tools. Application owners can use these components to build low-level or foundational elements.</Description>
+        <Description>The cross-platform shared infrastructure components for managed services, frameworks, and tools. Application owners can use these components to build low-level or foundational elements.</Description>
         <PackageTags>infrastructure modes identity oneimlx</PackageTags>
     </PropertyGroup>  
 

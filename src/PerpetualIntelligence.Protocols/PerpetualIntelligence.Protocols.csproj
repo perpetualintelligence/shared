@@ -16,7 +16,7 @@
 
     <PropertyGroup>
         <Description>The cross-platform protocols and standards abstractions for managed services, frameworks, and tools. Application owners can use these components to build low-level or foundational identity, collaboration, and cli elements.</Description>
-        <PackageTags>oauth2 oidc openid-connect security identity rbac multitenancy communication event endpoint cli</PackageTags>
+        <PackageTags>marketplace saas cli</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>

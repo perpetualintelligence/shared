@@ -8,7 +8,7 @@
 namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
-    /// Defines the SaaS pricing plans.
+    /// Defines the standard SaaS pricing plans.
     /// </summary>
     public class SaaSPlans
     {
@@ -38,26 +38,26 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// <summary>
         /// The community SaaS pricing plan.
         /// </summary>
-        public const string Community = "urn:oneimlx:saas:community";
+        public const string Community = "pi-saas-plans-community";
 
         /// <summary>
         /// The custom SaaS pricing plan.
         /// </summary>
-        public const string Custom = "urn:oneimlx:saas:custom";
+        public const string Custom = "pi-saas-plans-custom";
 
         /// <summary>
         /// The enterprise SaaS pricing plan.
         /// </summary>
-        public const string Enterprise = "urn:oneimlx:saas:enterprise";        
+        public const string Enterprise = "pi-saas-plans-enterprise";        
 
         /// <summary>
         /// The solo or micro SaaS pricing plan.
         /// </summary>
-        public const string Micro = "urn:oneimlx:saas:micro";
+        public const string Micro = "pi-saas-plans-micro";
 
         /// <summary>
         /// The SMB SaaS pricing plan.
         /// </summary>
-        public const string SMB = "urn:oneimlx:saas:smb";
+        public const string SMB = "pi-saas-plans-smb";
     }
 }

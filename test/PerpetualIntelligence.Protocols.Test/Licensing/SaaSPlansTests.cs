@@ -18,11 +18,11 @@ namespace PerpetualIntelligence.Protocols.Licensing
         {
             TestHelper.AssertConstantCount(typeof(SaaSPlans), 5);
 
-            Assert.AreEqual("urn:oneimlx:saas:community", SaaSPlans.Community);
-            Assert.AreEqual("urn:oneimlx:saas:micro", SaaSPlans.Micro);
-            Assert.AreEqual("urn:oneimlx:saas:smb", SaaSPlans.SMB);
-            Assert.AreEqual("urn:oneimlx:saas:enterprise", SaaSPlans.Enterprise);
-            Assert.AreEqual("urn:oneimlx:saas:custom", SaaSPlans.Custom);
+            Assert.AreEqual("pi-saas-plans-community", SaaSPlans.Community);
+            Assert.AreEqual("pi-saas-plans-micro", SaaSPlans.Micro);
+            Assert.AreEqual("pi-saas-plans-smb", SaaSPlans.SMB);
+            Assert.AreEqual("pi-saas-plans-enterprise", SaaSPlans.Enterprise);
+            Assert.AreEqual("pi-saas-plans-custom", SaaSPlans.Custom);
         }
     }
 }

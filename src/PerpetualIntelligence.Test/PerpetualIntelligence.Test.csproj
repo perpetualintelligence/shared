@@ -16,7 +16,7 @@
 
     <PropertyGroup>
         <Description>The cross-platform test components for managed services, frameworks, and tools. Application owners can use these components to build low-level or foundational test elements.</Description>
-        <PackageTags>infrastructure test</PackageTags>
+        <PackageTags>infrastructure test mstest</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
