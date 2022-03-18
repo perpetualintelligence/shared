@@ -6,7 +6,7 @@
 name: build-test-publish
 
 # 1 release at a time
-concurrency: github-release
+concurrency: protocols
 
 # CICD. The rc and release are a manual trigger
 on:

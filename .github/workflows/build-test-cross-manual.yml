@@ -3,6 +3,7 @@
 #    For license, terms, and data policies, go to:
 #    https://terms.perpetualintelligence.com
 
+# This pipeline builds and tests the protocol projects on all supported platforms. It does not publish any package.
 name: build-test-cross-manual
 
 # Triggers
@@ -26,6 +27,11 @@ jobs:
     # Checkout
     - name: Checkout
       uses: actions/checkout@v2 
+
+    # Read env    
+    - name: Read Env
+      run: cat .github/package_version.env >> $GITHUB_ENV                
+      continue-on-error: false
 
     # Setup .Net with global.json
     - name: Setup .NET
