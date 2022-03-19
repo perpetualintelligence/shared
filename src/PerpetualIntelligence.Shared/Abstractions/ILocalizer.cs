@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using Microsoft.Extensions.Localization;
@@ -23,7 +20,7 @@ namespace PerpetualIntelligence.Shared.Abstractions
         /// </summary>
         /// <param name="tuId">The translation unit identifier.</param>
         /// <returns>An instance of <see cref="LocalizedString"/>.</returns>
-        LocalizedString Find(string tuId);
+        Task<LocalizedString> FindAsync(string tuId);
 
         /// <summary>
         /// Finds a formated locale specific string for the specified translation unit id.
@@ -31,7 +28,7 @@ namespace PerpetualIntelligence.Shared.Abstractions
         /// <param name="tuId">The translation unit identifier.</param>
         /// <param name="arguments">The format arguments.</param>
         /// <returns>An instance of <see cref="LocalizedString"/>.</returns>
-        LocalizedString Find(string tuId, params object[] arguments);
+        Task<LocalizedString> FindAsync(string tuId, params object[] arguments);
 
         /// <summary>
         /// Translates the specified string input and returns a locale specific string.

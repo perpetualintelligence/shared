@@ -25,5 +25,10 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// Determines the layer luminance for the <c>fast</c> color theme.
         /// </summary>
         public const string LayerLuminance = "urn:oneimlx:lsk:layer";
+
+        /// <summary>
+        /// Determines whether to show the localizer profix.
+        /// </summary>
+        public const string IsLocalizationPrefixed = "urn:oneimlx:lsk:isl10prefixed";
     }
 }

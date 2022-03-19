@@ -19,10 +19,11 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [TestMethod]
         public void InternalLocalStorageKeysConstantTest()
         {
-            TestHelper.AssertConstantCount(typeof(LocalStorageKeys), 2);
+            TestHelper.AssertConstantCount(typeof(LocalStorageKeys), 3);
 
             Assert.AreEqual("urn:oneimlx:lsk:isdiag", LocalStorageKeys.IsDiagnostic);
             Assert.AreEqual("urn:oneimlx:lsk:layer", LocalStorageKeys.LayerLuminance);
+            Assert.AreEqual("urn:oneimlx:lsk:isl10prefixed", LocalStorageKeys.IsLocalizationPrefixed);
         }
     }
 }
