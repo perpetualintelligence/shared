@@ -17,10 +17,22 @@ namespace PerpetualIntelligence.Shared.Abstractions
         /// <summary>
         /// Sends an email asynchronously.
         /// </summary>
-        /// <param name="to">The recipient.</param>
+        /// <param name="from">The sender.</param>
+        /// <param name="to">The recipients.</param>
         /// <param name="subject">The subject.</param>
-        /// <param name="htmlMessage">The HTML message.</param>
+        /// <param name="message">The message.</param>
+        /// <param name="bcc">The bcc recipients.</param>
         /// <returns><see cref="Task"/> instance that represents an asynchronous send operation.</returns>
-        Task SendAsync(string to, string subject, string htmlMessage);
+        Task SendAsync(string from, string[] to, string subject, string message, string[]? bcc);
+
+        /// <summary>
+        /// Sends an email from a configured sender asynchronously.
+        /// </summary>
+        /// <param name="to">The recipients.</param>
+        /// <param name="subject">The subject.</param>
+        /// <param name="message">The message.</param>
+        /// <param name="bcc">The bcc recipients.</param>
+        /// <returns><see cref="Task"/> instance that represents an asynchronous send operation.</returns>
+        Task SendAsync(string[] to, string subject, string message, string[]? bcc);
     }
 }
