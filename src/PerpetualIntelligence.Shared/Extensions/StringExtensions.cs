@@ -62,6 +62,21 @@ namespace PerpetualIntelligence.Shared.Extensions
         }
 
         /// <summary>
+        /// Joins the string collection with a <see cref="Environment.NewLine"/> separator.
+        /// </summary>
+        /// <param name="list">A collection of string to join.</param>
+        /// <returns>A joined string.</returns>
+        public static string JoinByNewline(this IEnumerable<string> list)
+        {
+            if (list == null)
+            {
+                return string.Empty;
+            }
+
+            return string.Join(Environment.NewLine, list);
+        }
+
+        /// <summary>
         /// Repeats the string for the specified times.
         /// </summary>
         /// <param name="value">The value to repeat.</param>
@@ -85,7 +100,22 @@ namespace PerpetualIntelligence.Shared.Extensions
                 return Array.Empty<string>();
             }
 
-            return self.Split(' ');
+            return self.Split(new[] { ' ' }, StringSplitOptions.None);
+        }
+
+        /// <summary>
+        /// Splits the string with a <see cref="Environment.NewLine"/>
+        /// </summary>
+        /// <param name="self">The string to split.</param>
+        /// <returns>An array of string split by newline separator.</returns>
+        public static string[] SplitByNewline(this string? self)
+        {
+            if (self == null)
+            {
+                return Array.Empty<string>();
+            }
+
+            return self.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
         }
 
         /// <summary>

@@ -75,6 +75,19 @@ namespace PerpetualIntelligence.Shared.Extensions
         }
 
         [TestMethod]
+        public void JoinNewlineTest()
+        {
+            Assert.AreEqual("test1\r\ntest2\r\ntest3\r\ntest4", StringExtensions.JoinByNewline(new string[] { "test1", "test2", "test3", "test4" }));
+        }
+
+        [TestMethod]
+        public void SplitNewlineTest()
+        {
+            string[] parts = { "test1", "test2", "test3" };
+            CollectionAssert.AreEqual(parts, "test1\r\ntest2\r\ntest3".SplitByNewline());
+        }
+
+        [TestMethod]
         public void StringRepeatShouldRepeadCorrectly()
         {
             Assert.AreEqual("xxxxxxxxxx", "x".Repeat(10));
