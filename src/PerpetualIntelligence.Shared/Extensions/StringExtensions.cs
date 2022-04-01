@@ -51,7 +51,7 @@ namespace PerpetualIntelligence.Shared.Extensions
         /// </summary>
         /// <param name="list">A collection of string to join.</param>
         /// <returns>A joined string.</returns>
-        public static string JoinBySpace(this IEnumerable<string> list)
+        public static string JoinBySpace(this IEnumerable<string>? list)
         {
             if (list == null)
             {
@@ -66,7 +66,7 @@ namespace PerpetualIntelligence.Shared.Extensions
         /// </summary>
         /// <param name="list">A collection of string to join.</param>
         /// <returns>A joined string.</returns>
-        public static string JoinByNewline(this IEnumerable<string> list)
+        public static string JoinByNewline(this IEnumerable<string>? list)
         {
             if (list == null)
             {
