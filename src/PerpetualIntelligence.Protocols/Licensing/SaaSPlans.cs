@@ -25,6 +25,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
                 case SMB:
                 case Custom:
                 case Enterprise:
+                case ISV:
                     {
                         return true;
                     }
@@ -59,5 +60,10 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// The SMB SaaS pricing plan.
         /// </summary>
         public const string SMB = "pi-saas-plans-smb";
+
+        /// <summary>
+        /// The ISV SaaS pricing plan.
+        /// </summary>
+        public const string ISV = "pi-saas-plans-isv";
     }
 }
