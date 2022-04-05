@@ -17,6 +17,16 @@ namespace PerpetualIntelligence.Shared.Extensions
     public static class StringExtensions
     {
         /// <summary>
+        /// Returns an empty string if this string is null.
+        /// </summary>
+        /// <param name="self">The string to check.</param>
+        /// <returns><c>true</c> if string is not null or white space, otherwise <c>false</c>.</returns>
+        public static string EmptyIfNull(this string? self)
+        {
+            return self ?? string.Empty;
+        }
+
+        /// <summary>
         /// Determines if the string is not null or white space.
         /// </summary>
         /// <param name="self">The string to check.</param>
@@ -47,21 +57,6 @@ namespace PerpetualIntelligence.Shared.Extensions
         }
 
         /// <summary>
-        /// Joins the string collection with a space separator.
-        /// </summary>
-        /// <param name="list">A collection of string to join.</param>
-        /// <returns>A joined string.</returns>
-        public static string JoinBySpace(this IEnumerable<string>? list)
-        {
-            if (list == null)
-            {
-                return string.Empty;
-            }
-
-            return string.Join(" ", list);
-        }
-
-        /// <summary>
         /// Joins the string collection with a <see cref="Environment.NewLine"/> separator.
         /// </summary>
         /// <param name="list">A collection of string to join.</param>
@@ -77,6 +72,31 @@ namespace PerpetualIntelligence.Shared.Extensions
         }
 
         /// <summary>
+        /// Joins the string collection with a space separator.
+        /// </summary>
+        /// <param name="list">A collection of string to join.</param>
+        /// <returns>A joined string.</returns>
+        public static string JoinBySpace(this IEnumerable<string>? list)
+        {
+            if (list == null)
+            {
+                return string.Empty;
+            }
+
+            return string.Join(" ", list);
+        }
+
+        /// <summary>
+        /// Returns a non null string.
+        /// </summary>
+        /// <param name="self">The string to check.</param>
+        /// <returns><c>true</c> if string is not null or white space, otherwise <c>false</c>.</returns>
+        public static string NotNull(this string? self)
+        {
+            return self!;
+        }
+
+        /// <summary>
         /// Repeats the string for the specified times.
         /// </summary>
         /// <param name="value">The value to repeat.</param>
@@ -86,21 +106,6 @@ namespace PerpetualIntelligence.Shared.Extensions
         {
             var parts = new string[count];
             return parts.Aggregate((x, y) => (x ?? value) + value);
-        }
-
-        /// <summary>
-        /// Splits the string with a space separator.
-        /// </summary>
-        /// <param name="self">The string to split.</param>
-        /// <returns>An array of string split by space separator.</returns>
-        public static string[] SplitBySpace(this string? self)
-        {
-            if (self == null)
-            {
-                return Array.Empty<string>();
-            }
-
-            return self.Split(new[] { ' ' }, StringSplitOptions.None);
         }
 
         /// <summary>
@@ -116,6 +121,21 @@ namespace PerpetualIntelligence.Shared.Extensions
             }
 
             return self.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+        }
+
+        /// <summary>
+        /// Splits the string with a space separator.
+        /// </summary>
+        /// <param name="self">The string to split.</param>
+        /// <returns>An array of string split by space separator.</returns>
+        public static string[] SplitBySpace(this string? self)
+        {
+            if (self == null)
+            {
+                return Array.Empty<string>();
+            }
+
+            return self.Split(new[] { ' ' }, StringSplitOptions.None);
         }
 
         /// <summary>
