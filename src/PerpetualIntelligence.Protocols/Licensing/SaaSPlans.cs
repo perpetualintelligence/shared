@@ -26,6 +26,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
                 case Custom:
                 case Enterprise:
                 case ISV:
+                case ISVU:
                     {
                         return true;
                     }
@@ -65,5 +66,10 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// The ISV SaaS pricing plan.
         /// </summary>
         public const string ISV = "pi-saas-plans-isv";
+
+        /// <summary>
+        /// The ISV unlimited SaaS pricing plan.
+        /// </summary>
+        public const string ISVU = "pi-saas-plans-isvu";
     }
 }

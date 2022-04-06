@@ -14,9 +14,27 @@ namespace PerpetualIntelligence.Protocols.Licensing
     public class SaaSPlansTests
     {
         [TestMethod]
+        public void IsValidShouldReturnTrueForValidSaaSPlans()
+        {
+            Assert.IsTrue(SaaSPlans.IsValid(SaaSPlans.Community));
+            Assert.IsTrue(SaaSPlans.IsValid(SaaSPlans.Micro));
+            Assert.IsTrue(SaaSPlans.IsValid(SaaSPlans.SMB));
+            Assert.IsTrue(SaaSPlans.IsValid(SaaSPlans.Enterprise));
+            Assert.IsTrue(SaaSPlans.IsValid(SaaSPlans.Custom));
+            Assert.IsTrue(SaaSPlans.IsValid(SaaSPlans.ISV));
+            Assert.IsTrue(SaaSPlans.IsValid(SaaSPlans.ISVU));
+        }
+
+        [TestMethod]
+        public void IsValidShouldReturnFalseForInvalidSaaSPlans()
+        {
+            Assert.IsFalse(SaaSPlans.IsValid("invalid"));
+        }
+
+        [TestMethod]
         public void SaaSPlansTest()
         {
-            TestHelper.AssertConstantCount(typeof(SaaSPlans), 6);
+            TestHelper.AssertConstantCount(typeof(SaaSPlans), 7);
 
             Assert.AreEqual("pi-saas-plans-community", SaaSPlans.Community);
             Assert.AreEqual("pi-saas-plans-micro", SaaSPlans.Micro);
@@ -24,6 +42,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
             Assert.AreEqual("pi-saas-plans-enterprise", SaaSPlans.Enterprise);
             Assert.AreEqual("pi-saas-plans-custom", SaaSPlans.Custom);
             Assert.AreEqual("pi-saas-plans-isv", SaaSPlans.ISV);
+            Assert.AreEqual("pi-saas-plans-isvu", SaaSPlans.ISVU);
         }
     }
 }
