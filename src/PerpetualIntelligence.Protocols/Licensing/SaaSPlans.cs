@@ -40,36 +40,36 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// <summary>
         /// The community SaaS pricing plan.
         /// </summary>
-        public const string Community = "pi-saas-plans-community";
+        public const string Community = "urn:oneimlx:lic:saasplans:community";
 
         /// <summary>
         /// The custom SaaS pricing plan.
         /// </summary>
-        public const string Custom = "pi-saas-plans-custom";
+        public const string Custom = "urn:oneimlx:lic:saasplans:custom";
 
         /// <summary>
         /// The enterprise SaaS pricing plan.
         /// </summary>
-        public const string Enterprise = "pi-saas-plans-enterprise";        
-
-        /// <summary>
-        /// The solo or micro SaaS pricing plan.
-        /// </summary>
-        public const string Micro = "pi-saas-plans-micro";
-
-        /// <summary>
-        /// The SMB SaaS pricing plan.
-        /// </summary>
-        public const string SMB = "pi-saas-plans-smb";
+        public const string Enterprise = "urn:oneimlx:lic:saasplans:enterprise";
 
         /// <summary>
         /// The ISV SaaS pricing plan.
         /// </summary>
-        public const string ISV = "pi-saas-plans-isv";
+        public const string ISV = "urn:oneimlx:lic:saasplans:isv";
 
         /// <summary>
         /// The ISV unlimited SaaS pricing plan.
         /// </summary>
-        public const string ISVU = "pi-saas-plans-isvu";
+        public const string ISVU = "urn:oneimlx:lic:saasplans:isvu";
+
+        /// <summary>
+        /// The solo or micro SaaS pricing plan.
+        /// </summary>
+        public const string Micro = "urn:oneimlx:lic:saasplans:micro";
+
+        /// <summary>
+        /// The SMB SaaS pricing plan.
+        /// </summary>
+        public const string SMB = "urn:oneimlx:lic:saasplans:smb";
     }
 }

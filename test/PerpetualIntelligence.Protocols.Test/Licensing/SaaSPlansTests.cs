@@ -36,13 +36,13 @@ namespace PerpetualIntelligence.Protocols.Licensing
         {
             TestHelper.AssertConstantCount(typeof(SaaSPlans), 7);
 
-            Assert.AreEqual("pi-saas-plans-community", SaaSPlans.Community);
-            Assert.AreEqual("pi-saas-plans-micro", SaaSPlans.Micro);
-            Assert.AreEqual("pi-saas-plans-smb", SaaSPlans.SMB);
-            Assert.AreEqual("pi-saas-plans-enterprise", SaaSPlans.Enterprise);
-            Assert.AreEqual("pi-saas-plans-custom", SaaSPlans.Custom);
-            Assert.AreEqual("pi-saas-plans-isv", SaaSPlans.ISV);
-            Assert.AreEqual("pi-saas-plans-isvu", SaaSPlans.ISVU);
+            Assert.AreEqual("urn:oneimlx:lic:saasplans:community", SaaSPlans.Community);
+            Assert.AreEqual("urn:oneimlx:lic:saasplans:micro", SaaSPlans.Micro);
+            Assert.AreEqual("urn:oneimlx:lic:saasplans:smb", SaaSPlans.SMB);
+            Assert.AreEqual("urn:oneimlx:lic:saasplans:enterprise", SaaSPlans.Enterprise);
+            Assert.AreEqual("urn:oneimlx:lic:saasplans:custom", SaaSPlans.Custom);
+            Assert.AreEqual("urn:oneimlx:lic:saasplans:isv", SaaSPlans.ISV);
+            Assert.AreEqual("urn:oneimlx:lic:saasplans:isvu", SaaSPlans.ISVU);
         }
     }
 }
