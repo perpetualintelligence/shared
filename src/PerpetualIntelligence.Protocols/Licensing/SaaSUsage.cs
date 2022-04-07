@@ -52,6 +52,6 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// <summary>
         /// The community test and demo usage for any account.
         /// </summary>
-        public const string Test = "urn:oneimlx:lic:saasusage:rnd";
+        public const string RnD = "urn:oneimlx:lic:saasusage:rnd";
     }
 }

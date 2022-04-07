@@ -25,7 +25,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
             Assert.IsTrue(SaaSUsage.IsValid(SaaSUsage.CommercialBusiness));
             Assert.IsTrue(SaaSUsage.IsValid(SaaSUsage.CommercialPersonal));
             Assert.IsTrue(SaaSUsage.IsValid(SaaSUsage.Educational));
-            Assert.IsTrue(SaaSUsage.IsValid(SaaSUsage.Test));
+            Assert.IsTrue(SaaSUsage.IsValid(SaaSUsage.RnD));
         }
 
         [TestMethod]
@@ -36,7 +36,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
             Assert.AreEqual("urn:oneimlx:lic:saasusage:org", SaaSUsage.CommercialBusiness);
             Assert.AreEqual("urn:oneimlx:lic:saasusage:per", SaaSUsage.CommercialPersonal);
             Assert.AreEqual("urn:oneimlx:lic:saasusage:edu", SaaSUsage.Educational);
-            Assert.AreEqual("urn:oneimlx:lic:saasusage:rnd", SaaSUsage.Test);
+            Assert.AreEqual("urn:oneimlx:lic:saasusage:rnd", SaaSUsage.RnD);
         }
     }
 }
