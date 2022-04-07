@@ -23,7 +23,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
                 case CommercialPersonal:
                 case CommercialBusiness:
                 case Educational:
-                case Test:
+                case RnD:
                     {
                         return true;
                     }
