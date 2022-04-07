@@ -12,7 +12,6 @@ namespace PerpetualIntelligence.Protocols.Licensing
     /// </summary>
     public class SaaSUsage
     {
-
         /// <summary>
         /// Determines if the usage is valid.
         /// </summary>
@@ -21,7 +20,8 @@ namespace PerpetualIntelligence.Protocols.Licensing
         {
             switch (usage)
             {
-                case Commercial:
+                case CommercialPersonal:
+                case CommercialBusiness:
                 case Educational:
                 case Test:
                     {
@@ -35,18 +35,23 @@ namespace PerpetualIntelligence.Protocols.Licensing
         }
 
         /// <summary>
-        /// The community SaaS pricing plan.
+        /// The commercial usage for an organization or business account.
         /// </summary>
-        public const string Commercial = "urn:oneimlx:lic:saasusage:commerce";
+        public const string CommercialBusiness = "urn:oneimlx:lic:saasusage:org";
 
         /// <summary>
-        /// The community SaaS pricing plan.
+        /// The commercial usage for a personal or social account.
+        /// </summary>
+        public const string CommercialPersonal = "urn:oneimlx:lic:saasusage:per";
+
+        /// <summary>
+        /// The community usage for educational account.
         /// </summary>
         public const string Educational = "urn:oneimlx:lic:saasusage:edu";
 
         /// <summary>
-        /// The community SaaS pricing plan.
+        /// The community test and demo usage for any account.
         /// </summary>
-        public const string Test = "urn:oneimlx:lic:saasusage:test";
+        public const string Test = "urn:oneimlx:lic:saasusage:rnd";
     }
 }

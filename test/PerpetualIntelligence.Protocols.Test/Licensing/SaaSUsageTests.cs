@@ -14,7 +14,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
     public class SaaSUsageTests
     {
         [TestMethod]
-        public void IsValidShouldReturnFalseForInvalidSaaSPlans()
+        public void IsValidShouldReturnFalseForInvalidSaaSUsage()
         {
             Assert.IsFalse(SaaSUsage.IsValid("invalid"));
         }
@@ -22,7 +22,8 @@ namespace PerpetualIntelligence.Protocols.Licensing
         [TestMethod]
         public void IsValidShouldReturnTrueForValidUsage()
         {
-            Assert.IsTrue(SaaSUsage.IsValid(SaaSUsage.Commercial));
+            Assert.IsTrue(SaaSUsage.IsValid(SaaSUsage.CommercialBusiness));
+            Assert.IsTrue(SaaSUsage.IsValid(SaaSUsage.CommercialPersonal));
             Assert.IsTrue(SaaSUsage.IsValid(SaaSUsage.Educational));
             Assert.IsTrue(SaaSUsage.IsValid(SaaSUsage.Test));
         }
@@ -30,11 +31,12 @@ namespace PerpetualIntelligence.Protocols.Licensing
         [TestMethod]
         public void SaaSPlansTest()
         {
-            TestHelper.AssertConstantCount(typeof(SaaSUsage), 3);
+            TestHelper.AssertConstantCount(typeof(SaaSUsage), 4);
 
-            Assert.AreEqual("urn:oneimlx:lic:saasusage:commerce", SaaSUsage.Commercial);
+            Assert.AreEqual("urn:oneimlx:lic:saasusage:org", SaaSUsage.CommercialBusiness);
+            Assert.AreEqual("urn:oneimlx:lic:saasusage:per", SaaSUsage.CommercialPersonal);
             Assert.AreEqual("urn:oneimlx:lic:saasusage:edu", SaaSUsage.Educational);
-            Assert.AreEqual("urn:oneimlx:lic:saasusage:test", SaaSUsage.Test);
+            Assert.AreEqual("urn:oneimlx:lic:saasusage:rnd", SaaSUsage.Test);
         }
     }
 }
