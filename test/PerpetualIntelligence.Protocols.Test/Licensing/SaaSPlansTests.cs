@@ -36,13 +36,13 @@ namespace PerpetualIntelligence.Protocols.Licensing
         {
             TestHelper.AssertConstantCount(typeof(SaaSPlans), 7);
 
-            Assert.AreEqual("urn:oneimlx:lic:saasplans:community", SaaSPlans.Community);
-            Assert.AreEqual("urn:oneimlx:lic:saasplans:micro", SaaSPlans.Micro);
-            Assert.AreEqual("urn:oneimlx:lic:saasplans:smb", SaaSPlans.SMB);
-            Assert.AreEqual("urn:oneimlx:lic:saasplans:enterprise", SaaSPlans.Enterprise);
-            Assert.AreEqual("urn:oneimlx:lic:saasplans:custom", SaaSPlans.Custom);
-            Assert.AreEqual("urn:oneimlx:lic:saasplans:isv", SaaSPlans.ISV);
-            Assert.AreEqual("urn:oneimlx:lic:saasplans:isvu", SaaSPlans.ISVU);
+            Assert.AreEqual("urn:oneimlx:lic:saasplan:community", SaaSPlans.Community);
+            Assert.AreEqual("urn:oneimlx:lic:saasplan:micro", SaaSPlans.Micro);
+            Assert.AreEqual("urn:oneimlx:lic:saasplan:smb", SaaSPlans.SMB);
+            Assert.AreEqual("urn:oneimlx:lic:saasplan:enterprise", SaaSPlans.Enterprise);
+            Assert.AreEqual("urn:oneimlx:lic:saasplan:custom", SaaSPlans.Custom);
+            Assert.AreEqual("urn:oneimlx:lic:saasplan:isv", SaaSPlans.ISV);
+            Assert.AreEqual("urn:oneimlx:lic:saasplan:isvu", SaaSPlans.ISVU);
         }
     }
 }

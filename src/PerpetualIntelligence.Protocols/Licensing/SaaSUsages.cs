@@ -10,7 +10,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
     /// <summary>
     /// The SaaS usage.
     /// </summary>
-    public class SaaSUsage
+    public class SaaSUsages
     {
         /// <summary>
         /// Determines if the usage is valid.
