@@ -27,6 +27,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
                 case Enterprise:
                 case ISV:
                 case ISVU:
+                case None:
                     {
                         return true;
                     }
