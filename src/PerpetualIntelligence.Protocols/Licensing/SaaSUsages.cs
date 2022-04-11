@@ -35,6 +35,11 @@ namespace PerpetualIntelligence.Protocols.Licensing
         }
 
         /// <summary>
+        /// The neutral or no SaaS usage plan.
+        /// </summary>
+        public const string None = "urn:oneimlx:lic:saasusage:none";
+
+        /// <summary>
         /// The commercial usage for an organization or business account.
         /// </summary>
         public const string CommercialBusiness = "urn:oneimlx:lic:saasusage:org";

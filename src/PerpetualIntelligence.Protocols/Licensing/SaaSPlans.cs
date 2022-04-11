@@ -68,6 +68,11 @@ namespace PerpetualIntelligence.Protocols.Licensing
         public const string Micro = "urn:oneimlx:lic:saasplan:micro";
 
         /// <summary>
+        /// The neutral or no SaaS pricing plan.
+        /// </summary>
+        public const string None = "urn:oneimlx:lic:saasplan:none";
+
+        /// <summary>
         /// The SMB SaaS pricing plan.
         /// </summary>
         public const string SMB = "urn:oneimlx:lic:saasplan:smb";

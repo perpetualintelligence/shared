@@ -23,6 +23,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
             Assert.IsTrue(SaaSPlans.IsValid(SaaSPlans.Custom));
             Assert.IsTrue(SaaSPlans.IsValid(SaaSPlans.ISV));
             Assert.IsTrue(SaaSPlans.IsValid(SaaSPlans.ISVU));
+            Assert.IsTrue(SaaSPlans.IsValid(SaaSPlans.None));
         }
 
         [TestMethod]
@@ -34,7 +35,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
         [TestMethod]
         public void SaaSPlansTest()
         {
-            TestHelper.AssertConstantCount(typeof(SaaSPlans), 7);
+            TestHelper.AssertConstantCount(typeof(SaaSPlans), 8);
 
             Assert.AreEqual("urn:oneimlx:lic:saasplan:community", SaaSPlans.Community);
             Assert.AreEqual("urn:oneimlx:lic:saasplan:micro", SaaSPlans.Micro);
@@ -43,6 +44,8 @@ namespace PerpetualIntelligence.Protocols.Licensing
             Assert.AreEqual("urn:oneimlx:lic:saasplan:custom", SaaSPlans.Custom);
             Assert.AreEqual("urn:oneimlx:lic:saasplan:isv", SaaSPlans.ISV);
             Assert.AreEqual("urn:oneimlx:lic:saasplan:isvu", SaaSPlans.ISVU);
+
+            Assert.AreEqual("urn:oneimlx:lic:saasplan:none", SaaSPlans.None);
         }
     }
 }

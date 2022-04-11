@@ -29,7 +29,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
         }
 
         [TestMethod]
-        public void SaaSPlansTest()
+        public void SaaSCheckModesTest()
         {
             TestHelper.AssertConstantCount(typeof(SaaSCheckModes), 4);
 
