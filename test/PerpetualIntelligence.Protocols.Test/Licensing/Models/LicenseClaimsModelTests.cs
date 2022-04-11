@@ -25,7 +25,7 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
             var claims = new Dictionary<string, object>()
             {
                 {"name", "test_name" },
-                {"country", "test_country" },
+                {"tenant_ctry", "test_country" },
                 {"aud", "test_audience" },
                 {"iss", "test_issuer" },
                 {"jti", "test_jti" },
@@ -41,7 +41,7 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
             LicenseClaimsModel licClaims = LicenseClaimsModel.Create(claims);
 
             licClaims.Name.Should().Be("test_name");
-            licClaims.Country.Should().Be("test_country");
+            licClaims.TenantCountry.Should().Be("test_country");
             licClaims.Audience.Should().Be("test_audience");
             licClaims.Issuer.Should().Be("test_issuer");
             licClaims.Jti.Should().Be("test_jti");
@@ -53,14 +53,9 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
 
-            // First acr
-            licClaims.Plan.Should().Be("test_acr1");
-
-            // Second acr
-            licClaims.Usage.Should().Be("test_acr2");
-
             // Optional Oid
             licClaims.ObjectId.Should().BeNull();
+            licClaims.ObjectCountry.Should().BeNull();
         }
 
         [Fact]
@@ -73,7 +68,7 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
             var claims = new Dictionary<string, object>()
             {
                 {"name", "test_name" },
-                {"country", "test_country" },
+                {"tenant_ctry", "test_country" },
                 {"aud", "test_audience" },
                 {"iss", "test_issuer" },
                 {"jti", "test_jti" },
@@ -94,7 +89,7 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
             LicenseClaimsModel licClaims = LicenseClaimsModel.Create(claims);
 
             licClaims.Name.Should().Be("test_name");
-            licClaims.Country.Should().Be("test_country");
+            licClaims.TenantCountry.Should().Be("test_country");
             licClaims.Audience.Should().Be("test_audience");
             licClaims.Issuer.Should().Be("test_issuer");
             licClaims.Jti.Should().Be("test_jti");
@@ -106,14 +101,9 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
 
-            // First acr
-            licClaims.Plan.Should().Be("test_acr1");
-
-            // Second acr
-            licClaims.Usage.Should().Be("test_acr2");
-
             // Optional oid should be present
             licClaims.ObjectId.Should().BeNull();
+            licClaims.ObjectCountry.Should().BeNull();
 
             // Custom claims
             licClaims.Custom.Should().NotBeNull();
@@ -135,13 +125,14 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
             var claims = new Dictionary<string, object>()
             {
                 {"name", "test_name" },
-                {"country", "test_country" },
+                {"tenant_ctry", "test_country" },
                 {"aud", "test_audience" },
                 {"iss", "test_issuer" },
                 {"jti", "test_jti" },
                 {"sub", "test_subject" },
                 {"tid", "test_tenantid" },
                 {"oid", "test_objectid" },
+                {"ctry", "test_objectcountry" },
                 {"azp", "test_azp" },
                 {"acr", "test_acr1 test_acr2" },
                 {"exp", exp },
@@ -152,7 +143,7 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
             LicenseClaimsModel licClaims = LicenseClaimsModel.Create(claims);
 
             licClaims.Name.Should().Be("test_name");
-            licClaims.Country.Should().Be("test_country");
+            licClaims.TenantCountry.Should().Be("test_country");
             licClaims.Audience.Should().Be("test_audience");
             licClaims.Issuer.Should().Be("test_issuer");
             licClaims.Jti.Should().Be("test_jti");
@@ -164,14 +155,9 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
 
-            // First acr
-            licClaims.Plan.Should().Be("test_acr1");
-
-            // Second acr
-            licClaims.Usage.Should().Be("test_acr2");
-
             // Optional oid should be present
             licClaims.ObjectId.Should().Be("test_objectid");
+            licClaims.ObjectCountry.Should().Be("test_objectcountry");
         }
 
         [Fact]

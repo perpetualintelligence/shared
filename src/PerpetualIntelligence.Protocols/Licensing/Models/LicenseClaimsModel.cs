@@ -7,7 +7,6 @@
 
 using PerpetualIntelligence.Shared.Attributes;
 using PerpetualIntelligence.Shared.Exceptions;
-using PerpetualIntelligence.Shared.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
@@ -45,12 +44,6 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         /// </summary>
         [JsonPropertyName("authorized_party")]
         public string AuthorizedParty { get; set; } = null!;
-
-        /// <summary>
-        /// The <c>country</c> claim.
-        /// </summary>
-        [JsonPropertyName("country")]
-        public string Country { get; set; } = null!;
 
         /// <summary>
         /// The custom claims.
@@ -96,16 +89,18 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         public DateTimeOffset? NotBefore { get; set; } = null!;
 
         /// <summary>
+        /// The optional <c>ctry</c> claim.
+        /// </summary>
+        [JsonPropertyName("object_country")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? ObjectCountry { get; set; } = null!;
+
+        /// <summary>
         /// The optional <c>oid</c> claim.
         /// </summary>
         [JsonPropertyName("object_id")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? ObjectId { get; set; } = null!;
-
-        /// <summary>
-        /// The pricing plan read from the <see cref="Acr"/>.
-        /// </summary>
-        [JsonPropertyName("plan")]
-        public string Plan { get; set; } = null!;
 
         /// <summary>
         /// The <c>sub</c> claim.
@@ -114,16 +109,16 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         public string Subject { get; set; } = null!;
 
         /// <summary>
+        /// The <c>tenant_ctry</c> claim.
+        /// </summary>
+        [JsonPropertyName("tenant_country")]
+        public string TenantCountry { get; set; } = null!;
+
+        /// <summary>
         /// The <c>tid</c> claim.
         /// </summary>
         [JsonPropertyName("tenant_id")]
         public string TenantId { get; set; } = null!;
-
-        /// <summary>
-        /// The usage read from the <see cref="Acr"/>.
-        /// </summary>
-        [JsonPropertyName("usage")]
-        public string Usage { get; set; } = null!;
 
         /// <summary>
         /// Creates a new instance of <see cref="LicenseClaimsModel"/> based on the specified claims dictionary.
@@ -144,9 +139,9 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
                                 fromClaims.Name = kvp.Value.ToString();
                                 continue;
                             }
-                        case "country":
+                        case "tenant_ctry":
                             {
-                                fromClaims.Country = kvp.Value.ToString();
+                                fromClaims.TenantCountry = kvp.Value.ToString();
                                 continue;
                             }
                         case "aud":
@@ -179,6 +174,11 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
                                 fromClaims.ObjectId = kvp.Value.ToString();
                                 continue;
                             }
+                        case "ctry":
+                            {
+                                fromClaims.ObjectCountry = kvp.Value.ToString();
+                                continue;
+                            }
                         case "azp":
                             {
                                 fromClaims.AuthorizedParty = kvp.Value.ToString();
@@ -187,11 +187,6 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
                         case "acr":
                             {
                                 fromClaims.Acr = kvp.Value.ToString();
-
-                                // Read from acr
-                                string[] acrValues = fromClaims.Acr.SplitBySpace();
-                                fromClaims.Plan = acrValues[0];
-                                fromClaims.Usage = acrValues[1];
                                 continue;
                             }
                         case "exp":
