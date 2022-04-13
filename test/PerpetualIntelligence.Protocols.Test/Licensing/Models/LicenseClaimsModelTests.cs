@@ -33,6 +33,7 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
                 {"tid", "test_tenantid" },
                 {"azp", "test_azp" },
                 {"acr", "test_acr1 test_acr2" },
+                {"auth_apps", "test_app1 test_app2" },
                 {"exp", exp },
                 {"iat", iat },
                 {"nbf",  nbf },
@@ -48,7 +49,8 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
             licClaims.Subject.Should().Be("test_subject");
             licClaims.TenantId.Should().Be("test_tenantid");
             licClaims.AuthorizedParty.Should().Be("test_azp");
-            licClaims.Acr.Should().Be("test_acr1 test_acr2");
+            licClaims.AcrValues.Should().Be("test_acr1 test_acr2");
+            licClaims.AuthorizedApplications.Should().Be("test_app1 test_app2");
             licClaims.Expiry.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
@@ -76,6 +78,7 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
                 {"tid", "test_tenantid" },
                 {"azp", "test_azp" },
                 {"acr", "test_acr1 test_acr2" },
+                {"auth_apps", "test_app1 test_app2" },
                 {"exp", exp },
                 {"iat", iat },
                 {"nbf",  nbf },
@@ -96,7 +99,8 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
             licClaims.Subject.Should().Be("test_subject");
             licClaims.TenantId.Should().Be("test_tenantid");
             licClaims.AuthorizedParty.Should().Be("test_azp");
-            licClaims.Acr.Should().Be("test_acr1 test_acr2");
+            licClaims.AcrValues.Should().Be("test_acr1 test_acr2");
+            licClaims.AuthorizedApplications.Should().Be("test_app1 test_app2");
             licClaims.Expiry.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
@@ -135,6 +139,7 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
                 {"ctry", "test_objectcountry" },
                 {"azp", "test_azp" },
                 {"acr", "test_acr1 test_acr2" },
+                {"auth_apps", "test_app1 test_app2" },
                 {"exp", exp },
                 {"iat", iat },
                 {"nbf",  nbf },
@@ -150,7 +155,8 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
             licClaims.Subject.Should().Be("test_subject");
             licClaims.TenantId.Should().Be("test_tenantid");
             licClaims.AuthorizedParty.Should().Be("test_azp");
-            licClaims.Acr.Should().Be("test_acr1 test_acr2");
+            licClaims.AcrValues.Should().Be("test_acr1 test_acr2");
+            licClaims.AuthorizedApplications.Should().Be("test_app1 test_app2");
             licClaims.Expiry.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
@@ -161,7 +167,7 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         }
 
         [Fact]
-        public void MissingClaim_ShouldThrowErrorException()
+        public void MissingClaim_NameAsAnExample_ShouldThrowErrorException()
         {
             try
             {
@@ -179,6 +185,7 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
                 {"tid", "test_tenantid" },
                 {"azp", "test_azp" },
                 {"acr", "test_acr1 test_acr2" },
+                {"auth_apps", "test_app1 test_app2" },
                 {"exp", exp },
                 {"iat", iat },
                 {"nbf",  nbf },

@@ -30,8 +30,8 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         /// <summary>
         /// The <c>acr</c> claim values.
         /// </summary>
-        [JsonPropertyName("acr")]
-        public string Acr { get; set; } = null!;
+        [JsonPropertyName("acr_values")]
+        public string AcrValues { get; set; } = null!;
 
         /// <summary>
         /// The <c>aud</c> claim.
@@ -44,6 +44,12 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         /// </summary>
         [JsonPropertyName("authorized_party")]
         public string AuthorizedParty { get; set; } = null!;
+
+        /// <summary>
+        /// The <c>auth_apps</c> claim.
+        /// </summary>
+        [JsonPropertyName("authorized_applications")]
+        public string AuthorizedApplications { get; set; } = null!;
 
         /// <summary>
         /// The custom claims.
@@ -184,9 +190,14 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
                                 fromClaims.AuthorizedParty = kvp.Value.ToString();
                                 continue;
                             }
+                        case "auth_apps":
+                            {
+                                fromClaims.AuthorizedApplications = kvp.Value.ToString();
+                                continue;
+                            }
                         case "acr":
                             {
-                                fromClaims.Acr = kvp.Value.ToString();
+                                fromClaims.AcrValues = kvp.Value.ToString();
                                 continue;
                             }
                         case "exp":
