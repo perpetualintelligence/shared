@@ -23,6 +23,11 @@ namespace PerpetualIntelligence.Protocols.Authorization
         public const string PublisherPortal = "urn:oneimlx:apps:publisherportal";
 
         /// <summary>
+        /// The cli application.
+        /// </summary>
+        public const string CliApplication = "urn:oneimlx:apps:cliapp";
+
+        /// <summary>
         /// The publisher portal.
         /// </summary>
         public const string Undefined = "urn:oneimlx:apps:undefined";
