@@ -7,7 +7,7 @@
 
 using System.Text.Json.Serialization;
 
-namespace PerpetualIntelligence.Protocols.Licensing.Model
+namespace PerpetualIntelligence.Protocols.Licensing.Models
 {
     /// <summary>
     /// The <c>jws</c> B2B keys model.
