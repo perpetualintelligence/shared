@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using System.Collections.Generic;
@@ -25,24 +22,6 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
         /// <param name="maximumLength"></param>
         public StringLengthListAttribute(int maximumLength)
             : base(maximumLength) { }
-
-        /// <inheritdoc/>
-        public override bool IsValid(object? value)
-        {
-            if (value == null)
-            {
-                return true;
-            }
-
-            if (value is IList<string> arr)
-            {
-                return !arr.Any(e => e.Length > MaximumLength || e.Length < MinimumLength);
-            }
-            else
-            {
-                return false;
-            }
-        }
 
         /// <summary>
         /// Validates the specified value with respect to the current validation attribute.
