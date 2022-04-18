@@ -23,6 +23,24 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
         public StringLengthListAttribute(int maximumLength)
             : base(maximumLength) { }
 
+        /// <inheritdoc/>
+        public override bool IsValid(object? value)
+        {
+            if (value == null)
+            {
+                return true;
+            }
+
+            if (value is IList<string> arr)
+            {
+                return !arr.Any(e => e.Length > MaximumLength || e.Length < MinimumLength);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         /// <summary>
         /// Validates the specified value with respect to the current validation attribute.
         /// </summary>
