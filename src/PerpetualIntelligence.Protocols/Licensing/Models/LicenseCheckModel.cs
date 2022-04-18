@@ -10,15 +10,15 @@ using System.Text.Json.Serialization;
 namespace PerpetualIntelligence.Protocols.Licensing.Models
 {
     /// <summary>
-    /// The <c>jws</c> B2B keys model.
+    /// The <c>jws</c> B2B keys check model.
     /// </summary>
-    public class LicenseKeysModel
+    public class LicenseCheckModel
     {
         /// <summary>
-        /// The authorized application. This is also the <c>auth_apps</c> claim.
+        /// The Authorized application. This is also one of the <c>auth_apps</c> claim value.
         /// </summary>
-        [JsonPropertyName("authorized_application_ids")]
-        public string[] AuthorizedApplicationIds { get; set; } = null!;
+        [JsonPropertyName("authorized_application_id")]
+        public string AuthorizedApplicationId { get; set; } = null!;
 
         /// <summary>
         /// The Authorized party. This is also the <c>azp</c> claim.
@@ -27,34 +27,35 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         public string AuthorizedParty { get; set; } = null!;
 
         /// <summary>
+        /// The optional consumer object id.
+        /// </summary>
+        [JsonPropertyName("consumer_object_id")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? ConsumerObjectId { get; set; }
+
+        /// <summary>
         /// The consumer tenant id.
         /// </summary>
         [JsonPropertyName("consumer_tenant_id")]
         public string ConsumerTenantId { get; set; } = null!;
 
         /// <summary>
-        /// The operations available for clients.
+        /// The key to check.
         /// </summary>
-        [JsonPropertyName("operations")]
-        public string[] Operations { get; set; } = null!;
+        [JsonPropertyName("key")]
+        public string Key { get; set; } = null!;
 
         /// <summary>
-        /// The primary <c>jwt</c> license key.
+        /// The key type. <c>primary_key</c> or <c>secondary_key</c>.
         /// </summary>
-        [JsonPropertyName("primary_key")]
-        public string PrimaryKey { get; set; } = null!;
+        [JsonPropertyName("key_type")]
+        public string KeyType { get; set; } = null!;
 
         /// <summary>
-        /// The registered provider or provider tenant id.
+        /// The registered provider or the provider tenant id.
         /// </summary>
         [JsonPropertyName("provider_tenant_id")]
         public string ProviderTenantId { get; set; } = null!;
-
-        /// <summary>
-        /// The secondary <c>jwt</c> license key. Use this key when rotating the primary key.
-        /// </summary>
-        [JsonPropertyName("secondary_key")]
-        public string SecondaryKey { get; set; } = null!;
 
         /// <summary>
         /// The subject. This is also the <c>sub</c> claim.
