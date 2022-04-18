@@ -25,7 +25,7 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         /// The <c>auth_apps</c> claim.
         /// </summary>
         [JsonPropertyName("authorized_application_ids")]
-        public string[] AuthorizedApplications { get; set; } = null!;
+        public string[] AuthorizedApplicationIds { get; set; } = null!;
 
         /// <summary>
         /// The <c>azp</c> claim.
