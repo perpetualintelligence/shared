@@ -50,7 +50,7 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
             licClaims.TenantId.Should().Be("test_tenantid");
             licClaims.AuthorizedParty.Should().Be("test_azp");
             licClaims.AcrValues.Should().Be("test_acr1 test_acr2");
-            licClaims.AuthorizedApplications.Should().Be("test_app1 test_app2");
+            licClaims.AuthorizedApplicationIds.Should().Be("test_app1 test_app2");
             licClaims.Expiry.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
@@ -100,7 +100,7 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
             licClaims.TenantId.Should().Be("test_tenantid");
             licClaims.AuthorizedParty.Should().Be("test_azp");
             licClaims.AcrValues.Should().Be("test_acr1 test_acr2");
-            licClaims.AuthorizedApplications.Should().Be("test_app1 test_app2");
+            licClaims.AuthorizedApplicationIds.Should().Be("test_app1 test_app2");
             licClaims.Expiry.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
@@ -156,7 +156,7 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
             licClaims.TenantId.Should().Be("test_tenantid");
             licClaims.AuthorizedParty.Should().Be("test_azp");
             licClaims.AcrValues.Should().Be("test_acr1 test_acr2");
-            licClaims.AuthorizedApplications.Should().Be("test_app1 test_app2");
+            licClaims.AuthorizedApplicationIds.Should().Be("test_app1 test_app2");
             licClaims.Expiry.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));

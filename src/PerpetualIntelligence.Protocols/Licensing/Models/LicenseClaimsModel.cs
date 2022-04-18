@@ -48,8 +48,8 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         /// <summary>
         /// The <c>auth_apps</c> claim.
         /// </summary>
-        [JsonPropertyName("authorized_applications")]
-        public string AuthorizedApplications { get; set; } = null!;
+        [JsonPropertyName("authorized_application_ids")]
+        public string AuthorizedApplicationIds { get; set; } = null!;
 
         /// <summary>
         /// The custom claims.
@@ -192,7 +192,7 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
                             }
                         case "auth_apps":
                             {
-                                fromClaims.AuthorizedApplications = kvp.Value.ToString();
+                                fromClaims.AuthorizedApplicationIds = kvp.Value.ToString();
                                 continue;
                             }
                         case "acr":
