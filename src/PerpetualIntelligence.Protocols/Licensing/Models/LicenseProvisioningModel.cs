@@ -71,6 +71,12 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         public string ProviderTenantId { get; set; } = null!;
 
         /// <summary>
+        /// The publisher tenant id.
+        /// </summary>
+        [JsonPropertyName("publisher_tenant_id")]
+        public string PublisherTenantId { get; set; } = null!;
+
+        /// <summary>
         /// The <c>sub</c> claim.
         /// </summary>
         [JsonPropertyName("subject")]
