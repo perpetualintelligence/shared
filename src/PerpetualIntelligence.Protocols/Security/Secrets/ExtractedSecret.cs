@@ -1,14 +1,9 @@
 /*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
-
-using PerpetualIntelligence.Shared.Infrastructure;
 
 namespace PerpetualIntelligence.Protocols.Security.Secrets
 {
@@ -18,7 +13,7 @@ namespace PerpetualIntelligence.Protocols.Security.Secrets
     /// <seealso cref="Secret"/>
     /// <seealso cref="SecretTypes"/>
     /// <seealso cref="SecretComparer"/>
-    public sealed class ExtractedSecret : Result
+    public sealed class ExtractedSecret
     {
         /// <summary>
         /// The secret identifier.

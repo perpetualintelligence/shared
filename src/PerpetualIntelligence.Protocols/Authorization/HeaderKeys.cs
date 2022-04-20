@@ -8,7 +8,7 @@
 namespace PerpetualIntelligence.Protocols.Authorization
 {
     /// <summary>
-    /// The header keys.
+    /// The well known header keys.
     /// </summary>
     public class HeaderKeys
     {

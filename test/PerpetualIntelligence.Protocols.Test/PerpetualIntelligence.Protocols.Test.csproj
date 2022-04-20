@@ -14,10 +14,4 @@
         <ProjectReference Include="..\..\src\PerpetualIntelligence.Protocols\PerpetualIntelligence.Protocols.csproj" />
         <ProjectReference Include="..\..\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
     </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Cli\" />
-      <Folder Include="Security\Certificates\" />
-    </ItemGroup>
-
 </Project>

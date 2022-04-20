@@ -5,21 +5,17 @@
     https://terms.perpetualintelligence.com
 */
 
-using PerpetualIntelligence.Shared.Attributes;
 using PerpetualIntelligence.Shared.Extensions;
 using System;
 using System.Collections.Generic;
 
-namespace PerpetualIntelligence.Protocols.Defaults.Oidc
+namespace PerpetualIntelligence.Protocols.Defaults.Comparers
 {
     /// <summary>
-    /// The default <c>resource_type</c> comparer. As per the OAuth and Open ID Connect specification, the order of
-    /// values is irrelevant. E.g., the "code id_token token" is equivalent to "code token id_token".
+    /// The default order independent comparer makes the order of values irrelevant. E.g., the "code id_token token" is
+    /// equivalent to "code token id_token".
     /// </summary>
-    /// <seealso href="https://tools.ietf.org/html/rfc6749#section-3.1.1"/>
-    /// <seealso href="https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html"/>
-    [Performance("Check performance implications of HashSet ?")]
-    public class DefaultResponseTypeComparer : IEqualityComparer<string?>
+    public class OrderIndependentComparer : IEqualityComparer<string?>
     {
         /// <summary>
         /// Determines whether the specified values are equal.

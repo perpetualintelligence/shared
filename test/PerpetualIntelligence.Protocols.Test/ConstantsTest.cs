@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -19,19 +16,12 @@ namespace PerpetualIntelligence.Protocols
         [TestMethod]
         public void ConstantTest()
         {
-            TestHelper.AssertConstantCount(typeof(Constants), 11);
+            TestHelper.AssertConstantCount(typeof(Constants), 4);
 
             Assert.AreEqual("urn:oneimlx:cli", Constants.CliUrn);
             Assert.AreEqual("cli", Constants.Cli);
-            Assert.AreEqual("OAuth2.0", Constants.OAuth2);
             Assert.AreEqual("urn:oneimlx", Constants.OneImlxUrn);
-            Assert.AreEqual("urn:oneimlx:oauth2", Constants.OneImlxOAuth2Urn);
-            Assert.AreEqual("urn:oneimlx:oidc", Constants.OneImlxOpenIDConnectUrn);
-            Assert.AreEqual("PerpetualIntelligence.OneImlx", Constants.OneImlxOrg);
-            Assert.AreEqual("urn:oneimlx:wsfed", Constants.OneImlxWebServicesFederation);
-            Assert.AreEqual("oidc", Constants.OpenIDConnect);
             Assert.AreEqual("oneimlx", Constants.OneImlx);
-            Assert.AreEqual("wsfed", Constants.WebServicesFederation);
         }
     }
 }

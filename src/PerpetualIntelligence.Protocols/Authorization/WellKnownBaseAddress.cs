@@ -7,7 +7,7 @@
 
 using System;
 
-namespace PerpetualIntelligence.Protocols.Http
+namespace PerpetualIntelligence.Protocols.Authorization
 {
     /// <summary>
     /// Defines a well known base address with associated HTTP client name.

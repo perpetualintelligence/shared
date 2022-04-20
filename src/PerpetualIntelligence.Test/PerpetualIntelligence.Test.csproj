@@ -15,19 +15,19 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Description>The cross-platform test components for managed services, frameworks, and tools. Application owners can use these components to build low-level or foundational test elements.</Description>
-        <PackageTags>infrastructure test mstest</PackageTags>
+        <Description>The cross-platform test components for Perpetual Intelligence's managed services, frameworks, and tools.</Description>
+        <PackageTags>infrastructure test mstest xunit oneimlx</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
-        <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="6.0.1" />
-        <PackageReference Include="MSTest.TestFramework" Version="2.2.8" />
+        <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="6.0.4" />
+        <PackageReference Include="MSTest.TestFramework" Version="2.2.9" />
     </ItemGroup>
 
     <Choose>
-        <When Condition="'$(PI_CI_REFERENCE)'=='local' Or '$(PI_CI_REFERENCE)'=='cross'" >
+        <When Condition="'$(PI_CI_REFERENCE)'=='local' Or '$(PI_CI_REFERENCE)'=='cross'">
             <ItemGroup>
                 <ProjectReference Include="..\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
             </ItemGroup>

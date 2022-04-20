@@ -16,6 +16,15 @@ namespace PerpetualIntelligence.Protocols.Authorization
     public interface IAppIdentifiers
     {
         /// <summary>
+        /// Sets the <see cref="IAppIdentifiers"/> service from the <see cref="ClaimsPrincipal"/>. For client apps this
+        /// can be used for singleton state container. For server apps this can be a no-ops as the service
+        /// implementation will be transient or scoped.
+        /// </summary>
+        /// <param name="claimsPrincipal"></param>
+        /// <returns></returns>
+        public Task DefaultAsync(ClaimsPrincipal claimsPrincipal);
+
+        /// <summary>
         /// Gets the client app id.
         /// </summary>
         /// <returns></returns>
@@ -31,13 +40,13 @@ namespace PerpetualIntelligence.Protocols.Authorization
         /// Gets the login tenant id.
         /// </summary>
         /// <returns></returns>
-        public Task<string> GetConsumerTenantIdAsync();
+        public Task<string> GetConsumerObjectIdAsync();
 
         /// <summary>
         /// Gets the login tenant id.
         /// </summary>
         /// <returns></returns>
-        public Task<string> GetConsumerObjectIdAsync();
+        public Task<string> GetConsumerTenantIdAsync();
 
         /// <summary>
         /// Gets the login object id.
@@ -64,22 +73,11 @@ namespace PerpetualIntelligence.Protocols.Authorization
         public Task<string> GetPublisherTenantIdAsync();
 
         /// <summary>
-        /// Sets the <see cref="IAppIdentifiers"/> service from the <see cref="ClaimsPrincipal"/>. For client
-        /// apps this can be used for singleton state container. For server apps this can be a no-ops as the service
-        /// implementation will be transient or scoped.
-        /// </summary>
-        /// <param name=""></param>
-        /// <param name="providerTenantId"></param>
-        /// <returns></returns>
-        public Task DefaultAsync(ClaimsPrincipal claimsPrincipal);
-
-        /// <summary>
         /// Initializes the <see cref="IAppIdentifiers"/> service from the <see cref="ClaimsPrincipal"/>. For client
         /// apps this can be used for singleton state container. For server apps this can be a no-ops as the service
         /// implementation will be transient or scoped.
         /// </summary>
-        /// <param name=""></param>
-        /// <param name="providerTenantId"></param>
+        /// <param name="claimsPrincipal">The claims principal.</param>
         /// <returns></returns>
         public Task InitializeAsync(ClaimsPrincipal claimsPrincipal);
 

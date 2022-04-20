@@ -13,6 +13,11 @@ namespace PerpetualIntelligence.Protocols.Authorization
     public class AppTypes
     {
         /// <summary>
+        /// The cli application.
+        /// </summary>
+        public const string CliApplication = "urn:oneimlx:apps:cliapp";
+
+        /// <summary>
         /// The consumer portal.
         /// </summary>
         public const string ConsumerPortal = "urn:oneimlx:apps:consumerportal";
@@ -21,11 +26,6 @@ namespace PerpetualIntelligence.Protocols.Authorization
         /// The publisher portal.
         /// </summary>
         public const string PublisherPortal = "urn:oneimlx:apps:publisherportal";
-
-        /// <summary>
-        /// The cli application.
-        /// </summary>
-        public const string CliApplication = "urn:oneimlx:apps:cliapp";
 
         /// <summary>
         /// The publisher portal.

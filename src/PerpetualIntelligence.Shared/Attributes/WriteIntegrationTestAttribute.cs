@@ -10,18 +10,24 @@ using System;
 namespace PerpetualIntelligence.Shared.Attributes
 {
     /// <summary>
-    /// Indicates that the target element should add the relevant back-end API.
+    /// Indicates that the target element should have integration tests.
     /// </summary>
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
-    public sealed class WriteApiAttribute : ActionAttribute
+    public sealed class WriteIntegrationTestAttribute : ActionAttribute
     {
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        /// <param name="description">Additional description.</param>
-        public WriteApiAttribute(string description) : base(description)
+        public WriteIntegrationTestAttribute()
         {
-            Description = description;
+        }
+
+        /// <summary>
+        /// Initialize a new instance with description.
+        /// </summary>
+        /// <param name="description">Additional description.</param>
+        public WriteIntegrationTestAttribute(string description) : base(description)
+        {
         }
     }
 }

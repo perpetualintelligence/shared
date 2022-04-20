@@ -6,6 +6,7 @@
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PerpetualIntelligence.Protocols.Defaults.Comparers;
 using PerpetualIntelligence.Test;
 using PerpetualIntelligence.Test.Services;
 using System.Collections.Generic;
@@ -13,9 +14,9 @@ using System.Collections.Generic;
 namespace PerpetualIntelligence.Protocols.Defaults.Oidc
 {
     [TestClass]
-    public class DefaultResponseTypeComparerTests : InitializerTests
+    public class OrderIndependentComparerTests : InitializerTests
     {
-        public DefaultResponseTypeComparerTests() : base(TestLogger.Create<DefaultResponseTypeComparerTests>())
+        public OrderIndependentComparerTests() : base(TestLogger.Create<OrderIndependentComparerTests>())
         {
         }
 
@@ -24,7 +25,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
         {
             string? x = null;
             string? y = null;
-            DefaultResponseTypeComparer comparer = new();
+            OrderIndependentComparer comparer = new();
             Assert.IsTrue(comparer.Equals(x, y));
         }
 
@@ -34,7 +35,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
         {
             string x = "code";
             string y = "code";
-            DefaultResponseTypeComparer comparer = new();
+            OrderIndependentComparer comparer = new();
             Assert.IsTrue(comparer.Equals(x, y));
         }
 
@@ -44,7 +45,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
         {
             string x = "code id_token";
             string y = "id_token code";
-            DefaultResponseTypeComparer comparer = new();
+            OrderIndependentComparer comparer = new();
             Assert.IsTrue(comparer.Equals(x, y));
         }
 
@@ -54,7 +55,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
         {
             string x = "code id_token token";
             string y = "token id_token code";
-            DefaultResponseTypeComparer comparer = new();
+            OrderIndependentComparer comparer = new();
             Assert.IsTrue(comparer.Equals(x, y));
         }
 
@@ -64,7 +65,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
         {
             string x = "code id_token token";
             string y = "id_token code token";
-            DefaultResponseTypeComparer comparer = new();
+            OrderIndependentComparer comparer = new();
             Assert.IsTrue(comparer.Equals(x, y));
         }
 
@@ -74,7 +75,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
         {
             string x = "code id_token token";
             string y = "id_token token";
-            DefaultResponseTypeComparer comparer = new();
+            OrderIndependentComparer comparer = new();
             Assert.IsFalse(comparer.Equals(x, y));
         }
 
@@ -84,7 +85,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
         {
             string x = "code id_token token";
             string y = "id_token";
-            DefaultResponseTypeComparer comparer = new();
+            OrderIndependentComparer comparer = new();
             Assert.IsFalse(comparer.Equals(x, y));
         }
 
@@ -94,7 +95,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
         {
             string x = "code id_token token";
             string y = "code longwordtoken7";
-            DefaultResponseTypeComparer comparer = new();
+            OrderIndependentComparer comparer = new();
             Assert.IsFalse(comparer.Equals(x, y));
         }
 
@@ -104,7 +105,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
         {
             string x = "code token";
             string y = "token code";
-            DefaultResponseTypeComparer comparer = new();
+            OrderIndependentComparer comparer = new();
             Assert.IsTrue(comparer.Equals(x, y));
         }
 
@@ -114,7 +115,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
         {
             string x = "seven four";
             string y = "token code";
-            DefaultResponseTypeComparer comparer = new();
+            OrderIndependentComparer comparer = new();
             Assert.IsFalse(comparer.Equals(x, y));
         }
 
@@ -124,7 +125,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
         {
             string? x = null;
             string y = string.Empty;
-            DefaultResponseTypeComparer comparer = new();
+            OrderIndependentComparer comparer = new();
             Assert.IsFalse(comparer.Equals(x, y));
         }
 
@@ -132,7 +133,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
         [TestId("A946911E-4D6A-47D9-9403-A47072001DD0")]
         public void GetHashValueShouldReturnCorrectly()
         {
-            DefaultResponseTypeComparer comparer = new();
+            OrderIndependentComparer comparer = new();
             Assert.AreEqual(0, comparer.GetHashCode(null));
 
             Assert.AreEqual("test_value".GetHashCode(), comparer.GetHashCode("test_value"));
@@ -149,7 +150,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
         {
             string x = "id_token code";
             string y = "id_token code";
-            DefaultResponseTypeComparer comparer = new();
+            OrderIndependentComparer comparer = new();
             Assert.IsTrue(comparer.Equals(x, y));
         }
 
@@ -159,7 +160,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
         {
             string x = "id_token code";
             string y = "token code";
-            DefaultResponseTypeComparer comparer = new();
+            OrderIndependentComparer comparer = new();
             Assert.IsFalse(comparer.Equals(x, y));
         }
 
@@ -169,7 +170,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
         {
             string x = "id_token token";
             string y = "token id_token";
-            DefaultResponseTypeComparer comparer = new();
+            OrderIndependentComparer comparer = new();
             Assert.IsTrue(comparer.Equals(x, y));
         }
 
@@ -177,12 +178,14 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
         [TestId("0F734824-0B65-46A6-BEBE-B4CF233FC56F")]
         public void ListWithResponseTypesShouldReturnCorrectly()
         {
-            List<string> responseTypes = new List<string>();
-            responseTypes.Add("code");
-            responseTypes.Add("code");
-            responseTypes.Add("id_token");
-            responseTypes.Add("token");
-            responseTypes.Add("code");
+            List<string> responseTypes = new()
+            {
+                "code",
+                "code",
+                "id_token",
+                "token",
+                "code"
+            };
             Assert.AreEqual(5, responseTypes.Count);
 
             CollectionAssert.Contains(responseTypes, "code");
@@ -197,7 +200,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Oidc
         {
             string x = string.Empty;
             string? y = null;
-            DefaultResponseTypeComparer comparer = new();
+            OrderIndependentComparer comparer = new();
             Assert.IsFalse(comparer.Equals(x, y));
         }
     }

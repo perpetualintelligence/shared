@@ -11,14 +11,15 @@ using PerpetualIntelligence.Shared.Infrastructure;
 using System;
 using System.IO;
 using System.Linq;
+
 using System.Threading.Tasks;
 
 namespace PerpetualIntelligence.Shared.Services
 {
     /// <summary>
-    /// Provides helper methods shared across application stack.
+    /// Provides low level infrastructure helper methods shared across application stack.
     /// </summary>
-    public static class SharedHelper
+    public static class InfraHelper
     {
         /// <summary>
         /// Ensures an action returns a result or an <see cref="Error"/> but does not throw any exception.
@@ -28,7 +29,7 @@ namespace PerpetualIntelligence.Shared.Services
         /// <param name="action">The action to execute.</param>
         /// <param name="context">The action context.</param>
         /// <returns>
-        /// <see cref="TryResultOrErrors{T}"/> instance that contains the result or an <see cref="Error"/> instance.
+        /// <see cref="TryResultOrError{T}"/> instance that contains the result or an <see cref="Error"/> instance.
         /// </returns>
         public static async Task<TryResultOrError<TResult>> EnsureResultAsync<TContext, TResult>(ResultDelegate<TContext, TResult> action, TContext context) where TContext : class where TResult : class
         {

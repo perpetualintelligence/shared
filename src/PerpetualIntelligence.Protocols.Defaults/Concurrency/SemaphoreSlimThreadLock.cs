@@ -1,11 +1,8 @@
 /*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using PerpetualIntelligence.Protocols.Abstractions.Concurrency;
@@ -19,7 +16,7 @@ namespace PerpetualIntelligence.Protocols.Defaults.Concurrency
     /// The default <see cref="IThreadLock{T}"/> using <see cref="SemaphoreSlim"/>.
     /// </summary>
     /// <typeparam name="T">The type requesting the thread lock.</typeparam>
-    public class DefaultSemaphoreSlimThreadLock<T> : IThreadLock<T>
+    public class SemaphoreSlimThreadLock<T> : IThreadLock<T>
     {
         /// <inheritdoc/>
         public Task<bool> LockAsync(int timeout)

@@ -8,7 +8,7 @@
 namespace PerpetualIntelligence.Protocols.Authorization
 {
     /// <summary>
-    /// The marketplace claims.
+    /// The well known claims.
     /// </summary>
     public class ClaimTypes
     {

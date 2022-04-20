@@ -1,11 +1,8 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -19,13 +16,13 @@ namespace PerpetualIntelligence.Protocols.Defaults
         [TestMethod]
         public void TypesNamespaceTest()
         {
-            TestHelper.AssertNamespace(typeof(Oidc.DefaultClaimComparer).Assembly, "PerpetualIntelligence.Protocols.Defaults");
+            TestHelper.AssertNamespace(typeof(Comparers.OrderIndependentComparer).Assembly, "PerpetualIntelligence.Protocols.Defaults");
         }
 
         [TestMethod]
         public void TypesTypesLocationTest()
         {
-            TestHelper.AssertAssemblyTypesLocation(typeof(Oidc.DefaultClaimComparer).Assembly);
+            TestHelper.AssertAssemblyTypesLocation(typeof(Comparers.OrderIndependentComparer).Assembly);
         }
     }
 }

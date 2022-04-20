@@ -1,14 +1,11 @@
 ﻿/*
-    Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
-    Licensed under the Apache License, Version 2.0.
-    https://github.com/perpetualintelligence/terms/blob/main/LICENSE
-
-    Additional terms and policies.
-    https://terms.perpetualintelligence.com/articles/intro.html
+    For license, terms, and data policies, go to:
+    https://terms.perpetualintelligence.com
 */
 
-namespace PerpetualIntelligence.Protocols.OneImlx
+namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
     /// The Perpetual Intelligence organizational constants.
@@ -28,14 +25,22 @@ namespace PerpetualIntelligence.Protocols.OneImlx
         /// The <c>GitHub</c> URL.
         /// </summary>
         public const string GitHub = "https://github.com/perpetualintelligence";
+
         /// <summary>
-        /// The logo.
+        /// The logo URL.
         /// </summary>
-        public const string LogoUrl = "https://github.com/perpetualintelligence/terms/blob/main/logo/icon.png";
+        public const string LogoUrl = "https://github.com/perpetualintelligence/branding/blob/main/Logo/icon.png";
+
+        /// <summary>
+        /// The full logo URL.
+        /// </summary>
+        public const string FullLogoUrl = "https://github.com/perpetualintelligence/branding/blob/main/Logo/pi_full_575_256.png";
+
         /// <summary>
         /// The terms of use, operation and data policies.
         /// </summary>
         public const string Policies = "https://terms.perpetualintelligence.com/articles/intro.html";
+
         /// <summary>
         /// The short name.
         /// </summary>

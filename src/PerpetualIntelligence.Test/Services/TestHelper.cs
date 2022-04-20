@@ -20,10 +20,8 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
@@ -189,7 +187,7 @@ namespace PerpetualIntelligence.Test.Services
             string assemblyDir = Path.GetDirectoryName(assemblyPath)!;
 
             // check services dir For Azure pipileing this will be the working directory for the downloaded sources
-            string servicesDir = SharedHelper.GetParent(assemblyPath, 6) ?? throw new InvalidOperationException("Services dir not found.");
+            string servicesDir = InfraHelper.GetParent(assemblyPath, 6) ?? throw new InvalidOperationException("Services dir not found.");
 
             // check /<services>/test dir
             string testDir = Path.Combine(servicesDir, "test");
@@ -735,20 +733,6 @@ namespace PerpetualIntelligence.Test.Services
         }
 
         /// <summary>
-        /// Asserts <see cref="Result"/> is an error.
-        /// </summary>
-        /// <param name="result"></param>
-        /// <param name="error"></param>
-        /// <param name="errorDescription"></param>
-        public static void AssertOneImlxError(Result result, string error, string? errorDescription)
-        {
-            Assert.IsTrue(result.IsError);
-            Assert.IsNotNull(result.FirstError);
-            Assert.AreEqual(error, result.FirstError.ErrorCode);
-            Assert.AreEqual(errorDescription, result.FirstError.FormatDescription());
-        }
-
-        /// <summary>
         /// Asserts <see cref="Error"/>
         /// </summary>
         /// <param name="error"></param>
@@ -759,36 +743,6 @@ namespace PerpetualIntelligence.Test.Services
             Assert.IsNotNull(error);
             Assert.AreEqual(errorCode, error.ErrorCode);
             Assert.AreEqual(errorDescription, error.FormatDescription());
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <param name="result"></param>
-        /// <param name="exceptionMessage"></param>
-        public static void AssertOneImlxHttpResultException(HttpResult result, string exceptionMessage)
-        {
-            Assert.AreEqual(HttpResultType.Exception, result.ResultType);
-            Assert.IsNotNull(result.Exception);
-            Assert.AreEqual(exceptionMessage, result.Exception.Message);
-            Assert.IsNull(result.HttpResponse);
-            Assert.IsNull(result.Raw);
-            Assert.AreEqual(JsonValueKind.Undefined, result.Json.ValueKind);
-        }
-
-        /// <summary>
-        /// </summary>
-        /// <param name="result"></param>
-        /// <param name="httpStatusCode"></param>
-        /// <param name="reasonPhrase"></param>
-        /// <param name="raw"></param>
-        public static void AssertOneImlxHttpResultResponse(HttpResult result, HttpStatusCode httpStatusCode, string? reasonPhrase, string? raw)
-        {
-            Assert.AreEqual(HttpResultType.HttpResponse, result.ResultType);
-            Assert.IsNotNull(result.HttpResponse);
-            Assert.AreEqual(httpStatusCode, result.HttpResponse.StatusCode);
-            Assert.AreEqual(reasonPhrase, result.HttpResponse.ReasonPhrase);
-            Assert.AreEqual(raw, result.Raw);
-            Assert.IsNull(result.Exception);
         }
 
         /// <summary>
