@@ -15,6 +15,12 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
     public class LicenseKeysModel
     {
         /// <summary>
+        /// The <c>acr</c> claim.
+        /// </summary>
+        [JsonPropertyName("acr_values")]
+        public string[] AcrValues { get; set; } = null!;
+
+        /// <summary>
         /// The authorized application. This is also the <c>auth_apps</c> claim.
         /// </summary>
         [JsonPropertyName("authorized_application_ids")]
