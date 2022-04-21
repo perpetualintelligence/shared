@@ -12,7 +12,7 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
     /// <summary>
     /// The <c>jws</c> B2B keys download model.
     /// </summary>
-    public class LicenseDownloadModel
+    public class LicenseKeyJsonFileModel
     {
         /// <summary>
         /// The Authorized party. This is also the <c>azp</c> claim.
@@ -56,5 +56,11 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         /// </summary>
         [JsonPropertyName("subject")]
         public string Subject { get; set; } = null!;
+
+        /// <summary>
+        /// The expiry in days.
+        /// </summary>
+        [JsonPropertyName("expires_in")]
+        public int ExpiresIn { get; set; }
     }
 }

@@ -5,7 +5,6 @@
     https://terms.perpetualintelligence.com
 */
 
-using System;
 using System.Text.Json.Serialization;
 
 namespace PerpetualIntelligence.Protocols.Licensing.Models
@@ -52,10 +51,10 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         public string? ConsumerTenantName { get; set; }
 
         /// <summary>
-        /// The jws key expiry.
+        /// The expiry in days.
         /// </summary>
-        [JsonPropertyName("expiry")]
-        public DateTimeOffset Expiry { get; set; }
+        [JsonPropertyName("expires_in")]
+        public int ExpiresIn { get; set; }
 
         /// <summary>
         /// The space separated keys operations. Valid value is <c>actions</c>, <c>get</c>, <c>generate</c>,

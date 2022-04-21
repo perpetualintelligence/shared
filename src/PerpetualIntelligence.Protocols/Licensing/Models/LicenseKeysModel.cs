@@ -33,6 +33,18 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         public string ConsumerTenantId { get; set; } = null!;
 
         /// <summary>
+        /// The etag.
+        /// </summary>
+        [JsonPropertyName("etag")]
+        public string Etag { get; set; } = null!;
+
+        /// <summary>
+        /// The expires in days.
+        /// </summary>
+        [JsonPropertyName("expires_in")]
+        public int ExpiresIn { get; set; }
+
+        /// <summary>
         /// The operations available for clients.
         /// </summary>
         [JsonPropertyName("operations")]
@@ -51,6 +63,12 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         public string ProviderTenantId { get; set; } = null!;
 
         /// <summary>
+        /// The publisher tenant id.
+        /// </summary>
+        [JsonPropertyName("publisher_tenant_id")]
+        public string PublisherTenantId { get; set; } = null!;
+
+        /// <summary>
         /// The secondary <c>jwt</c> license key. Use this key when rotating the primary key.
         /// </summary>
         [JsonPropertyName("secondary_key")]
@@ -61,11 +79,5 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         /// </summary>
         [JsonPropertyName("subject")]
         public string Subject { get; set; } = null!;
-
-        /// <summary>
-        /// The publisher tenant id.
-        /// </summary>
-        [JsonPropertyName("publisher_tenant_id")]
-        public string PublisherTenantId { get; set; } = null!;
     }
 }
