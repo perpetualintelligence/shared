@@ -24,6 +24,7 @@ namespace PerpetualIntelligence.Shared.Extensions
         {
             LoggingOptions loggingOptions = new();
 
+            Assert.IsNotNull(Logger);
             string? message = Logger.FormatAndLog(Microsoft.Extensions.Logging.LogLevel.Warning, loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
             Assert.AreEqual("Test message. client_id=**** scope=**** test=****", message);
         }
@@ -36,6 +37,7 @@ namespace PerpetualIntelligence.Shared.Extensions
                 ObsureErrorArguments = false
             };
 
+            Assert.IsNotNull(Logger);
             string? message = Logger.FormatAndLog(Microsoft.Extensions.Logging.LogLevel.Error, loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
             Assert.AreEqual("Test message. client_id=test_client_id scope=test_scope test=test_value", message);
         }
@@ -48,6 +50,7 @@ namespace PerpetualIntelligence.Shared.Extensions
                 ObsureErrorArguments = true
             };
 
+            Assert.IsNotNull(Logger);
             string? message = Logger.FormatAndLog(Microsoft.Extensions.Logging.LogLevel.Debug, loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
             Assert.AreEqual("Test message. client_id=**** scope=**** test=****", message);
         }

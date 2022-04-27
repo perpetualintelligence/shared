@@ -1036,7 +1036,7 @@ namespace PerpetualIntelligence.Test.Services
         /// <param name="errorCode">The expected error code.</param>
         /// <param name="errorDescription">The expected error description.</param>
         /// <returns>
-        /// <see cref="TryResultOrErrors{T}"/> instance that contains the result or an <see cref="Error"/> instance.
+        /// <see cref="TryResultOrError{T}"/> instance that contains the result or an <see cref="Error"/> instance.
         /// </returns>
         public static void AssertThrowsErrorException(Action action, string errorCode, string errorDescription)
         {
@@ -1070,7 +1070,7 @@ namespace PerpetualIntelligence.Test.Services
         /// <param name="errorCode">The expected error code.</param>
         /// <param name="errorDescription">The expected error description.</param>
         /// <returns>
-        /// <see cref="TryResultOrErrors{T}"/> instance that contains the result or an <see cref="Error"/> instance.
+        /// <see cref="TryResultOrError{T}"/> instance that contains the result or an <see cref="Error"/> instance.
         /// </returns>
         public static async Task AssertThrowsErrorExceptionAsync(Func<Task> funcTask, string errorCode, string errorDescription)
         {
