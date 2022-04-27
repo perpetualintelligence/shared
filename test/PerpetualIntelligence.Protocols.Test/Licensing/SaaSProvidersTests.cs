@@ -15,7 +15,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
         [TestMethod]
         public void IsValidShouldReturnFalseForInvalidSaaSUsage()
         {
-            Assert.IsFalse(SaaSCheckModes.IsValid("invalid"));
+            Assert.IsFalse(SaaSProviders.IsValid("invalid"));
         }
 
         [TestMethod]
@@ -27,7 +27,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
         [TestMethod]
         public void SaaSProvidersTest()
         {
-            TestHelper.AssertConstantCount(typeof(SaaSCheckModes), 1);
+            TestHelper.AssertConstantCount(typeof(SaaSProviders), 1);
 
             Assert.AreEqual("urn:oneimlx:lic:saaspvdr:pi", SaaSProviders.PerpetualIntelligence);
         }
