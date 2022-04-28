@@ -39,6 +39,12 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         public string ConsumerTenantId { get; set; } = null!;
 
         /// <summary>
+        /// The consumer tenant name.
+        /// </summary>
+        [JsonPropertyName("consumer_tenant_name")]
+        public string? ConsumerTenantName { get; set; }
+
+        /// <summary>
         /// The etag.
         /// </summary>
         [JsonPropertyName("etag")]

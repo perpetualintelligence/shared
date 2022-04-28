@@ -76,6 +76,6 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// <summary>
         /// The SMB SaaS pricing plan.
         /// </summary>
-        public const string SMB = "urn:oneimlx:lic:saasplan:smb";
+        public const string SMB = "urn:oneimlx:lic:saasplan:smb";        
     }
 }
