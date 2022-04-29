@@ -7,12 +7,12 @@
 
 using System.Text.Json.Serialization;
 
-namespace PerpetualIntelligence.Protocols.Licensing.Models
+namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
-    /// The <c>jws</c> B2B keys model.
+    /// The license provisioning model.
     /// </summary>
-    public class LicenseKeysModel
+    public class LicenseProvisioningModel
     {
         /// <summary>
         /// The <c>acr</c> claim.
@@ -21,55 +21,50 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         public string[] AcrValues { get; set; } = null!;
 
         /// <summary>
-        /// The authorized application. This is also the <c>auth_apps</c> claim.
+        /// The <c>auth_apps</c> claim.
         /// </summary>
         [JsonPropertyName("authorized_application_ids")]
         public string[] AuthorizedApplicationIds { get; set; } = null!;
 
         /// <summary>
-        /// The Authorized party. This is also the <c>azp</c> claim.
+        /// The <c>azp</c> claim.
         /// </summary>
         [JsonPropertyName("authorized_party")]
         public string AuthorizedParty { get; set; } = null!;
 
         /// <summary>
-        /// The consumer tenant id.
+        /// The consumer tenant id. This is the <c>tid</c> claim.
+        /// </summary>
+        [JsonPropertyName("consumer_tenant_country")]
+        public string? ConsumerTenantCountry { get; set; }
+
+        /// <summary>
+        /// The consumer tenant id. This is the <c>tid</c> claim.
         /// </summary>
         [JsonPropertyName("consumer_tenant_id")]
         public string ConsumerTenantId { get; set; } = null!;
 
         /// <summary>
-        /// The consumer tenant name.
+        /// The consumer tenant id. This is the <c>tid</c> claim.
         /// </summary>
         [JsonPropertyName("consumer_tenant_name")]
         public string? ConsumerTenantName { get; set; }
 
         /// <summary>
-        /// The etag.
-        /// </summary>
-        [JsonPropertyName("etag")]
-        public string Etag { get; set; } = null!;
-
-        /// <summary>
-        /// The expires in days.
+        /// The expiry in days.
         /// </summary>
         [JsonPropertyName("expires_in")]
         public int ExpiresIn { get; set; }
 
         /// <summary>
-        /// The operations available for clients.
+        /// The space separated keys operations. Valid value is <c>actions</c>, <c>get</c>, <c>generate</c>,
+        /// <c>reset_primary</c>, <c>reset_secondary</c> and <c>delete</c>.
         /// </summary>
-        [JsonPropertyName("operations")]
-        public string[] Operations { get; set; } = null!;
+        [JsonPropertyName("operation")]
+        public string Operation { get; set; } = null!;
 
         /// <summary>
-        /// The primary <c>jwt</c> license key.
-        /// </summary>
-        [JsonPropertyName("primary_key")]
-        public string PrimaryKey { get; set; } = null!;
-
-        /// <summary>
-        /// The registered provider or provider tenant id.
+        /// The provider tenant id.
         /// </summary>
         [JsonPropertyName("provider_tenant_id")]
         public string ProviderTenantId { get; set; } = null!;
@@ -81,13 +76,7 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         public string PublisherTenantId { get; set; } = null!;
 
         /// <summary>
-        /// The secondary <c>jwt</c> license key. Use this key when rotating the primary key.
-        /// </summary>
-        [JsonPropertyName("secondary_key")]
-        public string SecondaryKey { get; set; } = null!;
-
-        /// <summary>
-        /// The subject. This is also the <c>sub</c> claim.
+        /// The <c>sub</c> claim.
         /// </summary>
         [JsonPropertyName("subject")]
         public string Subject { get; set; } = null!;

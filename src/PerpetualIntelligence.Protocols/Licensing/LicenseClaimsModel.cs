@@ -11,7 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace PerpetualIntelligence.Protocols.Licensing.Models
+namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
     /// Defines the licensing claims model.

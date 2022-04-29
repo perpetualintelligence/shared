@@ -5,12 +5,12 @@
     https://terms.perpetualintelligence.com
 */
 
-namespace PerpetualIntelligence.Protocols.Licensing.Demo
+namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
     /// The demo licensing identifiers.
     /// </summary>
-    public class Identifiers
+    public class DemoIdentifiers
     {
         /// <summary>
         /// The demo license authorized application identifier.

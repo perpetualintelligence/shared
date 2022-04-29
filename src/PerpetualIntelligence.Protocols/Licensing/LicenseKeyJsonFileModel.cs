@@ -7,19 +7,13 @@
 
 using System.Text.Json.Serialization;
 
-namespace PerpetualIntelligence.Protocols.Licensing.Models
+namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
-    /// The <c>jws</c> B2B keys check model.
+    /// The <c>jws</c> B2B keys download model.
     /// </summary>
-    public class LicenseCheckModel
+    public class LicenseKeyJsonFileModel
     {
-        /// <summary>
-        /// The Authorized application. This is also one of the <c>auth_apps</c> claim value.
-        /// </summary>
-        [JsonPropertyName("authorized_application_id")]
-        public string AuthorizedApplicationId { get; set; } = null!;
-
         /// <summary>
         /// The Authorized party. This is also the <c>azp</c> claim.
         /// </summary>
@@ -54,13 +48,19 @@ namespace PerpetualIntelligence.Protocols.Licensing.Models
         /// <summary>
         /// The registered provider or the provider tenant id.
         /// </summary>
-        [JsonPropertyName("provider_tenant_id")]
-        public string ProviderTenantId { get; set; } = null!;
+        [JsonPropertyName("provider_id")]
+        public string ProviderId { get; set; } = null!;
 
         /// <summary>
         /// The subject. This is also the <c>sub</c> claim.
         /// </summary>
         [JsonPropertyName("subject")]
         public string Subject { get; set; } = null!;
+
+        /// <summary>
+        /// The expiry in days.
+        /// </summary>
+        [JsonPropertyName("expires_in")]
+        public int ExpiresIn { get; set; }
     }
 }
