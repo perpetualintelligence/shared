@@ -31,5 +31,10 @@ namespace PerpetualIntelligence.Protocols.Authorization
         /// The publisher portal.
         /// </summary>
         public const string Undefined = "urn:oneimlx:apps:undefined";
+
+        /// <summary>
+        /// The client portal.
+        /// </summary>
+        public const string Client = "urn:oneimlx:apps:client";
     }
 }

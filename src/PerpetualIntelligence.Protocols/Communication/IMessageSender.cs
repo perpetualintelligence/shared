@@ -17,9 +17,9 @@ namespace PerpetualIntelligence.Protocols.Communication
         /// <summary>
         /// Checks the reCAPTCHA asynchronously.
         /// </summary>
-        /// <param name="emailModel">The reCAPTCHA model.</param>
+        /// <param name="recaptchaModel">The reCAPTCHA model.</param>
         /// <returns></returns>
-        Task<RecaptchaResponseModel> CheckRecaptchaAsync(RecaptchaModel emailModel);
+        Task<RecaptchaResponseModel> CheckRecaptchaAsync(RecaptchaModel  recaptchaModel);
 
         /// <summary>
         /// Sends an email asynchronously
