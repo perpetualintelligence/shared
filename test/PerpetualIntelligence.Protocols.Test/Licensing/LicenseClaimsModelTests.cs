@@ -11,7 +11,7 @@ using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace PerpetualIntelligence.Protocols.Licensing.Models
+namespace PerpetualIntelligence.Protocols.Licensing
 {
     public class LicenseClaimsTests
     {
