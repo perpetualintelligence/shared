@@ -15,6 +15,12 @@ namespace PerpetualIntelligence.Protocols.Licensing
     public class LicenseCheckModel
     {
         /// <summary>
+        /// The <c>aud</c> claim.
+        /// </summary>
+        [JsonPropertyName("audience")]
+        public string Audience { get; set; } = null!;
+
+        /// <summary>
         /// The Authorized application. This is also one of the <c>auth_apps</c> claim value.
         /// </summary>
         [JsonPropertyName("authorized_application_id")]

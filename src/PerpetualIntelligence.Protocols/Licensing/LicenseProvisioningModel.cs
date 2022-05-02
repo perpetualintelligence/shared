@@ -22,6 +22,12 @@ namespace PerpetualIntelligence.Protocols.Licensing
         public string[] AcrValues { get; set; } = null!;
 
         /// <summary>
+        /// The <c>aud</c> claim.
+        /// </summary>
+        [JsonPropertyName("audience")]
+        public string Audience { get; set; } = null!;
+
+        /// <summary>
         /// The <c>auth_apps</c> claim.
         /// </summary>
         [JsonPropertyName("authorized_application_ids")]
