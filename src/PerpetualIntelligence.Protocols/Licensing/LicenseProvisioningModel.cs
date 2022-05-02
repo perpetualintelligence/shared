@@ -5,6 +5,7 @@
     https://terms.perpetualintelligence.com
 */
 
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace PerpetualIntelligence.Protocols.Licensing
@@ -49,6 +50,13 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// </summary>
         [JsonPropertyName("consumer_tenant_name")]
         public string? ConsumerTenantName { get; set; }
+
+        /// <summary>
+        /// The <c>custom</c> data.
+        /// </summary>
+        [JsonPropertyName("custom")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Dictionary<string, object>? Custom { get; set; }
 
         /// <summary>
         /// The expiry in days.
