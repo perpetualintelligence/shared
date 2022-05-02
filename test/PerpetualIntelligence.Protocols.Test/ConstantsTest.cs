@@ -16,12 +16,13 @@ namespace PerpetualIntelligence.Protocols
         [TestMethod]
         public void ConstantTest()
         {
-            TestHelper.AssertConstantCount(typeof(Constants), 4);
+            TestHelper.AssertConstantCount(typeof(Constants), 5);
 
             Assert.AreEqual("urn:oneimlx:cli", Constants.CliUrn);
             Assert.AreEqual("cli", Constants.Cli);
             Assert.AreEqual("urn:oneimlx", Constants.OneImlxUrn);
             Assert.AreEqual("oneimlx", Constants.OneImlx);
+            Assert.AreEqual("https://api.perpetualintelligence.com", Constants.Issuer);
         }
     }
 }

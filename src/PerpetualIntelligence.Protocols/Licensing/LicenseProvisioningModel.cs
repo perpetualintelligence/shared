@@ -65,6 +65,12 @@ namespace PerpetualIntelligence.Protocols.Licensing
         public int ExpiresIn { get; set; }
 
         /// <summary>
+        /// The <c>iss</c> claim.
+        /// </summary>
+        [JsonPropertyName("issuer")]
+        public string Issuer { get; set; } = null!;
+
+        /// <summary>
         /// The space separated keys operations. Valid value is <c>actions</c>, <c>get</c>, <c>generate</c>,
         /// <c>reset_primary</c>, <c>reset_secondary</c> and <c>delete</c>.
         /// </summary>

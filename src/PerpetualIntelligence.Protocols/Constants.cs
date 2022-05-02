@@ -23,6 +23,11 @@ namespace PerpetualIntelligence.Protocols
         public const string CliUrn = "urn:oneimlx:cli";
 
         /// <summary>
+        /// The registered <c>issuer</c> claim for all Perpetual Intelligence managed services.
+        /// </summary>
+        public const string Issuer = "https://api.perpetualintelligence.com";
+
+        /// <summary>
         /// The Perpetual Intelligence's <c>oneimlx</c> protocol.
         /// </summary>
         public const string OneImlx = "oneimlx";
