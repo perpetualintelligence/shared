@@ -5,12 +5,12 @@
     https://terms.perpetualintelligence.com
 */
 
+using FluentAssertions;
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Xunit;
-using FluentAssertions;
 
 namespace PerpetualIntelligence.Shared.Json
 {
@@ -36,14 +36,19 @@ namespace PerpetualIntelligence.Shared.Json
 
             TestData testData = new TestData()
             {
+                Test1 = "test1_value",
+                Test2 = 35,
                 Data = testValues
             };
 
             string json = JsonSerializer.Serialize(testData);
-
             TestData? fromJson = JsonSerializer.Deserialize<TestData>(json);
             fromJson.Should().NotBeNull();
-            fromJson!.Data.Should().HaveCount(8);
+
+            fromJson!.Test1.Should().Be("test1_value");
+            fromJson.Test2.Should().Be(35);
+
+            fromJson.Data.Should().HaveCount(8);
             fromJson.Data.Should().Contain(new KeyValuePair<string, object?>("k1", -3625));
             fromJson.Data.Should().Contain(new KeyValuePair<string, object?>("k2", 25636));
             fromJson.Data.Should().Contain(new KeyValuePair<string, object?>("k3", false));
@@ -78,6 +83,12 @@ namespace PerpetualIntelligence.Shared.Json
             [JsonPropertyName("data")]
             [JsonConverter(typeof(DictionaryStringObjectPrimitiveJsonConverter))]
             public Dictionary<string, object?>? Data { get; set; }
+
+            [JsonPropertyName("test1")]
+            public string? Test1 { get; set; }
+
+            [JsonPropertyName("test2")]
+            public int Test2 { get; set; }
         }
     }
 }
