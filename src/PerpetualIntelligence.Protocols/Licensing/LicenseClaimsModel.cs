@@ -57,7 +57,6 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// </summary>
         [JsonPropertyName("custom")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        [JsonExtensionData]
         [JsonConverter(typeof(DictionaryStringObjectPrimitiveJsonConverter))]
         public Dictionary<string, object>? Custom { get; set; }
 
