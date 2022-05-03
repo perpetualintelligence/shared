@@ -7,6 +7,7 @@
 
 using PerpetualIntelligence.Shared.Attributes;
 using PerpetualIntelligence.Shared.Exceptions;
+using PerpetualIntelligence.Shared.Json;
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
@@ -40,22 +41,24 @@ namespace PerpetualIntelligence.Protocols.Licensing
         public string Audience { get; set; } = null!;
 
         /// <summary>
-        /// The <c>azp</c> claim.
-        /// </summary>
-        [JsonPropertyName("authorized_party")]
-        public string AuthorizedParty { get; set; } = null!;
-
-        /// <summary>
         /// The <c>auth_apps</c> claim.
         /// </summary>
         [JsonPropertyName("authorized_application_ids")]
         public string AuthorizedApplicationIds { get; set; } = null!;
 
         /// <summary>
+        /// The <c>azp</c> claim.
+        /// </summary>
+        [JsonPropertyName("authorized_party")]
+        public string AuthorizedParty { get; set; } = null!;
+
+        /// <summary>
         /// The custom claims.
         /// </summary>
         [JsonPropertyName("custom")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonExtensionData]
+        [JsonConverter(typeof(DictionaryStringObjectPrimitiveJsonConverter))]
         public Dictionary<string, object>? Custom { get; set; }
 
         /// <summary>

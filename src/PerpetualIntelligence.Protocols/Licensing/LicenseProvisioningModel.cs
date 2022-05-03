@@ -5,6 +5,7 @@
     https://terms.perpetualintelligence.com
 */
 
+using PerpetualIntelligence.Shared.Json;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
@@ -62,6 +63,8 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// </summary>
         [JsonPropertyName("custom")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonExtensionData]
+        [JsonConverter(typeof(DictionaryStringObjectPrimitiveJsonConverter))]
         public Dictionary<string, object>? Custom { get; set; }
 
         /// <summary>
