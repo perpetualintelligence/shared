@@ -98,6 +98,12 @@ namespace PerpetualIntelligence.Protocols.Licensing
         public string PublisherTenantId { get; set; } = null!;
 
         /// <summary>
+        /// The key status.
+        /// </summary>
+        [JsonPropertyName("status")]
+        public string Status { get; set; } = null!;
+
+        /// <summary>
         /// The <c>sub</c> claim.
         /// </summary>
         [JsonPropertyName("subject")]

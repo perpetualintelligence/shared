@@ -87,6 +87,12 @@ namespace PerpetualIntelligence.Protocols.Licensing
         public string SecondaryKey { get; set; } = null!;
 
         /// <summary>
+        /// The license key status.
+        /// </summary>
+        [JsonPropertyName("status")]
+        public string Status { get; set; } = null!;
+
+        /// <summary>
         /// The subject. This is also the <c>sub</c> claim.
         /// </summary>
         [JsonPropertyName("subject")]
