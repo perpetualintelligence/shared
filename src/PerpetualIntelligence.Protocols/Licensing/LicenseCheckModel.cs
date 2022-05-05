@@ -66,8 +66,8 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// <summary>
         /// The registered provider or the provider tenant id.
         /// </summary>
-        [JsonPropertyName("provider_tenant_id")]
-        public string ProviderTenantId { get; set; } = null!;
+        [JsonPropertyName("provider_id")]
+        public string ProviderId { get; set; } = null!;
 
         /// <summary>
         /// The subject. This is also the <c>sub</c> claim.
