@@ -54,25 +54,39 @@ namespace PerpetualIntelligence.Protocols.Security.Secrets
         [JsonPropertyName("value")]
         public string? Value { get; set; }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public static bool operator !=(Secret? left, Secret? right)
         {
             return !(left == right);
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
         public static bool operator ==(Secret? left, Secret? right)
         {
             return EqualityComparer<Secret?>.Default.Equals(left, right);
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object? obj)
         {
             return Equals(obj as Secret);
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public bool Equals(Secret? other)
         {
             return other != null &&
@@ -80,7 +94,9 @@ namespace PerpetualIntelligence.Protocols.Security.Secrets
                    ValueEquals(other.Value);
         }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode()
         {
 #if NETSTANDARD2_1_OR_GREATER
