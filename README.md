@@ -6,7 +6,7 @@
 ![ubuntu](https://img.shields.io/badge/linux-ubuntu--20.04-blue?style=flat-square&logo=ubuntu)
 ![windows](https://img.shields.io/badge/windows-2019-blue?style=flat-square&logo=windows)
 
-This repository contains the cross-platform protocols and standards for Perpetual Intelligence L.L.C. managed services, frameworks, and tools. We build the following NuGet packages from this repository.
+This repository contains the cross-platform protocols and standards for Perpetual Intelligence L.L.C. managed services, cross-platform frameworks, and developer tools. We build the following NuGet packages from this repository.
 
 [![Nuget](https://img.shields.io/nuget/vpre/PerpetualIntelligence.Shared?label=PerpetualIntelligence.Shared)](https://www.nuget.org/packages/PerpetualIntelligence.Shared)
 
