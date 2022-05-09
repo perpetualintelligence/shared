@@ -41,7 +41,7 @@ namespace PerpetualIntelligence.Protocols.Security.Certificates
         /// <returns></returns>
         public IEnumerable<X509Certificate2> Find(StoreName storeName, X509FindType findType, object findValue, bool validOnly = true)
         {
-            using (System.Security.Cryptography.X509Certificates.X509Store store = new(storeName, location))
+            using (System.Security.Cryptography.X509Certificates.X509Store store = new(storeName, Location))
             {
                 store.Open(OpenFlags.ReadOnly);
 
@@ -56,9 +56,9 @@ namespace PerpetualIntelligence.Protocols.Security.Certificates
         /// <param name="location">The X.509 <see cref="StoreLocation"/>.</param>
         private X509Store(StoreLocation location)
         {
-            this.location = location;
+            Location = location;
         }
 
-        private StoreLocation location { get; }
+        private StoreLocation Location { get; }
     }
 }

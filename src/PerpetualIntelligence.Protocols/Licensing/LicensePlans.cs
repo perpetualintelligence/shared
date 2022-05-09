@@ -8,9 +8,9 @@
 namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
-    /// Defines the standard SaaS pricing plans.
+    /// Defines the standard license pricing plans.
     /// </summary>
-    public class SaaSPlans
+    public class LicensePlans
     {
         /// <summary>
         /// Determines if the plan is valid.
@@ -39,43 +39,43 @@ namespace PerpetualIntelligence.Protocols.Licensing
         }
 
         /// <summary>
-        /// The community SaaS pricing plan.
+        /// The community license pricing plan.
         /// </summary>
-        public const string Community = "urn:oneimlx:lic:saasplan:community";
+        public const string Community = "urn:oneimlx:lic:plan:community";
 
         /// <summary>
-        /// The custom SaaS pricing plan.
+        /// The custom license pricing plan.
         /// </summary>
-        public const string Custom = "urn:oneimlx:lic:saasplan:custom";
+        public const string Custom = "urn:oneimlx:lic:plan:custom";
 
         /// <summary>
-        /// The enterprise SaaS pricing plan.
+        /// The enterprise license pricing plan.
         /// </summary>
-        public const string Enterprise = "urn:oneimlx:lic:saasplan:enterprise";
+        public const string Enterprise = "urn:oneimlx:lic:plan:enterprise";
 
         /// <summary>
-        /// The ISV SaaS pricing plan.
+        /// The ISV license pricing plan.
         /// </summary>
-        public const string ISV = "urn:oneimlx:lic:saasplan:isv";
+        public const string ISV = "urn:oneimlx:lic:plan:isv";
 
         /// <summary>
-        /// The ISV unlimited SaaS pricing plan.
+        /// The ISV unlimited license pricing plan.
         /// </summary>
-        public const string ISVU = "urn:oneimlx:lic:saasplan:isvu";
+        public const string ISVU = "urn:oneimlx:lic:plan:isvu";
 
         /// <summary>
-        /// The solo or micro SaaS pricing plan.
+        /// The solo or micro license pricing plan.
         /// </summary>
-        public const string Micro = "urn:oneimlx:lic:saasplan:micro";
+        public const string Micro = "urn:oneimlx:lic:plan:micro";
 
         /// <summary>
-        /// The neutral or no SaaS pricing plan.
+        /// The neutral or no license pricing plan.
         /// </summary>
-        public const string None = "urn:oneimlx:lic:saasplan:none";
+        public const string None = "urn:oneimlx:lic:plan:none";
 
         /// <summary>
-        /// The SMB SaaS pricing plan.
+        /// The SMB license pricing plan.
         /// </summary>
-        public const string SMB = "urn:oneimlx:lic:saasplan:smb";        
+        public const string SMB = "urn:oneimlx:lic:plan:smb";        
     }
 }

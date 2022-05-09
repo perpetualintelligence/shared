@@ -10,27 +10,26 @@ using PerpetualIntelligence.Test.Services;
 
 namespace PerpetualIntelligence.Protocols.Licensing
 {
-    [TestClass]
-    public class SaaSKeySourcesTests
+    public class LicenseProvidersTests
     {
         [TestMethod]
-        public void IsValidShouldReturnFalseForInvalidSource()
+        public void IsValidShouldReturnFalseForInvalidlicenseUsage()
         {
-            Assert.IsFalse(SaaSKeySources.IsValid("invalid"));
+            Assert.IsFalse(LicenseProviders.IsValid("invalid"));
         }
 
         [TestMethod]
         public void IsValidShouldReturnTrueForValidUsage()
         {
-            Assert.IsTrue(SaaSKeySources.IsValid(SaaSKeySources.JsonFile));
+            Assert.IsTrue(LicenseProviders.IsValid(LicenseProviders.PerpetualIntelligence));
         }
 
         [TestMethod]
-        public void SaaSUsagesTest()
+        public void LicenseProvidersConstTest()
         {
-            TestHelper.AssertConstantCount(typeof(SaaSKeySources), 1);
+            TestHelper.AssertConstantCount(typeof(LicenseProviders), 1);
 
-            Assert.AreEqual("urn:oneimlx:lic:ksource:jsonfile", SaaSKeySources.JsonFile);
+            Assert.AreEqual("urn:oneimlx:lic:saaspvdr:pi", LicenseProviders.PerpetualIntelligence);
         }
     }
 }

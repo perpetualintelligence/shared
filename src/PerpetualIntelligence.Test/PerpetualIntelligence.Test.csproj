@@ -8,7 +8,7 @@
         <Configurations>Debug;Release</Configurations>
     </PropertyGroup>
 
-    <Import Project="..\..\build\props\PackageApache.props" />
+    <Import Project="..\..\build\props\PackageLicense.props" />
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>

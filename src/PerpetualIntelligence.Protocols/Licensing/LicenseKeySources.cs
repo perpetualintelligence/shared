@@ -8,19 +8,19 @@
 namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
-    /// Defines the standard SaaS providers.
+    /// The license key sources.
     /// </summary>
-    public class SaaSProviders
+    public sealed class LicenseKeySources
     {
         /// <summary>
-        /// Determines if the provider is valid.
+        /// Determines if the key source is valid.
         /// </summary>
-        /// <returns><c>true</c> if the plan is valid; otherwise, <c>false</c>.</returns>
-        public static bool IsValid(string pvdr)
+        /// <returns><c>true</c> if the key source is valid; otherwise, <c>false</c>.</returns>
+        public static bool IsValid(string keySource)
         {
-            switch (pvdr)
+            switch (keySource)
             {
-                case PerpetualIntelligence:
+                case JsonFile:
                     {
                         return true;
                     }
@@ -32,8 +32,8 @@ namespace PerpetualIntelligence.Protocols.Licensing
         }
 
         /// <summary>
-        /// The registered licensing provider hosted by <c>Perpetual Intelligence L.L.C.</c>
+        /// The key source is a json file.
         /// </summary>
-        public const string PerpetualIntelligence = "urn:oneimlx:lic:saaspvdr:pi";
+        public const string JsonFile = "urn:oneimlx:lic:ksource:jsonfile";
     }
 }

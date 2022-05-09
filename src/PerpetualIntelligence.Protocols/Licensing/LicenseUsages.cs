@@ -8,9 +8,9 @@
 namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
-    /// The SaaS usage.
+    /// The license usage.
     /// </summary>
-    public class SaaSUsages
+    public class LicenseUsages
     {
         /// <summary>
         /// Determines if the usage is valid.
@@ -36,7 +36,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
         }
 
         /// <summary>
-        /// The neutral or no SaaS usage plan.
+        /// The neutral or no license usage plan.
         /// </summary>
         public const string None = "urn:oneimlx:lic:saasusage:none";
 
