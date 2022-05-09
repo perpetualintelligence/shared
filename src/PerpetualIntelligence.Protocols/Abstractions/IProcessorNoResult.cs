@@ -10,17 +10,16 @@ using System.Threading.Tasks;
 namespace PerpetualIntelligence.Protocols.Abstractions
 {
     /// <summary>
-    /// An abstraction of context specific processor.
+    /// An abstraction of context specific no result processor.
     /// </summary>
     /// <typeparam name="TContext">The processor context.</typeparam>
-    /// <typeparam name="TResult">The processor result.</typeparam>
-    /// <seealso cref="IProcessorNoResult{TContext}"/>
-    public interface IProcessor<TContext, TResult> where TContext : class where TResult : class
+    /// <seealso cref="IProcessor{TContext, TResult}"/>
+    public interface IProcessorNoResult<TContext> where TContext : class
     {
         /// <summary>
         /// Processes asynchronously.
         /// </summary>
         /// <param name="context">The processor context.</param>
-        Task<TResult> ProcessAsync(TContext context);
+        Task ProcessAsync(TContext context);
     }
 }
