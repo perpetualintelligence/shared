@@ -34,6 +34,6 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// <summary>
         /// The registered licensing provider hosted by <c>Perpetual Intelligence L.L.C.</c>
         /// </summary>
-        public const string PerpetualIntelligence = "urn:oneimlx:lic:saaspvdr:pi";
+        public const string PerpetualIntelligence = "urn:oneimlx:lic:pvdr:pi";
     }
 }

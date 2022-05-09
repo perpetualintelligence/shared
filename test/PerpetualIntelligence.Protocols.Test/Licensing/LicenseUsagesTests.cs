@@ -34,12 +34,12 @@ namespace PerpetualIntelligence.Protocols.Licensing
         {
             TestHelper.AssertConstantCount(typeof(LicenseUsages), 5);
 
-            Assert.AreEqual("urn:oneimlx:lic:saasusage:org", LicenseUsages.CommercialBusiness);
-            Assert.AreEqual("urn:oneimlx:lic:saasusage:per", LicenseUsages.CommercialPersonal);
-            Assert.AreEqual("urn:oneimlx:lic:saasusage:edu", LicenseUsages.Educational);
-            Assert.AreEqual("urn:oneimlx:lic:saasusage:rnd", LicenseUsages.RnD);
+            Assert.AreEqual("urn:oneimlx:lic:usage:org", LicenseUsages.CommercialBusiness);
+            Assert.AreEqual("urn:oneimlx:lic:usage:per", LicenseUsages.CommercialPersonal);
+            Assert.AreEqual("urn:oneimlx:lic:usage:edu", LicenseUsages.Educational);
+            Assert.AreEqual("urn:oneimlx:lic:usage:rnd", LicenseUsages.RnD);
 
-            Assert.AreEqual("urn:oneimlx:lic:saasusage:none", LicenseUsages.None);
+            Assert.AreEqual("urn:oneimlx:lic:usage:none", LicenseUsages.None);
         }
     }
 }

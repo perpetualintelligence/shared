@@ -29,7 +29,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
         {
             TestHelper.AssertConstantCount(typeof(LicenseProviders), 1);
 
-            Assert.AreEqual("urn:oneimlx:lic:saaspvdr:pi", LicenseProviders.PerpetualIntelligence);
+            Assert.AreEqual("urn:oneimlx:lic:pvdr:pi", LicenseProviders.PerpetualIntelligence);
         }
     }
 }

@@ -38,26 +38,26 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// <summary>
         /// The neutral or no license usage plan.
         /// </summary>
-        public const string None = "urn:oneimlx:lic:saasusage:none";
+        public const string None = "urn:oneimlx:lic:usage:none";
 
         /// <summary>
         /// The commercial usage for an organization or business account.
         /// </summary>
-        public const string CommercialBusiness = "urn:oneimlx:lic:saasusage:org";
+        public const string CommercialBusiness = "urn:oneimlx:lic:usage:org";
 
         /// <summary>
         /// The commercial usage for a personal or social account.
         /// </summary>
-        public const string CommercialPersonal = "urn:oneimlx:lic:saasusage:per";
+        public const string CommercialPersonal = "urn:oneimlx:lic:usage:per";
 
         /// <summary>
         /// The community usage for educational account.
         /// </summary>
-        public const string Educational = "urn:oneimlx:lic:saasusage:edu";
+        public const string Educational = "urn:oneimlx:lic:usage:edu";
 
         /// <summary>
         /// The community test and demo usage for any account.
         /// </summary>
-        public const string RnD = "urn:oneimlx:lic:saasusage:rnd";
+        public const string RnD = "urn:oneimlx:lic:usage:rnd";
     }
 }
