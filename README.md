@@ -2,13 +2,11 @@
 [![build-test-publish](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-publish.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-publish.yml)
 [![delete-package](https://github.com/perpetualintelligence/protocols/actions/workflows/delete-packages.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/delete-packages.yml)
 
-![macOS](https://img.shields.io/badge/macOS-Catalina%2010.15-blue?style=flat-square&logo=macos)
-![ubuntu](https://img.shields.io/badge/linux-ubuntu--20.04-blue?style=flat-square&logo=ubuntu)
-![windows](https://img.shields.io/badge/windows-2019-blue?style=flat-square&logo=windows)
+![macOS](https://img.shields.io/badge/macOS-grey?style=flat-square&logo=macos)
+![ubuntu](https://img.shields.io/badge/ubuntu-grey?style=flat-square&logo=ubuntu)
+![windows](https://img.shields.io/badge/windows-grey?style=flat-square&logo=windows)
 
-> **Note:** This is a ***preview*** release. It is also subject to design changes without any advance notice.
-
-This repository contains the cross-platform protocols and standards for Perpetual Intelligence L.L.C. managed services, frameworks, and tools. We build the following NuGet packages from this repository.
+This repository contains the cross-platform protocols and standards for Perpetual Intelligence L.L.C. managed services, cross-platform frameworks, and developer tools. We build the following NuGet packages from this repository.
 
 [![Nuget](https://img.shields.io/nuget/vpre/PerpetualIntelligence.Shared?label=PerpetualIntelligence.Shared)](https://www.nuget.org/packages/PerpetualIntelligence.Shared)
 
