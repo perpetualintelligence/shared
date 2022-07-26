@@ -13,6 +13,11 @@ namespace PerpetualIntelligence.Protocols.Authorization
     public class Policies
     {
         /// <summary>
+        /// User authenticated policy.
+        /// </summary>
+        public const string Authenticated = "urn:oneimlx:policies:authenticated";
+
+        /// <summary>
         /// Consumer portal authorization policy.
         /// </summary>
         public const string Consumer = "urn:oneimlx:policies:consumer";
