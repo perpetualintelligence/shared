@@ -13,28 +13,38 @@ namespace PerpetualIntelligence.Protocols.Authorization
     public class ClaimTypes
     {
         /// <summary>
-        /// Indicates an <c>acr</c> consumer claim.
+        /// Indicates an <c>extension_CustomConsumerObjectId</c> consumer object claim.
         /// </summary>
         public const string ConsumerObjectId = "extension_CustomConsumerObjectId";
 
         /// <summary>
-        /// Indicates an <c>acr</c> consumer claim.
+        /// Indicates an <c>extension_CustomConsumerTenantId</c> consumer tenant claim.
         /// </summary>
         public const string ConsumerTenantId = "extension_CustomConsumerTenantId";
 
         /// <summary>
-        /// Indicates an <c>acr</c> marketplace resolved claim.
+        /// Indicates an <c>extension_CustomMarketplaceResolved</c> marketplace resolved claim.
         /// </summary>
         public const string MarketplaceResolved = "extension_CustomMarketplaceResolved";
 
         /// <summary>
-        /// Indicates an <c>acr</c> provider claim.
+        /// Indicates an <c>extension_CustomProviderTenantId</c> provider tenant claim.
         /// </summary>
         public const string ProviderTenantId = "extension_CustomProviderTenantId";
 
         /// <summary>
-        /// Indicates an <c>acr</c> publisher claim.
+        /// Indicates an <c>extension_CustomPublisherTenantId</c> publisher tenant claim.
         /// </summary>
         public const string PublisherTenantId = "extension_CustomPublisherTenantId";
+
+        /// <summary>
+        /// Indicates an <c>extension_CustomSocialLoginObjectId</c> social login object claim.
+        /// </summary>
+        public const string SocialLoginObjectId = "extension_CustomSocialLoginObjectId";
+
+        /// <summary>
+        /// Indicates an <c>extension_CustomSocialLoginTenantId</c> social login tenant claim.
+        /// </summary>
+        public const string SocialLoginTenantId = "extension_CustomSocialLoginTenantId";
     }
 }
