@@ -23,13 +23,18 @@ namespace PerpetualIntelligence.Protocols.Authorization
         public const string AppType = "x-oneimlx-app-type";
 
         /// <summary>
-        /// The <c>x-oneimlx-login-objectid</c> header key.
+        /// The <c>x-oneimlx-login-sub</c> header key.
         /// </summary>
-        public const string LoginObjectId = "x-oneimlx-login-object-id";
+        public const string LoginSubject = "x-oneimlx-login-sub";
 
         /// <summary>
-        /// The <c>x-oneimlx-login-tenantid</c> header key.
+        /// The <c>x-oneimlx-login-oid</c> header key.
         /// </summary>
-        public const string LoginTenantId = "x-oneimlx-login-tenant-id";
+        public const string LoginObjectId = "x-oneimlx-login-oid";
+
+        /// <summary>
+        /// The <c>x-oneimlx-login-tid</c> header key.
+        /// </summary>
+        public const string LoginTenantId = "x-oneimlx-login-tid";
     }
 }
