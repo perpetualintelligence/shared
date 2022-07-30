@@ -61,6 +61,12 @@ namespace PerpetualIntelligence.Protocols.Authorization
         public Task<string> GetLoginSubjectAsync();
 
         /// <summary>
+        /// Gets the marketplace resolved flag.
+        /// </summary>
+        /// <returns></returns>
+        public Task<bool> GetMarketplaceResolvedAsync();
+
+        /// <summary>
         /// Gets the login tenant id.
         /// </summary>
         /// <returns></returns>
