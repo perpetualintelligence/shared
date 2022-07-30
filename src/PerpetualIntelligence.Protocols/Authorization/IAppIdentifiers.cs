@@ -55,6 +55,12 @@ namespace PerpetualIntelligence.Protocols.Authorization
         public Task<string> GetLoginObjectIdAsync();
 
         /// <summary>
+        /// Gets the login subject.
+        /// </summary>
+        /// <returns></returns>
+        public Task<string> GetLoginSubjectAsync();
+
+        /// <summary>
         /// Gets the login tenant id.
         /// </summary>
         /// <returns></returns>
