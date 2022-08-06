@@ -97,13 +97,7 @@ namespace PerpetualIntelligence.Protocols.Authorization
         /// Determines whether the <see cref="IAppIdentifiers"/> is initialized.
         /// </summary>
         /// <returns></returns>
-        public Task<bool> IsInitializedAsync(ClaimsPrincipal claimsPrincipal);
-
-        /// <summary>
-        /// Populates the <see cref="ClaimsPrincipal"/> with claims from <see cref="IAppIdentifiers"/> service.
-        /// </summary>
-        /// <returns></returns>
-        public Task PopulateAsync(ClaimsPrincipal claimsPrincipal);
+        public Task<bool> IsInitializedAsync();
 
         /// <summary>
         /// Resets the <see cref="IAppIdentifiers"/> service for the next login.
