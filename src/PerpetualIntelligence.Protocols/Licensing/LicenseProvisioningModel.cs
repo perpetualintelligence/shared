@@ -86,10 +86,10 @@ namespace PerpetualIntelligence.Protocols.Licensing
         public string Operation { get; set; } = null!;
 
         /// <summary>
-        /// The provider tenant id.
+        /// The broker tenant id.
         /// </summary>
-        [JsonPropertyName("provider_tenant_id")]
-        public string ProviderTenantId { get; set; } = null!;
+        [JsonPropertyName("broker_tenant_id")]
+        public string BrokerTenantId { get; set; } = null!;
 
         /// <summary>
         /// The publisher tenant id.

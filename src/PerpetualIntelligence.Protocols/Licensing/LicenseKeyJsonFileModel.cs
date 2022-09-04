@@ -46,10 +46,10 @@ namespace PerpetualIntelligence.Protocols.Licensing
         public string KeyType { get; set; } = null!;
 
         /// <summary>
-        /// The registered provider or the provider tenant id.
+        /// The registered broker or the broker tenant id.
         /// </summary>
-        [JsonPropertyName("provider_id")]
-        public string ProviderId { get; set; } = null!;
+        [JsonPropertyName("broker_id")]
+        public string BrokerId { get; set; } = null!;
 
         /// <summary>
         /// The subject. This is also the <c>sub</c> claim.

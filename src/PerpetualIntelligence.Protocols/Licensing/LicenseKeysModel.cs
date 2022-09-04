@@ -71,8 +71,8 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// <summary>
         /// The registered provider or provider tenant id.
         /// </summary>
-        [JsonPropertyName("provider_tenant_id")]
-        public string ProviderTenantId { get; set; } = null!;
+        [JsonPropertyName("broker_tenant_id")]
+        public string BrokerTenantId { get; set; } = null!;
 
         /// <summary>
         /// The publisher tenant id.
