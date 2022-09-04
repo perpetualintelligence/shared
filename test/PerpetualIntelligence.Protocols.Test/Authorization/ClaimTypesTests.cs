@@ -18,7 +18,7 @@ namespace PerpetualIntelligence.Protocols.Authorization
             ClaimTypes.ConsumerObjectId.Should().Be("extension_CustomConsumerObjectId");
             ClaimTypes.ConsumerTenantId.Should().Be("extension_CustomConsumerTenantId");
             ClaimTypes.MarketplaceResolved.Should().Be("extension_CustomMarketplaceResolved");
-            ClaimTypes.ProviderTenantId.Should().Be("extension_CustomProviderTenantId");
+            ClaimTypes.BrokerTenantId.Should().Be("extension_CustomBrokerTenantId");
             ClaimTypes.PublisherTenantId.Should().Be("extension_CustomPublisherTenantId");
             ClaimTypes.SocialLoginObjectId.Should().Be("extension_CustomSocialLoginObjectId");
             ClaimTypes.SocialLoginTenantId.Should().Be("extension_CustomSocialLoginTenantId");
