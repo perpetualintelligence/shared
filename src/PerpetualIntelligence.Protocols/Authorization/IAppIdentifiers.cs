@@ -73,10 +73,10 @@ namespace PerpetualIntelligence.Protocols.Authorization
         public Task<string> GetLoginTenantIdAsync();
 
         /// <summary>
-        /// Gets the provider tenant id.
+        /// Gets the broker tenant id.
         /// </summary>
         /// <returns></returns>
-        public Task<string> GetProviderTenantIdAsync();
+        public Task<string> GetBrokerTenantIdAsync();
 
         /// <summary>
         /// Gets the publisher tenant id.
