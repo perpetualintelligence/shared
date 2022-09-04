@@ -28,9 +28,9 @@ namespace PerpetualIntelligence.Protocols.Authorization
         public const string MarketplaceResolved = "extension_CustomMarketplaceResolved";
 
         /// <summary>
-        /// Indicates an <c>extension_CustomProviderTenantId</c> provider tenant claim.
+        /// Indicates an <c>extension_CustomBrokerTenantId</c> provider tenant claim.
         /// </summary>
-        public const string ProviderTenantId = "extension_CustomProviderTenantId";
+        public const string BrokerTenantId = "extension_CustomBrokerTenantId";
 
         /// <summary>
         /// Indicates an <c>extension_CustomPublisherTenantId</c> publisher tenant claim.
