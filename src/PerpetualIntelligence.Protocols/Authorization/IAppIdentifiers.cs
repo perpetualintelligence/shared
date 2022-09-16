@@ -37,6 +37,12 @@ namespace PerpetualIntelligence.Protocols.Authorization
         public Task<string> GetAppTypeAsync();
 
         /// <summary>
+        /// Gets the broker tenant id.
+        /// </summary>
+        /// <returns></returns>
+        public Task<string> GetBrokerTenantIdAsync();
+
+        /// <summary>
         /// Gets the login tenant id.
         /// </summary>
         /// <returns></returns>
@@ -47,6 +53,12 @@ namespace PerpetualIntelligence.Protocols.Authorization
         /// </summary>
         /// <returns></returns>
         public Task<string> GetConsumerTenantIdAsync();
+
+        /// <summary>
+        /// Gets the force resolve flag.
+        /// </summary>
+        /// <returns></returns>
+        public Task<bool> GetForceResolveAsync();
 
         /// <summary>
         /// Gets the login object id.
@@ -61,28 +73,40 @@ namespace PerpetualIntelligence.Protocols.Authorization
         public Task<string> GetLoginSubjectAsync();
 
         /// <summary>
-        /// Gets the marketplace resolved flag.
-        /// </summary>
-        /// <returns></returns>
-        public Task<bool> GetMarketplaceResolvedAsync();
-
-        /// <summary>
         /// Gets the login tenant id.
         /// </summary>
         /// <returns></returns>
         public Task<string> GetLoginTenantIdAsync();
 
         /// <summary>
-        /// Gets the broker tenant id.
+        /// Gets the marketplace.
         /// </summary>
         /// <returns></returns>
-        public Task<string> GetBrokerTenantIdAsync();
+        public Task<string> GetMarketplaceAsync();
+
+        /// <summary>
+        /// Gets the marketplace resolved flag.
+        /// </summary>
+        /// <returns></returns>
+        public Task<bool> GetMarketplaceResolvedAsync();
 
         /// <summary>
         /// Gets the publisher tenant id.
         /// </summary>
         /// <returns></returns>
         public Task<string> GetPublisherTenantIdAsync();
+
+        /// <summary>
+        /// Gets the resolved subscription id.
+        /// </summary>
+        /// <returns></returns>
+        public Task<string> GetResolvedSubscriptionIdAsync();
+
+        /// <summary>
+        /// Gets the resolved subscription status.
+        /// </summary>
+        /// <returns></returns>
+        public Task<string> GetResolvedSubscriptionStatusAsync();
 
         /// <summary>
         /// Initializes the <see cref="IAppIdentifiers"/> service from the <see cref="ClaimsPrincipal"/>. For client

@@ -21,8 +21,9 @@ namespace PerpetualIntelligence.Protocols.Authorization
             ClaimTypes.BrokerTenantId.Should().Be("extension_CustomBrokerTenantId");
             ClaimTypes.PublisherTenantId.Should().Be("extension_CustomPublisherTenantId");
             ClaimTypes.Marketplace.Should().Be("extension_CustomMarketplace");
-            ClaimTypes.ResolvedSubscription.Should().Be("extension_CustomResolvedSubscription");
             ClaimTypes.ForceResolve.Should().Be("extension_CustomForceResolve");
+            ClaimTypes.ResolvedSubscriptionId.Should().Be("extension_CustomResolvedSubscriptionId");
+            ClaimTypes.ResolvedSubscriptionStatus.Should().Be("extension_CustomResolvedSubscriptionStatus");
         }
     }
 }
