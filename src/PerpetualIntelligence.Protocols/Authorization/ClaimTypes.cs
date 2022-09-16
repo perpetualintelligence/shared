@@ -13,6 +13,11 @@ namespace PerpetualIntelligence.Protocols.Authorization
     public class ClaimTypes
     {
         /// <summary>
+        /// Indicates an <c>extension_CustomBrokerTenantId</c> provider tenant claim.
+        /// </summary>
+        public const string BrokerTenantId = "extension_CustomBrokerTenantId";
+
+        /// <summary>
         /// Indicates an <c>extension_CustomConsumerObjectId</c> consumer object claim.
         /// </summary>
         public const string ConsumerObjectId = "extension_CustomConsumerObjectId";
@@ -23,14 +28,19 @@ namespace PerpetualIntelligence.Protocols.Authorization
         public const string ConsumerTenantId = "extension_CustomConsumerTenantId";
 
         /// <summary>
+        /// Indicates an <c>extension_CustomForceResolve</c> claim.
+        /// </summary>
+        public const string ForceResolve = "extension_CustomForceResolve";
+
+        /// <summary>
+        /// Indicates an <c>extension_CustomMarketplace</c> claim.
+        /// </summary>
+        public const string Marketplace = "extension_CustomMarketplace";
+
+        /// <summary>
         /// Indicates an <c>extension_CustomMarketplaceResolved</c> marketplace resolved claim.
         /// </summary>
         public const string MarketplaceResolved = "extension_CustomMarketplaceResolved";
-
-        /// <summary>
-        /// Indicates an <c>extension_CustomBrokerTenantId</c> provider tenant claim.
-        /// </summary>
-        public const string BrokerTenantId = "extension_CustomBrokerTenantId";
 
         /// <summary>
         /// Indicates an <c>extension_CustomPublisherTenantId</c> publisher tenant claim.
@@ -38,13 +48,8 @@ namespace PerpetualIntelligence.Protocols.Authorization
         public const string PublisherTenantId = "extension_CustomPublisherTenantId";
 
         /// <summary>
-        /// Indicates an <c>extension_CustomSocialLoginObjectId</c> social login object claim.
+        /// Indicates an <c>extension_CustomResolvedSubscription</c> claim. It is the current resolved subscription.
         /// </summary>
-        public const string SocialLoginObjectId = "extension_CustomSocialLoginObjectId";
-
-        /// <summary>
-        /// Indicates an <c>extension_CustomSocialLoginTenantId</c> social login tenant claim.
-        /// </summary>
-        public const string SocialLoginTenantId = "extension_CustomSocialLoginTenantId";
+        public const string ResolvedSubscription = "extension_CustomResolvedSubscription";
     }
 }
