@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 namespace PerpetualIntelligence.Protocols.Authorization
 {
     /// <summary>
-    /// An abstractions of application identifiers.
+    /// An abstractions of application state container.
     /// </summary>
-    public interface IAppIdentifiers
+    public interface IAppStateContainer
     {
         /// <summary>
-        /// Sets the <see cref="IAppIdentifiers"/> service from the <see cref="ClaimsPrincipal"/>. For client apps this
-        /// can be used for singleton state container. For server apps this can be a no-ops as the service
+        /// Sets the <see cref="IAppStateContainer"/> service from the <see cref="ClaimsPrincipal"/>. For client apps
+        /// this can be used for singleton state container. For server apps this can be a no-ops as the service
         /// implementation will be transient or scoped.
         /// </summary>
         /// <param name="claimsPrincipal"></param>
@@ -109,22 +109,27 @@ namespace PerpetualIntelligence.Protocols.Authorization
         public Task<string> GetResolvedSubscriptionStatusAsync();
 
         /// <summary>
-        /// Initializes the <see cref="IAppIdentifiers"/> service from the <see cref="ClaimsPrincipal"/>. For client
-        /// apps this can be used for singleton state container. For server apps this can be a no-ops as the service
-        /// implementation will be transient or scoped.
+        /// Initializes the <see cref="IAppStateContainer"/> service from the <see cref="ClaimsPrincipal"/>.
         /// </summary>
         /// <param name="claimsPrincipal">The claims principal.</param>
         /// <returns></returns>
         public Task InitializeAsync(ClaimsPrincipal claimsPrincipal);
 
         /// <summary>
-        /// Determines whether the <see cref="IAppIdentifiers"/> is initialized.
+        /// Determines whether the <see cref="IAppStateContainer"/> is initialized.
         /// </summary>
         /// <returns></returns>
         public Task<bool> IsInitializedAsync();
 
         /// <summary>
-        /// Resets the <see cref="IAppIdentifiers"/> service for the next login.
+        /// Populates the <see cref="ClaimsPrincipal"/> from the <see cref="IAppStateContainer"/>.
+        /// </summary>
+        /// <param name="claimsPrincipal">The claims principal.</param>
+        /// <returns></returns>
+        public Task PopulateAsync(ClaimsPrincipal claimsPrincipal);
+
+        /// <summary>
+        /// Resets the <see cref="IAppStateContainer"/> service for the next login.
         /// </summary>
         /// <returns></returns>
         public Task ResetAsync();
