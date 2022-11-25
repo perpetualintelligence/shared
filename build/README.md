@@ -1,25 +1,31 @@
 # Build
 
-## Workflow
-This workflow folder contains the ***protocols*** CI/CD pipelines for generating and publishing [Nuget](https://www.nuget.org/profiles/perpetualintelligencellc) and [GitHub](https://github.com/orgs/perpetualintelligence/packages?repo_name=protocols) packages. 
+## Local Machine
+Follow the steps to set up the `pi-cli` repository on your local development machine.
 
-The build and deploy include:
-1. ***build-test-ci.yml***: The automated CI builds and tests the code changes.
-2. ***build-test-publish.yml***: The manual release action publishes the packages to Nuget or GitHub, see [releases](https://github.com/perpetualintelligence/protocols/releases)
-3. ***delete-packages.yml***:  The automated action cleans the packages every week and keeps the latest working version. For stable versions, refer to Nuget packages.
+1. Download and install [Visual Studio 2022](https://visualstudio.microsoft.com/vs/)
+2. Clone the [protocols](https://github.com/perpetualintelligence/protocols) GitHub repo
+3. Set PI_CI_REFERENCE environment variable to `cross`
 
-> The manual release requires approval.
+## CICD
+This workflow folder contains the build and deployment pipelines for generating and publishing [Nuget](https://www.nuget.org/profiles/perpetualintelligencellc) and [GitHub](https://github.com/orgs/perpetualintelligence/packages?repo_name=data) packages. 
 
-### Package Versions
-All packages within protocols follow [sematic](https://semver.org/) versioning schemes. The env file ***package_version.env*** defines the package versions.
+- *build-test-cross-manual*: The manual action that builds and tests the code changes on Windows, Linux and macOS.
+- *build-test-publish*: The automated action that publishes the packages to [Nuget](https://www.nuget.org/profiles/perpetualintelligencellc) and [GitHub](https://github.com/orgs/perpetualintelligence/packages?repo_name=data), see [releases](https://github.com/perpetualintelligence/cli/releases)
+- *delete-packages*:  The automated action cleans the packages every week and keeps the latest working version. For stable versions, refer to [Nuget](https://www.nuget.org/profiles/perpetualintelligencellc) packages.
 
-### CI References
-The *.csproj* references for CI and local development has the following syntax:
-- ***local***: Project references for local development within the same repo
-- ***cross***: Project references for local development across repos
-- ***package***: Published package references for CI/CD and deployment
+> ***Note: The `build-test-publish` release to Nuget pipeline triggers a deployment approval.***
 
-> PI_CI_REFERENCE environment variable (***local*** or ***cross***) needs to be set on dev machine . The ***package*** value is not supported on dev machine. 
+## Versioning
+All packages follow [sematic](https://semver.org/) versioning schemes. The env file *package_version.env* defines the package versions.
 
-### Composite Actions
-The ***push-package*** composite action builds, tests, packs, and publishes the package to the feed.
+## Project Dependencies
+The *PI_CI_REFERENCE* environment variable defines how *.csproj* references the dependencies for CI and local development. It supportes the following values:
+- *local*: Project references for local development within the same repo
+- *cross*: Project references for local development across repos
+- *package*: Package references for CI/CD and deployment
+
+> PI_CI_REFERENCE environment variable (**local** or **cross**) needs to be set on dev machine . The **package** value is not supported on dev machine. 
+
+## Composite Actions
+The `push-package` composite action builds, tests, packs, and publishes the package to the feed.
