@@ -43,7 +43,7 @@ jobs:
 
     # OS/Platform
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     # Define the default values for manual and CRON triggers
     env:

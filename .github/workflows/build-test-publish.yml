@@ -38,7 +38,7 @@ jobs:
   setup:    
     runs-on: ubuntu-latest
     environment: github-release
-    timeout-minutes: 10
+    timeout-minutes: 15
     
     # Define environment variables to authenticate the package feeds
     env:
@@ -109,11 +109,11 @@ jobs:
     
     # Setup .Net with global.json
     - name: Setup .NET
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v3
       
     # Setup Nuget
     - name: Setup NuGet.exe
-      uses: NuGet/setup-nuget@v1.0.5
+      uses: NuGet/setup-nuget@v1
       with:
         nuget-version: latest
 

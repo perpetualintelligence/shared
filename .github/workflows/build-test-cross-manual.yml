@@ -13,7 +13,7 @@ on:
 jobs:
   ubunto:   
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     
     # Environment Variables
     env:     
@@ -26,7 +26,7 @@ jobs:
 
     # Checkout
     - name: Checkout
-      uses: actions/checkout@v2 
+      uses: actions/checkout@v3
 
     # Read env    
     - name: Read Env
@@ -35,7 +35,7 @@ jobs:
 
     # Setup .Net with global.json
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       
     # Restore dependencies
     - name: Restore
@@ -51,7 +51,7 @@ jobs:
       
   macos:   
     runs-on: macos-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     
     # Environment Variables
     env:     
@@ -64,11 +64,11 @@ jobs:
 
     # Checkout
     - name: Checkout
-      uses: actions/checkout@v2 
+      uses: actions/checkout@v3
 
     # Setup .Net with global.json
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       
     # Restore dependencies
     - name: Restore
@@ -84,7 +84,7 @@ jobs:
       
   windows:   
     runs-on: windows-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     
     # Environment Variables
     env:     
@@ -97,11 +97,11 @@ jobs:
 
     # Checkout
     - name: Checkout
-      uses: actions/checkout@v2 
+      uses: actions/checkout@v3
 
     # Setup .Net with global.json
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       
     # Restore dependencies
     - name: Restore
