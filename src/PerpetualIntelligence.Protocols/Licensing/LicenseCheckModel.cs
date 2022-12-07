@@ -33,13 +33,6 @@ namespace PerpetualIntelligence.Protocols.Licensing
         public string AuthorizedParty { get; set; } = null!;
 
         /// <summary>
-        /// The optional consumer object id.
-        /// </summary>
-        [JsonPropertyName("consumer_object_id")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? ConsumerObjectId { get; set; }
-
-        /// <summary>
         /// The consumer tenant id.
         /// </summary>
         [JsonPropertyName("consumer_tenant_id")]
