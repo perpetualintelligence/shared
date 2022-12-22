@@ -23,7 +23,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             Assert.AreEqual("invalid_configuration", Error.InvalidConfiguration);
             Assert.AreEqual("invalid_request", Error.InvalidRequest);
             Assert.AreEqual("not_found", Error.NotFound);
-            Assert.AreEqual("server_request", Error.ServerError);
+            Assert.AreEqual("server_error", Error.ServerError);
             Assert.AreEqual("unauthorized_access", Error.Unauthorized);
             Assert.AreEqual("unexpected_error", Error.Unexpected);
         }

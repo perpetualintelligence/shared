@@ -201,7 +201,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// The server error.
         /// </summary>
         [JsonIgnore]
-        public const string ServerError = "server_error;
+        public const string ServerError = "server_error";
 
         /// <summary>
         /// The unauthorized error.
@@ -226,6 +226,5 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// </summary>
         [JsonIgnore]
         public const string AlreadyExist = "already_exist";
-
     }
 }
