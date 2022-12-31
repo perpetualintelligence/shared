@@ -48,14 +48,14 @@ namespace PerpetualIntelligence.Protocols.Authorization
         public const string PublisherTenantId = "extension_CustomPublisherTenantId";
 
         /// <summary>
-        /// Indicates an <c>extension_CustomResolvedSubscriptionId</c> claim. It is the current resolved subscription.
+        /// Indicates an <c>internal_CustomResolvedSubscriptionId</c> claim. It is the current resolved subscription.
         /// </summary>
-        public const string ResolvedSubscriptionId = "extension_CustomResolvedSubscriptionId";
+        public const string ResolvedSubscriptionId = "internal_CustomResolvedSubscriptionId";
 
         /// <summary>
-        /// Indicates an <c>extension_CustomResolvedSubscriptionStatus</c> claim. It is the current resolved subscription
+        /// Indicates an <c>internal_CustomResolvedSubscriptionStatus</c> claim. It is the current resolved subscription
         /// activation state.
         /// </summary>
-        public const string ResolvedSubscriptionStatus = "extension_CustomResolvedSubscriptionStatus";
+        public const string ResolvedSubscriptionStatus = "internal_CustomResolvedSubscriptionStatus";
     }
 }
