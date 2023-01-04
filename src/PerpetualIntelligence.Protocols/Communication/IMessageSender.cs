@@ -13,12 +13,19 @@ namespace PerpetualIntelligence.Protocols.Communication
     /// An abstraction of an message sender.
     /// </summary>
     public interface IMessageSender
-    {       
+    {
         /// <summary>
         /// Sends an email asynchronously
         /// </summary>
         /// <param name="emailModel">The email model.</param>
         /// <returns></returns>
         Task SendEmailAsync(EmailModel emailModel);
+
+        /// <summary>
+        /// Sends an text message asynchronously
+        /// </summary>
+        /// <param name="textMessageModel">The text message model.</param>
+        /// <returns></returns>
+        Task SendTextMessageAsync(TextMessageModel textMessageModel);
     }
 }
