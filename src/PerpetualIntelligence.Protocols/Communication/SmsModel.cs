@@ -12,7 +12,7 @@ namespace PerpetualIntelligence.Protocols.Communication
     /// <summary>
     /// The email model.
     /// </summary>
-    public class TextMessageModel
+    public class SmsModel
     {
         /// <summary>
         /// Email Bcc.
@@ -21,9 +21,15 @@ namespace PerpetualIntelligence.Protocols.Communication
         public string? Message { get; set; }
 
         /// <summary>
-        /// Phone number.
+        /// From phone number.
         /// </summary>
-        [JsonPropertyName("phone_number")]
-        public string? PhoneNumber { get; set; }
+        [JsonPropertyName("from")]
+        public string From { get; set; } = null!;
+
+        /// <summary>
+        /// To phone number.
+        /// </summary>
+        [JsonPropertyName("to")]
+        public string To { get; set; } = null!;
     }
 }

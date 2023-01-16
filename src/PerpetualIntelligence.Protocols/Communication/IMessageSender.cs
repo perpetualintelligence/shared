@@ -24,8 +24,8 @@ namespace PerpetualIntelligence.Protocols.Communication
         /// <summary>
         /// Sends an text message asynchronously
         /// </summary>
-        /// <param name="textMessageModel">The text message model.</param>
+        /// <param name="smModel">The text message model.</param>
         /// <returns></returns>
-        Task SendTextMessageAsync(TextMessageModel textMessageModel);
+        Task SendSmsAsync(SmsModel smModel);
     }
 }
