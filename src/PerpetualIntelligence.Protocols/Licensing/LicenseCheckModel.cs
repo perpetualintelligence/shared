@@ -39,6 +39,12 @@ namespace PerpetualIntelligence.Protocols.Licensing
         public string ConsumerTenantId { get; set; } = null!;
 
         /// <summary>
+        /// The consumer object id.
+        /// </summary>
+        [JsonPropertyName("consumer_object_id")]
+        public string ConsumerObjectId { get; set; } = null!;
+
+        /// <summary>
         /// The <c>iss</c> claim.
         /// </summary>
         [JsonPropertyName("issuer")]

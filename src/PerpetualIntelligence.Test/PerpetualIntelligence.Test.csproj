@@ -21,7 +21,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
-        <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="7.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="7.0.2" />
         <PackageReference Include="MSTest.TestFramework" Version="3.0.2" />
     </ItemGroup>
 

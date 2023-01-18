@@ -38,10 +38,9 @@
         1. Force set the PI_CI_REFERENCE=local for PerpetualIntelligence.Shared and then reset it to PI_CI_REFERENCE=package for all other protocols packages
         2. PerpetualIntelligence.Shared is the first foundational package so it does not depend on any other protocols package, thus we can safely us local 
         
-	-->
-	<ItemGroup>
+    -->
+    <ItemGroup>
         <ProjectReference Include="..\..\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
         <ProjectReference Include="..\..\src\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
     </ItemGroup>
-
 </Project>
