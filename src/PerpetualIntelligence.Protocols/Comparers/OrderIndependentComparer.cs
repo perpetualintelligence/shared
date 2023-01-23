@@ -9,7 +9,7 @@ using PerpetualIntelligence.Shared.Extensions;
 using System;
 using System.Collections.Generic;
 
-namespace PerpetualIntelligence.Protocols.Defaults.Comparers
+namespace PerpetualIntelligence.Protocols.Comparers
 {
     /// <summary>
     /// The default order independent comparer makes the order of values irrelevant. E.g., the "code id_token token" is

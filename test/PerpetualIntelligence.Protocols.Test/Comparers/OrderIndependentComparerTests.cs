@@ -6,7 +6,7 @@
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PerpetualIntelligence.Protocols.Defaults.Comparers;
+using PerpetualIntelligence.Protocols.Comparers;
 using PerpetualIntelligence.Test;
 using PerpetualIntelligence.Test.Services;
 using System.Collections.Generic;

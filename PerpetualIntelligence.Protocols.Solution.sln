@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerpetualIntelligence.Share
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerpetualIntelligence.Protocols", "src\PerpetualIntelligence.Protocols\PerpetualIntelligence.Protocols.csproj", "{F7BC2E3D-A997-4ED1-8C8C-433BE534DB47}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerpetualIntelligence.Protocols.Defaults", "src\PerpetualIntelligence.Protocols.Defaults\PerpetualIntelligence.Protocols.Defaults.csproj", "{19837298-CF1B-4101-826A-9B623C1A9326}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FFF09815-02BA-4EC1-A346-AADA12CBF160}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2F984849-BEBC-4AC7-81A4-5B65781E22C4}"
@@ -16,8 +14,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerpetualIntelligence.Shared.Test", "test\PerpetualIntelligence.Shared.Test\PerpetualIntelligence.Shared.Test.csproj", "{6EF22013-5873-46F7-AF42-9279DA53B8AE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerpetualIntelligence.Protocols.Test", "test\PerpetualIntelligence.Protocols.Test\PerpetualIntelligence.Protocols.Test.csproj", "{DEC69629-AB66-40B7-B50E-4539DF737A34}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PerpetualIntelligence.Protocols.Defaults.Test", "test\PerpetualIntelligence.Protocols.Defaults.Test\PerpetualIntelligence.Protocols.Defaults.Test.csproj", "{7F977E71-DBC5-4801-BEF2-D7554E33EC9A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{99A64035-E6B3-46D1-989E-71A804DB1048}"
 	ProjectSection(SolutionItems) = preProject
@@ -42,10 +38,6 @@ Global
 		{F7BC2E3D-A997-4ED1-8C8C-433BE534DB47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7BC2E3D-A997-4ED1-8C8C-433BE534DB47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7BC2E3D-A997-4ED1-8C8C-433BE534DB47}.Release|Any CPU.Build.0 = Release|Any CPU
-		{19837298-CF1B-4101-826A-9B623C1A9326}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{19837298-CF1B-4101-826A-9B623C1A9326}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{19837298-CF1B-4101-826A-9B623C1A9326}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{19837298-CF1B-4101-826A-9B623C1A9326}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6EF22013-5873-46F7-AF42-9279DA53B8AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6EF22013-5873-46F7-AF42-9279DA53B8AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EF22013-5873-46F7-AF42-9279DA53B8AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -54,10 +46,6 @@ Global
 		{DEC69629-AB66-40B7-B50E-4539DF737A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEC69629-AB66-40B7-B50E-4539DF737A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEC69629-AB66-40B7-B50E-4539DF737A34}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7F977E71-DBC5-4801-BEF2-D7554E33EC9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F977E71-DBC5-4801-BEF2-D7554E33EC9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F977E71-DBC5-4801-BEF2-D7554E33EC9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F977E71-DBC5-4801-BEF2-D7554E33EC9A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8BB58659-DB54-41D9-A719-ADFE37DD9B63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8BB58659-DB54-41D9-A719-ADFE37DD9B63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BB58659-DB54-41D9-A719-ADFE37DD9B63}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,10 +57,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E12911A3-907C-4E02-86FC-C8E577027387} = {FFF09815-02BA-4EC1-A346-AADA12CBF160}
 		{F7BC2E3D-A997-4ED1-8C8C-433BE534DB47} = {FFF09815-02BA-4EC1-A346-AADA12CBF160}
-		{19837298-CF1B-4101-826A-9B623C1A9326} = {FFF09815-02BA-4EC1-A346-AADA12CBF160}
 		{6EF22013-5873-46F7-AF42-9279DA53B8AE} = {2F984849-BEBC-4AC7-81A4-5B65781E22C4}
 		{DEC69629-AB66-40B7-B50E-4539DF737A34} = {2F984849-BEBC-4AC7-81A4-5B65781E22C4}
-		{7F977E71-DBC5-4801-BEF2-D7554E33EC9A} = {2F984849-BEBC-4AC7-81A4-5B65781E22C4}
 		{8BB58659-DB54-41D9-A719-ADFE37DD9B63} = {FFF09815-02BA-4EC1-A346-AADA12CBF160}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

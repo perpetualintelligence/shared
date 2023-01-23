@@ -10,7 +10,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PerpetualIntelligence.Protocols.Defaults.Concurrency
+namespace PerpetualIntelligence.Protocols.Concurrency
 {
     /// <summary>
     /// The default <see cref="IThreadLock{T}"/> using <see cref="SemaphoreSlim"/>.

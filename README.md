@@ -1,5 +1,5 @@
 [![build-test-cross-manual](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-cross-manual.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-cross-manual.yml)
-[![build-test-publish](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-publish.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-publish.yml)
+[![build-test-push](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-push.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-push.yml)
 [![delete-package](https://github.com/perpetualintelligence/protocols/actions/workflows/delete-packages.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/delete-packages.yml)
 
 ![macOS](https://img.shields.io/badge/macOS-grey?style=flat-square&logo=macos)
