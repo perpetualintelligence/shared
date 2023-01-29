@@ -704,6 +704,12 @@ namespace PerpetualIntelligence.Test.Services
                     continue;
                 }
 
+                // We dont have any control on compiler generated types
+                if (IsCompilerGenerated(type))
+                {
+                    continue;
+                }
+
                 string? typeFile = null;
                 if (type.IsGenericType)
                 {
@@ -1341,6 +1347,11 @@ namespace PerpetualIntelligence.Test.Services
 
             // https://github.com/coverlet-coverage/coverlet/issues/1191
             if (type.Namespace == "Coverlet.Core.Instrumentation.Tracker")
+            {
+                return true;
+            }
+
+            if (type.Name.StartsWith("<<"))
             {
                 return true;
             }
