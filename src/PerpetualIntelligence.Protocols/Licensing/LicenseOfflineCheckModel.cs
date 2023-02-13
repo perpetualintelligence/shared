@@ -51,10 +51,16 @@ namespace PerpetualIntelligence.Protocols.Licensing
         public string Issuer { get; set; } = null!;
 
         /// <summary>
-        /// The key to check.
+        /// The license key to check.
         /// </summary>
         [JsonPropertyName("key")]
         public string Key { get; set; } = null!;
+
+        /// <summary>
+        /// The validation public key to check the license <see cref="Key"/>.
+        /// </summary>
+        [JsonPropertyName("validation_key")]
+        public string? ValidationKey { get; set; } = null!;
 
         /// <summary>
         /// The key type. <c>primary_key</c> or <c>secondary_key</c>.

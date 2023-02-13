@@ -15,6 +15,13 @@ namespace PerpetualIntelligence.Protocols.Licensing
     public sealed class LicenseFileModel
     {
         /// <summary>
+        /// The validation public key to check the license <see cref="Key"/>.
+        /// </summary>
+        [JsonPropertyName("validation_key")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? ValidationKey { get; set; }
+
+        /// <summary>
         /// The Authorized party. This is also the <c>azp</c> claim.
         /// </summary>
         [JsonPropertyName("authorized_party")]
