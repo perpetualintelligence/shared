@@ -15,14 +15,14 @@ namespace PerpetualIntelligence.Protocols.Licensing
     /// <remarks>
     /// When a license is signed using public/private key pairs, the signature certifies that only the party holding the private key is the one that signed it.
     /// </remarks>
-    public sealed class LicenseSigningPublicKey
+    public sealed class LicenseSigningPublicKeyModel
     {
         /// <summary>
         /// Initializes a new instance.
         /// </summary>
         /// <param name="publicKey">The private key to sign a license.</param>
         [JsonConstructor]
-        public LicenseSigningPublicKey(byte[] publicKey)
+        public LicenseSigningPublicKeyModel(byte[] publicKey)
         {
             PublicKey = publicKey;
         }

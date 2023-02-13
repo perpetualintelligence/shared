@@ -8,9 +8,9 @@
 namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
-    /// The license key sources.
+    /// The license  sources.
     /// </summary>
-    public sealed class LicenseKeySource
+    public sealed class LicenseSources
     {
         /// <summary>
         /// Determines if the key source is valid.
@@ -34,6 +34,6 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// <summary>
         /// The key source is a json file.
         /// </summary>
-        public const string JsonFile = "urn:oneimlx:lic:ksource:jsonfile";
+        public const string JsonFile = "urn:oneimlx:lic:source:jsonfile";
     }
 }

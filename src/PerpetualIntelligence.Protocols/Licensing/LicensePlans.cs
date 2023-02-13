@@ -8,7 +8,7 @@
 namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
-    /// Defines the standard license pricing plans.
+    /// The standard license pricing plans.
     /// </summary>
     public sealed class LicensePlans
     {

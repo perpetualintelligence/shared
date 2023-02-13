@@ -12,7 +12,7 @@ using System.Text.Json.Serialization;
 namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
-    /// The license provisioning model.
+    /// The generic license provisioning model.
     /// </summary>
     public sealed class LicenseProvisioningModel
     {
