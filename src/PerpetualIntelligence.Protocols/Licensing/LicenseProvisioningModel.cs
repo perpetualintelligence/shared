@@ -14,7 +14,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
     /// <summary>
     /// The license provisioning model.
     /// </summary>
-    public class LicenseProvisioningModel
+    public sealed class LicenseProvisioningModel
     {
         /// <summary>
         /// The <c>acr</c> claim.

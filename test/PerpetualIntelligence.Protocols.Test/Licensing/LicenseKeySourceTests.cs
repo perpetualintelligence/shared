@@ -11,26 +11,26 @@ using PerpetualIntelligence.Test.Services;
 namespace PerpetualIntelligence.Protocols.Licensing
 {
     [TestClass]
-    public class LicenseKeySourcesTests
+    public class LicenseKeySourceTests
     {
         [TestMethod]
         public void IsValidShouldReturnFalseForInvalidSource()
         {
-            Assert.IsFalse(LicenseKeySources.IsValid("invalid"));
+            Assert.IsFalse(LicenseKeySource.IsValid("invalid"));
         }
 
         [TestMethod]
         public void IsValidShouldReturnTrueForValidUsage()
         {
-            Assert.IsTrue(LicenseKeySources.IsValid(LicenseKeySources.JsonFile));
+            Assert.IsTrue(LicenseKeySource.IsValid(LicenseKeySource.JsonFile));
         }
 
         [TestMethod]
         public void LicenseKeySourcesConstTest()
         {
-            TestHelper.AssertConstantCount(typeof(LicenseKeySources), 1);
+            TestHelper.AssertConstantCount(typeof(LicenseKeySource), 1);
 
-            Assert.AreEqual("urn:oneimlx:lic:ksource:jsonfile", LicenseKeySources.JsonFile);
+            Assert.AreEqual("urn:oneimlx:lic:ksource:jsonfile", LicenseKeySource.JsonFile);
         }
     }
 }

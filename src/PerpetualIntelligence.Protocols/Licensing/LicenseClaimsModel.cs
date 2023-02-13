@@ -15,7 +15,7 @@ using System.Text.Json.Serialization;
 namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
-    /// Defines the licensing claims model.
+    /// The generic license claims.
     /// </summary>
     public sealed class LicenseClaimsModel
     {
@@ -64,13 +64,13 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// The <c>exp</c> claim.
         /// </summary>
         [JsonPropertyName("expiry")]
-        public DateTimeOffset? Expiry { get; set; } = null!;
+        public DateTimeOffset Expiry { get; set; }
 
         /// <summary>
         /// The <c>iat</c> claim.
         /// </summary>
         [JsonPropertyName("issued_at")]
-        public DateTimeOffset? IssuedAt { get; set; }
+        public DateTimeOffset IssuedAt { get; set; }
 
         /// <summary>
         /// The <c>iss</c> claim.
@@ -94,21 +94,21 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// The <c>nbf</c> claim.
         /// </summary>
         [JsonPropertyName("not_before")]
-        public DateTimeOffset? NotBefore { get; set; } = null!;
+        public DateTimeOffset NotBefore { get; set; }
 
         /// <summary>
         /// The optional <c>ctry</c> claim.
         /// </summary>
         [JsonPropertyName("object_country")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? ObjectCountry { get; set; } = null!;
+        public string ObjectCountry { get; set; } = null!;
 
         /// <summary>
         /// The optional <c>oid</c> claim.
         /// </summary>
         [JsonPropertyName("object_id")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? ObjectId { get; set; } = null!;
+        public string ObjectId { get; set; } = null!;
 
         /// <summary>
         /// The <c>sub</c> claim.
@@ -219,12 +219,9 @@ namespace PerpetualIntelligence.Protocols.Licensing
                             }
                         default:
                             {
-                                if (fromClaims.Custom == null)
-                                {
-                                    fromClaims.Custom = new Dictionary<string, object>();
-                                }
-
+                                fromClaims.Custom ??= new Dictionary<string, object>();
                                 fromClaims.Custom.Add(kvp.Key, kvp.Value);
+
                                 continue;
                             }
                     }

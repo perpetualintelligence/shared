@@ -10,9 +10,9 @@ using System.Text.Json.Serialization;
 namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
-    /// The <c>jws</c> B2B keys download model.
+    /// The generic license key file.
     /// </summary>
-    public class LicenseKeyJsonFileModel
+    public sealed class LicenseKeyFileModel
     {
         /// <summary>
         /// The Authorized party. This is also the <c>azp</c> claim.

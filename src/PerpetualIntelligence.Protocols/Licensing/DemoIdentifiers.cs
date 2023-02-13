@@ -8,7 +8,7 @@
 namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
-    /// The demo licensing identifiers.
+    /// The demo license identifiers.
     /// </summary>
     public class DemoIdentifiers
     {
@@ -23,9 +23,9 @@ namespace PerpetualIntelligence.Protocols.Licensing
         public const string PiCliDemoConsumerTenantId = "abaf803b-3f24-4087-b18f-192ed279b01e";
 
         /// <summary>
-        /// The demo license consumer tenant identifier.
+        /// The demo license consumer tenant name.
         /// </summary>
-        public const string PiCliDemoConsumerTenantName = "pi-cli demo consumer";
+        public const string PiCliDemoConsumerTenantName = "pi-cli | Demo Consumer";
 
         /// <summary>
         /// The demo license subject identifier.

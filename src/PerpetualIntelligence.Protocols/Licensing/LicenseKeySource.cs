@@ -10,7 +10,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
     /// <summary>
     /// The license key sources.
     /// </summary>
-    public sealed class LicenseKeySources
+    public sealed class LicenseKeySource
     {
         /// <summary>
         /// Determines if the key source is valid.

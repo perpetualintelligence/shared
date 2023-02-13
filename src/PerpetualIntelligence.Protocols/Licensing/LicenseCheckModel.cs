@@ -10,9 +10,9 @@ using System.Text.Json.Serialization;
 namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
-    /// The <c>jws</c> B2B keys check model.
+    /// The generic license check.
     /// </summary>
-    public class LicenseCheckModel
+    public sealed class LicenseCheckModel
     {
         /// <summary>
         /// The <c>aud</c> claim.

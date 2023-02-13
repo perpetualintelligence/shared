@@ -10,7 +10,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
     /// <summary>
     /// Defines the standard license pricing plans.
     /// </summary>
-    public class LicensePlans
+    public sealed class LicensePlans
     {
         /// <summary>
         /// Determines if the plan is valid.

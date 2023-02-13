@@ -8,9 +8,9 @@
 namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
-    /// Defines the standard license providers.
+    /// The standard license providers.
     /// </summary>
-    public class LicenseProviders
+    public sealed class LicenseProviders
     {
         /// <summary>
         /// Determines if the provider is valid.
