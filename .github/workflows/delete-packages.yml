@@ -33,7 +33,6 @@ on:
         - PerpetualIntelligence.Shared
         - PerpetualIntelligence.Test
         - PerpetualIntelligence.Protocols
-        - PerpetualIntelligence.Protocols.Default
         - All
         default: 'All'  
 
@@ -94,12 +93,4 @@ jobs:
         uses: actions/delete-package-versions@v2       
         with:
           package-name: PerpetualIntelligence.Protocols
-          min-versions-to-keep: ${{ env.PI_KEEP_MINIMUM_VERSIONS }}
-     
-      # Delete PerpetualIntelligence.Protocols.Defaults
-      - name: Delete PerpetualIntelligence.Protocols.Defaults
-        if: ${{ env.PI_DELETE_PACKAGES == 'All' }}
-        uses: actions/delete-package-versions@v2       
-        with:
-          package-name: PerpetualIntelligence.Protocols.Defaults
           min-versions-to-keep: ${{ env.PI_KEEP_MINIMUM_VERSIONS }}
