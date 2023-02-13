@@ -74,7 +74,7 @@ jobs:
       # Delete PerpetualIntelligence.Shared
       - name: Delete PerpetualIntelligence.Shared
         if: ${{ env.PI_DELETE_PACKAGES == 'All' }}
-        uses: actions/delete-package-versions@v2       
+        uses: actions/delete-package-versions@v4
         with:
           package-name: PerpetualIntelligence.Shared
           min-versions-to-keep: ${{ env.PI_KEEP_MINIMUM_VERSIONS }}
@@ -82,7 +82,7 @@ jobs:
       # Delete PerpetualIntelligence.Test
       - name: Delete PerpetualIntelligence.Test
         if: ${{ env.PI_DELETE_PACKAGES == 'All' }}
-        uses: actions/delete-package-versions@v2       
+        uses: actions/delete-package-versions@v4
         with:
           package-name: PerpetualIntelligence.Test
           min-versions-to-keep: ${{ env.PI_KEEP_MINIMUM_VERSIONS }}
@@ -90,7 +90,7 @@ jobs:
       # Delete PerpetualIntelligence.Protocols
       - name: Delete PerpetualIntelligence.Protocols
         if: ${{ env.PI_DELETE_PACKAGES == 'All' }}
-        uses: actions/delete-package-versions@v2       
+        uses: actions/delete-package-versions@v4
         with:
           package-name: PerpetualIntelligence.Protocols
           min-versions-to-keep: ${{ env.PI_KEEP_MINIMUM_VERSIONS }}
