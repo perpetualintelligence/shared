@@ -24,8 +24,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// The optional consumer object id.
         /// </summary>
         [JsonPropertyName("consumer_object_id")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? ConsumerObjectId { get; set; }
+        public string ConsumerObjectId { get; set; } = null!;
 
         /// <summary>
         /// The consumer tenant id.
