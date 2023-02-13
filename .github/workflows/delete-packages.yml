@@ -69,6 +69,7 @@ jobs:
         uses: actions/delete-package-versions@v2       
         with:
           package-name: ${{ env.PI_DELETE_PACKAGES }}
+          package-type: nuget
           min-versions-to-keep: ${{ env.PI_KEEP_MINIMUM_VERSIONS }}
       
       # Delete PerpetualIntelligence.Shared
@@ -77,6 +78,7 @@ jobs:
         uses: actions/delete-package-versions@v4
         with:
           package-name: PerpetualIntelligence.Shared
+          package-type: nuget
           min-versions-to-keep: ${{ env.PI_KEEP_MINIMUM_VERSIONS }}
       
       # Delete PerpetualIntelligence.Test
@@ -85,6 +87,7 @@ jobs:
         uses: actions/delete-package-versions@v4
         with:
           package-name: PerpetualIntelligence.Test
+          package-type: nuget
           min-versions-to-keep: ${{ env.PI_KEEP_MINIMUM_VERSIONS }}
       
       # Delete PerpetualIntelligence.Protocols
@@ -93,4 +96,5 @@ jobs:
         uses: actions/delete-package-versions@v4
         with:
           package-name: PerpetualIntelligence.Protocols
+          package-type: nuget
           min-versions-to-keep: ${{ env.PI_KEEP_MINIMUM_VERSIONS }}
