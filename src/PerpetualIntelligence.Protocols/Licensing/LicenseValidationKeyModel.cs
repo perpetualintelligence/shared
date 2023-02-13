@@ -10,27 +10,27 @@ using System.Text.Json.Serialization;
 namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
-    /// The license signing public key.
+    /// The license validation public key.
     /// </summary>
     /// <remarks>
     /// When a license is signed using public/private key pairs, the signature certifies that only the party holding the private key is the one that signed it.
     /// </remarks>
-    public sealed class LicenseSigningPublicKeyModel
+    public sealed class LicenseValidationKeyModel
     {
         /// <summary>
         /// Initializes a new instance.
         /// </summary>
-        /// <param name="publicKey">The private key to sign a license.</param>
+        /// <param name="key">The public key to validate a license.</param>
         [JsonConstructor]
-        public LicenseSigningPublicKeyModel(byte[] publicKey)
+        public LicenseValidationKeyModel(byte[] key)
         {
-            PublicKey = publicKey;
+            Key = key;
         }
 
         /// <summary>
-        /// The public key.
+        /// The validation key.
         /// </summary>
-        [JsonPropertyName("public_key")]
-        public byte[] PublicKey { get; }
+        [JsonPropertyName("key")]
+        public byte[] Key { get; }
     }
 }

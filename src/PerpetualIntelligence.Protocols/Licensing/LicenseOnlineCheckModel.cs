@@ -10,9 +10,9 @@ using System.Text.Json.Serialization;
 namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
-    /// The generic license check.
+    /// The generic online license check.
     /// </summary>
-    public sealed class LicenseCheckModel
+    public sealed class LicenseOnlineCheckModel
     {
         /// <summary>
         /// The <c>aud</c> claim.
