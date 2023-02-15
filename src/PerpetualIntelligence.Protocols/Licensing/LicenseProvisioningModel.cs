@@ -12,9 +12,9 @@ using System.Text.Json.Serialization;
 namespace PerpetualIntelligence.Protocols.Licensing
 {
     /// <summary>
-    /// The generic license provisioning model.
+    /// The base license provisioning model.
     /// </summary>
-    public sealed class LicenseProvisioningModel
+    public abstract class LicenseProvisioningModel
     {
         /// <summary>
         /// The <c>acr</c> claim.
@@ -39,6 +39,18 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// </summary>
         [JsonPropertyName("authorized_party")]
         public string AuthorizedParty { get; set; } = null!;
+
+        /// <summary>
+        /// The broker tenant id.
+        /// </summary>
+        [JsonPropertyName("broker_tenant_id")]
+        public string BrokerTenantId { get; set; } = null!;
+
+        /// <summary>
+        /// The consumer object id.
+        /// </summary>
+        [JsonPropertyName("consumer_object_id")]
+        public string? ConsumerObjectId { get; set; }
 
         /// <summary>
         /// The consumer tenant id. This is the <c>tid</c> claim.
@@ -77,19 +89,6 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// </summary>
         [JsonPropertyName("issuer")]
         public string Issuer { get; set; } = null!;
-
-        /// <summary>
-        /// The space separated keys operations. Valid value is <c>actions</c>, <c>get</c>, <c>generate</c>,
-        /// <c>reset_primary</c>, <c>reset_secondary</c> and <c>delete</c>.
-        /// </summary>
-        [JsonPropertyName("operation")]
-        public string Operation { get; set; } = null!;
-
-        /// <summary>
-        /// The broker tenant id.
-        /// </summary>
-        [JsonPropertyName("broker_tenant_id")]
-        public string BrokerTenantId { get; set; } = null!;
 
         /// <summary>
         /// The publisher tenant id.

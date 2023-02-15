@@ -20,11 +20,13 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// <summary>
         /// Initializes a new instance.
         /// </summary>
-        /// <param name="key">The private key to sign a license.</param>
+        /// <param name="key">The license signing key.</param>
+        /// <param name="password">The license signing password.</param>
         [JsonConstructor]
-        public LicenseSigningKeyModel(byte[] key)
+        public LicenseSigningKeyModel(byte[] key, string? password = null)
         {
             Key = key;
+            Password = password;
         }
 
         /// <summary>
@@ -32,5 +34,11 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// </summary>
         [JsonPropertyName("key")]
         public byte[] Key { get; }
+
+        /// <summary>
+        /// The signing  password.
+        /// </summary>
+        [JsonPropertyName("password")]
+        public string? Password { get; }
     }
 }
