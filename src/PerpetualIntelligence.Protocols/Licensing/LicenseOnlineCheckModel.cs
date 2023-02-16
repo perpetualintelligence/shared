@@ -42,7 +42,7 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// The consumer object id.
         /// </summary>
         [JsonPropertyName("consumer_object_id")]
-        public string ConsumerObjectId { get; set; } = null!;
+        public string? ConsumerObjectId { get; set; }
 
         /// <summary>
         /// The <c>iss</c> claim.
