@@ -31,13 +31,21 @@ namespace PerpetualIntelligence.Protocols.Licensing
         /// The optional consumer object id.
         /// </summary>
         [JsonPropertyName("consumer_object_id")]
-        public string ConsumerObjectId { get; set; } = null!;
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? ConsumerObjectId { get; set; }
 
         /// <summary>
         /// The consumer tenant id.
         /// </summary>
         [JsonPropertyName("consumer_tenant_id")]
         public string ConsumerTenantId { get; set; } = null!;
+
+        /// <summary>
+        /// The consumer tenant id.
+        /// </summary>
+        [JsonPropertyName("consumer_tenant_name")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? ConsumerTenantName { get; set; } = null!;
 
         /// <summary>
         /// The key to check.

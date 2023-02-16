@@ -15,6 +15,13 @@ namespace PerpetualIntelligence.Protocols.Licensing
     public sealed class LicenseModel
     {
         /// <summary>
+        /// The validation public key to check the license.
+        /// </summary>
+        [JsonPropertyName("validation_key")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? ValidationKey { get; set; }
+
+        /// <summary>
         /// The <c>acr</c> claim.
         /// </summary>
         [JsonPropertyName("acr_values")]
