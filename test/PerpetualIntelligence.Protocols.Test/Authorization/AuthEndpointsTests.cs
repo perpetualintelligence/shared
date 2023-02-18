@@ -45,7 +45,7 @@ namespace PerpetualIntelligence.Protocols.Authorization
         [Fact]
         public void PiB2CTenantName_ShouldBe_Correct()
         {
-            AuthEndpoints.PiB2CTenantName.Should().Be("https://login.perpetualintelligence.com/{0}/v2.0/.well-known/openid-configuration");
+            AuthEndpoints.PiB2CTenantName.Should().Be("perpetualintelligenceb2c");
         }
 
         [Fact]
