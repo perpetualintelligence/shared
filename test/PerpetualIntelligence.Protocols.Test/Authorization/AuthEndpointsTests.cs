@@ -39,7 +39,13 @@ namespace PerpetualIntelligence.Protocols.Authorization
         [Fact]
         public void PiB2CIssuer_ShouldBe_Correct()
         {
-            AuthEndpoints.PiB2CIssuer("test_tenant").Should().Be("https://login.perpetualintelligence.com/test_tenant/v2.0/.well-known/openid-configuration");
+            AuthEndpoints.PiB2CIssuer("test_tenant").Should().Be("https://login.perpetualintelligence.com/test_tenant/v2.0");
+        }
+
+        [Fact]
+        public void PiB2CIssuer_Field_ShouldBe_Correct()
+        {
+            AuthEndpoints.PiIssuerB2C.Should().Be("https://login.perpetualintelligence.com/{0}/v2.0");
         }
 
         [Fact]

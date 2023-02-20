@@ -78,7 +78,7 @@ namespace PerpetualIntelligence.Protocols.Authorization
         /// <summary>
         /// The <c>Perpetual Intelligence</c> V2 Open ID Connect configuration.
         /// </summary>
-        public const string PiIssuerB2C = "https://login.perpetualintelligence.com/{0}/v2.0/.well-known/openid-configuration";
+        public const string PiIssuerB2C = "https://login.perpetualintelligence.com/{0}/v2.0";
 
         /// <summary>
         /// The <c>Perpetual Intelligence</c> B2C Tenant name.
