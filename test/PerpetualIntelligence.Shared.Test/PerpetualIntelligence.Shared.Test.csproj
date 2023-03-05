@@ -35,8 +35,8 @@
         4. PerpetualIntelligence.Shared.Test fails to restore PerpetualIntelligence.Test because PerpetualIntelligence.Test fails to restore PerpetualIntelligence.Shared because CD package is not yet published
         
         Resolution:
-        1. Force set the PI_CI_REFERENCE=local for PerpetualIntelligence.Shared and then reset it to PI_CI_REFERENCE=package for all other protocols packages
-        2. PerpetualIntelligence.Shared is the first foundational package so it does not depend on any other protocols package, thus we can safely us local 
+        1. Force set the PI_CI_REFERENCE=local for PerpetualIntelligence.Shared and then reset it to PI_CI_REFERENCE=package for all other shared packages
+        2. PerpetualIntelligence.Shared is the first foundational package so it does not depend on any other shared package, thus we can safely us local 
         
     -->
     <ItemGroup>

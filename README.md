@@ -12,7 +12,7 @@ This repository contains the cross-platform shared components for our managed se
 
 [![Nuget](https://img.shields.io/nuget/vpre/PerpetualIntelligence.Test?label=PerpetualIntelligence.Test)](https://www.nuget.org/packages/PerpetualIntelligence.Test)
 
-We track the [issues and tasks](https://github.com/perpetualintelligence/protocols/issues) here. We make our best effort to respond to issues in a timely fashion. You can read more about our procedures for classifying and resolving issues in our [Issues policy](https://terms.perpetualintelligence.com/articles/issues_policy.html) topic.
+We track the [issues and tasks](https://github.com/perpetualintelligence/shared/issues) here. We make our best effort to respond to issues in a timely fashion. You can read more about our procedures for classifying and resolving issues in our [Issues policy](https://terms.perpetualintelligence.com/articles/issues_policy.html) topic.
 
 This project has adopted the code of conduct defined by the Contributor Covenant to clarify expected behavior in our community.
 See the [Code of Conduct](https://terms.perpetualintelligence.com/articles/CODE_OF_CONDUCT.html).

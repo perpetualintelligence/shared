@@ -18,9 +18,9 @@
         <Copyright>Copyright 2021 Perpetual Intelligence L.L.C. All Rights Reserved.</Copyright>
         <Authors>Perpetual Intelligence</Authors>
         <Company>Perpetual Intelligence L.L.C.</Company>
-        <Product>protocols</Product>
-        <PackageProjectUrl>https://github.com/perpetualintelligence/protocols</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/perpetualintelligence/protocols</RepositoryUrl>
+        <Product>shared</Product>
+        <PackageProjectUrl>https://github.com/perpetualintelligence/shared</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/perpetualintelligence/shared</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>

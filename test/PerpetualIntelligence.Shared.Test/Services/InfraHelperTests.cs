@@ -51,12 +51,12 @@ namespace PerpetualIntelligence.Shared.Services
         public void GetParentTest()
         {
             // Support linux and windows
-            string path = Path.Combine("home", "protocols", "protocols", "src", "bin", "debug");
-            string expPath = Path.Combine("home", "protocols", "protocols", "src", "bin");
+            string path = Path.Combine("home", "shared", "shared", "src", "bin", "debug");
+            string expPath = Path.Combine("home", "shared", "shared", "src", "bin");
             Assert.AreEqual(expPath, InfraHelper.GetParent(path));
 
-            string path2 = Path.Combine("home", "protocols", "protocols", "src", "bin", "debug", "file.txt");
-            string expPath2 = Path.Combine("home", "protocols", "protocols", "src", "bin", "debug");
+            string path2 = Path.Combine("home", "shared", "shared", "src", "bin", "debug", "file.txt");
+            string expPath2 = Path.Combine("home", "shared", "shared", "src", "bin", "debug");
             Assert.AreEqual(expPath2, InfraHelper.GetParent(path2));
         }
 
@@ -64,12 +64,12 @@ namespace PerpetualIntelligence.Shared.Services
         public void GetParentTestLevels()
         {
             // Support linux and windows
-            string path = Path.Combine("home", "protocols", "protocols", "src", "bin", "debug");
-            string expPath = Path.Combine("home", "protocols", "protocols");
+            string path = Path.Combine("home", "shared", "shared", "src", "bin", "debug");
+            string expPath = Path.Combine("home", "shared", "shared");
             Assert.AreEqual(expPath, InfraHelper.GetParent(path, 3));
 
-            string path2 = Path.Combine("home", "protocols", "protocols", "src", "bin", "debug", "file.txt");
-            string expPath2 = Path.Combine("home", "protocols", "protocols", "src");
+            string path2 = Path.Combine("home", "shared", "shared", "src", "bin", "debug", "file.txt");
+            string expPath2 = Path.Combine("home", "shared", "shared", "src");
             Assert.AreEqual(expPath2, InfraHelper.GetParent(path2, 3));
         }
 
