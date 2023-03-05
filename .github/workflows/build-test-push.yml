@@ -61,7 +61,7 @@ jobs:
     # Build Number
     # Establish a unique build number for current run YYMMDD{RUN_NUMBER}{RUN_ATTEMPT} e.g. 2201032602
     - name: Build Number
-      run: echo "PI_BUILD_NUMBER=$(date +'%d%m%y')${{ github.run_number }}${{ github.run_attempt }}" >> $GITHUB_ENV
+      run: echo "PI_BUILD_NUMBER=$(date +'%-d%-m%y')${{ github.run_number }}${{ github.run_attempt }}" >> $GITHUB_ENV
       continue-on-error: false
     
     # Setup preview package versions based on trigger
@@ -146,17 +146,6 @@ jobs:
       with:
         project: PerpetualIntelligence.Test
         skiptest: 'true'
-        config: Release
-        version: ${{ env.PI_CI_PACKAGE_VERSION }}
-        ghapikey: ${{ env.PI_GITHUB_PAT_ENV }}
-        nugetapikey: ${{ env.PI_NUGET_PAT_ENV }}
-        registry: ${{ env.PI_PUBLISH_REGISTRY }}
-
-    # Publish PerpetualIntelligence.Protocols
-    - name: PerpetualIntelligence.Protocols
-      uses: ./.github/actions/push-package
-      with:
-        project: PerpetualIntelligence.Protocols
         config: Release
         version: ${{ env.PI_CI_PACKAGE_VERSION }}
         ghapikey: ${{ env.PI_GITHUB_PAT_ENV }}
