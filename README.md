@@ -1,12 +1,12 @@
-[![build-test-cross-manual](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-cross-manual.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-cross-manual.yml)
-[![build-test-push](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-push.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/build-test-push.yml)
-[![delete-package](https://github.com/perpetualintelligence/protocols/actions/workflows/delete-packages.yml/badge.svg)](https://github.com/perpetualintelligence/protocols/actions/workflows/delete-packages.yml)
+[![build-test-cross-manual](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-cross-manual.yml/badge.svg)](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-cross-manual.yml)
+[![build-test-push](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-push.yml/badge.svg)](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-push.yml)
+[![delete-packages](https://github.com/perpetualintelligence/shared/actions/workflows/delete-packages.yml/badge.svg)](https://github.com/perpetualintelligence/shared/actions/workflows/delete-packages.yml)
 
 ![macOS](https://img.shields.io/badge/macOS-grey?style=flat-square&logo=macos)
 ![ubuntu](https://img.shields.io/badge/ubuntu-grey?style=flat-square&logo=ubuntu)
 ![windows](https://img.shields.io/badge/windows-grey?style=flat-square&logo=windows)
 
-This repository contains the cross-platform shared components for Perpetual Intelligence L.L.C. managed services, cross-platform frameworks, and developer tools. We build the following NuGet packages from this repository.
+This repository contains the cross-platform shared components for our managed services, frameworks, and developer tools. We build the following NuGet packages from this repository.
 
 [![Nuget](https://img.shields.io/nuget/vpre/PerpetualIntelligence.Shared?label=PerpetualIntelligence.Shared)](https://www.nuget.org/packages/PerpetualIntelligence.Shared)
 
