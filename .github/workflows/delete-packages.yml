@@ -32,7 +32,6 @@ on:
         options:
         - PerpetualIntelligence.Shared
         - PerpetualIntelligence.Test
-        - PerpetualIntelligence.Protocols
         - All
         default: 'All'  
 
@@ -87,14 +86,5 @@ jobs:
         uses: actions/delete-package-versions@v4
         with:
           package-name: PerpetualIntelligence.Test
-          package-type: nuget
-          min-versions-to-keep: ${{ env.PI_KEEP_MINIMUM_VERSIONS }}
-      
-      # Delete PerpetualIntelligence.Protocols
-      - name: Delete PerpetualIntelligence.Protocols
-        if: ${{ env.PI_DELETE_PACKAGES == 'All' }}
-        uses: actions/delete-package-versions@v4
-        with:
-          package-name: PerpetualIntelligence.Protocols
           package-type: nuget
           min-versions-to-keep: ${{ env.PI_KEEP_MINIMUM_VERSIONS }}
