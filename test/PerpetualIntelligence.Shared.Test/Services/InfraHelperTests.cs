@@ -6,7 +6,6 @@
 */
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PerpetualIntelligence.Shared.Infrastructure;
 using PerpetualIntelligence.Test.Services;
 using System;
 using System.IO;
@@ -16,37 +15,6 @@ namespace PerpetualIntelligence.Shared.Services
     [TestClass]
     public class InfraHelperTests
     {
-        [TestMethod]
-        public void FormatDefaultShouldNotRevealArguments()
-        {
-            LoggingOptions loggingOptions = new();
-            string message = InfraHelper.Format(loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
-            Assert.AreEqual("Test message. client_id=**** scope=**** test=****", message);
-        }
-
-        [TestMethod]
-        public void FormatShouldObsureArguments()
-        {
-            LoggingOptions loggingOptions = new()
-            {
-                ObsureErrorArguments = true
-            };
-
-            string message = InfraHelper.Format(loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
-            Assert.AreEqual("Test message. client_id=**** scope=**** test=****", message);
-        }
-
-        [TestMethod]
-        public void FormatShouldNotObsureArguments()
-        {
-            LoggingOptions loggingOptions = new()
-            {
-                ObsureErrorArguments = false
-            };
-            string message = InfraHelper.Format(loggingOptions, "Test message. client_id={0} scope={1} test={2}", "test_client_id", "test_scope", "test_value");
-            Assert.AreEqual("Test message. client_id=test_client_id scope=test_scope test=test_value", message);
-        }
-
         [TestMethod]
         public void GetParentTest()
         {
@@ -104,13 +72,6 @@ namespace PerpetualIntelligence.Shared.Services
             TestHelper.AssertThrowsWithMessage<ArgumentException>(() => InfraHelper.GetParent(null, 2), "Invalid path. (Parameter 'path')");
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
             TestHelper.AssertThrowsWithMessage<ArgumentException>(() => InfraHelper.GetParent("  ", 2), "Invalid path. (Parameter 'path')");
-        }
-
-        [TestMethod]
-        public void ObscureShouldBehaveCorrectly()
-        {
-            var result = InfraHelper.Obscure("----", new object?[] { "test1", "    ", "", null, true, 2503.36, 69, -9, "test4" });
-            CollectionAssert.AreEqual(new object[] { "----", "----", "----", "----", "----", "----", "----", "----", "----" }, result);
         }
     }
 }

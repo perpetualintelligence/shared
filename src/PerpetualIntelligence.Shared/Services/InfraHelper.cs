@@ -10,7 +10,6 @@ using PerpetualIntelligence.Shared.Extensions;
 using PerpetualIntelligence.Shared.Infrastructure;
 using System;
 using System.IO;
-using System.Linq;
 
 using System.Threading.Tasks;
 
@@ -47,18 +46,6 @@ namespace PerpetualIntelligence.Shared.Services
                 Error error = new(Error.Unexpected, "The request resulted in an unexpected error. additonal_info={0}", new object?[] { ex.Message });
                 return new TryResultOrError<TResult>(error);
             }
-        }
-
-        /// <summary>
-        /// Formats the error message for downstream processing.
-        /// </summary>
-        /// <param name="loggingOptions">The logging options. See <see cref="LoggingOptions"/>.</param>
-        /// <param name="message">The message to format.</param>
-        /// <param name="args">The format arguments.</param>
-        /// <returns>The formatted error message.</returns>
-        public static string Format(LoggingOptions loggingOptions, string message, params object?[] args)
-        {
-            return string.Format(message, loggingOptions.ObsureErrorArguments ? Obscure(loggingOptions.ObscureErrorArgumentString, args) : args);
         }
 
         /// <summary>
@@ -147,22 +134,6 @@ namespace PerpetualIntelligence.Shared.Services
             }
 
             return Math.Min(num1, num2);
-        }
-
-        /// <summary>
-        /// Obscures the arguments based on the specified mask.
-        /// </summary>
-        /// <param name="mask">The obscure mask.</param>
-        /// <param name="args">The arguments to obscure.</param>
-        /// <returns>The obscured arguments.</returns>
-        public static object?[] Obscure(string mask, params object?[] args)
-        {
-            object?[] argsToUse = args;
-            if (args != null)
-            {
-                argsToUse = Enumerable.Repeat(mask, args.Length).ToArray();
-            }
-            return argsToUse;
         }
     }
 }
