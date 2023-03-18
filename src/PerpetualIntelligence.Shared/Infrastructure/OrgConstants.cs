@@ -2,7 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
-    https://terms.perpetualintelligence.com
+    https://terms.perpetualintelligence.com/articles/intro.html
 */
 
 namespace PerpetualIntelligence.Shared.Infrastructure
@@ -39,7 +39,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <summary>
         /// The terms of use, operation and data policies.
         /// </summary>
-        public const string Policies = "https://terms.perpetualintelligence.com/articles/intro.html";
+        public const string Policies = "https://terms.perpetualintelligence.com/articles/intro.html/articles/intro.html";
 
         /// <summary>
         /// The short name.
