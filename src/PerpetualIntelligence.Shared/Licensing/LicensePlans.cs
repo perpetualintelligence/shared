@@ -2,7 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
-    https://terms.perpetualintelligence.com/articles/intro.html
+    https://terms.perpetualintelligence.com
 */
 
 namespace PerpetualIntelligence.Shared.Licensing
@@ -13,21 +13,20 @@ namespace PerpetualIntelligence.Shared.Licensing
     public sealed class LicensePlans
     {
         /// <summary>
-        /// Determines if the plan is valid.
+        /// Determines if the plan is valid for <c>pi-cli</c>.
         /// </summary>
         /// <returns><c>true</c> if the plan is valid; otherwise, <c>false</c>.</returns>
-        public static bool IsValid(string plan)
+        public static bool IsValidPiCliPlan(string plan)
         {
             switch (plan)
             {
-                case Community:
+                case Demo:
                 case Micro:
                 case SMB:
-                case Custom:
                 case Enterprise:
-                case ISV:
-                case ISVU:
-                case None:
+                case OnPremise:
+                case Unlimited:
+                case Custom:
                     {
                         return true;
                     }
@@ -39,9 +38,9 @@ namespace PerpetualIntelligence.Shared.Licensing
         }
 
         /// <summary>
-        /// The community license pricing plan.
+        /// The demo license pricing plan.
         /// </summary>
-        public const string Community = "urn:oneimlx:lic:plan:community";
+        public const string Demo = "urn:oneimlx:lic:plan:demo";
 
         /// <summary>
         /// The custom license pricing plan.
@@ -54,14 +53,14 @@ namespace PerpetualIntelligence.Shared.Licensing
         public const string Enterprise = "urn:oneimlx:lic:plan:enterprise";
 
         /// <summary>
-        /// The ISV license pricing plan.
+        /// The on-premise license pricing plan.
         /// </summary>
-        public const string ISV = "urn:oneimlx:lic:plan:isv";
+        public const string OnPremise = "urn:oneimlx:lic:plan:onprem";
 
         /// <summary>
-        /// The ISV unlimited license pricing plan.
+        /// The unlimited license pricing plan.
         /// </summary>
-        public const string ISVU = "urn:oneimlx:lic:plan:isvu";
+        public const string Unlimited = "urn:oneimlx:lic:plan:unlimited";
 
         /// <summary>
         /// The solo or micro license pricing plan.
@@ -69,13 +68,8 @@ namespace PerpetualIntelligence.Shared.Licensing
         public const string Micro = "urn:oneimlx:lic:plan:micro";
 
         /// <summary>
-        /// The neutral or no license pricing plan.
-        /// </summary>
-        public const string None = "urn:oneimlx:lic:plan:none";
-
-        /// <summary>
         /// The SMB license pricing plan.
         /// </summary>
-        public const string SMB = "urn:oneimlx:lic:plan:smb";        
+        public const string SMB = "urn:oneimlx:lic:plan:smb";
     }
 }

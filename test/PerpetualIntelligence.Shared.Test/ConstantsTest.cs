@@ -2,32 +2,32 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
-    https://terms.perpetualintelligence.com/articles/intro.html
+    https://terms.perpetualintelligence.com
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
 using PerpetualIntelligence.Test.Services;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared
 {
-    [TestClass]
     public class ConstantsTest
     {
-        [TestMethod]
+        [Fact]
         public void ConstantTest()
         {
             TestHelper.AssertConstantCount(typeof(Constants), 7);
 
-            Assert.AreEqual("pi-cli", Constants.Cli);
-            Assert.AreEqual("urn:oneimlx:cli", Constants.CliUrn);
+            Constants.Cli.Should().Be("pi-cli");
+            Constants.CliUrn.Should().Be("urn:oneimlx:cli");
 
-            Assert.AreEqual("pi-lic", Constants.Lic);
-            Assert.AreEqual("urn:oneimlx:lic", Constants.LicUrn);
+            Constants.Lic.Should().Be("pi-lic");
+            Constants.LicUrn.Should().Be("urn:oneimlx:lic");
 
-            Assert.AreEqual("oneimlx", Constants.OneImlx);
-            Assert.AreEqual("urn:oneimlx", Constants.OneImlxUrn);
+            Constants.OneImlx.Should().Be("oneimlx");
+            Constants.OneImlxUrn.Should().Be("urn:oneimlx");
 
-            Assert.AreEqual("https://api.perpetualintelligence.com", Constants.Issuer);
+            Constants.Issuer.Should().Be("https://api.perpetualintelligence.com");
         }
     }
 }
