@@ -5,21 +5,21 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Security.Secrets
 {
-    [TestClass]
     public class SecretComparerTest
     {
-        [TestMethod]
+        [Fact]
         public void ConstantTimeComparerIsEqualTest()
         {
-            Assert.IsTrue(SecretComparer.IsEqual("", ""));
-            Assert.IsFalse(SecretComparer.IsEqual("TestString", ""));
-            Assert.IsFalse(SecretComparer.IsEqual("Test", "Test1"));
-            Assert.IsFalse(SecretComparer.IsEqual("Test", "TesT"));
-            Assert.IsTrue(SecretComparer.IsEqual("TestString", "TestString"));
+            SecretComparer.IsEqual("", "").Should().BeTrue();
+            SecretComparer.IsEqual("TestString", "").Should().BeFalse();
+            SecretComparer.IsEqual("Test", "Test1").Should().BeFalse();
+            SecretComparer.IsEqual("Test", "TesT").Should().BeFalse();
+            SecretComparer.IsEqual("TestString", "TestString").Should().BeTrue();
         }
     }
 }

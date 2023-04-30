@@ -5,16 +5,15 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Test.Services;
 using System;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
-    [TestClass]
     public class TryResultErrorTests
     {
-        [TestMethod]
+        [Fact]
         public void TryResultNullErrorShouldError()
         {
 #pragma warning disable CA1806 // Do not ignore method results
@@ -24,7 +23,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
 #pragma warning restore CA1806 // Do not ignore method results
         }
 
-        [TestMethod]
+        [Fact]
         public void TryResultNullResultShouldError()
         {
 #pragma warning disable CA1806 // Do not ignore method results

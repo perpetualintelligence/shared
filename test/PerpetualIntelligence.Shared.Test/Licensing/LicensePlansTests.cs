@@ -2,47 +2,47 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
-    https://terms.perpetualintelligence.com
+    https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
 using PerpetualIntelligence.Test.Services;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Licensing
 {
-    [TestClass]
     public class LicensePlansTests
     {
-        [TestMethod]
+        [Fact]
         public void IsValidShouldReturnTrueForValidlicensePlans()
         {
-            Assert.IsTrue(LicensePlans.IsValidPiCliPlan(LicensePlans.Demo));
-            Assert.IsTrue(LicensePlans.IsValidPiCliPlan(LicensePlans.Micro));
-            Assert.IsTrue(LicensePlans.IsValidPiCliPlan(LicensePlans.SMB));
-            Assert.IsTrue(LicensePlans.IsValidPiCliPlan(LicensePlans.Enterprise));
-            Assert.IsTrue(LicensePlans.IsValidPiCliPlan(LicensePlans.OnPremise));
-            Assert.IsTrue(LicensePlans.IsValidPiCliPlan(LicensePlans.Unlimited));
-            Assert.IsTrue(LicensePlans.IsValidPiCliPlan(LicensePlans.Custom));
+            LicensePlans.IsValidPiCliPlan(LicensePlans.Demo).Should().BeTrue();
+            LicensePlans.IsValidPiCliPlan(LicensePlans.Micro).Should().BeTrue();
+            LicensePlans.IsValidPiCliPlan(LicensePlans.SMB).Should().BeTrue();
+            LicensePlans.IsValidPiCliPlan(LicensePlans.Enterprise).Should().BeTrue();
+            LicensePlans.IsValidPiCliPlan(LicensePlans.OnPremise).Should().BeTrue();
+            LicensePlans.IsValidPiCliPlan(LicensePlans.Unlimited).Should().BeTrue();
+            LicensePlans.IsValidPiCliPlan(LicensePlans.Custom).Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void IsValidShouldReturnFalseForInvalidlicensePlans()
         {
-            Assert.IsFalse(LicensePlans.IsValidPiCliPlan("invalid"));
+            LicensePlans.IsValidPiCliPlan("invalid").Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void LicensePlansConstTest()
         {
-            TestHelper.AssertConstantCount(typeof(LicensePlans), 8);
+            TestHelper.AssertConstantCount(typeof(LicensePlans), 7);
 
-            Assert.AreEqual("urn:oneimlx:lic:plan:demo", LicensePlans.Demo);
-            Assert.AreEqual("urn:oneimlx:lic:plan:micro", LicensePlans.Micro);
-            Assert.AreEqual("urn:oneimlx:lic:plan:smb", LicensePlans.SMB);
-            Assert.AreEqual("urn:oneimlx:lic:plan:enterprise", LicensePlans.Enterprise);
-            Assert.AreEqual("urn:oneimlx:lic:plan:onprem", LicensePlans.OnPremise);
-            Assert.AreEqual("urn:oneimlx:lic:plan:unlimited", LicensePlans.Unlimited);
-            Assert.AreEqual("urn:oneimlx:lic:plan:custom", LicensePlans.Custom);
+            LicensePlans.Demo.Should().Be("urn:oneimlx:lic:plan:demo");
+            LicensePlans.Micro.Should().Be("urn:oneimlx:lic:plan:micro");
+            LicensePlans.SMB.Should().Be("urn:oneimlx:lic:plan:smb");
+            LicensePlans.Enterprise.Should().Be("urn:oneimlx:lic:plan:enterprise");
+            LicensePlans.OnPremise.Should().Be("urn:oneimlx:lic:plan:onprem");
+            LicensePlans.Unlimited.Should().Be("urn:oneimlx:lic:plan:unlimited");
+            LicensePlans.Custom.Should().Be("urn:oneimlx:lic:plan:custom");
         }
     }
 }

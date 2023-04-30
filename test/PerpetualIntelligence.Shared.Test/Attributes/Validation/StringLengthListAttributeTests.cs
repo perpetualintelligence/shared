@@ -5,24 +5,24 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Attributes.Validation
 {
-    [TestClass]
     public class StringLengthListAttributeTests
     {
-        [TestMethod]
+        [Fact]
         public void IsValidShouldReturnValidResult()
         {
             StringLengthListAttribute stringLengthListAttribute = new(8);
 
             // null is valid
-            Assert.IsTrue(stringLengthListAttribute.IsValid(null));
-            Assert.IsTrue(stringLengthListAttribute.IsValid(new string[] { "testval1", "testval2" }));
+            stringLengthListAttribute.IsValid(null).Should().BeTrue();
+            stringLengthListAttribute.IsValid(new string[] { "testval1", "testval2" }).Should().BeTrue();
 
             // must be list
-            Assert.IsFalse(stringLengthListAttribute.IsValid(new string[] { "testval1", "test_long_val2" }));
+            stringLengthListAttribute.IsValid(new string[] { "testval1", "test_long_val2" }).Should().BeFalse();
         }
     }
 }

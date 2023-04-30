@@ -5,15 +5,15 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
 using System.Text;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Services
 {
-    [TestClass]
     public class UrlSafeBase64EncoderTests
     {
-        [TestMethod]
+        [Fact]
         public void EncodeDecodeTest()
         {
             string iptStr = "asd+kasd*&((*(9assdaASDASDhttps://perpetualintelligence.azurewebsites.net/234asdasd+===%772347823&*^(&*^*(^(*&^(*&^*^*&";
@@ -23,10 +23,10 @@ namespace PerpetualIntelligence.Shared.Services
             byte[] decoded = UrlSafeBase64Encoder.Decode(encoded);
             string decodedStr = Encoding.UTF8.GetString(decoded);
 
-            Assert.AreEqual(iptStr, decodedStr);
+            decodedStr.Should().Be(iptStr);
         }
 
-        [TestMethod]
+        [Fact]
         public void EncodeDecodeUnicodeTest()
         {
             string iptStr = "पुरुष आणि स्त्री, मुलगा आणि मुलगी.";
@@ -36,10 +36,10 @@ namespace PerpetualIntelligence.Shared.Services
             byte[] decoded = UrlSafeBase64Encoder.Decode(encoded);
             string decodedStr = Encoding.UTF8.GetString(decoded);
 
-            Assert.AreEqual(iptStr, decodedStr);
+            decodedStr.Should().Be(iptStr);
         }
 
-        [TestMethod]
+        [Fact]
         public void UTF8EncodeDecodeTest()
         {
             string iptStr = "asd+kasd*&((*(9assdaASDASDhttps://perpetualintelligence.azurewebsites.net/234asdasd+===%772347823&*^(&*^*(^(*&^(*&^*^*&";
@@ -47,10 +47,10 @@ namespace PerpetualIntelligence.Shared.Services
             string encoded = UrlSafeBase64Encoder.Utf8Encode(iptStr);
             string decoded = UrlSafeBase64Encoder.Utf8Decode(encoded);
 
-            Assert.AreEqual(iptStr, decoded);
+            decoded.Should().Be(iptStr);
         }
 
-        [TestMethod]
+        [Fact]
         public void UTF8EncodeDecodeUnicodeTest()
         {
             string iptStr = "पुरुष आणि स्त्री, मुलगा आणि मुलगी.";
@@ -58,7 +58,7 @@ namespace PerpetualIntelligence.Shared.Services
             string encoded = UrlSafeBase64Encoder.Utf8Encode(iptStr);
             string decoded = UrlSafeBase64Encoder.Utf8Decode(encoded);
 
-            Assert.AreEqual(iptStr, decoded);
+            decoded.Should().Be(iptStr);
         }
     }
 }

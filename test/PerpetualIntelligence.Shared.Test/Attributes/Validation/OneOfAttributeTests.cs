@@ -5,41 +5,41 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Attributes.Validation
 {
-    [TestClass]
     public class OneOfAttributeTests
     {
-        [TestMethod]
+        [Fact]
         public void IsValidArrayShouldReturnValidResult()
         {
             string[] allowed = new string[] { "test1", "test2", "test3", "test4" };
 
             OneOfAttribute allowedAttribute = new(allowed);
 
-            Assert.IsTrue(allowedAttribute.IsValid(new string[] { "test1", "test2" }));
+            allowedAttribute.IsValid(new string[] { "test1", "test2" }).Should().BeTrue();
 
-            Assert.IsFalse(allowedAttribute.IsValid(new string[] { "test1", "test5" }));
+            allowedAttribute.IsValid(new string[] { "test1", "test5" }).Should().BeFalse();
 
             // null is valid, this is useful for data validation when nothing is entered
-            Assert.IsTrue(allowedAttribute.IsValid(null));
+            allowedAttribute.IsValid(null).Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void IsValidShouldReturnValidResult()
         {
             string[] allowed = new string[] { "test1", "test2", "test3", "test4" };
 
             OneOfAttribute allowedAttribute = new(allowed);
 
-            Assert.IsTrue(allowedAttribute.IsValid("test1"));
-            Assert.IsTrue(allowedAttribute.IsValid("test2"));
-            Assert.IsFalse(allowedAttribute.IsValid("test5"));
+            allowedAttribute.IsValid("test1").Should().BeTrue();
+            allowedAttribute.IsValid("test2").Should().BeTrue();
+            allowedAttribute.IsValid("test5").Should().BeFalse();
 
             // null is valid, this is useful for data validation when nothing is entered
-            Assert.IsTrue(allowedAttribute.IsValid(null));
+            allowedAttribute.IsValid(null).Should().BeTrue();
         }
     }
 }

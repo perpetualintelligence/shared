@@ -5,75 +5,75 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
 using PerpetualIntelligence.Test.Services;
 using System;
 using System.Reflection;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Security.Secrets
 {
-    [TestClass]
     public class SecretTests
     {
-        [TestMethod]
+        [Fact]
         public void DescriptionTest()
         {
             Type type = typeof(Secret);
             PropertyInfo? prop = type.GetProperty(nameof(Secret.Description));
 
-            Assert.IsNotNull(prop);
+            prop.Should().NotBeNull();
 
             TestHelper.AssertAttributeCount(prop, 1, false);
 
             TestHelper.AssertJsonPropertyName(prop, "description", false);
         }
 
-        [TestMethod]
+        [Fact]
         public void ExpirationTest()
         {
             Type type = typeof(Secret);
             PropertyInfo? prop = type.GetProperty(nameof(Secret.Expiration));
 
-            Assert.IsNotNull(prop);
+            prop.Should().NotBeNull();
 
             TestHelper.AssertAttributeCount(prop, 1, false);
 
             TestHelper.AssertJsonPropertyName(prop, "expiration", false);
         }
 
-        [TestMethod]
+        [Fact]
         public void NameTest()
         {
             Type type = typeof(Secret);
             PropertyInfo? prop = type.GetProperty(nameof(Secret.Name));
 
-            Assert.IsNotNull(prop);
+            prop.Should().NotBeNull();
 
             TestHelper.AssertAttributeCount(prop, 1, false);
 
             TestHelper.AssertJsonPropertyName(prop, "name", false);
         }
 
-        [TestMethod]
+        [Fact]
         public void TypeTest()
         {
             Type type = typeof(Secret);
             PropertyInfo? prop = type.GetProperty(nameof(Secret.Type));
 
-            Assert.IsNotNull(prop);
+            prop.Should().NotBeNull();
 
             TestHelper.AssertAttributeCount(prop, 1, false);
 
             TestHelper.AssertJsonPropertyName(prop, "type", false);
         }
 
-        [TestMethod]
+        [Fact]
         public void ValueTest()
         {
             Type type = typeof(Secret);
             PropertyInfo? prop = type.GetProperty(nameof(Secret.Value));
 
-            Assert.IsNotNull(prop);
+            prop.Should().NotBeNull();
 
             TestHelper.AssertAttributeCount(prop, 1, false);
 

@@ -5,197 +5,197 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
 using System;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Extensions
 {
-    [TestClass]
     public class StringExtensionsTests
     {
-        [TestMethod]
+        [Fact]
         public void IsNotNullOrWhiteSpaceTest()
         {
-            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace(""));
+            StringExtensions.IsNotNullOrWhiteSpace("").Should().BeFalse();
 
-            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace("  "));
+            StringExtensions.IsNotNullOrWhiteSpace("  ").Should().BeFalse();
 
-            Assert.IsFalse(StringExtensions.IsNotNullOrWhiteSpace(null));
+            StringExtensions.IsNotNullOrWhiteSpace(null).Should().BeFalse();
 
-            Assert.IsTrue(StringExtensions.IsNotNullOrWhiteSpace("Test"));
+            StringExtensions.IsNotNullOrWhiteSpace("Test").Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void IsNullOrEmptyTest()
         {
-            Assert.IsTrue(StringExtensions.IsNullOrEmpty(""));
+            StringExtensions.IsNullOrEmpty("").Should().BeTrue();
 
-            Assert.IsFalse(StringExtensions.IsNullOrEmpty("  "));
+            StringExtensions.IsNullOrEmpty("  ").Should().BeFalse();
 
-            Assert.IsTrue(StringExtensions.IsNullOrEmpty(null));
+            StringExtensions.IsNullOrEmpty(null).Should().BeTrue();
 
-            Assert.IsFalse(StringExtensions.IsNullOrEmpty("Test"));
+            StringExtensions.IsNullOrEmpty("Test").Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void IsNullOrWhiteSpaceTest()
         {
-            Assert.IsTrue(StringExtensions.IsNullOrWhiteSpace(""));
+            StringExtensions.IsNullOrWhiteSpace("").Should().BeTrue();
 
-            Assert.IsTrue(StringExtensions.IsNullOrWhiteSpace("  "));
+            StringExtensions.IsNullOrWhiteSpace("  ").Should().BeTrue();
 
-            Assert.IsTrue(StringExtensions.IsNullOrWhiteSpace(null));
+            StringExtensions.IsNullOrWhiteSpace(null).Should().BeTrue();
 
-            Assert.IsFalse(StringExtensions.IsNullOrWhiteSpace("Test"));
+            StringExtensions.IsNullOrWhiteSpace("Test").Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void JoinSpaceTest()
         {
-            Assert.AreEqual("test1 test2 test3", StringExtensions.JoinBySpace(new string[] { "test1", "test2", "test3" }));
+            StringExtensions.JoinBySpace(new string[] { "test1", "test2", "test3" }).Should().Be("test1 test2 test3");
         }
 
-        [TestMethod]
+        [Fact]
         public void JoinSpaceWithMultipleSpaceTest()
         {
-            Assert.AreEqual("test1  test2 test3 test4    ", StringExtensions.JoinBySpace(new string[] { "test1", " test2", "test3", "test4    " }));
+            StringExtensions.JoinBySpace(new string[] { "test1", " test2", "test3", "test4    " }).Should().Be("test1  test2 test3 test4    ");
         }
 
-        [TestMethod]
+        [Fact]
         public void SplitSpaceTest()
         {
             string[] parts = { "test1", "test2", "test3" };
-            CollectionAssert.AreEqual(parts, "test1 test2 test3".SplitBySpace());
+            parts.Should().ContainInOrder("test1 test2 test3".SplitBySpace());
         }
 
-        [TestMethod]
+        [Fact]
         public void SplitSpaceWithMultipleSpacesTest()
         {
             string[] parts = { "test1", "", "test2", "test3", "", "", "test4", "", "" };
-            CollectionAssert.AreEqual(parts, "test1  test2 test3   test4  ".SplitBySpace());
+            parts.Should().ContainInOrder("test1  test2 test3   test4  ".SplitBySpace());
         }
 
-        [TestMethod]
+        [Fact]
         public void JoinNewlineTest()
         {
-            Assert.AreEqual($"test1{Environment.NewLine}test2{Environment.NewLine}test3{Environment.NewLine}test4", StringExtensions.JoinByNewline(new string[] { "test1", "test2", "test3", "test4" }));
+            StringExtensions.JoinByNewline(new string[] { "test1", "test2", "test3", "test4" }).Should().Be($"test1{Environment.NewLine}test2{Environment.NewLine}test3{Environment.NewLine}test4");
         }
 
-        [TestMethod]
+        [Fact]
         public void SplitNewlineTest()
         {
             string[] parts = { "test1", "test2", "test3" };
-            CollectionAssert.AreEqual(parts, $"test1{Environment.NewLine}test2{Environment.NewLine}test3".SplitByNewline());
+            parts.Should().ContainInOrder($"test1{Environment.NewLine}test2{Environment.NewLine}test3".SplitByNewline());
         }
 
-        [TestMethod]
+        [Fact]
         public void StringRepeatShouldRepeadCorrectly()
         {
-            Assert.AreEqual("xxxxxxxxxx", "x".Repeat(10));
-            Assert.AreEqual("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", "x".Repeat(100));
+            "x".Repeat(10).Should().Be("xxxxxxxxxx");
+            "x".Repeat(100).Should().Be("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 
-            Assert.AreEqual(10, "x".Repeat(10).Length);
-            Assert.AreEqual(100, "x".Repeat(100).Length);
+            "x".Repeat(10).Length.Should().Be(10);
+            "x".Repeat(100).Length.Should().Be(100);
         }
 
-        [TestMethod]
+        [Fact]
         public void TrimEndRecursive()
         {
             string test = "arg=value#";
-            Assert.AreEqual("arg=value", test.TrimEnd("#", System.StringComparison.InvariantCulture));
+            test.TrimEnd("#", System.StringComparison.InvariantCulture).Should().Be("arg=value");
 
             test = "~arg=value#";
-            Assert.AreEqual("~arg=value", test.TrimEnd("#", System.StringComparison.InvariantCulture));
+            test.TrimEnd("#", System.StringComparison.InvariantCulture).Should().Be("~arg=value");
 
             test = "arg=value####";
-            Assert.AreEqual("arg=value", test.TrimEnd("#", System.StringComparison.InvariantCulture));
+            test.TrimEnd("#", System.StringComparison.InvariantCulture).Should().Be("arg=value");
 
             test = "arg=value####";
-            Assert.AreEqual("arg=value", test.TrimEnd("##", System.StringComparison.InvariantCulture));
+            test.TrimEnd("##", System.StringComparison.InvariantCulture).Should().Be("arg=value");
 
             test = "arg=value####";
-            Assert.AreEqual("arg=value#", test.TrimEnd("###", System.StringComparison.InvariantCulture));
+            test.TrimEnd("###", System.StringComparison.InvariantCulture).Should().Be("arg=value#");
 
             test = "arg=value####";
-            Assert.AreEqual("arg=value", test.TrimEnd("####", System.StringComparison.InvariantCulture));
+            test.TrimEnd("####", System.StringComparison.InvariantCulture).Should().Be("arg=value");
 
             test = "arg=value##  ##";
-            Assert.AreEqual("arg=value##  ##", test.TrimEnd("####", System.StringComparison.InvariantCulture));
+            test.TrimEnd("####", System.StringComparison.InvariantCulture).Should().Be("arg=value##  ##");
         }
 
-        [TestMethod]
+        [Fact]
         public void TrimEndRecursiveUnicode()
         {
             string test = "arg=valueöö";
-            Assert.AreEqual("arg=value", test.TrimEnd("öö", System.StringComparison.Ordinal));
+            test.TrimEnd("öö", System.StringComparison.Ordinal).Should().Be("arg=value");
 
             test = "arg=valueöö";
-            Assert.AreEqual("arg=value", test.TrimEnd("ö", System.StringComparison.Ordinal));
+            test.TrimEnd("ö", System.StringComparison.Ordinal).Should().Be("arg=value");
 
             test = "arg=valueमाणूस";
-            Assert.AreEqual("arg=value", test.TrimEnd("माणूस", System.StringComparison.Ordinal));
+            test.TrimEnd("माणूस", System.StringComparison.Ordinal).Should().Be("arg=value");
 
             test = "arg=valueमाणूस";
-            Assert.AreEqual("arg=valueमा", test.TrimEnd("णूस", System.StringComparison.Ordinal));
+            test.TrimEnd("णूस", System.StringComparison.Ordinal).Should().Be("arg=valueमा");
 
             test = "arg=valueमा    णूस";
-            Assert.AreEqual("arg=valueमा    ", test.TrimEnd("णूस", System.StringComparison.Ordinal));
+            test.TrimEnd("णूस", System.StringComparison.Ordinal).Should().Be("arg=valueमा    ");
 
             test = "माणूस की चान अहे";
-            Assert.AreEqual("माणूस की", test.TrimEnd(" चान अहे", System.StringComparison.Ordinal));
+            test.TrimEnd(" चान अहे", System.StringComparison.Ordinal).Should().Be("माणूस की");
 
             test = "माणूस की चान अहे माणूसमाणूमाणू";
-            Assert.AreEqual("माणूस की चान अहे माणूस", test.TrimEnd("माणू", System.StringComparison.Ordinal));
+            test.TrimEnd("माणू", System.StringComparison.Ordinal).Should().Be("माणूस की चान अहे माणूस");
         }
 
-        [TestMethod]
+        [Fact]
         public void TrimStartRecursive()
         {
             string test = "#arg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("#", System.StringComparison.InvariantCulture));
+            test.TrimStart("#", System.StringComparison.InvariantCulture).Should().Be("arg=value");
 
             test = "#~arg=value";
-            Assert.AreEqual("~arg=value", test.TrimStart("#", System.StringComparison.InvariantCulture));
+            test.TrimStart("#", System.StringComparison.InvariantCulture).Should().Be("~arg=value");
 
             test = "####arg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("#", System.StringComparison.InvariantCulture));
+            test.TrimStart("#", System.StringComparison.InvariantCulture).Should().Be("arg=value");
 
             test = "####arg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("##", System.StringComparison.InvariantCulture));
+            test.TrimStart("##", System.StringComparison.InvariantCulture).Should().Be("arg=value");
 
             test = "####arg=value";
-            Assert.AreEqual("#arg=value", test.TrimStart("###", System.StringComparison.InvariantCulture));
+            test.TrimStart("###", System.StringComparison.InvariantCulture).Should().Be("#arg=value");
 
             test = "####arg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("####", System.StringComparison.InvariantCulture));
+            test.TrimStart("####", System.StringComparison.InvariantCulture).Should().Be("arg=value");
 
             test = "##  ##arg=value";
-            Assert.AreEqual("##  ##arg=value", test.TrimStart("####", System.StringComparison.InvariantCulture));
+            test.TrimStart("####", System.StringComparison.InvariantCulture).Should().Be("##  ##arg=value");
         }
 
-        [TestMethod]
+        [Fact]
         public void TrimStartRecursiveUnicode()
         {
             string test = "ööarg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("öö", System.StringComparison.Ordinal));
+            test.TrimStart("öö", System.StringComparison.Ordinal).Should().Be("arg=value");
 
             test = "ööarg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("ö", System.StringComparison.Ordinal));
+            test.TrimStart("ö", System.StringComparison.Ordinal).Should().Be("arg=value");
 
             test = "माणूसarg=value";
-            Assert.AreEqual("arg=value", test.TrimStart("माणूस", System.StringComparison.Ordinal));
+            test.TrimStart("माणूस", System.StringComparison.Ordinal).Should().Be("arg=value");
 
             test = "माणूसarg=value";
-            Assert.AreEqual("सarg=value", test.TrimStart("माणू", System.StringComparison.Ordinal));
+            test.TrimStart("माणू", System.StringComparison.Ordinal).Should().Be("सarg=value");
 
             test = "माणू    सarg=value";
-            Assert.AreEqual("    सarg=value", test.TrimStart("माणू", System.StringComparison.Ordinal));
+            test.TrimStart("माणू", System.StringComparison.Ordinal).Should().Be("    सarg=value");
 
             test = "माणूस की चान अहे";
-            Assert.AreEqual("चान अहे", test.TrimStart("माणूस की ", System.StringComparison.Ordinal));
+            test.TrimStart("माणूस की ", System.StringComparison.Ordinal).Should().Be("चान अहे");
 
             test = "माणूमाणूसमाणूस माणूस की चान अहे";
-            Assert.AreEqual("समाणूस माणूस की चान अहे", test.TrimStart("माणू", System.StringComparison.Ordinal));
+            test.TrimStart("माणू", System.StringComparison.Ordinal).Should().Be("समाणूस माणूस की चान अहे");
         }
     }
 }

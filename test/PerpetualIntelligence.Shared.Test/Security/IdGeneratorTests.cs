@@ -5,33 +5,33 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Security
 {
-    [TestClass]
     public class IdGeneratorTests
     {
-        [TestMethod]
+        [Fact]
         public void NewGuidTest()
         {
-            Assert.IsNotNull(IdGenerator.NewGuid());
+            IdGenerator.NewGuid().Should().NotBeNull();
         }
 
-        [TestMethod]
+        [Fact]
         public void NewLongIdTest()
         {
             string id = IdGenerator.NewLongId();
-            Assert.IsNotNull(id);
-            Assert.IsFalse(id.Contains('-'));
+            id.Should().NotBeNull();
+            id.Contains('-').Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void NewShortIdTest()
         {
             string id = IdGenerator.NewShortId();
-            Assert.IsNotNull(id);
-            Assert.IsFalse(id.Contains("[/+= -]"));
+            id.Should().NotBeNull();
+            id.Contains("[/+= -]").Should().BeFalse();
         }
     }
 }

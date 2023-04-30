@@ -5,21 +5,20 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Test.Services;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared
 {
-    [TestClass]
     public class AssemblyTests
     {
-        [TestMethod]
+        [Fact]
         public void TypesNamespaceTest()
         {
             TestHelper.AssertNamespace(typeof(Infrastructure.Modes).Assembly, "PerpetualIntelligence.Shared");
         }
 
-        [TestMethod]
+        [Fact]
         public void TypesTypesLocationTest()
         {
             TestHelper.AssertAssemblyTypesLocation(typeof(Infrastructure.Modes).Assembly);

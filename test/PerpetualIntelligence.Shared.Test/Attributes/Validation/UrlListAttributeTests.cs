@@ -5,24 +5,24 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Attributes.Validation
 {
-    [TestClass]
     public class UrlListAttributeTests
     {
-        [TestMethod]
+        [Fact]
         public void IsValidShouldReturnValidResult()
         {
             UrlListAttribute urlListAttribute = new();
 
             // null is valid
-            Assert.IsTrue(urlListAttribute.IsValid(null));
-            Assert.IsTrue(urlListAttribute.IsValid(new string[] { "http://testurl", "https://testurl2", "ftp://testurl3" }));
+            urlListAttribute.IsValid(null).Should().BeTrue();
+            urlListAttribute.IsValid(new string[] { "http://testurl", "https://testurl2", "ftp://testurl3" }).Should().BeTrue();
 
-            Assert.IsFalse(urlListAttribute.IsValid(new string?[] { null, "https://testurl2", "ftp://testurl3" }));
-            Assert.IsFalse(urlListAttribute.IsValid(new string[] { "invalid_url", "https://testurl2", "ftp://testurl3" }));
+            urlListAttribute.IsValid(new string?[] { null, "https://testurl2", "ftp://testurl3" }).Should().BeFalse();
+            urlListAttribute.IsValid(new string[] { "invalid_url", "https://testurl2", "ftp://testurl3" }).Should().BeFalse();
         }
     }
 }

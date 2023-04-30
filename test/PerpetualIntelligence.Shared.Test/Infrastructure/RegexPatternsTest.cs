@@ -5,27 +5,27 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
 using PerpetualIntelligence.Shared.Infrastructure;
 using PerpetualIntelligence.Test.Services;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Attributes.Validation
 {
-    [TestClass]
     public class RegexPatternsTest
     {
-        [TestMethod]
+        [Fact]
         public void RegexPatternsConstantTest()
         {
             TestHelper.AssertConstantCount(typeof(RegexPatterns), 4);
 
-            Assert.AreEqual("^[a-zA-Z]+$", RegexPatterns.Letters);
+            RegexPatterns.Letters.Should().Be("^[a-zA-Z]+$");
 
-            Assert.AreEqual("^([A-Za-z0-9-]_?)+$", RegexPatterns.LettersNumbersDashUnderscore);
+            RegexPatterns.LettersNumbersDashUnderscore.Should().Be("^([A-Za-z0-9-]_?)+$");
 
-            Assert.AreEqual("^([A-Za-z0-9-]_,?)+$", RegexPatterns.LettersNumbersDashUnderscoreComma);
+            RegexPatterns.LettersNumbersDashUnderscoreComma.Should().Be("^([A-Za-z0-9-]_,?)+$");
 
-            Assert.AreEqual("^([A-Za-z0-9][\\-\\h_]?)+$", RegexPatterns.LettersNumbersDashUnderscoreSpace);
+            RegexPatterns.LettersNumbersDashUnderscoreSpace.Should().Be("^([A-Za-z0-9][\\-\\h_]?)+$");
         }
     }
 }

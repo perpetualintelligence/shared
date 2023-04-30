@@ -5,47 +5,47 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Security
 {
-    [TestClass]
     public class HexSaltGeneratorTests
     {
-        [TestMethod]
+        [Fact]
         public void NewSaltIs32WithNoDashTest()
         {
             string salt = HexSaltGenerator.NewSalt();
 
-            Assert.IsNotNull(salt);
-            Assert.IsFalse(salt.Contains('-'));
+            salt.Should().NotBeNull();
+            salt.Contains('-').Should().BeFalse();
 
             // Salt is a Hex code. For 32 bits we have 64 chars Default is 32
-            Assert.AreEqual(64, salt.Length);
+            salt.Length.Should().Be(64);
         }
 
-        [TestMethod]
+        [Fact]
         public void NewSaltLenghtHasDashTest()
         {
             string salt = HexSaltGenerator.NewSalt(32, strip: false);
 
-            Assert.IsNotNull(salt);
-            Assert.IsTrue(salt.Contains('-'));
+            salt.Should().NotBeNull();
+            salt.Contains('-').Should().BeTrue();
 
             // Salt is a Hex code for 32 bits we have 64 chars plus dahses
-            Assert.AreEqual(95, salt.Length);
+            salt.Length.Should().Be(95);
         }
 
-        [TestMethod]
+        [Fact]
         public void NewSaltLengthDoesNotHaveDashTest()
         {
             string salt = HexSaltGenerator.NewSalt(64);
 
-            Assert.IsNotNull(salt);
-            Assert.IsFalse(salt.Contains('-'));
+            salt.Should().NotBeNull();
+            salt.Contains('-').Should().BeFalse();
 
             // Salt is a Hex code for 64 bits we have 124 chars
-            Assert.AreEqual(128, salt.Length);
+            salt.Length.Should().Be(128);
         }
     }
 }

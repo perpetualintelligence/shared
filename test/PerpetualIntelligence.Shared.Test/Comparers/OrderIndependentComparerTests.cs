@@ -5,203 +5,167 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
 using PerpetualIntelligence.Shared.Comparers;
 using PerpetualIntelligence.Test;
 using PerpetualIntelligence.Test.Services;
-using System.Collections.Generic;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Defaults.Oidc
 {
-    [TestClass]
     public class OrderIndependentComparerTests : InitializerTests
     {
         public OrderIndependentComparerTests() : base(TestLogger.Create<OrderIndependentComparerTests>())
         {
         }
 
-        [TestId("OxikBcRxgky7hcYFOmxcCA")]
+        [Fact]
         public void BothNullShouldEqual()
         {
             string? x = null;
             string? y = null;
             OrderIndependentComparer comparer = new();
-            Assert.IsTrue(comparer.Equals(x, y));
+            comparer.Equals(x, y).Should().BeTrue();
         }
 
-        [TestMethod]
-        [TestId("KLRJQfLD8UWEjELq1glgkA")]
+        [Fact]
         public void CodeCodeSameValuesShouldEqual()
         {
             string x = "code";
             string y = "code";
             OrderIndependentComparer comparer = new();
-            Assert.IsTrue(comparer.Equals(x, y));
+            comparer.Equals(x, y).Should().BeTrue();
         }
 
-        [TestMethod]
-        [TestId("NywwAtPtA0uihYMPQ4rnQ")]
+        [Fact]
         public void CodeIdTokenEitherWayShouldEqual()
         {
             string x = "code id_token";
             string y = "id_token code";
             OrderIndependentComparer comparer = new();
-            Assert.IsTrue(comparer.Equals(x, y));
+            comparer.Equals(x, y).Should().BeTrue();
         }
 
-        [TestMethod]
-        [TestId("qG7M6sjMl0SV23vlyMbTQQ")]
+        [Fact]
         public void CodeIdTokenTokenEitherWayShouldEqual()
         {
             string x = "code id_token token";
             string y = "token id_token code";
             OrderIndependentComparer comparer = new();
-            Assert.IsTrue(comparer.Equals(x, y));
+            comparer.Equals(x, y).Should().BeTrue();
         }
 
-        [TestMethod]
-        [TestId("YFgGm4pEadKTIEBINFUg")]
+        [Fact]
         public void CodeIdTokenTokenMixedWayShouldEqual()
         {
             string x = "code id_token token";
             string y = "id_token code token";
             OrderIndependentComparer comparer = new();
-            Assert.IsTrue(comparer.Equals(x, y));
+            comparer.Equals(x, y).Should().BeTrue();
         }
 
-        [TestMethod]
-        [TestId("YKdM0wlSoUCR7bcWdC3aQ")]
+        [Fact]
         public void CodeIdTokenTokenNoCodeShouldNotEqual()
         {
             string x = "code id_token token";
             string y = "id_token token";
             OrderIndependentComparer comparer = new();
-            Assert.IsFalse(comparer.Equals(x, y));
+            comparer.Equals(x, y).Should().BeFalse();
         }
 
-        [TestMethod]
-        [TestId("PyKZOZ2Z1keCWfxDUPjQvQ")]
+        [Fact]
         public void CodeIdTokenTokenNoCodeTokenShouldNotEqual()
         {
             string x = "code id_token token";
             string y = "id_token";
             OrderIndependentComparer comparer = new();
-            Assert.IsFalse(comparer.Equals(x, y));
+            comparer.Equals(x, y).Should().BeFalse();
         }
 
-        [TestMethod]
-        [TestId("tQlSz0HCI0OO4gYOjhq8Bg")]
+        [Fact]
         public void CodeIdTokenTokenSameLengthDifferentWordsShouldNotEqual()
         {
             string x = "code id_token token";
             string y = "code longwordtoken7";
             OrderIndependentComparer comparer = new();
-            Assert.IsFalse(comparer.Equals(x, y));
+            comparer.Equals(x, y).Should().BeFalse();
         }
 
-        [TestMethod]
-        [TestId("OJwm5xDc4UOqsEclYC2oA")]
+        [Fact]
         public void CodeTokenBothWaysShouldEqual()
         {
             string x = "code token";
             string y = "token code";
             OrderIndependentComparer comparer = new();
-            Assert.IsTrue(comparer.Equals(x, y));
+            comparer.Equals(x, y).Should().BeTrue();
         }
 
-        [TestMethod]
-        [TestId("2n4MAx5upkuyaVykb96fxQ")]
+        [Fact]
         public void DifferentWordsSameLengthTokenCodeShouldNotEqual()
         {
             string x = "seven four";
             string y = "token code";
             OrderIndependentComparer comparer = new();
-            Assert.IsFalse(comparer.Equals(x, y));
+            comparer.Equals(x, y).Should().BeFalse();
         }
 
-        [TestMethod]
-        [TestId("3gRzF68MU2rLXHXTryiFQ")]
+        [Fact]
         public void FirstNullOtherEmptyShouldNotEqual()
         {
             string? x = null;
             string y = string.Empty;
             OrderIndependentComparer comparer = new();
-            Assert.IsFalse(comparer.Equals(x, y));
+            comparer.Equals(x, y).Should().BeFalse();
         }
 
-        [TestMethod]
-        [TestId("A946911E-4D6A-47D9-9403-A47072001DD0")]
+        [Fact]
         public void GetHashValueShouldReturnCorrectly()
         {
             OrderIndependentComparer comparer = new();
-            Assert.AreEqual(0, comparer.GetHashCode(null));
+            comparer.GetHashCode(null).Should().Be(0);
 
-            Assert.AreEqual("test_value".GetHashCode(), comparer.GetHashCode("test_value"));
+            comparer.GetHashCode("test_value").Should().Be("test_value".GetHashCode());
 
             int hcode1 = comparer.GetHashCode("token code id_token");
             int hcode2 = comparer.GetHashCode("token code id_token");
 
-            Assert.AreNotEqual(hcode1, hcode2);
+            hcode2.Should().NotBe(hcode1);
         }
 
-        [TestMethod]
-        [TestId("vaIR5p58oEiR6C6ok9RWyg")]
+        [Fact]
         public void IdTokenCodeIdTokenCodeSameValuesShouldEqual()
         {
             string x = "id_token code";
             string y = "id_token code";
             OrderIndependentComparer comparer = new();
-            Assert.IsTrue(comparer.Equals(x, y));
+            comparer.Equals(x, y).Should().BeTrue();
         }
 
-        [TestMethod]
-        [TestId("eptB5qoxiUmQsm95ButfA")]
+        [Fact]
         public void IdTokenCodeTokenCodeDifferentValueShouldNotEqual()
         {
             string x = "id_token code";
             string y = "token code";
             OrderIndependentComparer comparer = new();
-            Assert.IsFalse(comparer.Equals(x, y));
+            comparer.Equals(x, y).Should().BeFalse();
         }
 
-        [TestMethod]
-        [TestId("m3MStwK8oUO3zMp1Zx57w")]
+        [Fact]
         public void IdTokenTokenBothWaysShouldEqual()
         {
             string x = "id_token token";
             string y = "token id_token";
             OrderIndependentComparer comparer = new();
-            Assert.IsTrue(comparer.Equals(x, y));
+            comparer.Equals(x, y).Should().BeTrue();
         }
 
-        [TestMethod]
-        [TestId("0F734824-0B65-46A6-BEBE-B4CF233FC56F")]
-        public void ListWithResponseTypesShouldReturnCorrectly()
-        {
-            List<string> responseTypes = new()
-            {
-                "code",
-                "code",
-                "id_token",
-                "token",
-                "code"
-            };
-            Assert.AreEqual(5, responseTypes.Count);
-
-            CollectionAssert.Contains(responseTypes, "code");
-            CollectionAssert.Contains(responseTypes, "id_token");
-            CollectionAssert.Contains(responseTypes, "token");
-            CollectionAssert.DoesNotContain(responseTypes, "test_custom");
-        }
-
-        [TestMethod]
-        [TestId("2Du3vXjyMEuARcfXXuzQ7Q")]
+        [Fact]
         public void SecondNullOtherEmptyShouldNotEqual()
         {
             string x = string.Empty;
             string? y = null;
             OrderIndependentComparer comparer = new();
-            Assert.IsFalse(comparer.Equals(x, y));
+            comparer.Equals(x, y).Should().BeFalse();
         }
     }
 }

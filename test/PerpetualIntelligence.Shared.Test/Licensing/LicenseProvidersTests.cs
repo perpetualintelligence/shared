@@ -5,31 +5,32 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
 using PerpetualIntelligence.Test.Services;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Licensing
 {
     public class LicenseProvidersTests
     {
-        [TestMethod]
+        [Fact]
         public void IsValidShouldReturnFalseForInvalidlicenseUsage()
         {
-            Assert.IsFalse(LicenseProviders.IsValid("invalid"));
+            LicenseProviders.IsValid("invalid").Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void IsValidShouldReturnTrueForValidUsage()
         {
-            Assert.IsTrue(LicenseProviders.IsValid(LicenseProviders.PerpetualIntelligence));
+            LicenseProviders.IsValid(LicenseProviders.PerpetualIntelligence).Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void LicenseProvidersConstTest()
         {
             TestHelper.AssertConstantCount(typeof(LicenseProviders), 1);
 
-            Assert.AreEqual("urn:oneimlx:lic:pvdr:pi", LicenseProviders.PerpetualIntelligence);
+            LicenseProviders.PerpetualIntelligence.Should().Be("urn:oneimlx:lic:pvdr:pi");
         }
     }
 }

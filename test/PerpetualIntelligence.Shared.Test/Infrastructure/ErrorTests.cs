@@ -5,30 +5,30 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
 using PerpetualIntelligence.Test.Services;
 using System;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
-    [TestClass]
     public class ErrorTests
     {
-        [TestMethod]
+        [Fact]
         public void DefaultErrorCodeShouldBeValid()
         {
             TestHelper.AssertConstantCount(typeof(Error), 7);
 
-            Assert.AreEqual("already_exist", Error.AlreadyExist);
-            Assert.AreEqual("invalid_configuration", Error.InvalidConfiguration);
-            Assert.AreEqual("invalid_request", Error.InvalidRequest);
-            Assert.AreEqual("not_found", Error.NotFound);
-            Assert.AreEqual("server_error", Error.ServerError);
-            Assert.AreEqual("unauthorized_access", Error.Unauthorized);
-            Assert.AreEqual("unexpected_error", Error.Unexpected);
+            Error.AlreadyExist.Should().Be("already_exist");
+            Error.InvalidConfiguration.Should().Be("invalid_configuration");
+            Error.InvalidRequest.Should().Be("invalid_request");
+            Error.NotFound.Should().Be("not_found");
+            Error.ServerError.Should().Be("server_error");
+            Error.Unauthorized.Should().Be("unauthorized_access");
+            Error.Unexpected.Should().Be("unexpected_error");
         }
 
-        [TestMethod]
+        [Fact]
         public void CtorNoErrorCodeShouldThrow()
         {
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
@@ -39,7 +39,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
         }
 
-        [TestMethod]
+        [Fact]
         public void CtorNoErrorDescriptionShouldThrow()
         {
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
@@ -50,18 +50,18 @@ namespace PerpetualIntelligence.Shared.Infrastructure
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
         }
 
-        [TestMethod]
+        [Fact]
         public void CtorShouldSetCorrectly()
         {
             Error error = new("error", "desc", null, "uri", "rid");
-            Assert.AreEqual("error", error.ErrorCode);
-            Assert.AreEqual("desc", error.ErrorDescription);
-            Assert.AreEqual("uri", error.ErrorUri);
-            Assert.AreEqual("rid", error.RequestId);
-            Assert.IsNull(error.Args);
+            error.ErrorCode.Should().Be("error");
+            error.ErrorDescription.Should().Be("desc"); ;
+            error.ErrorUri.Should().Be("uri");
+            error.RequestId.Should().Be("rid");
+            error.Args.Should().BeNull();
         }
 
-        [TestMethod]
+        [Fact]
         public void JsonPropertyNameShouldBeValid()
         {
             Type type = typeof(Error);
@@ -71,17 +71,17 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(Error.RequestId)), "request_id");
         }
 
-        [TestMethod]
+        [Fact]
         public void NewInstanceShouldError()
         {
             Error error = new();
-            Assert.AreEqual("unexpected_error", error.ErrorCode);
-            Assert.IsNull(error.ErrorDescription);
-            Assert.IsNull(error.ErrorUri);
-            Assert.IsNull(error.RequestId);
+            error.ErrorCode.Should().Be("unexpected_error");
+            error.ErrorDescription.Should().BeNull();
+            error.ErrorUri.Should().BeNull();
+            error.RequestId.Should().BeNull();
         }
 
-        [TestMethod]
+        [Fact]
         public void SetErrorNoErrorDescriptionShouldThrow()
         {
             var error = new Error();
@@ -93,7 +93,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             TestHelper.AssertThrowsWithMessage<ArgumentException>(() => error.SetError("test1", "   "), "'errorDescription' cannot be null or whitespace. (Parameter 'errorDescription')");
         }
 
-        [TestMethod]
+        [Fact]
         public void SetErrorNoErrorShouldThrow()
         {
             var error = new Error();
@@ -105,16 +105,16 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             TestHelper.AssertThrowsWithMessage<ArgumentException>(() => error.SetError("   ", "test1"), "'error' cannot be null or whitespace. (Parameter 'error')");
         }
 
-        [TestMethod]
+        [Fact]
         public void SetErrorShouldSetCorrectly()
         {
             Error error = new();
             error.SetError("error", "desc", new[] { "test1", "test2" }, "uri", "rid");
-            Assert.AreEqual("error", error.ErrorCode);
-            Assert.AreEqual("desc", error.ErrorDescription);
-            Assert.AreEqual("uri", error.ErrorUri);
-            Assert.AreEqual("rid", error.RequestId);
-            CollectionAssert.AreEqual(new[] { "test1", "test2" }, error.Args);
+            error.ErrorCode.Should().Be("error");
+            error.ErrorDescription.Should().Be("desc");
+            error.ErrorUri.Should().Be("uri");
+            error.RequestId.Should().Be("rid");
+            error.Args.Should().ContainInOrder(new[] { "test1", "test2" });
         }
     }
 }

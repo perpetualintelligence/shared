@@ -5,58 +5,58 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
 using PerpetualIntelligence.Test.Services;
 using System;
 using System.IO;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Services
 {
-    [TestClass]
     public class InfraHelperTests
     {
-        [TestMethod]
+        [Fact]
         public void GetParentTest()
         {
             // Support linux and windows
             string path = Path.Combine("home", "shared", "shared", "src", "bin", "debug");
             string expPath = Path.Combine("home", "shared", "shared", "src", "bin");
-            Assert.AreEqual(expPath, InfraHelper.GetParent(path));
+            InfraHelper.GetParent(path).Should().Be(expPath);
 
             string path2 = Path.Combine("home", "shared", "shared", "src", "bin", "debug", "file.txt");
             string expPath2 = Path.Combine("home", "shared", "shared", "src", "bin", "debug");
-            Assert.AreEqual(expPath2, InfraHelper.GetParent(path2));
+            InfraHelper.GetParent(path2).Should().Be(expPath2);
         }
 
-        [TestMethod]
+        [Fact]
         public void GetParentTestLevels()
         {
             // Support linux and windows
             string path = Path.Combine("home", "shared", "shared", "src", "bin", "debug");
             string expPath = Path.Combine("home", "shared", "shared");
-            Assert.AreEqual(expPath, InfraHelper.GetParent(path, 3));
+            InfraHelper.GetParent(path, 3).Should().Be(expPath);
 
             string path2 = Path.Combine("home", "shared", "shared", "src", "bin", "debug", "file.txt");
             string expPath2 = Path.Combine("home", "shared", "shared", "src");
-            Assert.AreEqual(expPath2, InfraHelper.GetParent(path2, 3));
+            InfraHelper.GetParent(path2, 3).Should().Be(expPath2);
         }
 
-        [TestMethod]
+        [Fact]
         public void MinPositiveOrZeroTest()
         {
-            Assert.AreEqual(0, InfraHelper.MinPositiveOrZero(-1, -1));
-            Assert.AreEqual(0, InfraHelper.MinPositiveOrZero(-1, 0));
-            Assert.AreEqual(0, InfraHelper.MinPositiveOrZero(0, -1));
-            Assert.AreEqual(2, InfraHelper.MinPositiveOrZero(-1, 2));
-            Assert.AreEqual(3, InfraHelper.MinPositiveOrZero(3, -1));
-            Assert.AreEqual(5, InfraHelper.MinPositiveOrZero(-2, 5));
-            Assert.AreEqual(0, InfraHelper.MinPositiveOrZero(0, 0));
-            Assert.AreEqual(3, InfraHelper.MinPositiveOrZero(3, 5));
-            Assert.AreEqual(0, InfraHelper.MinPositiveOrZero(0, 2));
-            Assert.AreEqual(0, InfraHelper.MinPositiveOrZero(3, 0));
+            InfraHelper.MinPositiveOrZero(-1, -1).Should().Be(0);
+            InfraHelper.MinPositiveOrZero(-1, 0).Should().Be(0);
+            InfraHelper.MinPositiveOrZero(0, -1).Should().Be(0);
+            InfraHelper.MinPositiveOrZero(-1, 2).Should().Be(2);
+            InfraHelper.MinPositiveOrZero(3, -1).Should().Be(3);
+            InfraHelper.MinPositiveOrZero(-2, 5).Should().Be(5);
+            InfraHelper.MinPositiveOrZero(0, 0).Should().Be(0);
+            InfraHelper.MinPositiveOrZero(3, 5).Should().Be(3);
+            InfraHelper.MinPositiveOrZero(0, 2).Should().Be(0);
+            InfraHelper.MinPositiveOrZero(3, 0).Should().Be(0);
         }
 
-        [TestMethod]
+        [Fact]
         public void NullOrEmptyParentShouldThrowException()
         {
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
@@ -65,7 +65,7 @@ namespace PerpetualIntelligence.Shared.Services
             TestHelper.AssertThrowsWithMessage<ArgumentException>(() => InfraHelper.GetParent("  "), "Invalid path. (Parameter 'path')");
         }
 
-        [TestMethod]
+        [Fact]
         public void NullOrEmptyParentWithLevelsShouldThrowException()
         {
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.

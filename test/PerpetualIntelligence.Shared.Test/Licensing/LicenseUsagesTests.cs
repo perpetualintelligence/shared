@@ -5,41 +5,40 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
 using PerpetualIntelligence.Test.Services;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Licensing
 {
-    [TestClass]
     public class LicenseUsagesTests
     {
-        [TestMethod]
+        [Fact]
         public void IsValidShouldReturnFalseForInvalidlicenseUsage()
         {
-            Assert.IsFalse(LicenseUsages.IsValid("invalid"));
+            LicenseUsages.IsValid("invalid").Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void IsValidShouldReturnTrueForValidUsage()
         {
-            Assert.IsTrue(LicenseUsages.IsValid(LicenseUsages.CommercialBusiness));
-            Assert.IsTrue(LicenseUsages.IsValid(LicenseUsages.CommercialPersonal));
-            Assert.IsTrue(LicenseUsages.IsValid(LicenseUsages.Educational));
-            Assert.IsTrue(LicenseUsages.IsValid(LicenseUsages.RnD));
-            Assert.IsTrue(LicenseUsages.IsValid(LicenseUsages.None));
+            LicenseUsages.IsValid(LicenseUsages.CommercialBusiness).Should().BeTrue();
+            LicenseUsages.IsValid(LicenseUsages.CommercialPersonal).Should().BeTrue();
+            LicenseUsages.IsValid(LicenseUsages.Educational).Should().BeTrue();
+            LicenseUsages.IsValid(LicenseUsages.RnD).Should().BeTrue();
+            LicenseUsages.IsValid(LicenseUsages.None).Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void LicenseUsagesConstTest()
         {
             TestHelper.AssertConstantCount(typeof(LicenseUsages), 5);
 
-            Assert.AreEqual("urn:oneimlx:lic:usage:org", LicenseUsages.CommercialBusiness);
-            Assert.AreEqual("urn:oneimlx:lic:usage:per", LicenseUsages.CommercialPersonal);
-            Assert.AreEqual("urn:oneimlx:lic:usage:edu", LicenseUsages.Educational);
-            Assert.AreEqual("urn:oneimlx:lic:usage:rnd", LicenseUsages.RnD);
-
-            Assert.AreEqual("urn:oneimlx:lic:usage:none", LicenseUsages.None);
+            LicenseUsages.CommercialBusiness.Should().Be("urn:oneimlx:lic:usage:org");
+            LicenseUsages.CommercialPersonal.Should().Be("urn:oneimlx:lic:usage:per");
+            LicenseUsages.Educational.Should().Be("urn:oneimlx:lic:usage:edu");
+            LicenseUsages.RnD.Should().Be("urn:oneimlx:lic:usage:rnd");
+            LicenseUsages.None.Should().Be("urn:oneimlx:lic:usage:none");
         }
     }
 }

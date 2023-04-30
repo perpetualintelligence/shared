@@ -5,72 +5,74 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
 using PerpetualIntelligence.Shared.Exceptions;
+using System;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
-    [TestClass]
     public class ModesTests
     {
-        [TestMethod]
+        [Fact]
         public void All()
         {
             string[] all = Modes.All();
-            Assert.AreEqual(4, all.Length);
+            all.Length.Should().Be(4);
 
-            Assert.AreEqual(Modes.Neutral, all[0]);
-            Assert.AreEqual(Modes.Test, all[1]);
-            Assert.AreEqual(Modes.Stage, all[2]);
-            Assert.AreEqual(Modes.Live, all[3]);
+            all[0].Should().Be(Modes.Neutral);
+            all[1].Should().Be(Modes.Test);
+            all[2].Should().Be(Modes.Stage);
+            all[3].Should().Be(Modes.Live);
         }
 
-        [TestMethod]
+        [Fact]
         public void IsTestOrLiveTest()
         {
-            Assert.IsTrue(Modes.IsTestOrLive(Modes.Live));
-            Assert.IsTrue(Modes.IsTestOrLive(Modes.Test));
+            Modes.IsTestOrLive(Modes.Live).Should().BeTrue();
+            Modes.IsTestOrLive(Modes.Test).Should().BeTrue();
 
-            Assert.IsFalse(Modes.IsTestOrLive(""));
+            Modes.IsTestOrLive("").Should().BeFalse();
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            Assert.IsFalse(Modes.IsTestOrLive(null));
+            Modes.IsTestOrLive(null).Should().BeFalse();
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 
-            Assert.IsFalse(Modes.IsTestOrLive("any"));
+            Modes.IsTestOrLive("any").Should().BeFalse();
 
-            Assert.IsFalse(Modes.IsTestOrLive(Modes.Neutral));
-            Assert.IsFalse(Modes.IsTestOrLive(Modes.Stage));
+            Modes.IsTestOrLive(Modes.Neutral).Should().BeFalse();
+            Modes.IsTestOrLive(Modes.Stage).Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void IsValidTest()
         {
-            Assert.IsTrue(Modes.IsValid(Modes.Live));
-            Assert.IsTrue(Modes.IsValid(Modes.Test));
-            Assert.IsTrue(Modes.IsValid(Modes.Neutral));
-            Assert.IsTrue(Modes.IsValid(Modes.Stage));
+            Modes.IsValid(Modes.Live).Should().BeTrue();
+            Modes.IsValid(Modes.Test).Should().BeTrue();
+            Modes.IsValid(Modes.Neutral).Should().BeTrue();
+            Modes.IsValid(Modes.Stage).Should().BeTrue();
 
-            Assert.IsFalse(Modes.IsValid(""));
+            Modes.IsValid("").Should().BeFalse();
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            Assert.IsFalse(Modes.IsValid(null));
+            Modes.IsValid(null).Should().BeFalse();
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 
-            Assert.IsFalse(Modes.IsValid("any"));
+            Modes.IsValid("any").Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void ModesTest()
         {
-            Assert.AreEqual("urn:oneimlx:mode:live", Modes.Live);
-            Assert.AreEqual("urn:oneimlx:mode:test", Modes.Test);
-            Assert.AreEqual("urn:oneimlx:mode:neutral", Modes.Neutral);
-            Assert.AreEqual("urn:oneimlx:mode:stage", Modes.Stage);
+            Modes.Live.Should().Be("urn:oneimlx:mode:live");
+            Modes.Test.Should().Be("urn:oneimlx:mode:test");
+            Modes.Neutral.Should().Be("urn:oneimlx:mode:neutral");
+            Modes.Stage.Should().Be("urn:oneimlx:mode:stage");
         }
 
-        [TestMethod]
+        [Fact]
         public void ThrowIdInvalid()
         {
-            Assert.ThrowsException<ErrorException>(() => Modes.ThrowIfInvalid("random"));
+            Action act = () => Modes.ThrowIfInvalid("random");
+            act.Should().Throw<ErrorException>().WithMessage("Mode 'random' is not valid.");
         }
     }
 }

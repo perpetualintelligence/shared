@@ -5,55 +5,55 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
 using System.Collections.Generic;
+using Xunit;
 
 namespace PerpetualIntelligence.Shared.Extensions
 {
-    [TestClass]
     public class EnumerableExtensionsTests
     {
-        [TestMethod]
+        [Fact]
         public void NonEmptyListButNullValueAndEmptyValueShouldNotReturnEmpty()
         {
             IEnumerable<string?>? list = new string?[] { "", null };
-            Assert.IsFalse(list.IsNullOrEmpty());
+            list.IsNullOrEmpty().Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void NonEmptyListButNullValueAndNonEmptyValueShouldNotReturnEmpty()
         {
             IEnumerable<string?>? list = new string?[] { "test1", null };
-            Assert.IsFalse(list.IsNullOrEmpty());
+            list.IsNullOrEmpty().Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void NonEmptyListButNullValueShouldNotReturnEmpty()
         {
             // Contains 1 element but that is null
             IEnumerable<string?>? list = new string?[] { null };
-            Assert.IsFalse(list.IsNullOrEmpty());
+            list.IsNullOrEmpty().Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void NonEmptyListShouldNotReturnEmpty()
         {
             IEnumerable<string>? list = new[] { "test1", "test2" };
-            Assert.IsFalse(list.IsNullOrEmpty());
+            list.IsNullOrEmpty().Should().BeFalse();
         }
 
-        [TestMethod]
+        [Fact]
         public void NonNullListShouldReturnEmpty()
         {
             IEnumerable<string>? list = System.Array.Empty<string>();
-            Assert.IsTrue(list.IsNullOrEmpty());
+            list.IsNullOrEmpty().Should().BeTrue();
         }
 
-        [TestMethod]
+        [Fact]
         public void NullListShouldReturnEmpty()
         {
             IEnumerable<string>? list = null;
-            Assert.IsTrue(list.IsNullOrEmpty());
+            list.IsNullOrEmpty().Should().BeTrue();
         }
     }
 }
