@@ -97,18 +97,6 @@ namespace PerpetualIntelligence.Shared.Authorization
         public Task<string> GetPublisherTenantIdAsync();
 
         /// <summary>
-        /// Gets the resolved subscription id.
-        /// </summary>
-        /// <returns></returns>
-        public Task<string> GetResolvedSubscriptionIdAsync();
-
-        /// <summary>
-        /// Gets the resolved subscription status.
-        /// </summary>
-        /// <returns></returns>
-        public Task<string> GetResolvedSubscriptionStatusAsync();
-
-        /// <summary>
         /// Initializes the <see cref="IAppStateContainer"/> service from the <see cref="ClaimsPrincipal"/>.
         /// </summary>
         /// <param name="claimsPrincipal">The claims principal.</param>

@@ -22,8 +22,6 @@ namespace PerpetualIntelligence.Shared.Authorization
             ClaimTypes.PublisherTenantId.Should().Be("extension_CustomPublisherTenantId");
             ClaimTypes.Marketplace.Should().Be("extension_CustomMarketplace");
             ClaimTypes.ForceResolve.Should().Be("extension_CustomForceResolve");
-            ClaimTypes.ResolvedSubscriptionId.Should().Be("internal_CustomResolvedSubscriptionId");
-            ClaimTypes.ResolvedSubscriptionStatus.Should().Be("internal_CustomResolvedSubscriptionStatus");
         }
     }
 }
