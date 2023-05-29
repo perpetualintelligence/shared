@@ -15,12 +15,12 @@ namespace PerpetualIntelligence.Shared
         /// <summary>
         /// The Perpetual Intelligence L.L.C. <c>pi-cli</c> framework.
         /// </summary>
-        public const string Cli = "pi-cli";
+        public const string Terminal = "pi-cli";
 
         /// <summary>
         /// The Perpetual Intelligence L.L.C. <c>pi-cli</c> framework urn.
         /// </summary>
-        public const string CliUrn = "urn:oneimlx:cli";
+        public const string TerminalUrn = "urn:oneimlx:cli";
 
         /// <summary>
         /// The registered <c>issuer</c> claim for all Perpetual Intelligence L.L.C. managed services, cross-platform
@@ -31,12 +31,12 @@ namespace PerpetualIntelligence.Shared
         /// <summary>
         /// The Perpetual Intelligence L.L.C. <c>pi-lic</c> licensing managed service.
         /// </summary>
-        public const string Lic = "pi-lic";
+        public const string Licensing = "pi-lic";
 
         /// <summary>
         /// The Perpetual Intelligence L.L.C. <c>pi-lic</c> licensing managed service urn.
         /// </summary>
-        public const string LicUrn = "urn:oneimlx:lic";
+        public const string LicensingUrn = "urn:oneimlx:lic";
 
         /// <summary>
         /// The Perpetual Intelligence L.L.C. <c>oneimlx</c> protocol.

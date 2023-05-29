@@ -2,7 +2,7 @@
     Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
-    https://terms.perpetualintelligence.com
+    https://terms.perpetualintelligence.com/articles/intro.html
 */
 
 using FluentAssertions;
@@ -18,11 +18,11 @@ namespace PerpetualIntelligence.Shared
         {
             TestHelper.AssertConstantCount(typeof(Constants), 7);
 
-            Constants.Cli.Should().Be("pi-cli");
-            Constants.CliUrn.Should().Be("urn:oneimlx:cli");
+            Constants.Terminal.Should().Be("pi-cli");
+            Constants.TerminalUrn.Should().Be("urn:oneimlx:picli");
 
-            Constants.Lic.Should().Be("pi-lic");
-            Constants.LicUrn.Should().Be("urn:oneimlx:lic");
+            Constants.Licensing.Should().Be("pi-lic");
+            Constants.LicensingUrn.Should().Be("urn:oneimlx:pilic");
 
             Constants.OneImlx.Should().Be("oneimlx");
             Constants.OneImlxUrn.Should().Be("urn:oneimlx");

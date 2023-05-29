@@ -12,10 +12,9 @@ namespace PerpetualIntelligence.Shared.Authorization
     /// </summary>
     public static class AuthEndpoints
     {
-        // <summary>
+        /// <summary>
         /// Returns the <c>Perpetual Intelligence B2C</c> based issuer.
         /// </summary>
-        /// <param name="tenantName">The B2C tenant name.</param>
         /// <param name="tenantId">The B2C tenant id.</param>
         public static string PiB2CIssuer(string tenantId)
         {
