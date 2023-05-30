@@ -89,6 +89,19 @@ namespace PerpetualIntelligence.Shared.Extensions
         }
 
         [Fact]
+        public void JoinCommaTest()
+        {
+            StringExtensions.JoinByComma(new string[] { "test1", "test2", "test3", "test4" }).Should().Be($"test1,test2,test3,test4");
+        }
+
+        [Fact]
+        public void SplitCommaTest()
+        {
+            string[] parts = { "test1", "test2", "test3" };
+            parts.Should().ContainInOrder($"test1,test2,test3".SplitByComma());
+        }
+
+        [Fact]
         public void StringRepeatShouldRepeadCorrectly()
         {
             "x".Repeat(10).Should().Be("xxxxxxxxxx");
