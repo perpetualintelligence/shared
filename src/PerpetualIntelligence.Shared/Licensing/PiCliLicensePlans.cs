@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com
@@ -10,13 +10,13 @@ namespace PerpetualIntelligence.Shared.Licensing
     /// <summary>
     /// The standard license pricing plans.
     /// </summary>
-    public sealed class LicensePlans
+    public sealed class PiCliLicensePlans
     {
         /// <summary>
         /// Determines if the plan is valid for <c>pi-cli</c>.
         /// </summary>
         /// <returns><c>true</c> if the plan is valid; otherwise, <c>false</c>.</returns>
-        public static bool IsValidPiCliPlan(string plan)
+        public static bool IsValidPlan(string plan)
         {
             switch (plan)
             {
