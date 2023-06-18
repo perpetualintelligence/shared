@@ -16,16 +16,10 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [Fact]
         public void CustomDataTypesConstantTest()
         {
-            TestHelper.AssertConstantCount(typeof(CustomDataTypes), 13);
+            TestHelper.AssertConstantCount(typeof(CustomDataTypes), 7);
 
-            CustomDataTypes.Bool.Should().Be("urn:oneimlx:cdt:bool");
-            CustomDataTypes.Double.Should().Be("urn:oneimlx:cdt:double");
             CustomDataTypes.Enumeration.Should().Be("urn:oneimlx:cdt:enum");
-            CustomDataTypes.Float.Should().Be("urn:oneimlx:cdt:float");
-            CustomDataTypes.Int.Should().Be("urn:oneimlx:cdt:int");
-            CustomDataTypes.Long.Should().Be("urn:oneimlx:cdt:long");
             CustomDataTypes.MultiSelect.Should().Be("urn:oneimlx:cdt:mselect");
-            CustomDataTypes.Short.Should().Be("urn:oneimlx:cdt:short");
             CustomDataTypes.SingleSelect.Should().Be("urn:oneimlx:cdt:sselect");
             CustomDataTypes.StringDictionary.Should().Be("urn:oneimlx:cdt:sdict");
             CustomDataTypes.StringList.Should().Be("urn:oneimlx:cdt:slist");

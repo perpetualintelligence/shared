@@ -10,49 +10,19 @@ using System;
 namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
-    /// The custom data types to support <see cref="System.ComponentModel.DataAnnotations.DataType.Custom"/>.
+    /// The custom data types.
     /// </summary>
     public sealed class CustomDataTypes
     {
-        /// <summary>
-        /// The <see cref="bool"/> custom data type.
-        /// </summary>
-        public const string Bool = "urn:oneimlx:cdt:bool";
-
-        /// <summary>
-        /// The <see cref="double"/> custom data type.
-        /// </summary>
-        public const string Double = "urn:oneimlx:cdt:double";
-
         /// <summary>
         /// The <see cref="Enum"/> custom data type.
         /// </summary>
         public const string Enumeration = "urn:oneimlx:cdt:enum";
 
         /// <summary>
-        /// The <see cref="float"/> custom data type.
-        /// </summary>
-        public const string Float = "urn:oneimlx:cdt:float";
-
-        /// <summary>
-        /// The <see cref="int"/> custom data type.
-        /// </summary>
-        public const string Int = "urn:oneimlx:cdt:int";
-
-        /// <summary>
-        /// The <see cref="long"/> custom data type.
-        /// </summary>
-        public const string Long = "urn:oneimlx:cdt:long";
-
-        /// <summary>
         /// The multi-selection custom data type.
         /// </summary>
         public const string MultiSelect = "urn:oneimlx:cdt:mselect";
-
-        /// <summary>
-        /// The <see cref="short"/> custom data type.
-        /// </summary>
-        public const string Short = "urn:oneimlx:cdt:short";
 
         /// <summary>
         /// The single-selection custom data type.
