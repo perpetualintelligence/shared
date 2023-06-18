@@ -5,7 +5,6 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using PerpetualIntelligence.Shared.Abstractions.Concurrency;
 using System;
 using System.Threading;
 using System.Threading.Tasks;

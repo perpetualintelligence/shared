@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Shared.Attributes;
-using PerpetualIntelligence.Shared.Attributes.Api;
 using PerpetualIntelligence.Shared.Exceptions;
 using PerpetualIntelligence.Shared.Extensions;
 using PerpetualIntelligence.Shared.Infrastructure;
@@ -999,38 +998,6 @@ namespace PerpetualIntelligence.Test.Services
                 {
                     Assert.AreEqual(maxLength, stringLengthAttribute.MaximumLength, $"Member '{member.DeclaringType.FullName}.{member.Name}' has attribute '{typeof(StringLengthAttribute).Name}' but its max length is invalid.");
                     Assert.AreEqual(minLength, stringLengthAttribute.MinimumLength, $"Member '{member.DeclaringType.FullName}.{member.Name}' has attribute '{typeof(StringLengthAttribute).Name}' but its min length is invalid.");
-                }
-            }
-        }
-
-        /// <summary>
-        /// Asserts <see cref="HiddenPropertyAttribute"/> is applied on the specified member.
-        /// </summary>
-        /// <returns></returns>
-        public static void AssertSwaggerHideProperty(MemberInfo? member, string? propertyName, string? justification, bool inherit = false)
-        {
-            if (member is null)
-            {
-                throw new ArgumentNullException(nameof(member));
-            }
-
-            HiddenPropertyAttribute? swaggerHidePropertyAttribute = member.GetCustomAttribute<HiddenPropertyAttribute>(inherit);
-            if (swaggerHidePropertyAttribute == null)
-            {
-                Assert.Fail($"Member '{member.Name}' does not define '{typeof(HiddenPropertyAttribute).Name}' attribute.");
-            }
-            else
-            {
-                if (member.DeclaringType == null)
-                {
-                    Type classType = (Type)member;
-                    Assert.AreEqual(propertyName, swaggerHidePropertyAttribute.Property, $"Class '{classType.Namespace}.{member.Name}' has attribute '{typeof(HiddenPropertyAttribute).Name}' but its property name is invalid.");
-                    Assert.AreEqual(justification, swaggerHidePropertyAttribute.Justification, $"Class '{classType.Namespace}.{member.Name}' has attribute '{typeof(HiddenPropertyAttribute).Name}' but its justification is invalid.");
-                }
-                else
-                {
-                    Assert.AreEqual(propertyName, swaggerHidePropertyAttribute.Property, $"Member '{member.DeclaringType.FullName}.{member.Name}' has attribute '{typeof(ApiExplorerSettingsAttribute).Name}' but its property name is invalid.");
-                    Assert.AreEqual(justification, swaggerHidePropertyAttribute.Justification, $"Member '{member.DeclaringType.FullName}.{member.Name}' has attribute '{typeof(ApiExplorerSettingsAttribute).Name}' but its justification is invalid.");
                 }
             }
         }

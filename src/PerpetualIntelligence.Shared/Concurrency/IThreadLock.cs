@@ -7,7 +7,7 @@
 
 using System.Threading.Tasks;
 
-namespace PerpetualIntelligence.Shared.Abstractions.Concurrency
+namespace PerpetualIntelligence.Shared.Concurrency
 {
     /// <summary>
     /// An abstraction to lock or release the concurrent thread execution.
