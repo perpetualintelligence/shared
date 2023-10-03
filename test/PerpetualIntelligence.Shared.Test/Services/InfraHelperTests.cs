@@ -1,12 +1,11 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
 using FluentAssertions;
-using PerpetualIntelligence.Test.Services;
 using System;
 using System.IO;
 using Xunit;
@@ -60,18 +59,24 @@ namespace PerpetualIntelligence.Shared.Services
         public void NullOrEmptyParentShouldThrowException()
         {
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => InfraHelper.GetParent(null), "Invalid path. (Parameter 'path')");
+            Action act = () => InfraHelper.GetParent(null);
+            act.Should().Throw<ArgumentException>().WithMessage("Invalid path. (Parameter 'path')");
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => InfraHelper.GetParent("  "), "Invalid path. (Parameter 'path')");
+
+            Action act2 = () => InfraHelper.GetParent("  ");
+            act2.Should().Throw<ArgumentException>().WithMessage("Invalid path. (Parameter 'path')");
         }
 
         [Fact]
         public void NullOrEmptyParentWithLevelsShouldThrowException()
         {
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => InfraHelper.GetParent(null, 2), "Invalid path. (Parameter 'path')");
+            Action act = () => InfraHelper.GetParent(null, 2);
+            act.Should().Throw<ArgumentException>().WithMessage("Invalid path. (Parameter 'path')");
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => InfraHelper.GetParent("  ", 2), "Invalid path. (Parameter 'path')");
+
+            Action act2 = () => InfraHelper.GetParent("  ", 2);
+            act2.Should().Throw<ArgumentException>().WithMessage("Invalid path. (Parameter 'path')");
         }
     }
 }

@@ -1,11 +1,11 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using PerpetualIntelligence.Test.Services;
+using FluentAssertions;
 using System;
 using Xunit;
 
@@ -18,7 +18,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         {
 #pragma warning disable CA1806 // Do not ignore method results
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            TestHelper.AssertThrowsWithMessage<ArgumentNullException>(() => new TryResultOrError<object>(error: null), "Value cannot be null. (Parameter 'error')");
+            Action act = () => new TryResultOrError<object>(error: null);
+            act.Should().Throw<ArgumentNullException>().WithMessage("Value cannot be null. (Parameter 'error')");
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 #pragma warning restore CA1806 // Do not ignore method results
         }
@@ -28,7 +29,8 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         {
 #pragma warning disable CA1806 // Do not ignore method results
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            TestHelper.AssertThrowsWithMessage<ArgumentNullException>(() => new TryResultOrError<object>(result: null), "Value cannot be null. (Parameter 'result')");
+            Action act = () => new TryResultOrError<object>(result: null);
+            act.Should().Throw<ArgumentNullException>().WithMessage("Value cannot be null. (Parameter 'result')");
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 #pragma warning restore CA1806 // Do not ignore method results
         }

@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
@@ -37,7 +37,7 @@ namespace PerpetualIntelligence.Shared.Exceptions
         /// Initialize a new instance with the specified errors and an exception message.
         /// </summary>
         /// <param name="errors">The errors.</param>
-        /// <param name="message">The exception message.</param>
+        /// <param name="message">The consolidated exception message.</param>
         public MultiErrorException(Error[] errors, string message) : base(message)
         {
             Errors = errors ?? throw new ArgumentNullException(nameof(errors));

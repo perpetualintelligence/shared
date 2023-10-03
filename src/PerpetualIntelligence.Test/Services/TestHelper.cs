@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
@@ -1011,7 +1011,7 @@ namespace PerpetualIntelligence.Test.Services
         /// <returns>
         /// <see cref="TryResultOrError{T}"/> instance that contains the result or an <see cref="Error"/> instance.
         /// </returns>
-        public static void AssertThrowsErrorException(Action action, string errorCode, string errorDescription)
+        public static void AssertThrowsErrorException<TException>(Action action, string errorCode, string errorDescription) where TException : ErrorException
         {
             try
             {
@@ -1030,10 +1030,10 @@ namespace PerpetualIntelligence.Test.Services
             }
             catch (Exception ex)
             {
-                Assert.Fail($"The action did not throw '{nameof(ErrorException)}', instead it threw '{ex.GetType().Name}'.");
+                Assert.Fail($"The action did not throw '{typeof(TException).Name}', instead it threw '{ex.GetType().Name}'.");
             }
 
-            Assert.Fail($"The action did not throw '{nameof(ErrorException)}' with error '{errorCode}' and error description '{errorDescription}'.");
+            Assert.Fail($"The action did not throw '{typeof(TException).Name}' with error '{errorCode}' and error description '{errorDescription}'.");
         }
 
         /// <summary>
@@ -1045,7 +1045,7 @@ namespace PerpetualIntelligence.Test.Services
         /// <returns>
         /// <see cref="TryResultOrError{T}"/> instance that contains the result or an <see cref="Error"/> instance.
         /// </returns>
-        public static async Task AssertThrowsErrorExceptionAsync(Func<Task> funcTask, string errorCode, string errorDescription)
+        public static async Task AssertThrowsErrorExceptionAsync<TException>(Func<Task> funcTask, string errorCode, string errorDescription) where TException : ErrorException
         {
             try
             {
@@ -1065,10 +1065,10 @@ namespace PerpetualIntelligence.Test.Services
             }
             catch (Exception ex)
             {
-                Assert.Fail($"The action did not throw '{nameof(ErrorException)}', instead it threw '{ex.GetType().Name}'.");
+                Assert.Fail($"The action did not throw '{typeof(TException).Name}', instead it threw '{ex.GetType().Name}'.");
             }
 
-            Assert.Fail($"The action did not throw '{nameof(ErrorException)}' with error '{errorCode}' and error description '{errorDescription}'.");
+            Assert.Fail($"The action did not throw '{typeof(TException).Name}' with error '{errorCode}' and error description '{errorDescription}'.");
         }
 
         /// <summary>
@@ -1078,7 +1078,7 @@ namespace PerpetualIntelligence.Test.Services
         /// <param name="errorCount">The expected error count.</param>
         /// <param name="errorCodes">The expected error codes.</param>
         /// <param name="errorDescriptions">The expected error descriptions.</param>
-        public static async Task AssertThrowsMultiErrorExceptionAsync(Func<Task> funcTask, int errorCount, string[] errorCodes, string[] errorDescriptions)
+        public static async Task AssertThrowsMultiErrorExceptionAsync<TMException>(Func<Task> funcTask, int errorCount, string[] errorCodes, string[] errorDescriptions) where TMException : MultiErrorException
         {
             try
             {
@@ -1105,80 +1105,10 @@ namespace PerpetualIntelligence.Test.Services
             }
             catch (Exception ex)
             {
-                Assert.Fail($"The task did not throw '{nameof(MultiErrorException)}', instead it threw '{ex.GetType().Name}'.");
+                Assert.Fail($"The action did not throw '{typeof(TMException).Name}', instead it threw '{ex.GetType().Name}'.");
             }
 
-            Assert.Fail($"The task did not throw '{nameof(MultiErrorException)}' with errors '{errorCodes.JoinBySpace()}' and error descriptions '{errorDescriptions.JoinBySpace()}'.");
-        }
-
-        /// <summary>
-        /// Throws exception if caught with message.
-        /// </summary>
-        /// <typeparam name="TException"></typeparam>
-        /// <param name="action"></param>
-        /// <param name="message"></param>
-        public static void AssertThrowsWithMessage<TException>(Action action, string message) where TException : Exception
-        {
-            try
-            {
-                action.Invoke();
-            }
-            catch (Exception ex)
-            {
-                if (ex is TException)
-                {
-                    if (!ex.Message.Equals(message))
-                    {
-                        Assert.Fail($"Expected Message={message} Actual Message={ex.Message}");
-                    }
-                    else
-                    {
-                        // Good to go, expected exception with message thrown.
-                        return;
-                    }
-                }
-                else
-                {
-                    Assert.Fail($"Expected Exception={typeof(TException).Name} Actual Exception={ex.GetType().Name}");
-                }
-            }
-
-            Assert.Fail($"Expected exception '{typeof(TException).Name}', but not exception was thrown.");
-        }
-
-        /// <summary>
-        /// Throws async with message.
-        /// </summary>
-        /// <typeparam name="TException"></typeparam>
-        /// <param name="action"></param>
-        /// <param name="message"></param>
-        public static async Task AssertThrowsWithMessageAsync<TException>(Func<Task> action, string message) where TException : Exception
-        {
-            try
-            {
-                await action.Invoke();
-            }
-            catch (Exception ex)
-            {
-                if (ex is TException)
-                {
-                    if (!ex.Message.Equals(message))
-                    {
-                        Assert.Fail($"Expected Message={message} Actual Message={ex.Message}");
-                    }
-                    else
-                    {
-                        // Good to go, expected exception with message thrown.
-                        return;
-                    }
-                }
-                else
-                {
-                    Assert.Fail($"Expected Exception={typeof(TException).Name} Actual Exception={ex.GetType().Name}");
-                }
-            }
-
-            Assert.Fail($"Expected exception '{typeof(TException).Name}', but not exception was thrown.");
+            Assert.Fail($"The action did not throw '{typeof(TMException).Name}' with error '{errorCodes.JoinByComma()}' and error description '{errorDescriptions.JoinByComma()}'.");
         }
 
         /// <summary>

@@ -19,8 +19,11 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         {
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
 #pragma warning disable CA1806 // Do not ignore method results
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => new Error(null, "test"), "'error' cannot be null or whitespace. (Parameter 'error')");
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => new Error("   ", "test"), "'error' cannot be null or whitespace. (Parameter 'error')");
+            Action act1 = () => new Error(null, "test");
+            act1.Should().Throw<ArgumentException>().WithMessage("'errorCode' cannot be null or whitespace. (Parameter 'errorCode')");
+
+            Action act2 = () => new Error("   ", "test");
+            act2.Should().Throw<ArgumentException>().WithMessage("'errorCode' cannot be null or whitespace. (Parameter 'errorCode')");
 #pragma warning restore CA1806 // Do not ignore method results
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
         }
@@ -30,8 +33,11 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         {
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
 #pragma warning disable CA1806 // Do not ignore method results
-            //TestHelper.AssertThrowsWithMessage<ArgumentException>(() => new Error("test", null), "'errorDescription' cannot be null or whitespace. (Parameter 'errorDescription')");
-            //TestHelper.AssertThrowsWithMessage<ArgumentException>(() => new Error("test", "   "), "'errorDescription' cannot be null or whitespace. (Parameter 'errorDescription')");
+            Action act1 = () => new Error("test", null);
+            act1.Should().Throw<ArgumentException>().WithMessage("'errorDescription' cannot be null or whitespace. (Parameter 'errorDescription')");
+
+            Action act2 = () => new Error("test", "   ");
+            act2.Should().Throw<ArgumentException>().WithMessage("'errorDescription' cannot be null or whitespace. (Parameter 'errorDescription')");
 #pragma warning restore CA1806 // Do not ignore method results
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
         }
@@ -51,7 +57,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         public void JsonPropertyNameShouldBeValid()
         {
             Type type = typeof(Error);
-            TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(Error.ErrorCode)), "error");
+            TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(Error.ErrorCode)), "error_code");
             TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(Error.ErrorDescription)), "error_description");
             TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(Error.ErrorUri)), "error_uri");
             TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(Error.RequestId)), "request_id");
@@ -63,10 +69,11 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             var error = new Error("err", "desc");
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => error.SetError("test1", null), "'errorDescription' cannot be null or whitespace. (Parameter 'errorDescription')");
+            Action act1 = () => error.SetError("test1", null);
+            act1.Should().Throw<ArgumentException>().WithMessage("'errorDescription' cannot be null or whitespace. (Parameter 'errorDescription')");
+            Action act2 = () => error.SetError("test1", "   ");
+            act2.Should().Throw<ArgumentException>().WithMessage("'errorDescription' cannot be null or whitespace. (Parameter 'errorDescription')");
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
-
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => error.SetError("test1", "   "), "'errorDescription' cannot be null or whitespace. (Parameter 'errorDescription')");
         }
 
         [Fact]
@@ -75,10 +82,11 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             var error = new Error("err", "desc");
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => error.SetError(null, "test1"), "'error' cannot be null or whitespace. (Parameter 'error')");
+            Action act1 = () => error.SetError(null, "test1");
+            act1.Should().Throw<ArgumentException>().WithMessage("'errorCode' cannot be null or whitespace. (Parameter 'errorCode')");
+            Action act2 = () => error.SetError("   ", "test1");
+            act2.Should().Throw<ArgumentException>().WithMessage("'errorCode' cannot be null or whitespace. (Parameter 'errorCode')");
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
-
-            TestHelper.AssertThrowsWithMessage<ArgumentException>(() => error.SetError("   ", "test1"), "'error' cannot be null or whitespace. (Parameter 'error')");
         }
 
         [Fact]

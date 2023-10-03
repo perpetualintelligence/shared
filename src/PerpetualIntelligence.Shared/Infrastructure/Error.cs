@@ -18,16 +18,16 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        /// <param name="error">The error code.</param>
+        /// <param name="errorCode">The error code.</param>
         /// <param name="errorDescription">The error description.</param>
         /// <param name="args">The error description format arguments./</param>
         /// <param name="errorUri">The error URI.</param>
         /// <param name="requestId">The request id.</param>
-        public Error(string error, string errorDescription, object?[]? args = null, string? errorUri = null, string? requestId = null)
+        public Error(string errorCode, string errorDescription, object?[]? args = null, string? errorUri = null, string? requestId = null)
         {
-            if (string.IsNullOrWhiteSpace(error))
+            if (string.IsNullOrWhiteSpace(errorCode))
             {
-                throw new System.ArgumentException($"'{nameof(error)}' cannot be null or whitespace.", nameof(error));
+                throw new System.ArgumentException($"'{nameof(errorCode)}' cannot be null or whitespace.", nameof(errorCode));
             }
 
             if (string.IsNullOrWhiteSpace(errorDescription))
@@ -35,7 +35,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
                 throw new System.ArgumentException($"'{nameof(errorDescription)}' cannot be null or whitespace.", nameof(errorDescription));
             }
 
-            ErrorCode = error;
+            ErrorCode = errorCode;
             ErrorDescription = errorDescription;
             Args = args;
             ErrorUri = errorUri;
@@ -45,17 +45,17 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        /// <param name="error">The error code.</param>
+        /// <param name="errorCode">The error code.</param>
         /// <param name="errorDescription">The error description.</param>
         /// <param name="args">The error description format arguments.</param>
-        public Error(string error, string errorDescription, params object?[] args)
+        public Error(string errorCode, string errorDescription, params object?[] args)
         {
-            if (string.IsNullOrWhiteSpace(error))
+            if (string.IsNullOrWhiteSpace(errorCode))
             {
-                throw new System.ArgumentException($"'{nameof(error)}' cannot be null or whitespace.", nameof(error));
+                throw new System.ArgumentException($"'{nameof(errorCode)}' cannot be null or whitespace.", nameof(errorCode));
             }
 
-            ErrorCode = error;
+            ErrorCode = errorCode;
             ErrorDescription = errorDescription;
             Args = args;
         }
@@ -68,9 +68,9 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         public object?[]? Args { get; set; }
 
         /// <summary>
-        /// The <c>error</c> code. Defaults to <c>unexpected_error</c>.
+        /// The <c>error_code</c> code.
         /// </summary>
-        [JsonPropertyName("error")]
+        [JsonPropertyName("error_code")]
         public string ErrorCode { get; set; }
 
         /// <summary>
@@ -124,11 +124,11 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// <summary>
         /// Set an error.
         /// </summary>
-        public void SetError(string error, string errorDescription, object?[]? args = null, string? errorUri = null, string? requestId = null)
+        public void SetError(string errorCode, string errorDescription, object?[]? args = null, string? errorUri = null, string? requestId = null)
         {
-            if (string.IsNullOrWhiteSpace(error))
+            if (string.IsNullOrWhiteSpace(errorCode))
             {
-                throw new System.ArgumentException($"'{nameof(error)}' cannot be null or whitespace.", nameof(error));
+                throw new System.ArgumentException($"'{nameof(errorCode)}' cannot be null or whitespace.", nameof(errorCode));
             }
 
             if (string.IsNullOrWhiteSpace(errorDescription))
@@ -136,7 +136,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
                 throw new System.ArgumentException($"'{nameof(errorDescription)}' cannot be null or whitespace.", nameof(errorDescription));
             }
 
-            ErrorCode = error;
+            ErrorCode = errorCode;
             ErrorDescription = errorDescription;
             Args = args;
             ErrorUri = errorUri;
