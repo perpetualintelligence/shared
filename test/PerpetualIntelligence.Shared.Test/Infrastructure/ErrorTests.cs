@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
@@ -14,20 +14,6 @@ namespace PerpetualIntelligence.Shared.Infrastructure
 {
     public class ErrorTests
     {
-        [Fact]
-        public void DefaultErrorCodeShouldBeValid()
-        {
-            TestHelper.AssertConstantCount(typeof(Error), 7);
-
-            Error.AlreadyExist.Should().Be("already_exist");
-            Error.InvalidConfiguration.Should().Be("invalid_configuration");
-            Error.InvalidRequest.Should().Be("invalid_request");
-            Error.NotFound.Should().Be("not_found");
-            Error.ServerError.Should().Be("server_error");
-            Error.Unauthorized.Should().Be("unauthorized_access");
-            Error.Unexpected.Should().Be("unexpected_error");
-        }
-
         [Fact]
         public void CtorNoErrorCodeShouldThrow()
         {
@@ -72,19 +58,9 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         }
 
         [Fact]
-        public void NewInstanceShouldError()
-        {
-            Error error = new();
-            error.ErrorCode.Should().Be("unexpected_error");
-            error.ErrorDescription.Should().BeNull();
-            error.ErrorUri.Should().BeNull();
-            error.RequestId.Should().BeNull();
-        }
-
-        [Fact]
         public void SetErrorNoErrorDescriptionShouldThrow()
         {
-            var error = new Error();
+            var error = new Error("err", "desc");
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
             TestHelper.AssertThrowsWithMessage<ArgumentException>(() => error.SetError("test1", null), "'errorDescription' cannot be null or whitespace. (Parameter 'errorDescription')");
@@ -96,7 +72,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [Fact]
         public void SetErrorNoErrorShouldThrow()
         {
-            var error = new Error();
+            var error = new Error("err", "desc");
 
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
             TestHelper.AssertThrowsWithMessage<ArgumentException>(() => error.SetError(null, "test1"), "'error' cannot be null or whitespace. (Parameter 'error')");
@@ -108,7 +84,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         [Fact]
         public void SetErrorShouldSetCorrectly()
         {
-            Error error = new();
+            Error error = new Error("err", "desc");
             error.SetError("error", "desc", new[] { "test1", "test2" }, "uri", "rid");
             error.ErrorCode.Should().Be("error");
             error.ErrorDescription.Should().Be("desc");

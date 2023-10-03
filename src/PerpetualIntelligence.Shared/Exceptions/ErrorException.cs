@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
@@ -18,27 +18,10 @@ namespace PerpetualIntelligence.Shared.Exceptions
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        public ErrorException()
-        {
-            Error = new Error(Error.Unexpected, "");
-        }
-
-        /// <summary>
-        /// Initialize a new instance.
-        /// </summary>
         /// <param name="error">The error.</param>
         public ErrorException(Error error)
         {
             Error = error ?? throw new ArgumentNullException(nameof(error));
-        }
-
-        /// <summary>
-        /// Initialize a new instance.
-        /// </summary>
-        /// <param name="message">The exception message.</param>
-        public ErrorException(string message) : base(message)
-        {
-            Error = new Error(Error.Unexpected, "");
         }
 
         /// <summary>
@@ -70,19 +53,14 @@ namespace PerpetualIntelligence.Shared.Exceptions
         /// <summary>
         /// The exception message.
         /// </summary>
+        /// <remarks>
+        /// This method returns the formatted description using <see cref="Error.FormatDescription()"/>.
+        /// </remarks>
         public override string Message
         {
             get
             {
-                // FOMAC: we need to make sure ErrorDescription is never null
-                if (Error.ErrorDescription == null)
-                {
-                    return base.Message;
-                }
-                else
-                {
-                    return Error.FormatDescription();
-                }
+                return Error.FormatDescription();
             }
         }
     }

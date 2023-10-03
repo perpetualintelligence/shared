@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
@@ -43,7 +43,7 @@ namespace PerpetualIntelligence.Shared.Services
             }
             catch (Exception ex)
             {
-                Error error = new(Error.Unexpected, "The request resulted in an unexpected error. additonal_info={0}", new object?[] { ex.Message });
+                Error error = new("unexpected_error", "The request resulted in an unexpected error. info={0}", new object?[] { ex.Message });
                 return new TryResultOrError<TResult>(error);
             }
         }

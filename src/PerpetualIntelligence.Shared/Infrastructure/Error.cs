@@ -1,12 +1,11 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
 using PerpetualIntelligence.Shared.Attributes;
-using System.Net;
 using System.Text.Json.Serialization;
 
 namespace PerpetualIntelligence.Shared.Infrastructure
@@ -16,14 +15,6 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     /// </summary>
     public class Error
     {
-        /// <summary>
-        /// Initialize a new instance.
-        /// </summary>
-        public Error()
-        {
-            ErrorCode = Unexpected;
-        }
-
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
@@ -39,12 +30,10 @@ namespace PerpetualIntelligence.Shared.Infrastructure
                 throw new System.ArgumentException($"'{nameof(error)}' cannot be null or whitespace.", nameof(error));
             }
 
-            // FOMAC:
-            // For now lot of test failures
-            //if (string.IsNullOrWhiteSpace(errorDescription))
-            //{
-            //    throw new System.ArgumentException($"'{nameof(errorDescription)}' cannot be null or whitespace.", nameof(errorDescription));
-            //}
+            if (string.IsNullOrWhiteSpace(errorDescription))
+            {
+                throw new System.ArgumentException($"'{nameof(errorDescription)}' cannot be null or whitespace.", nameof(errorDescription));
+            }
 
             ErrorCode = error;
             ErrorDescription = errorDescription;
@@ -133,37 +122,6 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         }
 
         /// <summary>
-        /// Maps the <see cref="ErrorCode"/> to <see cref="HttpStatusCode"/>
-        /// </summary>
-        /// <returns></returns>
-        public HttpStatusCode MapHttpStatusCode()
-        {
-            switch (ErrorCode)
-            {
-                case Unauthorized:
-                    {
-                        return HttpStatusCode.Unauthorized;
-                    }
-                case ServerError:
-                    {
-                        return HttpStatusCode.InternalServerError;
-                    }
-                case NotFound:
-                    {
-                        return HttpStatusCode.NotFound;
-                    }
-                case AlreadyExist:
-                    {
-                        return HttpStatusCode.Conflict;
-                    }
-                default:
-                    {
-                        return HttpStatusCode.BadRequest;
-                    }
-            }
-        }
-
-        /// <summary>
         /// Set an error.
         /// </summary>
         public void SetError(string error, string errorDescription, object?[]? args = null, string? errorUri = null, string? requestId = null)
@@ -184,47 +142,5 @@ namespace PerpetualIntelligence.Shared.Infrastructure
             ErrorUri = errorUri;
             RequestId = requestId;
         }
-
-        /// <summary>
-        /// The invalid request error.
-        /// </summary>
-        [JsonIgnore]
-        public const string InvalidConfiguration = "invalid_configuration";
-
-        /// <summary>
-        /// The invalid request error.
-        /// </summary>
-        [JsonIgnore]
-        public const string InvalidRequest = "invalid_request";
-
-        /// <summary>
-        /// The server error.
-        /// </summary>
-        [JsonIgnore]
-        public const string ServerError = "server_error";
-
-        /// <summary>
-        /// The unauthorized error.
-        /// </summary>
-        [JsonIgnore]
-        public const string Unauthorized = "unauthorized_access";
-
-        /// <summary>
-        /// The unexpected error.
-        /// </summary>
-        [JsonIgnore]
-        public const string Unexpected = "unexpected_error";
-
-        /// <summary>
-        /// The not found error.
-        /// </summary>
-        [JsonIgnore]
-        public const string NotFound = "not_found";
-
-        /// <summary>
-        /// The not found error.
-        /// </summary>
-        [JsonIgnore]
-        public const string AlreadyExist = "already_exist";
     }
 }

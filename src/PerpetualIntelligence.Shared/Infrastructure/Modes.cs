@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
@@ -62,7 +62,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         {
             if (!IsValid(mode))
             {
-                throw new ErrorException(Error.InvalidRequest, $"Mode '{mode}' is not valid.");
+                throw new ErrorException("invalid_request", $"Mode '{mode}' is not valid.");
             }
         }
 
