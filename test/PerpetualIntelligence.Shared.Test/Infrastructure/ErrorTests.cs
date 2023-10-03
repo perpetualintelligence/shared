@@ -64,6 +64,17 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         }
 
         [Fact]
+        public void NewInstanceShouldSetCorrectly()
+        {
+            Error error = new();
+            error.ErrorCode.Should().Be("unknown_error");
+            error.ErrorDescription.Should().Be("An unknown error occurred."); ;
+            error.ErrorUri.Should().BeNull();
+            error.RequestId.Should().BeNull();
+            error.Args.Should().BeNull();
+        }
+
+        [Fact]
         public void SetErrorNoErrorDescriptionShouldThrow()
         {
             var error = new Error("err", "desc");

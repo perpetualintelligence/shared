@@ -16,6 +16,15 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     public class Error
     {
         /// <summary>
+        /// Initializes a new instance.
+        /// </summary>
+        public Error()
+        {
+            ErrorCode = "unknown_error";
+            ErrorDescription = "An unknown error occurred.";
+        }
+
+        /// <summary>
         /// Initialize a new instance.
         /// </summary>
         /// <param name="errorCode">The error code.</param>
@@ -55,6 +64,11 @@ namespace PerpetualIntelligence.Shared.Infrastructure
                 throw new System.ArgumentException($"'{nameof(errorCode)}' cannot be null or whitespace.", nameof(errorCode));
             }
 
+            if (string.IsNullOrWhiteSpace(errorDescription))
+            {
+                throw new System.ArgumentException($"'{nameof(errorDescription)}' cannot be null or whitespace.", nameof(errorDescription));
+            }
+
             ErrorCode = errorCode;
             ErrorDescription = errorDescription;
             Args = args;
@@ -77,8 +91,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         /// The <c>error_description</c>.
         /// </summary>
         [JsonPropertyName("error_description")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? ErrorDescription { get; set; }
+        public string ErrorDescription { get; set; }
 
         /// <summary>
         /// The <c>error_uri</c>.
