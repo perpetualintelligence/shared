@@ -123,7 +123,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
         }
 
         /// <summary>
-        /// Creates a new <see cref="Error"/> instance with formated <see cref="ErrorDescription"/> with the <see cref="Args"/>.
+        /// Creates a new <see cref="Error"/> instance with formatted <see cref="ErrorDescription"/> with the <see cref="Args"/>.
         /// </summary>
         /// <returns>Formatted error instance.</returns>
         [WriteUnitTest]

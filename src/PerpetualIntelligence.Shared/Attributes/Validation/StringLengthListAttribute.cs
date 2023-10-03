@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
@@ -19,11 +19,15 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
-        /// <param name="maximumLength"></param>
+        /// <param name="maximumLength">The maximum length of each data field of a list.</param>
         public StringLengthListAttribute(int maximumLength)
             : base(maximumLength) { }
 
-        /// <inheritdoc/>
+        /// <summary>
+        /// Determines whether a specified value is valid.
+        /// </summary>
+        /// <param name="value">The value to check.</param>
+        /// <returns><c>true</c> if the specified value is valid; otherwise, <c>false</c>.</returns>
         public override bool IsValid(object? value)
         {
             if (value == null)
@@ -49,19 +53,8 @@ namespace PerpetualIntelligence.Shared.Attributes.Validation
         /// <returns>An instance of the <see cref="ValidationResult"/>.</returns>
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
-            if (value == null)
-            {
-                return ValidationResult.Success;
-            }
-
-            bool valid = false;
-            if (value is IList<string> arr)
-            {
-                // If any of the string length is not valid the entire collection is invalid.
-                valid = !arr.Any(e => e.Length > MaximumLength || e.Length < MinimumLength);
-            }
-
-            if (valid)
+            bool isValid = IsValid(value);
+            if (isValid)
             {
                 return ValidationResult.Success;
             }
