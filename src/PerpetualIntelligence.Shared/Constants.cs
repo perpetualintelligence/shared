@@ -18,7 +18,7 @@ namespace PerpetualIntelligence.Shared
         public const string Terminal = "terminal";
 
         /// <summary>
-        /// The Perpetual Intelligence L.L.C. <c>pi-cli</c> framework urn.
+        /// The Perpetual Intelligence L.L.C. <c>terminal</c> framework urn.
         /// </summary>
         public const string TerminalUrn = "urn:oneimlx:terminal";
 

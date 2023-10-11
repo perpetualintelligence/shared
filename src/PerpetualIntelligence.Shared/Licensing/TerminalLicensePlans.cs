@@ -13,7 +13,7 @@ namespace PerpetualIntelligence.Shared.Licensing
     public sealed class TerminalLicensePlans
     {
         /// <summary>
-        /// Determines if the plan is valid for <c>pi-cli</c>.
+        /// Determines if the plan is valid for <c>terminal</c>.
         /// </summary>
         /// <returns><c>true</c> if the plan is valid; otherwise, <c>false</c>.</returns>
         public static bool IsValidPlan(string plan)
