@@ -10,7 +10,7 @@ namespace PerpetualIntelligence.Shared.Licensing
     /// <summary>
     /// The standard license pricing plans.
     /// </summary>
-    public sealed class PiCliLicensePlans
+    public sealed class TerminalLicensePlans
     {
         /// <summary>
         /// Determines if the plan is valid for <c>pi-cli</c>.

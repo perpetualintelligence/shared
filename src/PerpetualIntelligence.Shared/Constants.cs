@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
@@ -13,14 +13,14 @@ namespace PerpetualIntelligence.Shared
     public static class Constants
     {
         /// <summary>
-        /// The Perpetual Intelligence L.L.C. <c>pi-cli</c> framework.
+        /// The Perpetual Intelligence L.L.C. <c>terminal</c> framework.
         /// </summary>
-        public const string Terminal = "pi-cli";
+        public const string Terminal = "terminal";
 
         /// <summary>
         /// The Perpetual Intelligence L.L.C. <c>pi-cli</c> framework urn.
         /// </summary>
-        public const string TerminalUrn = "urn:oneimlx:picli";
+        public const string TerminalUrn = "urn:oneimlx:terminal";
 
         /// <summary>
         /// The registered <c>issuer</c> claim for all Perpetual Intelligence L.L.C. managed services, cross-platform
@@ -31,12 +31,12 @@ namespace PerpetualIntelligence.Shared
         /// <summary>
         /// The Perpetual Intelligence L.L.C. <c>pi-lic</c> licensing managed service.
         /// </summary>
-        public const string Licensing = "pi-lic";
+        public const string Licensing = "licensing";
 
         /// <summary>
-        /// The Perpetual Intelligence L.L.C. <c>pi-lic</c> licensing managed service urn.
+        /// The Perpetual Intelligence L.L.C. <c>licensing</c> licensing managed service urn.
         /// </summary>
-        public const string LicensingUrn = "urn:oneimlx:pilic";
+        public const string LicensingUrn = "urn:oneimlx:licensing";
 
         /// <summary>
         /// The Perpetual Intelligence L.L.C. <c>oneimlx</c> protocol.

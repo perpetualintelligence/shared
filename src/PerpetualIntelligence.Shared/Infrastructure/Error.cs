@@ -13,7 +13,7 @@ namespace PerpetualIntelligence.Shared.Infrastructure
     /// <summary>
     /// The generic error.
     /// </summary>
-    public class Error
+    public sealed class Error
     {
         /// <summary>
         /// Initializes a new instance.

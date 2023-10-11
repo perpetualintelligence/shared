@@ -18,11 +18,11 @@ namespace PerpetualIntelligence.Shared
         {
             TestHelper.AssertConstantCount(typeof(Constants), 7);
 
-            Constants.Terminal.Should().Be("pi-cli");
-            Constants.TerminalUrn.Should().Be("urn:oneimlx:picli");
+            Constants.Terminal.Should().Be("terminal");
+            Constants.TerminalUrn.Should().Be("urn:oneimlx:terminal");
 
-            Constants.Licensing.Should().Be("pi-lic");
-            Constants.LicensingUrn.Should().Be("urn:oneimlx:pilic");
+            Constants.Licensing.Should().Be("licensing");
+            Constants.LicensingUrn.Should().Be("urn:oneimlx:licensing");
 
             Constants.OneImlx.Should().Be("oneimlx");
             Constants.OneImlxUrn.Should().Be("urn:oneimlx");

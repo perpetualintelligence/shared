@@ -15,13 +15,13 @@ namespace PerpetualIntelligence.Shared
         [Fact]
         public void TypesNamespaceTest()
         {
-            TestHelper.AssertNamespace(typeof(Infrastructure.Modes).Assembly, "PerpetualIntelligence.Shared");
+            TestHelper.AssertNamespace(typeof(Infrastructure.Error).Assembly, "PerpetualIntelligence.Shared");
         }
 
         [Fact]
         public void TypesTypesLocationTest()
         {
-            TestHelper.AssertAssemblyTypesLocation(typeof(Infrastructure.Modes).Assembly);
+            TestHelper.AssertAssemblyTypesLocation(typeof(Infrastructure.Error).Assembly);
         }
     }
 }
