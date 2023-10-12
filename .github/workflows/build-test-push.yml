@@ -121,7 +121,7 @@ jobs:
     # PerpetualIntelligence.Shared is the first package so we use the local project reference to avoid cyclic Nuget dependency resolution.
     # See PerpetualIntelligence.Shared.Test.csproj for more info.
     - name: Force local
-      run: echo "PI_CI_REFERENCE=local" >> $GITHUB_ENV
+      run: echo "PI_CI_REFERENCE=cross" >> $GITHUB_ENV
       continue-on-error: false
 
     # Publish PerpetualIntelligence.Shared
