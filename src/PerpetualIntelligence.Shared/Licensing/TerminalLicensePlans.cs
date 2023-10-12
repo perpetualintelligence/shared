@@ -40,36 +40,36 @@ namespace PerpetualIntelligence.Shared.Licensing
         /// <summary>
         /// The demo license pricing plan.
         /// </summary>
-        public const string Demo = "urn:oneimlx:lic:plan:demo";
+        public const string Demo = "urn:oneimlx:terminal:plan:demo";
 
         /// <summary>
         /// The custom license pricing plan.
         /// </summary>
-        public const string Custom = "urn:oneimlx:lic:plan:custom";
+        public const string Custom = "urn:oneimlx:terminal:plan:custom";
 
         /// <summary>
         /// The enterprise license pricing plan.
         /// </summary>
-        public const string Enterprise = "urn:oneimlx:lic:plan:enterprise";
+        public const string Enterprise = "urn:oneimlx:terminal:plan:enterprise";
 
         /// <summary>
         /// The on-premise license pricing plan.
         /// </summary>
-        public const string OnPremise = "urn:oneimlx:lic:plan:onprem";
+        public const string OnPremise = "urn:oneimlx:terminal:plan:onprem";
 
         /// <summary>
         /// The unlimited license pricing plan.
         /// </summary>
-        public const string Unlimited = "urn:oneimlx:lic:plan:unlimited";
+        public const string Unlimited = "urn:oneimlx:terminal:plan:unlimited";
 
         /// <summary>
         /// The solo or micro license pricing plan.
         /// </summary>
-        public const string Micro = "urn:oneimlx:lic:plan:micro";
+        public const string Micro = "urn:oneimlx:terminal:plan:micro";
 
         /// <summary>
         /// The SMB license pricing plan.
         /// </summary>
-        public const string SMB = "urn:oneimlx:lic:plan:smb";
+        public const string SMB = "urn:oneimlx:terminal:plan:smb";
     }
 }

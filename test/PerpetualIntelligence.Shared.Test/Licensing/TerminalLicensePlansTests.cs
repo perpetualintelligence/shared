@@ -36,13 +36,13 @@ namespace PerpetualIntelligence.Shared.Licensing
         {
             TestHelper.AssertConstantCount(typeof(TerminalLicensePlans), 7);
 
-            TerminalLicensePlans.Demo.Should().Be("urn:oneimlx:lic:plan:demo");
-            TerminalLicensePlans.Micro.Should().Be("urn:oneimlx:lic:plan:micro");
-            TerminalLicensePlans.SMB.Should().Be("urn:oneimlx:lic:plan:smb");
-            TerminalLicensePlans.Enterprise.Should().Be("urn:oneimlx:lic:plan:enterprise");
-            TerminalLicensePlans.OnPremise.Should().Be("urn:oneimlx:lic:plan:onprem");
-            TerminalLicensePlans.Unlimited.Should().Be("urn:oneimlx:lic:plan:unlimited");
-            TerminalLicensePlans.Custom.Should().Be("urn:oneimlx:lic:plan:custom");
+            TerminalLicensePlans.Demo.Should().Be("urn:oneimlx:terminal:plan:demo");
+            TerminalLicensePlans.Micro.Should().Be("urn:oneimlx:terminal:plan:micro");
+            TerminalLicensePlans.SMB.Should().Be("urn:oneimlx:terminal:plan:smb");
+            TerminalLicensePlans.Enterprise.Should().Be("urn:oneimlx:terminal:plan:enterprise");
+            TerminalLicensePlans.OnPremise.Should().Be("urn:oneimlx:terminal:plan:onprem");
+            TerminalLicensePlans.Unlimited.Should().Be("urn:oneimlx:terminal:plan:unlimited");
+            TerminalLicensePlans.Custom.Should().Be("urn:oneimlx:terminal:plan:custom");
         }
     }
 }
