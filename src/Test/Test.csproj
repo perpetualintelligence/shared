@@ -8,7 +8,7 @@
         <Configurations>Debug;Release</Configurations>
     </PropertyGroup>
 
-    <Import Project="..\..\build\props\PackageLicense.props" />
+    <Import Project="..\..\build\props\Package.props" />
 
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
@@ -28,7 +28,7 @@
     <Choose>
         <When Condition="'$(PI_CI_REFERENCE)'=='cross'">
             <ItemGroup>
-                <ProjectReference Include="..\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
+                <ProjectReference Include="..\Shared\Shared.csproj" />
             </ItemGroup>
         </When>
         <Otherwise>

@@ -30,14 +30,5 @@
         </PackageReference>
         <PackageReference Include="FluentAssertions" Version="6.11.0" />
     </ItemGroup>
-
-
-    <!--
-        CI CONFIG:
-    -->
-    <ItemGroup>
-        <ProjectReference Include="..\..\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
-    </ItemGroup>
-
 </Project>
 

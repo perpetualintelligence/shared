@@ -41,6 +41,6 @@
     -->
     <ItemGroup>
         <ProjectReference Include="..\..\src\PerpetualIntelligence.Test\PerpetualIntelligence.Test.csproj" />
-        <ProjectReference Include="..\..\src\PerpetualIntelligence.Shared\PerpetualIntelligence.Shared.csproj" />
+        <ProjectReference Include="..\..\src\PerpetualIntelligence.Shared\Shared.csproj" />
     </ItemGroup>
 </Project>
