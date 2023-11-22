@@ -10,17 +10,19 @@
         Shared package properties.
     -->
     <PropertyGroup>
-        <Copyright>Copyright 2023 Perpetual Intelligence L.L.C. All Rights Reserved.</Copyright>
+        <Copyright>Copyright (c) Perpetual Intelligence L.L.C. All Rights Reserved.</Copyright>
         <Authors>Perpetual Intelligence L.L.C.</Authors>
         <Company>Perpetual Intelligence L.L.C.</Company>
-        <Product>shared</Product>
-        <PackageProjectUrl>https://github.com/perpetualintelligence/shared</PackageProjectUrl>
+        <Product>oneterminal</Product>
+        <AssemblyName>PerpetualIntelligence.$(MSBuildProjectName)</AssemblyName>
+        <PackageId>PerpetualIntelligence.$(MSBuildProjectName)</PackageId>
+        <PackageProjectUrl>https://www.perpetualintelligence.com</PackageProjectUrl>
         <RepositoryUrl>https://github.com/perpetualintelligence/shared</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <PackageIcon>icon.png</PackageIcon>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <Nullable>enable</Nullable>
         <ImplicitUsings>disable</ImplicitUsings>
@@ -37,20 +39,20 @@
         <None Include="..\..\build\images\icon.png" Link="icon.png" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
-    <ItemGroup>
-        <!--
-            This is relative to the src folder as that is where the prop file is imported.
-        -->
-        <None Include="..\..\LICENSE" Pack="true" Visible="false" PackagePath=""/>
-    </ItemGroup>
-
     <!--
         Package README.md - 
         https://devblogs.microsoft.com/nuget/add-a-readme-to-your-nuget-package/
         The Include location is relative to the src/<package>/readme.md that will import the props file.
     -->
     <ItemGroup>
-        <None Include="..\..\src\$(MSBuildProjectName)\README.md" Pack="true" PackagePath="\"/>
+        <None Include="..\..\$(MSBuildProjectName)\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <!--
+            This is relative to the src folder as that is where the prop file is imported.
+        -->
+        <None Include="..\..\LICENSE" Pack="true" Visible="false" PackagePath=""/>
     </ItemGroup>
 
 </Project>

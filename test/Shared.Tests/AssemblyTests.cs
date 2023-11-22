@@ -19,7 +19,7 @@ namespace PerpetualIntelligence.Shared
         }
 
         [Fact]
-        public void TypesTypesLocationTest()
+        public void TypesLocationTest()
         {
             TestHelper.AssertAssemblyTypesLocation(typeof(Infrastructure.Error).Assembly);
         }

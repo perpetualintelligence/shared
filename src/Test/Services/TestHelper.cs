@@ -678,9 +678,16 @@ namespace PerpetualIntelligence.Test.Services
             Assembly assembly = types.First().Assembly;
             Assert.IsTrue(types.All(e => e.Assembly.Equals(assembly)), "All types must belong to same assembly.");
 
-            //check /services/<prj> dir
+            //check /src/<prj> dir
             string prjDir = Path.Combine(srcDir, assembly.GetName().Name!);
-            Assert.IsTrue(Directory.Exists(prjDir));
+            if (!Directory.Exists(prjDir))
+            {
+                prjDir = Path.Combine(srcDir, assembly.GetName().Name!.Replace("PerpetualIntelligence.", ""));
+                if (!Directory.Exists(prjDir))
+                {
+                    throw new ErrorException("internal_error", "The project directory is not valid.");
+                }
+            }
 
             // Get the namespace without the root component.
             string nonRootNamspace = @namespace.Replace(assembly.GetName().Name!, "").TrimStart('.');
