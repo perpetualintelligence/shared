@@ -1,3 +1,5 @@
-﻿This package is part of Perpetual Intelligence's internal infrastructure. It is not for public use.
+﻿The test components for Perpetual Intelligence's managed services, frameworks, and developer tools. 
 
-For more information see our [documentation](https://docs.perpetualintelligence.com/articles/shared/intro.html) or the GitHub [repo](https://github.com/perpetualintelligence/shared).
+> This package is part of our internal infrastructure. It is not for public use.
+
+For more information see our [GitHub](https://github.com/perpetualintelligence/shared).

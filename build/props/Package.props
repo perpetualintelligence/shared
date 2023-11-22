@@ -28,6 +28,7 @@
         <ImplicitUsings>disable</ImplicitUsings>
         <LangVersion>latest</LangVersion>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <Version>$(PI_CI_PACKAGE_VERSION)</Version>
     </PropertyGroup>
 
     <!--
@@ -45,7 +46,7 @@
         The Include location is relative to the src/<package>/readme.md that will import the props file.
     -->
     <ItemGroup>
-        <None Include="..\..\$(MSBuildProjectName)\README.md" Pack="true" PackagePath="\"/>
+        <None Include="..\..\src\$(MSBuildProjectName)\README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
     <ItemGroup>

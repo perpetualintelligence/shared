@@ -15,8 +15,8 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Description>The cross-platform test components for Perpetual Intelligence's managed services, frameworks, and tools. This package is part of Perpetual Intelligence's internal infrastructure. It is not for public use.</Description>
-        <PackageTags>infrastructure test mstest xunit oneimlx</PackageTags>
+        <Description>The test components for Perpetual Intelligence's managed services, frameworks, and developer tools. This package is part of our internal infrastructure. It is not for public use.</Description>
+        <PackageTags>infrastructure oneimlx</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>

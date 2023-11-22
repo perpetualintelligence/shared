@@ -128,7 +128,7 @@ jobs:
     - name: PerpetualIntelligence.Shared
       uses: ./.github/actions/push-package
       with:
-        project: PerpetualIntelligence.Shared
+        project: Shared
         config: Release
         version: ${{ env.PI_CI_PACKAGE_VERSION }}
         ghapikey: ${{ env.PI_GITHUB_PAT_ENV }}
@@ -144,7 +144,7 @@ jobs:
     - name: PerpetualIntelligence.Test
       uses: ./.github/actions/push-package
       with:
-        project: PerpetualIntelligence.Test
+        project: Test
         skiptest: 'true'
         config: Release
         version: ${{ env.PI_CI_PACKAGE_VERSION }}
