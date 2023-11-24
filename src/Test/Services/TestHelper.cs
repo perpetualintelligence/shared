@@ -9,10 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PerpetualIntelligence.Shared.Attributes;
-using PerpetualIntelligence.Shared.Exceptions;
 using PerpetualIntelligence.Shared.Extensions;
 using PerpetualIntelligence.Shared.Infrastructure;
-using PerpetualIntelligence.Shared.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -183,17 +181,16 @@ namespace PerpetualIntelligence.Test.Services
         {
             // e.g. D:/this/PI/Services/test/PerpetualIntelligence.Shared.Test/bin/Debug/net6.0/PerpetualIntelligence.Shared.dll
             string assemblyPath = assembly.Location ?? throw new InvalidOperationException("Assembly code base cannot be null.");
-            string assemblyDir = Path.GetDirectoryName(assemblyPath)!;
 
-            // check services dir For Azure pipileing this will be the working directory for the downloaded sources
-            string servicesDir = InfraHelper.GetParent(assemblyPath, 6) ?? throw new InvalidOperationException("Services dir not found.");
+            // 6 levels up is the src folder
+            string rootPath = Path.GetFullPath(Path.Combine(assemblyPath, @"..\..\..\..\..\..\"));
 
-            // check /<services>/test dir
-            string testDir = Path.Combine(servicesDir, "test");
+            // check /<root>/test dir
+            string testDir = Path.Combine(rootPath, "test");
             Assert.IsTrue(Directory.Exists(testDir));
 
-            //check /<services>/src dir
-            string srcDir = Path.Combine(servicesDir, "src");
+            //check /<root>/src dir
+            string srcDir = Path.Combine(rootPath, "src");
             Assert.IsTrue(Directory.Exists(srcDir));
 
             // Remove the root namespace from input. Assembly name is the root namespace.

@@ -5,11 +5,10 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using PerpetualIntelligence.Shared.Infrastructure;
 using System;
 using System.Collections.Generic;
 
-namespace PerpetualIntelligence.Shared.Exceptions
+namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
     /// The exception that represents multiple errors.

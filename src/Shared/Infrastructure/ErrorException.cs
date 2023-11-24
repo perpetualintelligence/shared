@@ -5,10 +5,9 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using PerpetualIntelligence.Shared.Infrastructure;
 using System;
 
-namespace PerpetualIntelligence.Shared.Exceptions
+namespace PerpetualIntelligence.Shared.Infrastructure
 {
     /// <summary>
     /// The exception that represents an error.
