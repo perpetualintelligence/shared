@@ -183,7 +183,7 @@ namespace PerpetualIntelligence.Test.Services
             string assemblyPath = assembly.Location ?? throw new InvalidOperationException("Assembly code base cannot be null.");
 
             // 6 levels up is the src folder
-            string rootPath = Path.GetFullPath(Path.Combine(assemblyPath, @"..\..\..\..\..\..\"));
+            string rootPath = Path.GetFullPath(Path.Combine(assemblyPath, @"../../../../../../"));
 
             // check /<root>/test dir
             string testDir = Path.Combine(rootPath, "test");
