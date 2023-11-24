@@ -14,7 +14,9 @@
         <TargetFramework>net7.0</TargetFramework>
         <IsPackable>false</IsPackable>
         <Nullable>enable</Nullable>
-        <RootNamespace>$(MSBuildProjectName.Replace(".Test", ""))</RootNamespace>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <AssemblyName>PerpetualIntelligence.$(MSBuildProjectName)</AssemblyName>
+        <RootNamespace>PerpetualIntelligence.$(MSBuildProjectName.Replace(".Tests", ""))</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

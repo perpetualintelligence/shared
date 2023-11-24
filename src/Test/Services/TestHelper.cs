@@ -187,11 +187,11 @@ namespace PerpetualIntelligence.Test.Services
 
             // check /<root>/test dir
             string testDir = Path.Combine(rootPath, "test");
-            Assert.IsTrue(Directory.Exists(testDir));
+            Assert.IsTrue(Directory.Exists(testDir), "'test' directory not found. path={0}", rootPath);
 
             //check /<root>/src dir
             string srcDir = Path.Combine(rootPath, "src");
-            Assert.IsTrue(Directory.Exists(srcDir));
+            Assert.IsTrue(Directory.Exists(testDir), "'src' directory not found. path={0}", rootPath);
 
             // Remove the root namespace from input. Assembly name is the root namespace.
             IEnumerable<string?> namespaces = assembly.GetTypes().Where(e => !IsCompilerGenerated(e)).Select(e => e.Namespace).Distinct();
