@@ -1,12 +1,12 @@
 # Welcome
 This repository contains the shared components for our managed services, frameworks, and developer tools. We build the following NuGet packages from this repository.
 
-[![Nuget](https://img.shields.io/nuget/vpre/PerpetualIntelligence.Shared?label=PerpetualIntelligence.Shared)](https://www.nuget.org/packages/PerpetualIntelligence.Shared)
+[![Nuget](https://img.shields.io/nuget/vpre/OneImlx.Shared?label=OneImlx.Shared)](https://www.nuget.org/packages/OneImlx.Shared)
 
-[![Nuget](https://img.shields.io/nuget/vpre/PerpetualIntelligence.Test?label=PerpetualIntelligence.Test)](https://www.nuget.org/packages/PerpetualIntelligence.Test)
+[![Nuget](https://img.shields.io/nuget/vpre/OneImlx.Test?label=OneImlx.Test)](https://www.nuget.org/packages/OneImlx.Test)
 
 ## Status
-[![build-test-cross-manual](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-cross-manual.yml/badge.svg)](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-cross-manual.yml)
+[![build-test-cross](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-cross.yml/badge.svg)](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-cross-manual.yml)
 [![build-test-push](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-push.yml/badge.svg)](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-push.yml)
 [![delete-packages](https://github.com/perpetualintelligence/shared/actions/workflows/delete-packages.yml/badge.svg)](https://github.com/perpetualintelligence/shared/actions/workflows/delete-packages.yml)
 

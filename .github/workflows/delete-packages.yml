@@ -30,8 +30,8 @@ on:
         description: 'The package name to delete'
         required: true
         options:
-        - PerpetualIntelligence.Shared
-        - PerpetualIntelligence.Test
+        - OneImlx.Shared
+        - OneImlx.Test
         - All
         default: 'All'  
 
@@ -71,20 +71,20 @@ jobs:
           package-type: nuget
           min-versions-to-keep: ${{ env.PI_KEEP_MINIMUM_VERSIONS }}
       
-      # Delete PerpetualIntelligence.Shared
-      - name: Delete PerpetualIntelligence.Shared
+      # Delete OneImlx.Shared
+      - name: Delete OneImlx.Shared
         if: ${{ env.PI_DELETE_PACKAGES == 'All' }}
         uses: actions/delete-package-versions@v4
         with:
-          package-name: PerpetualIntelligence.Shared
+          package-name: OneImlx.Shared
           package-type: nuget
           min-versions-to-keep: ${{ env.PI_KEEP_MINIMUM_VERSIONS }}
       
-      # Delete PerpetualIntelligence.Test
-      - name: Delete PerpetualIntelligence.Test
+      # Delete OneImlx.Test
+      - name: Delete OneImlx.Test
         if: ${{ env.PI_DELETE_PACKAGES == 'All' }}
         uses: actions/delete-package-versions@v4
         with:
-          package-name: PerpetualIntelligence.Test
+          package-name: OneImlx.Test
           package-type: nuget
           min-versions-to-keep: ${{ env.PI_KEEP_MINIMUM_VERSIONS }}

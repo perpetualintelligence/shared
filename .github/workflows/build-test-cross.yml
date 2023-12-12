@@ -4,7 +4,7 @@
 #    https://terms.perpetualintelligence.com
 
 # This pipeline builds and tests the protocol projects on all supported platforms. It does not publish any package.
-name: build-test-cross-manual
+name: build-test-cross
 
 # Triggers
 on:  
