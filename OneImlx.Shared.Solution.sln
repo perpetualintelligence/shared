@@ -15,11 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{99A64035
 		build\props\Test.props = build\props\Test.props
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared.Tests", "test\Shared.Tests\Shared.Tests.csproj", "{746F81D4-BBE0-49C6-98C1-365EE9E233E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneImlx.Shared.Tests", "test\Shared.Tests\OneImlx.Shared.Tests.csproj", "{746F81D4-BBE0-49C6-98C1-365EE9E233E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "src\Shared\Shared.csproj", "{6F2965E2-B556-49C3-9C40-4965E3D90E76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneImlx.Shared", "src\Shared\OneImlx.Shared.csproj", "{6F2965E2-B556-49C3-9C40-4965E3D90E76}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "src\Test\Test.csproj", "{74BC1DE4-FA4C-4F53-9FF4-935659F73D46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OneImlx.Test", "src\Test\OneImlx.Test.csproj", "{74BC1DE4-FA4C-4F53-9FF4-935659F73D46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
