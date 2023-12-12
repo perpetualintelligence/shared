@@ -128,7 +128,7 @@ jobs:
     - name: OneImlx.Shared
       uses: ./.github/actions/push-package
       with:
-        project: Shared
+        project: OneImlx.Shared
         config: Release
         version: ${{ env.PI_CI_PACKAGE_VERSION }}
         ghapikey: ${{ env.PI_GITHUB_PAT_ENV }}
@@ -144,7 +144,7 @@ jobs:
     - name: OneImlx.Test
       uses: ./.github/actions/push-package
       with:
-        project: Test
+        project: OneImlx.Test
         skiptest: 'true'
         config: Release
         version: ${{ env.PI_CI_PACKAGE_VERSION }}
