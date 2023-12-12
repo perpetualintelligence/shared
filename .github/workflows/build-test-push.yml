@@ -118,14 +118,14 @@ jobs:
         nuget-version: latest
 
     # Setup local
-    # PerpetualIntelligence.Shared is the first package so we use the local project reference to avoid cyclic Nuget dependency resolution.
-    # See PerpetualIntelligence.Shared.Test.csproj for more info.
+    # OneImlx.Shared is the first package so we use the local project reference to avoid cyclic Nuget dependency resolution.
+    # See OneImlx.Shared.Test.csproj for more info.
     - name: Force local
       run: echo "PI_CI_REFERENCE=cross" >> $GITHUB_ENV
       continue-on-error: false
 
-    # Publish PerpetualIntelligence.Shared
-    - name: PerpetualIntelligence.Shared
+    # Publish OneImlx.Shared
+    - name: OneImlx.Shared
       uses: ./.github/actions/push-package
       with:
         project: Shared
@@ -140,8 +140,8 @@ jobs:
       run: echo "PI_CI_REFERENCE=package" >> $GITHUB_ENV
       continue-on-error: false
 
-    # Publish PerpetualIntelligence.Test
-    - name: PerpetualIntelligence.Test
+    # Publish OneImlx.Test
+    - name: OneImlx.Test
       uses: ./.github/actions/push-package
       with:
         project: Test
