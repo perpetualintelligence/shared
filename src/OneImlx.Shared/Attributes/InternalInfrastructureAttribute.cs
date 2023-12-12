@@ -7,7 +7,7 @@
 
 using System;
 
-namespace PerpetualIntelligence.Shared.Attributes
+namespace OneImlx.Shared.Attributes
 {
     /// <summary>
     /// Indicates that the target is part of the internal infrastructure. Application should not use the target directly.

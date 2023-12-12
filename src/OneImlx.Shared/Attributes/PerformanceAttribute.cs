@@ -7,7 +7,7 @@
 
 using System;
 
-namespace PerpetualIntelligence.Shared.Attributes
+namespace OneImlx.Shared.Attributes
 {
     /// <summary>
     /// Specifies that the target has a performance concern that may be resolved in future releases. Applications can

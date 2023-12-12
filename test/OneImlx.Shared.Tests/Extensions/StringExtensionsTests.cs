@@ -9,7 +9,7 @@ using FluentAssertions;
 using System;
 using Xunit;
 
-namespace PerpetualIntelligence.Shared.Extensions
+namespace OneImlx.Shared.Extensions
 {
     public class StringExtensionsTests
     {

@@ -7,7 +7,7 @@
 
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace PerpetualIntelligence.Test
+namespace OneImlx.Test
 {
     /// <summary>
     /// Represents a test class that provides <see cref="TestContext"/>.

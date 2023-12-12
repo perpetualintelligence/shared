@@ -7,9 +7,9 @@
 
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PerpetualIntelligence.Test.Services;
+using OneImlx.Test.Services;
 
-namespace PerpetualIntelligence.Test
+namespace OneImlx.Test
 {
     /// <summary>
     /// Represents a <see cref="ContextTests"/> that provides the <see cref="ILogger"/>.

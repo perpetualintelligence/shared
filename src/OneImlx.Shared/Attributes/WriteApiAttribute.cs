@@ -7,7 +7,7 @@
 
 using System;
 
-namespace PerpetualIntelligence.Shared.Attributes
+namespace OneImlx.Shared.Attributes
 {
     /// <summary>
     /// Indicates that the target element should add the relevant back-end API.

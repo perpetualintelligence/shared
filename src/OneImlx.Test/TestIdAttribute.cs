@@ -5,10 +5,10 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using PerpetualIntelligence.Shared.Attributes;
+using OneImlx.Shared.Attributes;
 using System;
 
-namespace PerpetualIntelligence.Test
+namespace OneImlx.Test
 {
     /// <summary>
     /// Represents a test id.

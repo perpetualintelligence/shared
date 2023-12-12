@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace PerpetualIntelligence.Shared.Json
+namespace OneImlx.Shared.Json
 {
     /// <summary>
     /// The <see cref="JsonConverter{T}"/> for dictionary of <see cref="string"/> and <see cref="object"/>.

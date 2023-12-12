@@ -7,7 +7,7 @@
 
 using System.Threading.Tasks;
 
-namespace PerpetualIntelligence.Shared.Communication
+namespace OneImlx.Shared.Communication
 {
     /// <summary>
     /// An abstraction of an message sender.

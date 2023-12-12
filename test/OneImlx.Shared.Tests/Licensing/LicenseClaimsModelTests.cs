@@ -6,12 +6,12 @@
 */
 
 using FluentAssertions;
-using PerpetualIntelligence.Shared.Infrastructure;
+using OneImlx.Shared.Infrastructure;
 using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace PerpetualIntelligence.Shared.Licensing
+namespace OneImlx.Shared.Licensing
 {
     public class LicenseClaimsTests
     {

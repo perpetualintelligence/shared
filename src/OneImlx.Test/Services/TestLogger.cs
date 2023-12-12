@@ -7,7 +7,7 @@
 
 using Microsoft.Extensions.Logging;
 
-namespace PerpetualIntelligence.Test.Services
+namespace OneImlx.Test.Services
 {
     /// <summary>
     /// The test logger provider.

@@ -8,7 +8,7 @@
 using FluentAssertions;
 using Xunit;
 
-namespace PerpetualIntelligence.Shared.Licensing
+namespace OneImlx.Shared.Licensing
 {
     public class DemoIdentifiersTests
     {

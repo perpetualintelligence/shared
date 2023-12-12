@@ -5,17 +5,17 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using PerpetualIntelligence.Test.Services;
+using OneImlx.Test.Services;
 using Xunit;
 
-namespace PerpetualIntelligence.Shared
+namespace OneImlx.Shared
 {
     public class AssemblyTests
     {
         [Fact]
         public void TypesNamespaceTest()
         {
-            TestHelper.AssertNamespace(typeof(Infrastructure.Error).Assembly, "PerpetualIntelligence.Shared");
+            TestHelper.AssertNamespace(typeof(Infrastructure.Error).Assembly, "OneImlx.Shared");
         }
 
         [Fact]

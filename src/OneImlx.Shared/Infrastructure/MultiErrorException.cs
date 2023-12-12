@@ -8,7 +8,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace PerpetualIntelligence.Shared.Infrastructure
+namespace OneImlx.Shared.Infrastructure
 {
     /// <summary>
     /// The exception that represents multiple errors.

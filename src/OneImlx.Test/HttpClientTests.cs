@@ -11,7 +11,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Net.Http;
 
-namespace PerpetualIntelligence.Test
+namespace OneImlx.Test
 {
     /// <summary>
     /// Represents a <see cref="ContextTests"/> that provides the <see cref="HttpClient"/>.

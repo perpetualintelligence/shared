@@ -7,7 +7,7 @@
 
 using System;
 
-namespace PerpetualIntelligence.Shared.Attributes.Validation
+namespace OneImlx.Shared.Attributes.Validation
 {
     /// <summary>
     /// Specifies the allowed string values on the property.

@@ -7,7 +7,7 @@
 
 using System;
 
-namespace PerpetualIntelligence.Shared.Attributes
+namespace OneImlx.Shared.Attributes
 {
     /// <summary>
     /// Indicates a TODO action on the target element.

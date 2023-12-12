@@ -5,7 +5,7 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-namespace PerpetualIntelligence.Shared.Authorization
+namespace OneImlx.Shared.Authorization
 {
     /// <summary>
     /// The <c>MSAL</c> authorization endpoints.

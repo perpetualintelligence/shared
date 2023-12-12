@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace PerpetualIntelligence.Shared.Attributes.Validation
+namespace OneImlx.Shared.Attributes.Validation
 {
     /// <summary>
     /// Specifies that a data field value is a list of well formed emails.

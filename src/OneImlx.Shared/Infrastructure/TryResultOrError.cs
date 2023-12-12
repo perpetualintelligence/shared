@@ -5,7 +5,7 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-namespace PerpetualIntelligence.Shared.Infrastructure
+namespace OneImlx.Shared.Infrastructure
 {
     /// <summary>
     /// The generic result of a trying method. The trying method must return an error or a valid result. Both

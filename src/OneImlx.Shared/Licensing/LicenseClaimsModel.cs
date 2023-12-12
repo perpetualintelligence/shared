@@ -5,14 +5,14 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using PerpetualIntelligence.Shared.Attributes;
-using PerpetualIntelligence.Shared.Infrastructure;
-using PerpetualIntelligence.Shared.Json;
+using OneImlx.Shared.Attributes;
+using OneImlx.Shared.Infrastructure;
+using OneImlx.Shared.Json;
 using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace PerpetualIntelligence.Shared.Licensing
+namespace OneImlx.Shared.Licensing
 {
     /// <summary>
     /// The generic license claims.

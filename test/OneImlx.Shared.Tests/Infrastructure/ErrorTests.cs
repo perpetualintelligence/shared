@@ -6,11 +6,11 @@
 */
 
 using FluentAssertions;
-using PerpetualIntelligence.Test.Services;
+using OneImlx.Test.Services;
 using System;
 using Xunit;
 
-namespace PerpetualIntelligence.Shared.Infrastructure
+namespace OneImlx.Shared.Infrastructure
 {
     public class ErrorTests
     {

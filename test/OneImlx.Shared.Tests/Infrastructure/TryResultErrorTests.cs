@@ -9,7 +9,7 @@ using FluentAssertions;
 using System;
 using Xunit;
 
-namespace PerpetualIntelligence.Shared.Infrastructure
+namespace OneImlx.Shared.Infrastructure
 {
     public class TryResultErrorTests
     {

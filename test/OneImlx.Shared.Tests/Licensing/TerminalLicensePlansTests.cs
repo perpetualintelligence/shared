@@ -6,10 +6,10 @@
 */
 
 using FluentAssertions;
-using PerpetualIntelligence.Test.Services;
+using OneImlx.Test.Services;
 using Xunit;
 
-namespace PerpetualIntelligence.Shared.Licensing
+namespace OneImlx.Shared.Licensing
 {
     public class TerminalLicensePlansTests
     {

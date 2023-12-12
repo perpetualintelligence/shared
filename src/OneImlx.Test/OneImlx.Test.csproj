@@ -33,7 +33,7 @@
         </When>
         <Otherwise>
             <ItemGroup>
-                <PackageReference Include="PerpetualIntelligence.Shared" Version="$(PI_CI_PACKAGE_VERSION)" />
+                <PackageReference Include="OneImlx.Shared" Version="$(PI_CI_PACKAGE_VERSION)" />
             </ItemGroup>
         </Otherwise>
     </Choose>

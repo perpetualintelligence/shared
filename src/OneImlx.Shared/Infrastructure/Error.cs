@@ -5,10 +5,10 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using PerpetualIntelligence.Shared.Attributes;
+using OneImlx.Shared.Attributes;
 using System.Text.Json.Serialization;
 
-namespace PerpetualIntelligence.Shared.Infrastructure
+namespace OneImlx.Shared.Infrastructure
 {
     /// <summary>
     /// The generic error.

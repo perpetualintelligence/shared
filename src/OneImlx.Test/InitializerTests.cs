@@ -8,7 +8,7 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace PerpetualIntelligence.Test
+namespace OneImlx.Test
 {
     /// <summary>
     /// Represents a <see cref="ContextTests"/> that provides the initialization and cleanup methods.

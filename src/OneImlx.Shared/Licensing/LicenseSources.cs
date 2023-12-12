@@ -5,7 +5,7 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-namespace PerpetualIntelligence.Shared.Licensing
+namespace OneImlx.Shared.Licensing
 {
     /// <summary>
     /// The license  sources.

@@ -8,7 +8,7 @@
 using FluentAssertions;
 using Xunit;
 
-namespace PerpetualIntelligence.Shared.Authorization
+namespace OneImlx.Shared.Authorization
 {
     public class AuthEndpointsTests
     {

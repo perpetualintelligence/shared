@@ -8,9 +8,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PerpetualIntelligence.Shared.Attributes;
-using PerpetualIntelligence.Shared.Extensions;
-using PerpetualIntelligence.Shared.Infrastructure;
+using OneImlx.Shared.Attributes;
+using OneImlx.Shared.Extensions;
+using OneImlx.Shared.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +22,7 @@ using System.Runtime.CompilerServices;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace PerpetualIntelligence.Test.Services
+namespace OneImlx.Test.Services
 {
     /// <summary>
     /// This class provides helper methods for unit tests.
@@ -179,7 +179,7 @@ namespace PerpetualIntelligence.Test.Services
         /// <param name="assembly"></param>
         public static void AssertAssemblyTypesLocation(Assembly assembly)
         {
-            // e.g. D:/this/PI/Services/test/PerpetualIntelligence.Shared.Test/bin/Debug/net6.0/PerpetualIntelligence.Shared.dll
+            // e.g. D:/this/PI/Services/test/OneImlx.Shared.Test/bin/Debug/net6.0/OneImlx.Shared.dll
             string assemblyPath = assembly.Location ?? throw new InvalidOperationException("Assembly code base cannot be null.");
 
             // 6 levels up is the src folder
@@ -643,8 +643,8 @@ namespace PerpetualIntelligence.Test.Services
                 if (e.Namespace != null && e.Namespace.StartsWith(rootNamespace))
                 {
                     // Make sure do not have any concatenated names to the root namespace without nesting. e.g.
-                    // PerpetualIntelligence.Shared123 - invalid PerpetualIntelligence.Shared.Services - valid
-                    // PerpetualIntelligence.Shared - valid
+                    // OneImlx.Shared123 - invalid OneImlx.Shared.Services - valid
+                    // OneImlx.Shared - valid
                     string trimmed = e.Namespace.Replace(rootNamespace, "");
                     if (trimmed == string.Empty || trimmed.StartsWith("."))
                     {
@@ -679,7 +679,7 @@ namespace PerpetualIntelligence.Test.Services
             string prjDir = Path.Combine(srcDir, assembly.GetName().Name!);
             if (!Directory.Exists(prjDir))
             {
-                prjDir = Path.Combine(srcDir, assembly.GetName().Name!.Replace("PerpetualIntelligence.", ""));
+                prjDir = Path.Combine(srcDir, assembly.GetName().Name!.Replace("OneImlx.", ""));
                 if (!Directory.Exists(prjDir))
                 {
                     throw new ErrorException("internal_error", "The project directory is not valid.");

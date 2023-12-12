@@ -5,7 +5,7 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-namespace PerpetualIntelligence.Shared
+namespace OneImlx.Shared
 {
     /// <summary>
     /// The Perpetual Intelligence L.L.C. well known constants.

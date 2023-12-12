@@ -5,11 +5,11 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using PerpetualIntelligence.Shared.Json;
+using OneImlx.Shared.Json;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace PerpetualIntelligence.Shared.Licensing
+namespace OneImlx.Shared.Licensing
 {
     /// <summary>
     /// The base license provisioning model.

@@ -8,7 +8,7 @@
 using FluentAssertions;
 using Xunit;
 
-namespace PerpetualIntelligence.Shared.Attributes.Validation
+namespace OneImlx.Shared.Attributes.Validation
 {
     public class UrlListAttributeTests
     {

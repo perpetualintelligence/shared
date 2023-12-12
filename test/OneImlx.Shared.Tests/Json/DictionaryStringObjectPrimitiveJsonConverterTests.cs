@@ -12,7 +12,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Xunit;
 
-namespace PerpetualIntelligence.Shared.Json
+namespace OneImlx.Shared.Json
 {
     /// <summary>
     /// </summary>

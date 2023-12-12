@@ -5,7 +5,7 @@
     https://terms.perpetualintelligence.com
 */
 
-namespace PerpetualIntelligence.Shared.Licensing
+namespace OneImlx.Shared.Licensing
 {
     /// <summary>
     /// The standard license pricing plans.

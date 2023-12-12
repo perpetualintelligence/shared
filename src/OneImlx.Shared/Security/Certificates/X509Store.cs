@@ -5,12 +5,12 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using PerpetualIntelligence.Shared.Attributes;
+using OneImlx.Shared.Attributes;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 
-namespace PerpetualIntelligence.Shared.Security.Certificates
+namespace OneImlx.Shared.Security.Certificates
 {
     /// <summary>
     /// The <see cref="X509Certificate2"/> store for OAuth and OpenID Connect protocols.

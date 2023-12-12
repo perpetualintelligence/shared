@@ -11,32 +11,32 @@
     <Import Project="..\..\build\props\Test.props" />
 
     <!--
-        PerpetualIntelligence.Shared and PerpetualIntelligence.Test causes a cyclic dependency over the CI pipeline of PerpetualIntelligence.Shared package.
+        OneImlx.Shared and OneImlx.Test causes a cyclic dependency over the CI pipeline of OneImlx.Shared package.
 
-        In the DevOps environment, when we are in the middle of CI/CD for PerpetualIntelligence.Shared, the cadence 
-        fails to restore dependencies for test project PerpetualIntelligence.Shared.Test.
+        In the DevOps environment, when we are in the middle of CI/CD for OneImlx.Shared, the cadence 
+        fails to restore dependencies for test project OneImlx.Shared.Test.
 
-        PerpetualIntelligence.Test
+        OneImlx.Test
         |
-        |... PerpetualIntelligence.Shared
+        |... OneImlx.Shared
         
-        PerpetualIntelligence.Shared.Test
+        OneImlx.Shared.Test
         |
-        |... PerpetualIntelligence.Test
+        |... OneImlx.Test
              |
-             |...PerpetualIntelligence.Shared
+             |...OneImlx.Shared
         |
-        |... PerpetualIntelligence.Shared
+        |... OneImlx.Shared
 
         Cyclic Issue:
-        1. To build and push PerpetualIntelligence.Shared the tests in PerpetualIntelligence.Shared.Test needs to pass.
-        2. PerpetualIntelligence.Shared.Test depends on PerpetualIntelligence.Test for common test components.
-        3. PerpetualIntelligence.Test depend on PerpetualIntelligence.Shared for common infrastructure components
-        4. PerpetualIntelligence.Shared.Test fails to restore PerpetualIntelligence.Test because PerpetualIntelligence.Test fails to restore PerpetualIntelligence.Shared because CD package is not yet published
+        1. To build and push OneImlx.Shared the tests in OneImlx.Shared.Test needs to pass.
+        2. OneImlx.Shared.Test depends on OneImlx.Test for common test components.
+        3. OneImlx.Test depend on OneImlx.Shared for common infrastructure components
+        4. OneImlx.Shared.Test fails to restore OneImlx.Test because OneImlx.Test fails to restore OneImlx.Shared because CD package is not yet published
         
         Resolution:
-        1. Force set the PI_CI_REFERENCE=local for PerpetualIntelligence.Shared and then reset it to PI_CI_REFERENCE=package for all other shared packages
-        2. PerpetualIntelligence.Shared is the first foundational package so it does not depend on any other shared package, thus we can safely us local 
+        1. Force set the PI_CI_REFERENCE=local for OneImlx.Shared and then reset it to PI_CI_REFERENCE=package for all other shared packages
+        2. OneImlx.Shared is the first foundational package so it does not depend on any other shared package, thus we can safely us local 
         
     -->
     <ItemGroup>

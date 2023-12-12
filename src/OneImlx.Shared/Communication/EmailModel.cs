@@ -7,7 +7,7 @@
 
 using System.Text.Json.Serialization;
 
-namespace PerpetualIntelligence.Shared.Communication
+namespace OneImlx.Shared.Communication
 {
     /// <summary>
     /// The email model.

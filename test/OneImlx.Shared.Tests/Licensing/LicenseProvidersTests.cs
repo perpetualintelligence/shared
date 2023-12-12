@@ -6,10 +6,10 @@
 */
 
 using FluentAssertions;
-using PerpetualIntelligence.Test.Services;
+using OneImlx.Test.Services;
 using Xunit;
 
-namespace PerpetualIntelligence.Shared.Licensing
+namespace OneImlx.Shared.Licensing
 {
     public class LicenseProvidersTests
     {
@@ -30,7 +30,7 @@ namespace PerpetualIntelligence.Shared.Licensing
         {
             TestHelper.AssertConstantCount(typeof(LicenseProviders), 1);
 
-            LicenseProviders.PerpetualIntelligence.Should().Be("urn:oneimlx:lic:pvdr:pi");
+            LicenseProviders.OneImlx.Should().Be("urn:oneimlx:lic:pvdr:pi");
         }
     }
 }

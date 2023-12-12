@@ -7,7 +7,7 @@
 
 using System.Text.Json.Serialization;
 
-namespace PerpetualIntelligence.Shared.Licensing
+namespace OneImlx.Shared.Licensing
 {
     /// <summary>
     /// The generic offline license provisioning model.

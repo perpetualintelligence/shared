@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PerpetualIntelligence.Shared.Extensions
+namespace OneImlx.Shared.Extensions
 {
     /// <summary>
     /// <see cref="string"/> extension methods.
