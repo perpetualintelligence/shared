@@ -40,7 +40,7 @@
         
     -->
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Test\OneImlx.Test.csproj" />
-        <ProjectReference Include="..\..\src\Shared\OneImlx.Shared.csproj" />
+        <ProjectReference Include="..\..\src\OneImlx.Test\OneImlx.Test.csproj" />
+        <ProjectReference Include="..\..\src\OneImlx.Shared\OneImlx.Shared.csproj" />
     </ItemGroup>
 </Project>

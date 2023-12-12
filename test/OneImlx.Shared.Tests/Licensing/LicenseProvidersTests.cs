@@ -22,7 +22,7 @@ namespace OneImlx.Shared.Licensing
         [Fact]
         public void IsValidShouldReturnTrueForValidUsage()
         {
-            LicenseProviders.IsValid(LicenseProviders.PerpetualIntelligence).Should().BeTrue();
+            LicenseProviders.IsValid(LicenseProviders.OneImlx).Should().BeTrue();
         }
 
         [Fact]

@@ -28,7 +28,7 @@
     <Choose>
         <When Condition="'$(PI_CI_REFERENCE)'=='cross'">
             <ItemGroup>
-                <ProjectReference Include="..\Shared\OneImlx.Shared.csproj" />
+                <ProjectReference Include="..\OneImlx.Shared\OneImlx.Shared.csproj" />
             </ItemGroup>
         </When>
         <Otherwise>
