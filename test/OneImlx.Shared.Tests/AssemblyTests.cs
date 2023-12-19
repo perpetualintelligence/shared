@@ -1,11 +1,12 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using OneImlx.Test.Services;
+using FluentAssertions;
+using OneImlx.Test.FluentAssertions;
 using Xunit;
 
 namespace OneImlx.Shared
@@ -15,13 +16,13 @@ namespace OneImlx.Shared
         [Fact]
         public void TypesNamespaceTest()
         {
-            TestHelper.AssertNamespace(typeof(Infrastructure.Error).Assembly, "OneImlx.Shared");
+            typeof(Infrastructure.Error).Assembly.Should().HaveTypesInRootNamespace("OneImlx.Shared");
         }
 
         [Fact]
         public void TypesLocationTest()
         {
-            TestHelper.AssertAssemblyTypesLocation(typeof(Infrastructure.Error).Assembly);
+            typeof(Infrastructure.Error).Assembly.Should().HaveTypesInValidLocations();
         }
     }
 }

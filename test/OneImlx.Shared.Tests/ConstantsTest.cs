@@ -1,12 +1,12 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
 using FluentAssertions;
-using OneImlx.Test.Services;
+using OneImlx.Test.FluentAssertions;
 using Xunit;
 
 namespace OneImlx.Shared
@@ -16,7 +16,7 @@ namespace OneImlx.Shared
         [Fact]
         public void ConstantTest()
         {
-            TestHelper.AssertConstantCount(typeof(Constants), 7);
+            typeof(Constants).Should().HaveConstantCount(7);
 
             Constants.Terminal.Should().Be("terminal");
             Constants.TerminalUrn.Should().Be("urn:oneimlx:terminal");

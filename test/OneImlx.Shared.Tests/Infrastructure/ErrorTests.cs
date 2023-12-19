@@ -6,8 +6,9 @@
 */
 
 using FluentAssertions;
-using OneImlx.Test.Services;
+using OneImlx.Test.FluentAssertions;
 using System;
+using System.Text.Json.Serialization;
 using Xunit;
 
 namespace OneImlx.Shared.Infrastructure
@@ -57,10 +58,10 @@ namespace OneImlx.Shared.Infrastructure
         public void JsonPropertyNameShouldBeValid()
         {
             Type type = typeof(Error);
-            TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(Error.ErrorCode)), "error_code");
-            TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(Error.ErrorDescription)), "error_description");
-            TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(Error.ErrorUri)), "error_uri");
-            TestHelper.AssertJsonPropertyName(type.GetProperty(nameof(Error.RequestId)), "request_id");
+            type.GetProperty(nameof(Error.ErrorCode)).Should().BeDecoratedWith<JsonPropertyNameAttribute>(a => a.Name == "error_code");
+            type.GetProperty(nameof(Error.ErrorDescription)).Should().BeDecoratedWith<JsonPropertyNameAttribute>(a => a.Name == "error_description");
+            type.GetProperty(nameof(Error.ErrorUri)).Should().BeDecoratedWith<JsonPropertyNameAttribute>(a => a.Name == "error_uri");
+            type.GetProperty(nameof(Error.RequestId)).Should().BeDecoratedWith<JsonPropertyNameAttribute>(a => a.Name == "request_id");
         }
 
         [Fact]

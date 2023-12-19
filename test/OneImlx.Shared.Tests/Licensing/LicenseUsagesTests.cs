@@ -1,12 +1,12 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
 using FluentAssertions;
-using OneImlx.Test.Services;
+using OneImlx.Test.FluentAssertions;
 using Xunit;
 
 namespace OneImlx.Shared.Licensing
@@ -32,7 +32,7 @@ namespace OneImlx.Shared.Licensing
         [Fact]
         public void LicenseUsagesConstTest()
         {
-            TestHelper.AssertConstantCount(typeof(LicenseUsages), 5);
+            typeof(LicenseUsages).Should().HaveConstantCount(5);
 
             LicenseUsages.CommercialBusiness.Should().Be("urn:oneimlx:lic:usage:org");
             LicenseUsages.CommercialPersonal.Should().Be("urn:oneimlx:lic:usage:per");

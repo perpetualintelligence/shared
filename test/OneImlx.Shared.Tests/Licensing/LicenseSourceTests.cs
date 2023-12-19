@@ -1,12 +1,12 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
 using FluentAssertions;
-using OneImlx.Test.Services;
+using OneImlx.Test.FluentAssertions;
 using Xunit;
 
 namespace OneImlx.Shared.Licensing
@@ -28,7 +28,7 @@ namespace OneImlx.Shared.Licensing
         [Fact]
         public void LicenseKeySourcesConstTest()
         {
-            TestHelper.AssertConstantCount(typeof(LicenseSources), 1);
+            typeof(LicenseSources).Should().HaveConstantCount(1);
 
             LicenseSources.JsonFile.Should().Be("urn:oneimlx:lic:source:jsonfile");
         }

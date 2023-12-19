@@ -1,12 +1,12 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
 using FluentAssertions;
-using OneImlx.Test.Services;
+using OneImlx.Test.FluentAssertions;
 using Xunit;
 
 namespace OneImlx.Shared.Licensing
@@ -14,7 +14,7 @@ namespace OneImlx.Shared.Licensing
     public class LicenseProvidersTests
     {
         [Fact]
-        public void IsValidShouldReturnFalseForInvalidlicenseUsage()
+        public void IsValidShouldReturnFalseForInvalidLicenseUsage()
         {
             LicenseProviders.IsValid("invalid").Should().BeFalse();
         }
@@ -28,7 +28,7 @@ namespace OneImlx.Shared.Licensing
         [Fact]
         public void LicenseProvidersConstTest()
         {
-            TestHelper.AssertConstantCount(typeof(LicenseProviders), 1);
+            typeof(LicenseProviders).Should().HaveConstantCount(1);
 
             LicenseProviders.OneImlx.Should().Be("urn:oneimlx:lic:pvdr:pi");
         }
