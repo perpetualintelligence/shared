@@ -15,7 +15,7 @@ namespace OneImlx.Test.FluentAssertions
     /// <summary>
     /// Extension methods for asserting expected properties on <see cref="ErrorException"/> instances.
     /// </summary>
-    public static class ErrorExceptionAssertionsExtensions
+    public static class ErrorExceptionFLuentAssertions
     {
         /// <summary>
         /// Asserts that a thrown <see cref="ErrorException"/> has a specific error code.

@@ -22,7 +22,7 @@ namespace OneImlx.Test.FluentAssertions
     /// <summary>
     /// The fluent assertions for <see cref="Assembly"/>.
     /// </summary>
-    public static class AssemblyAssertionsExtensions
+    public static class AssemblyFluentAssertions
     {
         /// <summary>
         /// Asserts that the assembly has all types in the valid files or locations.
@@ -62,6 +62,49 @@ namespace OneImlx.Test.FluentAssertions
                 var nsTypes = assembly.GetTypes().Where(e => ns.Equals(e.Namespace) && !IsCompilerGenerated(e));
                 ns.Should().NotBeNull("Namespace cannot be null or empty.");
                 AssertNamespaceTypesLocation(nsTypes, ns, srcDir);
+            }
+
+            return new AndConstraint<AssemblyAssertions>(assertions);
+        }
+
+        /// <summary>
+        /// Asserts that the assembly has a valid namespace based on its name.
+        /// </summary>
+        /// <param name="assertions">Fluent Assertions wrapper for the assembly.</param>
+        /// <param name="rootNamespace">The expected root namespace.</param>
+        public static AndConstraint<AssemblyAssertions> HaveTypesInRootNamespace(this AssemblyAssertions assertions, string rootNamespace)
+        {
+            var assembly = assertions.Subject;
+            var actualNamespace = assembly.GetName().Name ?? throw new InvalidOperationException("Assembly name null");
+
+            Execute.Assertion
+                .ForCondition(actualNamespace == rootNamespace)
+                .FailWith($"Assembly '{assembly.GetName().Name}' does not have root namespace '{rootNamespace}'.");
+
+            var types = assembly.GetTypes().Where(e => !IsCompilerGenerated(e));
+            var invalidTypes = types.Where(e =>
+            {
+                // Either the namespace should match root namespace or it should be nested namespace. This is to avoid
+                if (e.Namespace != null && e.Namespace.StartsWith(rootNamespace))
+                {
+                    // Make sure do not have any concatenated names to the root namespace without nesting. e.g.
+                    // OneImlx.Shared123 - invalid OneImlx.Shared.Services - valid
+                    // OneImlx.Shared - valid
+                    string trimmed = e.Namespace.Replace(rootNamespace, "");
+                    if (trimmed == string.Empty || trimmed.StartsWith("."))
+                    {
+                        // keep
+                        return false;
+                    }
+                }
+
+                // by default filter
+                return true;
+            });
+
+            if (invalidTypes.Any())
+            {
+                throw new AssertionFailedException($"Assembly '{assembly.GetName().Name}' contains types '{string.Join(',', invalidTypes.Select(e => e.FullName))}' that do not have root namespace '{rootNamespace}'.");
             }
 
             return new AndConstraint<AssemblyAssertions>(assertions);
@@ -143,49 +186,6 @@ namespace OneImlx.Test.FluentAssertions
 
             // Make sure the types count matches the files count
             Assert.AreEqual(files.Count(), types.Count(), $"Namespace '{@namespace}' has {types.Count()} types, but it has {files.Count()} source files.");
-        }
-
-        /// <summary>
-        /// Asserts that the assembly has a valid namespace based on its name.
-        /// </summary>
-        /// <param name="assertions">Fluent Assertions wrapper for the assembly.</param>
-        /// <param name="rootNamespace">The expected root namespace.</param>
-        public static AndConstraint<AssemblyAssertions> HaveTypesInRootNamespace(this AssemblyAssertions assertions, string rootNamespace)
-        {
-            var assembly = assertions.Subject;
-            var actualNamespace = assembly.GetName().Name ?? throw new InvalidOperationException("Assembly name null");
-
-            Execute.Assertion
-                .ForCondition(actualNamespace == rootNamespace)
-                .FailWith($"Assembly '{assembly.GetName().Name}' does not have root namespace '{rootNamespace}'.");
-
-            var types = assembly.GetTypes().Where(e => !IsCompilerGenerated(e));
-            var invalidTypes = types.Where(e =>
-            {
-                // Either the namespace should match root namespace or it should be nested namespace. This is to avoid
-                if (e.Namespace != null && e.Namespace.StartsWith(rootNamespace))
-                {
-                    // Make sure do not have any concatenated names to the root namespace without nesting. e.g.
-                    // OneImlx.Shared123 - invalid OneImlx.Shared.Services - valid
-                    // OneImlx.Shared - valid
-                    string trimmed = e.Namespace.Replace(rootNamespace, "");
-                    if (trimmed == string.Empty || trimmed.StartsWith("."))
-                    {
-                        // keep
-                        return false;
-                    }
-                }
-
-                // by default filter
-                return true;
-            });
-
-            if (invalidTypes.Any())
-            {
-                throw new AssertionFailedException($"Assembly '{assembly.GetName().Name}' contains types '{string.Join(',', invalidTypes.Select(e => e.FullName))}' that do not have root namespace '{rootNamespace}'.");
-            }
-
-            return new AndConstraint<AssemblyAssertions>(assertions);
         }
 
         private static bool IsCompilerGenerated(Type type)

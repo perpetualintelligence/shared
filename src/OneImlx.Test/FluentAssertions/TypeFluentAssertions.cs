@@ -17,7 +17,7 @@ namespace OneImlx.Test.FluentAssertions
     /// <summary>
     /// The fluent assertion extension methods for <see cref="Type"/>.
     /// </summary>
-    public static class TypeAssertionsExtensions
+    public static class TypeFluentAssertions
     {
         /// <summary>
         /// Asserts that the specified type has the defined number of constants.
