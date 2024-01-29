@@ -27,7 +27,7 @@ namespace OneImlx.Test.FluentAssertions
         /// <returns>An AndConstraint object for method chaining.</returns>
         public static AndConstraint<TypeAssertions> HaveConstantCount(this TypeAssertions assertions, int expectedCount)
         {
-            var type = assertions.Subject ?? throw new ArgumentNullException(nameof(assertions.Subject), "The asserted type is null.");
+            var type = assertions.Subject ?? throw new ArgumentNullException(nameof(assertions), "The asserted type is null.");
 
             var constants = type.GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy)
                                 .Where(fi => fi.IsLiteral && !fi.IsInitOnly);

@@ -140,7 +140,7 @@ namespace OneImlx.Test.FluentAssertions
 
             // check namespace dir. Start with project dir and combine all namespace.
             List<string> nDirs = [prjDir, .. nonRootNamespace.Split('.')];
-            string namespaceDir = Path.Combine(nDirs.ToArray());
+            string namespaceDir = Path.Combine([.. nDirs]);
             if (!Directory.Exists(namespaceDir))
             {
                 throw new ErrorException("internal_error", $"The namespace '{@namespace}' is not valid. The namespace component '{nonRootNamespace}' must be a directory.");

@@ -58,6 +58,12 @@ namespace OneImlx.Shared.Licensing
         public string ConsumerTenantName { get; set; } = "";
 
         /// <summary>
+        /// The consumer tenant country.
+        /// </summary>
+        [JsonPropertyName("consumer_tenant_country")]
+        public string ConsumerTenantCountry { get; set; } = "";
+
+        /// <summary>
         /// The consumer object id.
         /// </summary>
         [JsonPropertyName("consumer_object_id")]
