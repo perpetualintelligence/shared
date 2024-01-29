@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
@@ -25,7 +25,7 @@ namespace OneImlx.Shared.Licensing
         /// The Authorized party. This is also the <c>azp</c> claim.
         /// </summary>
         [JsonPropertyName("authorized_party")]
-        public string AuthorizedParty { get; set; } = null!;
+        public string AuthorizedParty { get; set; } = "";
 
         /// <summary>
         /// The optional consumer object id.
@@ -38,38 +38,38 @@ namespace OneImlx.Shared.Licensing
         /// The consumer tenant id.
         /// </summary>
         [JsonPropertyName("consumer_tenant_id")]
-        public string ConsumerTenantId { get; set; } = null!;
+        public string ConsumerTenantId { get; set; } = "";
 
         /// <summary>
         /// The consumer tenant id.
         /// </summary>
         [JsonPropertyName("consumer_tenant_name")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? ConsumerTenantName { get; set; } = null!;
+        public string ConsumerTenantName { get; set; } = "";
 
         /// <summary>
         /// The key to check.
         /// </summary>
         [JsonPropertyName("key")]
-        public string Key { get; set; } = null!;
+        public string Key { get; set; } = "";
 
         /// <summary>
         /// The key type. <c>primary_key</c> or <c>secondary_key</c>.
         /// </summary>
         [JsonPropertyName("key_type")]
-        public string KeyType { get; set; } = null!;
+        public string KeyType { get; set; } = "";
 
         /// <summary>
         /// The registered broker or the broker tenant id.
         /// </summary>
         [JsonPropertyName("broker_id")]
-        public string BrokerId { get; set; } = null!;
+        public string BrokerId { get; set; } = "";
 
         /// <summary>
         /// The subject. This is also the <c>sub</c> claim.
         /// </summary>
         [JsonPropertyName("subject")]
-        public string Subject { get; set; } = null!;
+        public string Subject { get; set; } = "";
 
         /// <summary>
         /// The expiry in days.

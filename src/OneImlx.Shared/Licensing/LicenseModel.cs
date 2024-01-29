@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
@@ -15,6 +15,12 @@ namespace OneImlx.Shared.Licensing
     public sealed class LicenseModel
     {
         /// <summary>
+        /// The license identifier.
+        /// </summary>
+        [JsonPropertyName("id")]
+        public string Id { get; set; } = "";
+
+        /// <summary>
         /// The validation public key to check the license.
         /// </summary>
         [JsonPropertyName("validation_key")]
@@ -25,31 +31,31 @@ namespace OneImlx.Shared.Licensing
         /// The <c>acr</c> claim.
         /// </summary>
         [JsonPropertyName("acr_values")]
-        public string[] AcrValues { get; set; } = null!;
+        public string[] AcrValues { get; set; } = [];
 
         /// <summary>
         /// The authorized application. This is also the <c>auth_apps</c> claim.
         /// </summary>
         [JsonPropertyName("authorized_application_ids")]
-        public string[] AuthorizedApplicationIds { get; set; } = null!;
+        public string[] AuthorizedApplicationIds { get; set; } = [];
 
         /// <summary>
         /// The Authorized party. This is also the <c>azp</c> claim.
         /// </summary>
         [JsonPropertyName("authorized_party")]
-        public string AuthorizedParty { get; set; } = null!;
+        public string AuthorizedParty { get; set; } = "";
 
         /// <summary>
         /// The consumer tenant id.
         /// </summary>
         [JsonPropertyName("consumer_tenant_id")]
-        public string ConsumerTenantId { get; set; } = null!;
+        public string ConsumerTenantId { get; set; } = "";
 
         /// <summary>
         /// The consumer tenant name.
         /// </summary>
         [JsonPropertyName("consumer_tenant_name")]
-        public string? ConsumerTenantName { get; set; }
+        public string ConsumerTenantName { get; set; } = "";
 
         /// <summary>
         /// The consumer object id.
@@ -61,7 +67,7 @@ namespace OneImlx.Shared.Licensing
         /// The etag.
         /// </summary>
         [JsonPropertyName("etag")]
-        public string Etag { get; set; } = null!;
+        public string Etag { get; set; } = "";
 
         /// <summary>
         /// The expires in days.
@@ -73,42 +79,42 @@ namespace OneImlx.Shared.Licensing
         /// The operations available for clients.
         /// </summary>
         [JsonPropertyName("operations")]
-        public string[] Operations { get; set; } = null!;
+        public string[] Operations { get; set; } = [];
 
         /// <summary>
         /// The primary <c>jwt</c> license key.
         /// </summary>
         [JsonPropertyName("primary_key")]
-        public string PrimaryKey { get; set; } = null!;
+        public string PrimaryKey { get; set; } = "";
 
         /// <summary>
         /// The registered provider or provider tenant id.
         /// </summary>
         [JsonPropertyName("broker_tenant_id")]
-        public string BrokerTenantId { get; set; } = null!;
+        public string BrokerTenantId { get; set; } = "";
 
         /// <summary>
         /// The publisher tenant id.
         /// </summary>
         [JsonPropertyName("publisher_tenant_id")]
-        public string PublisherTenantId { get; set; } = null!;
+        public string PublisherTenantId { get; set; } = "";
 
         /// <summary>
         /// The secondary <c>jwt</c> license key. Use this key when rotating the primary key.
         /// </summary>
         [JsonPropertyName("secondary_key")]
-        public string SecondaryKey { get; set; } = null!;
+        public string SecondaryKey { get; set; } = "";
 
         /// <summary>
         /// The license key status.
         /// </summary>
         [JsonPropertyName("status")]
-        public string Status { get; set; } = null!;
+        public string Status { get; set; } = "";
 
         /// <summary>
         /// The subject. This is also the <c>sub</c> claim.
         /// </summary>
         [JsonPropertyName("subject")]
-        public string Subject { get; set; } = null!;
+        public string Subject { get; set; } = "";
     }
 }
