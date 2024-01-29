@@ -8,7 +8,6 @@
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Reflection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OneImlx.Shared.Infrastructure;
 using System;
 using System.Collections.Generic;
@@ -120,7 +119,10 @@ namespace OneImlx.Test.FluentAssertions
         {
             // Check for same assembly.
             Assembly assembly = types.First().Assembly;
-            Assert.IsTrue(types.All(e => e.Assembly.Equals(assembly)), "All types must belong to same assembly.");
+            if (!types.All(e => e.Assembly.Equals(assembly)))
+            {
+                throw new ErrorException("internal_error", "All types must belong to same assembly.");
+            }
 
             //check /src/<prj> dir
             string prjDir = Path.Combine(srcDir, assembly.GetName().Name!);
@@ -137,10 +139,12 @@ namespace OneImlx.Test.FluentAssertions
             string nonRootNamespace = @namespace.Replace(assembly.GetName().Name!, "").TrimStart('.');
 
             // check namespace dir. Start with project dir and combine all namespace.
-            List<string> nDirs = new() { prjDir };
-            nDirs.AddRange(nonRootNamespace.Split('.'));
+            List<string> nDirs = [prjDir, .. nonRootNamespace.Split('.')];
             string namespaceDir = Path.Combine(nDirs.ToArray());
-            Assert.IsTrue(Directory.Exists(namespaceDir), $"The namespace '{@namespace}' is not valid. The namespace component '{nonRootNamespace}' must be a directory.");
+            if (!Directory.Exists(namespaceDir))
+            {
+                throw new ErrorException("internal_error", $"The namespace '{@namespace}' is not valid. The namespace component '{nonRootNamespace}' must be a directory.");
+            }
 
             // Make sure the type has the corresponding file.
             // We cannot get the actual code file that defines the type. So we are just checking whether there is a new file for each type and file name matches type.
@@ -180,12 +184,15 @@ namespace OneImlx.Test.FluentAssertions
 
                 if (!files.Contains(typeFile))
                 {
-                    Assert.Fail($"Type '{type.FullName}' must be defined in the src path '{typeFile}'. Please correct the src path or update the namespace.");
+                    throw new ErrorException("internal_error", $"Type '{type.FullName}' must be defined in the src path '{typeFile}'. Please correct the src path or update the namespace.");
                 }
             }
 
             // Make sure the types count matches the files count
-            Assert.AreEqual(files.Count(), types.Count(), $"Namespace '{@namespace}' has {types.Count()} types, but it has {files.Count()} source files.");
+            if (files.Count() != types.Count())
+            {
+                throw new ErrorException("internal_error", $"Namespace '{@namespace}' has {types.Count()} types, but it has {files.Count()} source files.");
+            }
         }
 
         private static bool IsCompilerGenerated(Type type)
