@@ -5,6 +5,8 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
+using OneImlx.Shared.Json;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace OneImlx.Shared.Licensing
@@ -122,5 +124,13 @@ namespace OneImlx.Shared.Licensing
         /// </summary>
         [JsonPropertyName("subject")]
         public string Subject { get; set; } = "";
+
+        /// <summary>
+        /// The custom claims.
+        /// </summary>
+        [JsonPropertyName("custom")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        [JsonConverter(typeof(DictionaryStringObjectPrimitiveJsonConverter))]
+        public Dictionary<string, object>? Custom { get; set; }
     }
 }

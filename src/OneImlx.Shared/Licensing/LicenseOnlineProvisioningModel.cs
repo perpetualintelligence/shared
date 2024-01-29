@@ -1,12 +1,10 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using OneImlx.Shared.Json;
-using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace OneImlx.Shared.Licensing
@@ -16,12 +14,11 @@ namespace OneImlx.Shared.Licensing
     /// </summary>
     public sealed class LicenseOnlineProvisioningModel : LicenseProvisioningModel
     {
-
         /// <summary>
         /// The space separated keys operations. Valid value is <c>actions</c>, <c>get</c>, <c>generate</c>,
         /// <c>reset_primary</c>, <c>reset_secondary</c> and <c>delete</c>.
         /// </summary>
         [JsonPropertyName("operation")]
-        public string Operation { get; set; } = null!;
+        public string Operation { get; set; } = "";
     }
 }

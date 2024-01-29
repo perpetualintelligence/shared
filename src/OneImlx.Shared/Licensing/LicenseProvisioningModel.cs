@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
@@ -20,31 +20,31 @@ namespace OneImlx.Shared.Licensing
         /// The <c>acr</c> claim.
         /// </summary>
         [JsonPropertyName("acr_values")]
-        public string[] AcrValues { get; set; } = null!;
+        public string[] AcrValues { get; set; } = [];
 
         /// <summary>
         /// The <c>aud</c> claim.
         /// </summary>
         [JsonPropertyName("audience")]
-        public string Audience { get; set; } = null!;
+        public string Audience { get; set; } = "";
 
         /// <summary>
         /// The <c>auth_apps</c> claim.
         /// </summary>
         [JsonPropertyName("authorized_application_ids")]
-        public string[] AuthorizedApplicationIds { get; set; } = null!;
+        public string[] AuthorizedApplicationIds { get; set; } = [];
 
         /// <summary>
         /// The <c>azp</c> claim.
         /// </summary>
         [JsonPropertyName("authorized_party")]
-        public string AuthorizedParty { get; set; } = null!;
+        public string AuthorizedParty { get; set; } = "";
 
         /// <summary>
         /// The broker tenant id.
         /// </summary>
         [JsonPropertyName("broker_tenant_id")]
-        public string BrokerTenantId { get; set; } = null!;
+        public string BrokerTenantId { get; set; } = "";
 
         /// <summary>
         /// The consumer object id.
@@ -62,13 +62,13 @@ namespace OneImlx.Shared.Licensing
         /// The consumer tenant id. This is the <c>tid</c> claim.
         /// </summary>
         [JsonPropertyName("consumer_tenant_id")]
-        public string ConsumerTenantId { get; set; } = null!;
+        public string ConsumerTenantId { get; set; } = "";
 
         /// <summary>
         /// The consumer tenant id. This is the <c>tid</c> claim.
         /// </summary>
         [JsonPropertyName("consumer_tenant_name")]
-        public string? ConsumerTenantName { get; set; }
+        public string ConsumerTenantName { get; set; } = "";
 
         /// <summary>
         /// The <c>custom</c> data.
@@ -88,24 +88,30 @@ namespace OneImlx.Shared.Licensing
         /// The <c>iss</c> claim.
         /// </summary>
         [JsonPropertyName("issuer")]
-        public string Issuer { get; set; } = null!;
+        public string Issuer { get; set; } = "";
 
         /// <summary>
         /// The publisher tenant id.
         /// </summary>
         [JsonPropertyName("publisher_tenant_id")]
-        public string PublisherTenantId { get; set; } = null!;
+        public string PublisherTenantId { get; set; } = "";
 
         /// <summary>
         /// The key status.
         /// </summary>
         [JsonPropertyName("status")]
-        public string Status { get; set; } = null!;
+        public string Status { get; set; } = "";
 
         /// <summary>
         /// The <c>sub</c> claim.
         /// </summary>
         [JsonPropertyName("subject")]
-        public string Subject { get; set; } = null!;
+        public string Subject { get; set; } = "";
+
+        /// <summary>
+        /// The identifier.
+        /// </summary>
+        [JsonPropertyName("id")]
+        public string Id { get; set; } = "";
     }
 }
