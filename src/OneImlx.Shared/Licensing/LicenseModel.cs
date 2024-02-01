@@ -17,7 +17,7 @@ namespace OneImlx.Shared.Licensing
     public sealed class LicenseModel
     {
         /// <summary>
-        /// The license identifier.
+        /// The license identifier. This is also the <c>sub</c> claim.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; set; } = "";
@@ -118,12 +118,6 @@ namespace OneImlx.Shared.Licensing
         /// </summary>
         [JsonPropertyName("status")]
         public string Status { get; set; } = "";
-
-        /// <summary>
-        /// The subject. This is also the <c>sub</c> claim.
-        /// </summary>
-        [JsonPropertyName("subject")]
-        public string Subject { get; set; } = "";
 
         /// <summary>
         /// The custom claims.
