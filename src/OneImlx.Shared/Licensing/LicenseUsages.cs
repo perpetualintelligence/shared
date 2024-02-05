@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
@@ -20,11 +20,10 @@ namespace OneImlx.Shared.Licensing
         {
             switch (usage)
             {
-                case CommercialPersonal:
+                case CommercialSolo:
                 case CommercialBusiness:
                 case Educational:
                 case RnD:
-                case None:
                     {
                         return true;
                     }
@@ -36,11 +35,6 @@ namespace OneImlx.Shared.Licensing
         }
 
         /// <summary>
-        /// The neutral or no license usage plan.
-        /// </summary>
-        public const string None = "urn:oneimlx:lic:usage:none";
-
-        /// <summary>
         /// The commercial usage for an organization or business account.
         /// </summary>
         public const string CommercialBusiness = "urn:oneimlx:lic:usage:org";
@@ -48,7 +42,7 @@ namespace OneImlx.Shared.Licensing
         /// <summary>
         /// The commercial usage for a personal or social account.
         /// </summary>
-        public const string CommercialPersonal = "urn:oneimlx:lic:usage:per";
+        public const string CommercialSolo = "urn:oneimlx:lic:usage:per";
 
         /// <summary>
         /// The community usage for educational account.

@@ -14,7 +14,7 @@ namespace OneImlx.Shared.Licensing
     public class LicenseUsagesTests
     {
         [Fact]
-        public void IsValidShouldReturnFalseForInvalidlicenseUsage()
+        public void IsValidShouldReturnFalseForInvalidLicenseUsage()
         {
             LicenseUsages.IsValid("invalid").Should().BeFalse();
         }
@@ -23,22 +23,20 @@ namespace OneImlx.Shared.Licensing
         public void IsValidShouldReturnTrueForValidUsage()
         {
             LicenseUsages.IsValid(LicenseUsages.CommercialBusiness).Should().BeTrue();
-            LicenseUsages.IsValid(LicenseUsages.CommercialPersonal).Should().BeTrue();
+            LicenseUsages.IsValid(LicenseUsages.CommercialSolo).Should().BeTrue();
             LicenseUsages.IsValid(LicenseUsages.Educational).Should().BeTrue();
             LicenseUsages.IsValid(LicenseUsages.RnD).Should().BeTrue();
-            LicenseUsages.IsValid(LicenseUsages.None).Should().BeTrue();
         }
 
         [Fact]
         public void LicenseUsagesConstTest()
         {
-            typeof(LicenseUsages).Should().HaveConstantCount(5);
+            typeof(LicenseUsages).Should().HaveConstantCount(4);
 
             LicenseUsages.CommercialBusiness.Should().Be("urn:oneimlx:lic:usage:org");
-            LicenseUsages.CommercialPersonal.Should().Be("urn:oneimlx:lic:usage:per");
+            LicenseUsages.CommercialSolo.Should().Be("urn:oneimlx:lic:usage:per");
             LicenseUsages.Educational.Should().Be("urn:oneimlx:lic:usage:edu");
             LicenseUsages.RnD.Should().Be("urn:oneimlx:lic:usage:rnd");
-            LicenseUsages.None.Should().Be("urn:oneimlx:lic:usage:none");
         }
     }
 }
