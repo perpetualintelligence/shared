@@ -5,7 +5,6 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using OneImlx.Shared.Attributes;
 using OneImlx.Shared.Infrastructure;
 using OneImlx.Shared.Json;
 using System;
@@ -23,7 +22,6 @@ namespace OneImlx.Shared.Licensing
         /// Initialize a new instance. This constructor is part of the internal infrastructure. Please do not use it
         /// directly in the application code. To create a new instance from claims please use <see cref="Create(IDictionary{string, object})"/>.
         /// </summary>
-        [InternalInfrastructure]
         public LicenseClaimsModel()
         {
         }
@@ -129,6 +127,12 @@ namespace OneImlx.Shared.Licensing
         public string TenantId { get; set; } = null!;
 
         /// <summary>
+        /// The <c>mode</c> claim.
+        /// </summary>
+        [JsonPropertyName("mode")]
+        public string Mode { get; set; } = null!;
+
+        /// <summary>
         /// Creates a new instance of <see cref="LicenseClaimsModel"/> based on the specified claims dictionary.
         /// </summary>
         /// <param name="claims">The source claims.</param>
@@ -217,9 +221,14 @@ namespace OneImlx.Shared.Licensing
                                 fromClaims.NotBefore = DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(claims["nbf"]));
                                 continue;
                             }
+                        case "mode":
+                            {
+                                fromClaims.Mode = Convert.ToString(claims["mode"]);
+                                continue;
+                            }
                         default:
                             {
-                                fromClaims.Custom ??= new Dictionary<string, object>();
+                                fromClaims.Custom ??= [];
                                 fromClaims.Custom.Add(kvp.Key, kvp.Value);
 
                                 continue;

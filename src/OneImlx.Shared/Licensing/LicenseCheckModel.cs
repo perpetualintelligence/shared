@@ -10,9 +10,9 @@ using System.Text.Json.Serialization;
 namespace OneImlx.Shared.Licensing
 {
     /// <summary>
-    /// The generic off-line license check.
+    /// The generic online license check.
     /// </summary>
-    public sealed class LicenseOfflineCheckModel
+    public sealed class LicenseCheckModel
     {
         /// <summary>
         /// The <c>aud</c> claim.
@@ -42,7 +42,7 @@ namespace OneImlx.Shared.Licensing
         /// The consumer object id.
         /// </summary>
         [JsonPropertyName("consumer_object_id")]
-        public string ConsumerObjectId { get; set; } = "";
+        public string? ConsumerObjectId { get; set; }
 
         /// <summary>
         /// The <c>iss</c> claim.
@@ -51,16 +51,10 @@ namespace OneImlx.Shared.Licensing
         public string Issuer { get; set; } = "";
 
         /// <summary>
-        /// The license key to check.
+        /// The key to check.
         /// </summary>
         [JsonPropertyName("key")]
         public string Key { get; set; } = "";
-
-        /// <summary>
-        /// The validation public key to check the license <see cref="Key"/>.
-        /// </summary>
-        [JsonPropertyName("validation_key")]
-        public string? ValidationKey { get; set; } = "";
 
         /// <summary>
         /// The key type. <c>primary_key</c> or <c>secondary_key</c>.
@@ -85,5 +79,17 @@ namespace OneImlx.Shared.Licensing
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; set; } = "";
+
+        /// <summary>
+        /// The validation public key to check the license <see cref="Key"/>.
+        /// </summary>
+        [JsonPropertyName("validation_key")]
+        public byte[]? ValidationKey { get; set; }
+
+        /// <summary>
+        /// The license mode.
+        /// </summary>
+        [JsonPropertyName("mode")]
+        public string Mode { get; set; } = "";
     }
 }

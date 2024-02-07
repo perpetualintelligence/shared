@@ -14,7 +14,7 @@ namespace OneImlx.Shared.Licensing
     /// <summary>
     /// The base license provisioning model.
     /// </summary>
-    public abstract class LicenseProvisioningModel
+    public sealed class LicenseProvisioningModel
     {
         /// <summary>
         /// The <c>acr</c> claim.
@@ -85,6 +85,12 @@ namespace OneImlx.Shared.Licensing
         public int ExpiresIn { get; set; }
 
         /// <summary>
+        /// The expiry buffer in days.
+        /// </summary>
+        [JsonPropertyName("expiry_buffer")]
+        public int? ExpiryBuffer { get; set; }
+
+        /// <summary>
         /// The <c>iss</c> claim.
         /// </summary>
         [JsonPropertyName("issuer")]
@@ -113,5 +119,18 @@ namespace OneImlx.Shared.Licensing
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; set; } = "";
+
+        /// <summary>
+        /// The space separated keys operations. Valid value is <c>actions</c>, <c>get</c>, <c>generate</c>,
+        /// <c>reset_primary</c>, <c>reset_secondary</c> and <c>delete</c>.
+        /// </summary>
+        [JsonPropertyName("operation")]
+        public string Operation { get; set; } = "";
+
+        /// <summary>
+        /// The license mode <c>online_license</c> or <c>offline_license</c>.
+        /// </summary>
+        [JsonPropertyName("mode")]
+        public string Mode { get; set; } = "";
     }
 }

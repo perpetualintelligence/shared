@@ -27,7 +27,7 @@ namespace OneImlx.Shared.Licensing
         /// </summary>
         [JsonPropertyName("validation_key")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? ValidationKey { get; set; }
+        public byte[]? ValidationKey { get; set; }
 
         /// <summary>
         /// The <c>acr</c> claim.
@@ -126,5 +126,11 @@ namespace OneImlx.Shared.Licensing
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         [JsonConverter(typeof(DictionaryStringObjectPrimitiveJsonConverter))]
         public Dictionary<string, object>? Custom { get; set; }
+
+        /// <summary>
+        /// The license mode.
+        /// </summary>
+        [JsonPropertyName("mode")]
+        public string Mode { get; set; } = "";
     }
 }

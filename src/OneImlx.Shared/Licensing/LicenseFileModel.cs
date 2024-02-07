@@ -72,15 +72,15 @@ namespace OneImlx.Shared.Licensing
         public string Subject { get; set; } = "";
 
         /// <summary>
-        /// The identifier.
-        /// </summary>
-        [JsonPropertyName("id")]
-        public string Id { get; set; } = "";
-
-        /// <summary>
         /// The expiry in days.
         /// </summary>
         [JsonPropertyName("expires_in")]
         public int ExpiresIn { get; set; }
+
+        /// <summary>
+        /// The mode.
+        /// </summary>
+        [JsonPropertyName("mode")]
+        public string Mode { get; set; } = "";
     }
 }
