@@ -34,7 +34,7 @@ namespace OneImlx.Shared.Licensing
             typeof(LicenseUsages).Should().HaveConstantCount(4);
 
             LicenseUsages.CommercialBusiness.Should().Be("urn:oneimlx:lic:usage:org");
-            LicenseUsages.CommercialSolo.Should().Be("urn:oneimlx:lic:usage:per");
+            LicenseUsages.CommercialSolo.Should().Be("urn:oneimlx:lic:usage:solo");
             LicenseUsages.Educational.Should().Be("urn:oneimlx:lic:usage:edu");
             LicenseUsages.RnD.Should().Be("urn:oneimlx:lic:usage:rnd");
         }

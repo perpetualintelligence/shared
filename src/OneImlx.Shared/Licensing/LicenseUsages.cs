@@ -42,7 +42,7 @@ namespace OneImlx.Shared.Licensing
         /// <summary>
         /// The commercial usage for a personal or social account.
         /// </summary>
-        public const string CommercialSolo = "urn:oneimlx:lic:usage:per";
+        public const string CommercialSolo = "urn:oneimlx:lic:usage:solo";
 
         /// <summary>
         /// The community usage for educational account.
