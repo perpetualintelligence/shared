@@ -115,12 +115,6 @@ namespace OneImlx.Shared.Licensing
         public string Subject { get; set; } = "";
 
         /// <summary>
-        /// The identifier.
-        /// </summary>
-        [JsonPropertyName("id")]
-        public string Id { get; set; } = "";
-
-        /// <summary>
         /// The space separated keys operations. Valid value is <c>actions</c>, <c>get</c>, <c>generate</c>,
         /// <c>reset_primary</c>, <c>reset_secondary</c> and <c>delete</c>.
         /// </summary>
