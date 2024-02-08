@@ -84,6 +84,12 @@ namespace OneImlx.Shared.Licensing
         public int ExpiresIn { get; set; }
 
         /// <summary>
+        /// The expiry buffer in days.
+        /// </summary>
+        [JsonPropertyName("expiry_buffer")]
+        public int? ExpiryBuffer { get; set; }
+
+        /// <summary>
         /// The operations available for clients.
         /// </summary>
         [JsonPropertyName("operations")]
