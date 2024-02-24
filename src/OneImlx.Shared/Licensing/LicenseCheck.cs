@@ -10,9 +10,9 @@ using System.Text.Json.Serialization;
 namespace OneImlx.Shared.Licensing
 {
     /// <summary>
-    /// The generic online license check.
+    /// The license check.
     /// </summary>
-    public sealed class LicenseCheckModel
+    public sealed class LicenseCheck
     {
         /// <summary>
         /// The <c>aud</c> claim.
@@ -35,14 +35,8 @@ namespace OneImlx.Shared.Licensing
         /// <summary>
         /// The consumer tenant id.
         /// </summary>
-        [JsonPropertyName("consumer_tenant_id")]
-        public string ConsumerTenantId { get; set; } = "";
-
-        /// <summary>
-        /// The consumer object id.
-        /// </summary>
-        [JsonPropertyName("consumer_object_id")]
-        public string? ConsumerObjectId { get; set; }
+        [JsonPropertyName("tenant_id")]
+        public string TenantId { get; set; } = "";
 
         /// <summary>
         /// The <c>iss</c> claim.
@@ -63,19 +57,7 @@ namespace OneImlx.Shared.Licensing
         public string KeyType { get; set; } = "";
 
         /// <summary>
-        /// The registered provider or the provider tenant id.
-        /// </summary>
-        [JsonPropertyName("broker_id")]
-        public string BrokerId { get; set; } = "";
-
-        /// <summary>
-        /// The subject. This is also the <c>sub</c> claim.
-        /// </summary>
-        [JsonPropertyName("subject")]
-        public string Subject { get; set; } = "";
-
-        /// <summary>
-        /// The identifier.
+        /// The license identifier.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; set; } = "";

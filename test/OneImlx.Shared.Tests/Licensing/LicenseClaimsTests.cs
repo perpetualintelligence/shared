@@ -25,7 +25,7 @@ namespace OneImlx.Shared.Licensing
             var claims = new Dictionary<string, object>()
             {
                 {"name", "test_name" },
-                {"tenant_ctry", "test_country" },
+                {"ctry", "test_country" },
                 {"aud", "test_audience" },
                 {"iss", "test_issuer" },
                 {"jti", "test_jti" },
@@ -39,9 +39,9 @@ namespace OneImlx.Shared.Licensing
                 {"nbf",  nbf },
             };
 
-            LicenseClaimsModel licClaims = LicenseClaimsModel.Create(claims);
+            LicenseClaims licClaims = LicenseClaims.Create(claims);
 
-            licClaims.Name.Should().Be("test_name");
+            licClaims.TenantName.Should().Be("test_name");
             licClaims.TenantCountry.Should().Be("test_country");
             licClaims.Audience.Should().Be("test_audience");
             licClaims.Issuer.Should().Be("test_issuer");
@@ -55,9 +55,7 @@ namespace OneImlx.Shared.Licensing
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
 
-            // Optional Oid
-            licClaims.ObjectId.Should().BeNull();
-            licClaims.ObjectCountry.Should().BeNull();
+            licClaims.Custom.Should().BeNull();
         }
 
         [Fact]
@@ -70,7 +68,7 @@ namespace OneImlx.Shared.Licensing
             var claims = new Dictionary<string, object>()
             {
                 {"name", "test_name" },
-                {"tenant_ctry", "test_country" },
+                {"ctry", "test_country" },
                 {"aud", "test_audience" },
                 {"iss", "test_issuer" },
                 {"jti", "test_jti" },
@@ -89,9 +87,9 @@ namespace OneImlx.Shared.Licensing
                 {"custom5",  36.69 },
             };
 
-            LicenseClaimsModel licClaims = LicenseClaimsModel.Create(claims);
+            LicenseClaims licClaims = LicenseClaims.Create(claims);
 
-            licClaims.Name.Should().Be("test_name");
+            licClaims.TenantName.Should().Be("test_name");
             licClaims.TenantCountry.Should().Be("test_country");
             licClaims.Audience.Should().Be("test_audience");
             licClaims.Issuer.Should().Be("test_issuer");
@@ -104,10 +102,6 @@ namespace OneImlx.Shared.Licensing
             licClaims.Expiry.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
-
-            // Optional oid should be present
-            licClaims.ObjectId.Should().BeNull();
-            licClaims.ObjectCountry.Should().BeNull();
 
             // Custom claims
             licClaims.Custom.Should().NotBeNull();
@@ -129,14 +123,12 @@ namespace OneImlx.Shared.Licensing
             var claims = new Dictionary<string, object>()
             {
                 {"name", "test_name" },
-                {"tenant_ctry", "test_country" },
+                {"ctry", "test_country" },
                 {"aud", "test_audience" },
                 {"iss", "test_issuer" },
                 {"jti", "test_jti" },
                 {"sub", "test_subject" },
                 {"tid", "test_tenantid" },
-                {"oid", "test_objectid" },
-                {"ctry", "test_objectcountry" },
                 {"azp", "test_azp" },
                 {"acr", "test_acr1 test_acr2" },
                 {"auth_apps", "test_app1 test_app2" },
@@ -145,9 +137,9 @@ namespace OneImlx.Shared.Licensing
                 {"nbf",  nbf },
             };
 
-            LicenseClaimsModel licClaims = LicenseClaimsModel.Create(claims);
+            LicenseClaims licClaims = LicenseClaims.Create(claims);
 
-            licClaims.Name.Should().Be("test_name");
+            licClaims.TenantName.Should().Be("test_name");
             licClaims.TenantCountry.Should().Be("test_country");
             licClaims.Audience.Should().Be("test_audience");
             licClaims.Issuer.Should().Be("test_issuer");
@@ -161,9 +153,7 @@ namespace OneImlx.Shared.Licensing
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
 
-            // Optional oid should be present
-            licClaims.ObjectId.Should().Be("test_objectid");
-            licClaims.ObjectCountry.Should().Be("test_objectcountry");
+            licClaims.Custom.Should().BeNull();
         }
 
         [Fact]
@@ -177,7 +167,7 @@ namespace OneImlx.Shared.Licensing
 
                 var claims = new Dictionary<string, object>()
             {
-                {"country", "test_country" },
+                {"ctry", "test_country" },
                 {"aud", "test_audience" },
                 {"iss", "test_issuer" },
                 {"jti", "test_jti" },
@@ -191,13 +181,13 @@ namespace OneImlx.Shared.Licensing
                 {"nbf",  nbf },
             };
 
-                LicenseClaimsModel licClaims = LicenseClaimsModel.Create(claims);
+                LicenseClaims licClaims = LicenseClaims.Create(claims);
             }
             catch (Exception ex)
             {
                 ErrorException eex = (ErrorException)ex;
                 eex.Error.ErrorCode.Should().Be("missing_claim");
-                eex.Error.FormatDescription().Should().Be("The claim is missing in the request. additional_info=The given key 'name' was not present in the dictionary.");
+                eex.Error.FormatDescription().Should().Be("The claim is missing in the request. info=The given key 'name' was not present in the dictionary.");
             }
         }
     }

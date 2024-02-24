@@ -16,13 +16,13 @@ namespace OneImlx.Shared.Licensing
     /// <summary>
     /// The generic license claims.
     /// </summary>
-    public sealed class LicenseClaimsModel
+    public sealed class LicenseClaims
     {
         /// <summary>
         /// Initialize a new instance. This constructor is part of the internal infrastructure. Please do not use it
         /// directly in the application code. To create a new instance from claims please use <see cref="Create(IDictionary{string, object})"/>.
         /// </summary>
-        public LicenseClaimsModel()
+        public LicenseClaims()
         {
         }
 
@@ -85,8 +85,8 @@ namespace OneImlx.Shared.Licensing
         /// <summary>
         /// The <c>name</c> claim.
         /// </summary>
-        [JsonPropertyName("name")]
-        public string Name { get; set; } = null!;
+        [JsonPropertyName("tenant_name")]
+        public string TenantName { get; set; } = null!;
 
         /// <summary>
         /// The <c>nbf</c> claim.
@@ -95,27 +95,13 @@ namespace OneImlx.Shared.Licensing
         public DateTimeOffset NotBefore { get; set; }
 
         /// <summary>
-        /// The optional <c>ctry</c> claim.
-        /// </summary>
-        [JsonPropertyName("object_country")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string ObjectCountry { get; set; } = null!;
-
-        /// <summary>
-        /// The optional <c>oid</c> claim.
-        /// </summary>
-        [JsonPropertyName("object_id")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string ObjectId { get; set; } = null!;
-
-        /// <summary>
         /// The <c>sub</c> claim.
         /// </summary>
         [JsonPropertyName("subject")]
         public string Subject { get; set; } = null!;
 
         /// <summary>
-        /// The <c>tenant_ctry</c> claim.
+        /// The <c>ctry</c> claim.
         /// </summary>
         [JsonPropertyName("tenant_country")]
         public string TenantCountry { get; set; } = null!;
@@ -133,14 +119,14 @@ namespace OneImlx.Shared.Licensing
         public string Mode { get; set; } = null!;
 
         /// <summary>
-        /// Creates a new instance of <see cref="LicenseClaimsModel"/> based on the specified claims dictionary.
+        /// Creates a new instance of <see cref="LicenseClaims"/> based on the specified claims dictionary.
         /// </summary>
         /// <param name="claims">The source claims.</param>
-        public static LicenseClaimsModel Create(IDictionary<string, object> claims)
+        public static LicenseClaims Create(IDictionary<string, object> claims)
         {
             try
             {
-                LicenseClaimsModel fromClaims = new();
+                LicenseClaims fromClaims = new();
 
                 foreach (var kvp in claims)
                 {
@@ -148,12 +134,7 @@ namespace OneImlx.Shared.Licensing
                     {
                         case "name":
                             {
-                                fromClaims.Name = kvp.Value.ToString();
-                                continue;
-                            }
-                        case "tenant_ctry":
-                            {
-                                fromClaims.TenantCountry = kvp.Value.ToString();
+                                fromClaims.TenantName = kvp.Value.ToString();
                                 continue;
                             }
                         case "aud":
@@ -181,14 +162,9 @@ namespace OneImlx.Shared.Licensing
                                 fromClaims.TenantId = kvp.Value.ToString();
                                 continue;
                             }
-                        case "oid":
-                            {
-                                fromClaims.ObjectId = kvp.Value.ToString();
-                                continue;
-                            }
                         case "ctry":
                             {
-                                fromClaims.ObjectCountry = kvp.Value.ToString();
+                                fromClaims.TenantCountry = kvp.Value.ToString();
                                 continue;
                             }
                         case "azp":
@@ -240,7 +216,7 @@ namespace OneImlx.Shared.Licensing
             }
             catch (Exception ex)
             {
-                throw new ErrorException("missing_claim", "The claim is missing in the request. additional_info={0}", ex.Message);
+                throw new ErrorException("missing_claim", "The claim is missing in the request. info={0}", ex.Message);
             }
         }
     }

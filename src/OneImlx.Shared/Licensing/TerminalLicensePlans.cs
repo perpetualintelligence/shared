@@ -1,14 +1,14 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
-    https://terms.perpetualintelligence.com
+    https://terms.perpetualintelligence.com/articles/intro.html
 */
 
 namespace OneImlx.Shared.Licensing
 {
     /// <summary>
-    /// The standard license pricing plans.
+    /// The terminal framework license plans.
     /// </summary>
     public sealed class TerminalLicensePlans
     {

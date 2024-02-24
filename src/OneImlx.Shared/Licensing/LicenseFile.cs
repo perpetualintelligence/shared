@@ -12,7 +12,7 @@ namespace OneImlx.Shared.Licensing
     /// <summary>
     /// The generic license file.
     /// </summary>
-    public sealed class LicenseFileModel
+    public sealed class LicenseFile
     {
         /// <summary>
         /// The validation public key to check the license <see cref="Key"/>.
@@ -22,30 +22,16 @@ namespace OneImlx.Shared.Licensing
         public string? ValidationKey { get; set; }
 
         /// <summary>
-        /// The Authorized party. This is also the <c>azp</c> claim.
+        /// The consumer tenant id.
         /// </summary>
-        [JsonPropertyName("authorized_party")]
-        public string AuthorizedParty { get; set; } = "";
-
-        /// <summary>
-        /// The optional consumer object id.
-        /// </summary>
-        [JsonPropertyName("consumer_object_id")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string? ConsumerObjectId { get; set; }
+        [JsonPropertyName("tenant_id")]
+        public string TenantId { get; set; } = "";
 
         /// <summary>
         /// The consumer tenant id.
         /// </summary>
-        [JsonPropertyName("consumer_tenant_id")]
-        public string ConsumerTenantId { get; set; } = "";
-
-        /// <summary>
-        /// The consumer tenant id.
-        /// </summary>
-        [JsonPropertyName("consumer_tenant_name")]
-        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public string ConsumerTenantName { get; set; } = "";
+        [JsonPropertyName("tenant_name")]
+        public string TenantName { get; set; } = "";
 
         /// <summary>
         /// The key to check.
@@ -60,16 +46,10 @@ namespace OneImlx.Shared.Licensing
         public string KeyType { get; set; } = "";
 
         /// <summary>
-        /// The registered broker or the broker tenant id.
+        /// The identifier.
         /// </summary>
-        [JsonPropertyName("broker_id")]
-        public string BrokerId { get; set; } = "";
-
-        /// <summary>
-        /// The subject. This is also the <c>sub</c> claim.
-        /// </summary>
-        [JsonPropertyName("subject")]
-        public string Subject { get; set; } = "";
+        [JsonPropertyName("id")]
+        public string Id { get; set; } = "";
 
         /// <summary>
         /// The expiry in days.

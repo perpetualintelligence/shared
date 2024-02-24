@@ -1,3 +1,7 @@
+# v5.7.1
+- Simplify licensing models
+- Clean up demo identifiers
+
 # v5.6.9
 - Merge online and offline licensing into single model
 - Introduce commercial business and solo usage

@@ -8,9 +8,9 @@
 namespace OneImlx.Shared.Licensing
 {
     /// <summary>
-    /// The license usage.
+    /// The standard license usage.
     /// </summary>
-    public class LicenseUsages
+    public class LicenseUsage
     {
         /// <summary>
         /// Determines if the usage is valid.
@@ -40,7 +40,7 @@ namespace OneImlx.Shared.Licensing
         public const string CommercialBusiness = "urn:oneimlx:lic:usage:org";
 
         /// <summary>
-        /// The commercial usage for a personal or social account.
+        /// The commercial usage for a solo account.
         /// </summary>
         public const string CommercialSolo = "urn:oneimlx:lic:usage:solo";
 
@@ -50,7 +50,7 @@ namespace OneImlx.Shared.Licensing
         public const string Educational = "urn:oneimlx:lic:usage:edu";
 
         /// <summary>
-        /// The community test and demo usage for any account.
+        /// The community usage for research and development.
         /// </summary>
         public const string RnD = "urn:oneimlx:lic:usage:rnd";
     }
