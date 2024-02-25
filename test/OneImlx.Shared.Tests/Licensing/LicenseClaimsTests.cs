@@ -25,7 +25,7 @@ namespace OneImlx.Shared.Licensing
             var claims = new Dictionary<string, object>()
             {
                 {"name", "test_name" },
-                {"ctry", "test_country" },
+                {"country", "test_country" },
                 {"aud", "test_audience" },
                 {"iss", "test_issuer" },
                 {"jti", "test_jti" },
@@ -68,7 +68,7 @@ namespace OneImlx.Shared.Licensing
             var claims = new Dictionary<string, object>()
             {
                 {"name", "test_name" },
-                {"ctry", "test_country" },
+                {"country", "test_country" },
                 {"aud", "test_audience" },
                 {"iss", "test_issuer" },
                 {"jti", "test_jti" },
@@ -123,7 +123,7 @@ namespace OneImlx.Shared.Licensing
             var claims = new Dictionary<string, object>()
             {
                 {"name", "test_name" },
-                {"ctry", "test_country" },
+                {"country", "test_country" },
                 {"aud", "test_audience" },
                 {"iss", "test_issuer" },
                 {"jti", "test_jti" },

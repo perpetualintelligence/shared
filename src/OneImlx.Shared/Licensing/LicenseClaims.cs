@@ -162,7 +162,7 @@ namespace OneImlx.Shared.Licensing
                                 fromClaims.TenantId = kvp.Value.ToString();
                                 continue;
                             }
-                        case "ctry":
+                        case "country":
                             {
                                 fromClaims.TenantCountry = kvp.Value.ToString();
                                 continue;

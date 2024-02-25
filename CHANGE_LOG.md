@@ -1,5 +1,6 @@
-# v5.7.3
+# v5.7.4
 - Add fluent assertion extensions for Throw
+- Update country claim
 
 # v5.7.1
 - Simplify licensing models
