@@ -1,4 +1,4 @@
-# v5.7.2
+# v5.7.3
 - Add fluent assertion extensions for Throw
 
 # v5.7.1
