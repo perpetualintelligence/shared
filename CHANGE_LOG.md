@@ -1,3 +1,6 @@
+# v5.7.2
+- Add fluent assertion extensions for Throw
+
 # v5.7.1
 - Simplify licensing models
 - Clean up demo identifiers
