@@ -1,3 +1,6 @@
+# v5.7.5
+- Support .NET Standard
+
 # v5.7.4
 - Add fluent assertion extensions for Throw
 - Update country claim

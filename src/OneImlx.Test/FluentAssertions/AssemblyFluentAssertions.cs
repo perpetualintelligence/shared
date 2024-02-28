@@ -31,9 +31,9 @@ namespace OneImlx.Test.FluentAssertions
         {
             var assembly = assertions.Subject;
 
-            // e.g. D:/this/PI/Services/test/OneImlx.Shared.Test/bin/Debug/net6.0/OneImlx.Shared.dll
-            var assemblyPath = assembly.Location ?? throw new InvalidOperationException("Assembly code base cannot be null.");
-            var rootPath = Path.GetFullPath(Path.Combine(assemblyPath, @"../../../../../../"));
+            // e.g. C:\this\perpetualintelligence\terminal\test\OneImlx.Terminal.Tests\bin\Debug\net8.0\OneImlx.Terminal.dll
+            string assemblyPath = GetAssemblyPath(assembly);
+            var rootPath = GetRootPathBasedOnAssemblyLocation(assemblyPath);
 
             var testDir = Path.Combine(rootPath, "test");
             var srcDir = Path.Combine(rootPath, "src");
@@ -103,7 +103,7 @@ namespace OneImlx.Test.FluentAssertions
 
             if (invalidTypes.Any())
             {
-                throw new AssertionFailedException($"Assembly '{assembly.GetName().Name}' contains types '{string.Join(',', invalidTypes.Select(e => e.FullName))}' that do not have root namespace '{rootNamespace}'.");
+                throw new AssertionFailedException($"Assembly '{assembly.GetName().Name}' contains types '{string.Join(",", invalidTypes.Select(e => e.FullName))}' that do not have root namespace '{rootNamespace}'.");
             }
 
             return new AndConstraint<AssemblyAssertions>(assertions);
@@ -172,7 +172,7 @@ namespace OneImlx.Test.FluentAssertions
                     int index = typeName.IndexOf("`");
                     if (index >= 0)
                     {
-                        typeName = typeName[..index];
+                        typeName = typeName.Substring(0, index);
                     }
 
                     typeFile = Path.Combine(namespaceDir, $"{typeName}.cs");
@@ -229,6 +229,38 @@ namespace OneImlx.Test.FluentAssertions
         private static bool IsDelegate(Type type)
         {
             return type.IsSubclassOf(typeof(Delegate));
+        }
+
+        private static string GetRootPathBasedOnAssemblyLocation(string assemblyPath)
+        {
+            // Go up six levels from the assembly location to get to the project root.
+            var directory = new DirectoryInfo(assemblyPath);
+            for (int i = 0; i < 6; i++)
+            {
+                directory = directory?.Parent;
+                if (directory == null) throw new InvalidOperationException("Failed to calculate the project root path.");
+            }
+
+            return directory.FullName;
+        }
+
+        private static string GetAssemblyPath(Assembly assembly)
+        {
+            // Attempt to use CodeBase for full .NET Framework compatibility
+            // Fallback to Location for .NET Core and later
+            string location;
+            try
+            {
+                // CodeBase is marked obsolete in .NET 5.0 and later versions, but still usable in earlier versions
+                location = new Uri(assembly.CodeBase).LocalPath;
+            }
+            catch (Exception)
+            {
+                // If accessing CodeBase fails or it's not applicable, use Location
+                location = assembly.Location;
+            }
+
+            return location;
         }
     }
 }
