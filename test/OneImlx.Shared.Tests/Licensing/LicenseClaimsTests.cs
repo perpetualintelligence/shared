@@ -33,7 +33,7 @@ namespace OneImlx.Shared.Licensing
                 {"tid", "test_tenantid" },
                 {"azp", "test_azp" },
                 {"acr", "test_acr1 test_acr2" },
-                {"auth_apps", "test_app1 test_app2" },
+                {"apps", "test_app1 test_app2" },
                 {"exp", exp },
                 {"iat", iat },
                 {"nbf",  nbf },
@@ -50,7 +50,7 @@ namespace OneImlx.Shared.Licensing
             licClaims.TenantId.Should().Be("test_tenantid");
             licClaims.AuthorizedParty.Should().Be("test_azp");
             licClaims.AcrValues.Should().Be("test_acr1 test_acr2");
-            licClaims.AuthorizedApplicationIds.Should().Be("test_app1 test_app2");
+            licClaims.Applications.Should().Be("test_app1 test_app2");
             licClaims.Expiry.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
@@ -76,7 +76,7 @@ namespace OneImlx.Shared.Licensing
                 {"tid", "test_tenantid" },
                 {"azp", "test_azp" },
                 {"acr", "test_acr1 test_acr2" },
-                {"auth_apps", "test_app1 test_app2" },
+                {"apps", "test_app1 test_app2" },
                 {"exp", exp },
                 {"iat", iat },
                 {"nbf",  nbf },
@@ -98,7 +98,7 @@ namespace OneImlx.Shared.Licensing
             licClaims.TenantId.Should().Be("test_tenantid");
             licClaims.AuthorizedParty.Should().Be("test_azp");
             licClaims.AcrValues.Should().Be("test_acr1 test_acr2");
-            licClaims.AuthorizedApplicationIds.Should().Be("test_app1 test_app2");
+            licClaims.Applications.Should().Be("test_app1 test_app2");
             licClaims.Expiry.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
@@ -131,7 +131,7 @@ namespace OneImlx.Shared.Licensing
                 {"tid", "test_tenantid" },
                 {"azp", "test_azp" },
                 {"acr", "test_acr1 test_acr2" },
-                {"auth_apps", "test_app1 test_app2" },
+                {"apps", "test_app1 test_app2" },
                 {"exp", exp },
                 {"iat", iat },
                 {"nbf",  nbf },
@@ -148,7 +148,7 @@ namespace OneImlx.Shared.Licensing
             licClaims.TenantId.Should().Be("test_tenantid");
             licClaims.AuthorizedParty.Should().Be("test_azp");
             licClaims.AcrValues.Should().Be("test_acr1 test_acr2");
-            licClaims.AuthorizedApplicationIds.Should().Be("test_app1 test_app2");
+            licClaims.Applications.Should().Be("test_app1 test_app2");
             licClaims.Expiry.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
@@ -175,7 +175,7 @@ namespace OneImlx.Shared.Licensing
                 {"tid", "test_tenantid" },
                 {"azp", "test_azp" },
                 {"acr", "test_acr1 test_acr2" },
-                {"auth_apps", "test_app1 test_app2" },
+                {"apps", "test_app1 test_app2" },
                 {"exp", exp },
                 {"iat", iat },
                 {"nbf",  nbf },

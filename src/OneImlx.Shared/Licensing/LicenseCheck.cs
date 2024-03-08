@@ -15,19 +15,19 @@ namespace OneImlx.Shared.Licensing
     public sealed class LicenseCheck
     {
         /// <summary>
-        /// The <c>aud</c> claim.
+        /// The audience.
         /// </summary>
         [JsonPropertyName("audience")]
         public string Audience { get; set; } = "";
 
         /// <summary>
-        /// The Authorized application. This is also one of the <c>auth_apps</c> claim value.
+        /// The Authorized application.
         /// </summary>
-        [JsonPropertyName("authorized_application_id")]
-        public string AuthorizedApplicationId { get; set; } = "";
+        [JsonPropertyName("application")]
+        public string Application { get; set; } = "";
 
         /// <summary>
-        /// The Authorized party. This is also the <c>azp</c> claim.
+        /// The Authorized party.
         /// </summary>
         [JsonPropertyName("authorized_party")]
         public string AuthorizedParty { get; set; } = "";
@@ -39,7 +39,7 @@ namespace OneImlx.Shared.Licensing
         public string TenantId { get; set; } = "";
 
         /// <summary>
-        /// The <c>iss</c> claim.
+        /// The issuer.
         /// </summary>
         [JsonPropertyName("issuer")]
         public string Issuer { get; set; } = "";

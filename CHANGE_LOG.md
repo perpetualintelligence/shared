@@ -1,3 +1,6 @@
+# v5.8.1
+- Rename auth_apps claim to apps
+
 # v5.7.5
 - Support .NET Standard
 

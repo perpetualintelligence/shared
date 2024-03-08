@@ -39,10 +39,10 @@ namespace OneImlx.Shared.Licensing
         public string Audience { get; set; } = null!;
 
         /// <summary>
-        /// The <c>auth_apps</c> claim.
+        /// The <c>apps</c> claim.
         /// </summary>
-        [JsonPropertyName("authorized_application_ids")]
-        public string AuthorizedApplicationIds { get; set; } = null!;
+        [JsonPropertyName("applications")]
+        public string Applications { get; set; } = null!;
 
         /// <summary>
         /// The <c>azp</c> claim.
@@ -172,9 +172,9 @@ namespace OneImlx.Shared.Licensing
                                 fromClaims.AuthorizedParty = kvp.Value.ToString();
                                 continue;
                             }
-                        case "auth_apps":
+                        case "apps":
                             {
-                                fromClaims.AuthorizedApplicationIds = kvp.Value.ToString();
+                                fromClaims.Applications = kvp.Value.ToString();
                                 continue;
                             }
                         case "acr":
