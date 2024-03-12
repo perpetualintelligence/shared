@@ -30,6 +30,7 @@ namespace OneImlx.Shared.Licensing
                 {"iss", "test_issuer" },
                 {"jti", "test_jti" },
                 {"sub", "test_subject" },
+                {"oid", "test_id" },
                 {"tid", "test_tenantid" },
                 {"azp", "test_azp" },
                 {"acr", "test_acr1 test_acr2" },
@@ -48,6 +49,7 @@ namespace OneImlx.Shared.Licensing
             licClaims.Jti.Should().Be("test_jti");
             licClaims.Subject.Should().Be("test_subject");
             licClaims.TenantId.Should().Be("test_tenantid");
+            licClaims.Id.Should().Be("test_id");
             licClaims.AuthorizedParty.Should().Be("test_azp");
             licClaims.AcrValues.Should().Be("test_acr1 test_acr2");
             licClaims.Applications.Should().Be("test_app1 test_app2");
@@ -74,6 +76,7 @@ namespace OneImlx.Shared.Licensing
                 {"jti", "test_jti" },
                 {"sub", "test_subject" },
                 {"tid", "test_tenantid" },
+                {"oid", "test_id" },
                 {"azp", "test_azp" },
                 {"acr", "test_acr1 test_acr2" },
                 {"apps", "test_app1 test_app2" },
@@ -96,6 +99,7 @@ namespace OneImlx.Shared.Licensing
             licClaims.Jti.Should().Be("test_jti");
             licClaims.Subject.Should().Be("test_subject");
             licClaims.TenantId.Should().Be("test_tenantid");
+            licClaims.Id.Should().Be("test_id");
             licClaims.AuthorizedParty.Should().Be("test_azp");
             licClaims.AcrValues.Should().Be("test_acr1 test_acr2");
             licClaims.Applications.Should().Be("test_app1 test_app2");
@@ -129,6 +133,7 @@ namespace OneImlx.Shared.Licensing
                 {"jti", "test_jti" },
                 {"sub", "test_subject" },
                 {"tid", "test_tenantid" },
+                {"oid", "test_id" },
                 {"azp", "test_azp" },
                 {"acr", "test_acr1 test_acr2" },
                 {"apps", "test_app1 test_app2" },
@@ -146,6 +151,7 @@ namespace OneImlx.Shared.Licensing
             licClaims.Jti.Should().Be("test_jti");
             licClaims.Subject.Should().Be("test_subject");
             licClaims.TenantId.Should().Be("test_tenantid");
+            licClaims.Id.Should().Be("test_id");
             licClaims.AuthorizedParty.Should().Be("test_azp");
             licClaims.AcrValues.Should().Be("test_acr1 test_acr2");
             licClaims.Applications.Should().Be("test_app1 test_app2");
@@ -166,20 +172,21 @@ namespace OneImlx.Shared.Licensing
                 long nbf = DateTimeOffset.UtcNow.AddHours(-0.5).ToUnixTimeSeconds();
 
                 var claims = new Dictionary<string, object>()
-            {
-                {"ctry", "test_country" },
-                {"aud", "test_audience" },
-                {"iss", "test_issuer" },
-                {"jti", "test_jti" },
-                {"sub", "test_subject" },
-                {"tid", "test_tenantid" },
-                {"azp", "test_azp" },
-                {"acr", "test_acr1 test_acr2" },
-                {"apps", "test_app1 test_app2" },
-                {"exp", exp },
-                {"iat", iat },
-                {"nbf",  nbf },
-            };
+                {
+                    {"country", "test_country" },
+                    {"aud", "test_audience" },
+                    {"iss", "test_issuer" },
+                    {"jti", "test_jti" },
+                    {"sub", "test_subject" },
+                    {"tid", "test_tenantid" },
+                    {"oid", "test_id" },
+                    {"azp", "test_azp" },
+                    {"acr", "test_acr1 test_acr2" },
+                    {"apps", "test_app1 test_app2" },
+                    {"exp", exp },
+                    {"iat", iat },
+                    {"nbf",  nbf },
+                };
 
                 LicenseClaims licClaims = LicenseClaims.Create(claims);
             }

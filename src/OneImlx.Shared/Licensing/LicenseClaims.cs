@@ -113,6 +113,12 @@ namespace OneImlx.Shared.Licensing
         public string TenantId { get; set; } = null!;
 
         /// <summary>
+        /// The <c>oid</c> claim.
+        /// </summary>
+        [JsonPropertyName("oid")]
+        public string Id { get; set; } = null!;
+
+        /// <summary>
         /// The <c>mode</c> claim.
         /// </summary>
         [JsonPropertyName("mode")]
@@ -160,6 +166,11 @@ namespace OneImlx.Shared.Licensing
                         case "tid":
                             {
                                 fromClaims.TenantId = kvp.Value.ToString();
+                                continue;
+                            }
+                        case "oid":
+                            {
+                                fromClaims.Id = kvp.Value.ToString();
                                 continue;
                             }
                         case "country":

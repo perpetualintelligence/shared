@@ -1,3 +1,6 @@
+# v5.8.2
+- Distuiguish between oid and sub claims for license
+
 # v5.8.1
 - Rename auth_apps claim to apps
 
