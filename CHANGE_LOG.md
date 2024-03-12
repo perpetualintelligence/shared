@@ -1,5 +1,6 @@
-# v5.8.2
+# v5.8.3
 - Distuiguish between oid and sub claims for license
+- Make Validation Key a string
 
 # v5.8.1
 - Rename auth_apps claim to apps

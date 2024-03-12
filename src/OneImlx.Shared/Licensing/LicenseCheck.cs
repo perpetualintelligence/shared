@@ -66,7 +66,7 @@ namespace OneImlx.Shared.Licensing
         /// The validation public key to check the license <see cref="Key"/>.
         /// </summary>
         [JsonPropertyName("validation_key")]
-        public byte[]? ValidationKey { get; set; }
+        public string? ValidationKey { get; set; }
 
         /// <summary>
         /// The license mode.
