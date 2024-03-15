@@ -62,5 +62,12 @@ namespace OneImlx.Shared.Licensing
         /// </summary>
         [JsonPropertyName("mode")]
         public string Mode { get; set; } = "";
+
+        /// <summary>
+        /// The deployment.
+        /// </summary>
+        [JsonPropertyName("deployment")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? Deployment { get; set; }
     }
 }

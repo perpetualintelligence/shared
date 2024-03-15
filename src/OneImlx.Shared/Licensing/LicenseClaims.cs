@@ -101,7 +101,7 @@ namespace OneImlx.Shared.Licensing
         public string Subject { get; set; } = null!;
 
         /// <summary>
-        /// The <c>ctry</c> claim.
+        /// The <c>country</c> claim.
         /// </summary>
         [JsonPropertyName("tenant_country")]
         public string TenantCountry { get; set; } = null!;
@@ -123,6 +123,12 @@ namespace OneImlx.Shared.Licensing
         /// </summary>
         [JsonPropertyName("mode")]
         public string Mode { get; set; } = null!;
+
+        /// <summary>
+        /// The <c>deployment</c> claim.
+        /// </summary>
+        [JsonPropertyName("deployment")]
+        public string? Deployment { get; set; } = null!;
 
         /// <summary>
         /// Creates a new instance of <see cref="LicenseClaims"/> based on the specified claims dictionary.
@@ -211,6 +217,11 @@ namespace OneImlx.Shared.Licensing
                         case "mode":
                             {
                                 fromClaims.Mode = Convert.ToString(claims["mode"]);
+                                continue;
+                            }
+                        case "deployment":
+                            {
+                                fromClaims.Deployment = Convert.ToString(claims["deployment"]);
                                 continue;
                             }
                         default:

@@ -38,6 +38,8 @@ namespace OneImlx.Shared.Licensing
                 {"exp", exp },
                 {"iat", iat },
                 {"nbf",  nbf },
+                {"mode", "online" },
+                {"deployment", "onprem" },
             };
 
             LicenseClaims licClaims = LicenseClaims.Create(claims);
@@ -56,6 +58,8 @@ namespace OneImlx.Shared.Licensing
             licClaims.Expiry.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
+            licClaims.Mode.Should().Be("online");
+            licClaims.Deployment.Should().Be("onprem");
 
             licClaims.Custom.Should().BeNull();
         }
@@ -83,6 +87,8 @@ namespace OneImlx.Shared.Licensing
                 {"exp", exp },
                 {"iat", iat },
                 {"nbf",  nbf },
+                {"mode", "offline" },
+                {"deployment", "cloud" },
                 {"custom1",  "value1" },
                 {"custom2",  false },
                 {"custom3",  25 },
@@ -106,6 +112,8 @@ namespace OneImlx.Shared.Licensing
             licClaims.Expiry.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
+            licClaims.Mode.Should().Be("offline");
+            licClaims.Deployment.Should().Be("cloud");
 
             // Custom claims
             licClaims.Custom.Should().NotBeNull();
