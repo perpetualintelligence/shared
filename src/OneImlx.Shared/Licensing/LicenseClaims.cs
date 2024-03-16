@@ -61,8 +61,8 @@ namespace OneImlx.Shared.Licensing
         /// <summary>
         /// The <c>exp</c> claim.
         /// </summary>
-        [JsonPropertyName("expiry")]
-        public DateTimeOffset Expiry { get; set; }
+        [JsonPropertyName("expiry_at")]
+        public DateTimeOffset ExpiryAt { get; set; }
 
         /// <summary>
         /// The <c>iat</c> claim.
@@ -201,7 +201,7 @@ namespace OneImlx.Shared.Licensing
                             }
                         case "exp":
                             {
-                                fromClaims.Expiry = DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(claims["exp"]));
+                                fromClaims.ExpiryAt = DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(claims["exp"]));
                                 continue;
                             }
                         case "iat":

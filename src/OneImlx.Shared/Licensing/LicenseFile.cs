@@ -5,6 +5,7 @@
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
+using System;
 using System.Text.Json.Serialization;
 
 namespace OneImlx.Shared.Licensing
@@ -40,22 +41,22 @@ namespace OneImlx.Shared.Licensing
         public string Key { get; set; } = "";
 
         /// <summary>
-        /// The key type. <c>primary_key</c> or <c>secondary_key</c>.
-        /// </summary>
-        [JsonPropertyName("key_type")]
-        public string KeyType { get; set; } = "";
-
-        /// <summary>
         /// The identifier.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; set; } = "";
 
         /// <summary>
-        /// The expiry in days.
+        /// The issued at timestamp.
         /// </summary>
-        [JsonPropertyName("expires_in")]
-        public int ExpiresIn { get; set; }
+        [JsonPropertyName("issued_at")]
+        public DateTimeOffset IssuedAt { get; set; }
+
+        /// <summary>
+        /// The expiry at timestamp.
+        /// </summary>
+        [JsonPropertyName("expiry_at")]
+        public DateTimeOffset ExpiryAt { get; set; }
 
         /// <summary>
         /// The mode.

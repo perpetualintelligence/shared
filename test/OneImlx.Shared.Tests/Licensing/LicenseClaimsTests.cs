@@ -55,7 +55,7 @@ namespace OneImlx.Shared.Licensing
             licClaims.AuthorizedParty.Should().Be("test_azp");
             licClaims.AcrValues.Should().Be("test_acr1 test_acr2");
             licClaims.Applications.Should().Be("test_app1 test_app2");
-            licClaims.Expiry.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
+            licClaims.ExpiryAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
             licClaims.Mode.Should().Be("online");
@@ -109,7 +109,7 @@ namespace OneImlx.Shared.Licensing
             licClaims.AuthorizedParty.Should().Be("test_azp");
             licClaims.AcrValues.Should().Be("test_acr1 test_acr2");
             licClaims.Applications.Should().Be("test_app1 test_app2");
-            licClaims.Expiry.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
+            licClaims.ExpiryAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
             licClaims.Mode.Should().Be("offline");
@@ -163,7 +163,7 @@ namespace OneImlx.Shared.Licensing
             licClaims.AuthorizedParty.Should().Be("test_azp");
             licClaims.AcrValues.Should().Be("test_acr1 test_acr2");
             licClaims.Applications.Should().Be("test_app1 test_app2");
-            licClaims.Expiry.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
+            licClaims.ExpiryAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(exp));
             licClaims.IssuedAt.Should().Be(DateTimeOffset.FromUnixTimeSeconds(iat));
             licClaims.NotBefore.Should().Be(DateTimeOffset.FromUnixTimeSeconds(nbf));
 

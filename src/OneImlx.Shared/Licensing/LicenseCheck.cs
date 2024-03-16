@@ -51,12 +51,6 @@ namespace OneImlx.Shared.Licensing
         public string Key { get; set; } = "";
 
         /// <summary>
-        /// The key type. <c>primary_key</c> or <c>secondary_key</c>.
-        /// </summary>
-        [JsonPropertyName("key_type")]
-        public string KeyType { get; set; } = "";
-
-        /// <summary>
         /// The license identifier.
         /// </summary>
         [JsonPropertyName("id")]
