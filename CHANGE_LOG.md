@@ -1,9 +1,10 @@
-# v5.8.5
+# v5.8.6
 - Distuiguish between oid and sub claims for license
 - Make Validation Key a string
 - Deployment check for license
 - Added issued_at and expiry_at in LicenseFile model
 - Remove secondary key and simplify licensing
+- Add new custom Fluent Assertions
 
 # v5.8.1
 - Rename auth_apps claim to apps

@@ -115,7 +115,7 @@ namespace OneImlx.Shared.Licensing
         /// <summary>
         /// The <c>oid</c> claim.
         /// </summary>
-        [JsonPropertyName("oid")]
+        [JsonPropertyName("id")]
         public string Id { get; set; } = null!;
 
         /// <summary>

@@ -7,6 +7,7 @@
 
 using FluentAssertions;
 using OneImlx.Shared.Infrastructure;
+using OneImlx.Test.FluentAssertions;
 using System;
 using System.Collections.Generic;
 using Xunit;
@@ -204,6 +205,30 @@ namespace OneImlx.Shared.Licensing
                 eex.Error.ErrorCode.Should().Be("missing_claim");
                 eex.Error.FormatDescription().Should().Be("The claim is missing in the request. info=The given key 'name' was not present in the dictionary.");
             }
+        }
+
+        [Fact]
+        public void JsonPropertyNames_ShouldBeCorrect()
+        {
+            typeof(LicenseClaims).Should().HavePropertyCount(17);
+
+            typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.AcrValues), "acr_values");
+            typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.Applications), "applications");
+            typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.Audience), "audience");
+            typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.AuthorizedParty), "authorized_party");
+            typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.Custom), "custom");
+            typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.ExpiryAt), "expiry_at");
+            typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.IssuedAt), "issued_at");
+            typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.Issuer), "issuer");
+            typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.Jti), "jti");
+            typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.Mode), "mode");
+            typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.TenantCountry), "tenant_country");
+            typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.TenantId), "tenant_id");
+            typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.TenantName), "tenant_name");
+            typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.Id), "id");
+            typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.NotBefore), "not_before");
+            typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.Subject), "subject");
+            typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.Deployment), "deployment");
         }
     }
 }
