@@ -47,8 +47,8 @@ namespace OneImlx.Shared.Licensing
         /// <summary>
         /// The key to check.
         /// </summary>
-        [JsonPropertyName("key")]
-        public string Key { get; set; } = "";
+        [JsonPropertyName("lkey")]
+        public string LicenseKey { get; set; } = "";
 
         /// <summary>
         /// The license identifier.
@@ -57,9 +57,9 @@ namespace OneImlx.Shared.Licensing
         public string Id { get; set; } = "";
 
         /// <summary>
-        /// The validation public key to check the license <see cref="Key"/>.
+        /// The validation public key to check the license <see cref="LicenseKey"/>.
         /// </summary>
-        [JsonPropertyName("validation_key")]
+        [JsonPropertyName("vkey")]
         public string? ValidationKey { get; set; }
 
         /// <summary>

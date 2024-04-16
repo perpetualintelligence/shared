@@ -21,6 +21,6 @@
 
     <ItemGroup>
         <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-        <PackageReference Include="System.Text.Json" Version="7.0.4" />
+        <PackageReference Include="System.Text.Json" Version="8.0.3" />
     </ItemGroup>
 </Project>

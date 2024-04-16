@@ -16,9 +16,9 @@ namespace OneImlx.Shared.Licensing
     public sealed class LicenseFile
     {
         /// <summary>
-        /// The validation public key to check the license <see cref="Key"/>.
+        /// The validation public key to check the license <see cref="LicenseKey"/>.
         /// </summary>
-        [JsonPropertyName("validation_key")]
+        [JsonPropertyName("vkey")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? ValidationKey { get; set; }
 
@@ -35,10 +35,10 @@ namespace OneImlx.Shared.Licensing
         public string TenantName { get; set; } = "";
 
         /// <summary>
-        /// The key to check.
+        /// The license key to check.
         /// </summary>
-        [JsonPropertyName("key")]
-        public string Key { get; set; } = "";
+        [JsonPropertyName("lkey")]
+        public string LicenseKey { get; set; } = "";
 
         /// <summary>
         /// The identifier.

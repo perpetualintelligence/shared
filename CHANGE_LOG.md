@@ -1,3 +1,7 @@
+# v5.8.7
+- Support .NET8
+- Add vkey and lkey to license file
+
 # v5.8.6
 - Distuiguish between oid and sub claims for license
 - Make Validation Key a string
