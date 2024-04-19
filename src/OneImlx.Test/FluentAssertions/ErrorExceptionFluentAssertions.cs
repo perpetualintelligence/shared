@@ -46,7 +46,7 @@ namespace OneImlx.Test.FluentAssertions
                 .BecauseOf(because, becauseArgs)
                 .WithExpectation("Expected exception with error code {0}{reason}, ", expectedErrorCode)
                 .ForCondition(assertions.Which is ErrorException errorException && errorException.Error.ErrorCode == expectedErrorCode)
-                .FailWith("Expected error description to be {0}{reason}, but found {1}.",
+                .FailWith("Expected error code to be {0}{reason}, but found {1}.",
                            expectedErrorCode,
                            exception?.Error.ErrorCode);
 
