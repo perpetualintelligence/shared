@@ -1,4 +1,4 @@
-# v5.8.7
+# v5.8.8
 - Support .NET8
 - Add vkey and lkey to license file
 - Add X509 license services
