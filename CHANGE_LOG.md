@@ -4,7 +4,7 @@
 - Add X509 license services
 
 # v5.8.6
-- Distuiguish between oid and sub claims for license
+- Distinguish between oid and sub claims for license
 - Make Validation Key a string
 - Deployment check for license
 - Added issued_at and expiry_at in LicenseFile model
