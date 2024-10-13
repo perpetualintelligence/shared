@@ -1,3 +1,6 @@
+# v5.13.1
+- Update JSON to 8.0.5
+
 # v5.8.9
 - Support .NET8
 - Add vkey and lkey to license file
