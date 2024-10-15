@@ -196,7 +196,7 @@ namespace OneImlx.Test.FluentAssertions
             }
 
             // Make sure the types count matches the files count
-            int expectedCount = types.Except(excludeTypes).Count();
+            int expectedCount = types.Except(excludeTypes ?? []).Count();
             if (files.Count() != expectedCount)
             {
                 throw new ErrorException("internal_error", $"Namespace '{@namespace}' has {expectedCount} types, but it has {files.Count()} source files.");
@@ -257,7 +257,8 @@ namespace OneImlx.Test.FluentAssertions
                 return true;
             }
 
-            if (type.Name.Contains("`"))
+            // gRPC auto generated types
+            if (type.Name.Contains("__"))
             {
                 return true;
             }

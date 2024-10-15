@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright © 2019-2025 Perpetual Intelligence L.L.C. All rights reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
@@ -124,21 +124,6 @@ namespace OneImlx.Shared.Extensions
         }
 
         /// <summary>
-        /// Splits the string with a <see cref="Environment.NewLine"/>.
-        /// </summary>
-        /// <param name="self">The string to split.</param>
-        /// <returns>An array of string split by newline separator.</returns>
-        public static string[] SplitByNewline(this string? self)
-        {
-            if (self == null)
-            {
-                return Array.Empty<string>();
-            }
-
-            return self.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
-        }
-
-        /// <summary>
         /// Splits the string with a <c>,</c> separator.
         /// </summary>
         /// <param name="self">The string to split.</param>
@@ -147,10 +132,25 @@ namespace OneImlx.Shared.Extensions
         {
             if (self == null)
             {
-                return Array.Empty<string>();
+                return [];
             }
 
             return self.Split(new[] { ',' }, StringSplitOptions.None);
+        }
+
+        /// <summary>
+        /// Splits the string with a <see cref="Environment.NewLine"/>.
+        /// </summary>
+        /// <param name="self">The string to split.</param>
+        /// <returns>An array of string split by newline separator.</returns>
+        public static string[] SplitByNewline(this string? self)
+        {
+            if (self == null)
+            {
+                return [];
+            }
+
+            return self.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
         }
 
         /// <summary>
@@ -162,7 +162,7 @@ namespace OneImlx.Shared.Extensions
         {
             if (self == null)
             {
-                return Array.Empty<string>();
+                return [];
             }
 
             return self.Split(new[] { ' ' }, StringSplitOptions.None);
