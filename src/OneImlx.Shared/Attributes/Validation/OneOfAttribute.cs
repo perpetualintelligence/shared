@@ -15,7 +15,6 @@ namespace OneImlx.Shared.Attributes.Validation
     /// Specifies the allowed values for a property or a field.
     /// </summary>
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false, Inherited = false)]
-    [WriteUnitTest]
     public sealed class OneOfAttribute : ValidationAttribute
     {
         /// <summary>

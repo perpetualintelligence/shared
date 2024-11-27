@@ -1,12 +1,12 @@
 ﻿/*
-    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright © 2019-2025 Perpetual Intelligence L.L.C. All rights reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
 */
 
-using OneImlx.Shared.Attributes;
 using System.Text.Json.Serialization;
+using OneImlx.Shared.Attributes;
 
 namespace OneImlx.Shared.Infrastructure
 {
@@ -111,7 +111,6 @@ namespace OneImlx.Shared.Infrastructure
         /// Format the <see cref="ErrorDescription"/> with the <see cref="Args"/>.
         /// </summary>
         /// <returns>Formatted error description.</returns>
-        [WriteUnitTest]
         public string FormatDescription()
         {
             if (Args == null)
@@ -128,7 +127,6 @@ namespace OneImlx.Shared.Infrastructure
         /// Creates a new <see cref="Error"/> instance with formatted <see cref="ErrorDescription"/> with the <see cref="Args"/>.
         /// </summary>
         /// <returns>Formatted error instance.</returns>
-        [WriteUnitTest]
         public Error FormatError()
         {
             return new Error(ErrorCode, FormatDescription(), null, ErrorUri, RequestId);

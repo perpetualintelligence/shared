@@ -1,26 +1,21 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright © 2019-2025 Perpetual Intelligence L.L.C. All rights reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
 */
+
+using OneImlx.Shared.Attributes;
 
 namespace OneImlx.Shared.Authorization
 {
     /// <summary>
     /// The <c>MSAL</c> authorization endpoints.
     /// </summary>
+    [Architecture("Remove this and move it to Marketplace and Terminal framework.")]
+    [InternalInfrastructure("This is an internal infrastructure.")]
     public static class AuthEndpoints
     {
-        /// <summary>
-        /// Returns the <c>Perpetual Intelligence B2C</c> based issuer.
-        /// </summary>
-        /// <param name="tenantId">The B2C tenant id.</param>
-        public static string PiB2CIssuer(string tenantId)
-        {
-            return string.Format(PiIssuerB2C, tenantId);
-        }
-
         /// <summary>
         /// Returns the <c>MSAL B2C</c> based issuer.
         /// </summary>
@@ -60,6 +55,15 @@ namespace OneImlx.Shared.Authorization
         }
 
         /// <summary>
+        /// Returns the <c>Perpetual Intelligence B2C</c> based issuer.
+        /// </summary>
+        /// <param name="tenantId">The B2C tenant id.</param>
+        public static string PiB2CIssuer(string tenantId)
+        {
+            return string.Format(PiIssuerB2C, tenantId);
+        }
+
+        /// <summary>
         /// The <c>MSAL</c> V2 Issuer.
         /// </summary>
         public const string MsalIssuer = "https://login.microsoftonline.com/{0}/v2.0";
@@ -75,9 +79,9 @@ namespace OneImlx.Shared.Authorization
         public const string MsalOpenIdConfiguration = "https://login.microsoftonline.com/{0}/v2.0/.well-known/openid-configuration";
 
         /// <summary>
-        /// The <c>Perpetual Intelligence</c> V2 Open ID Connect configuration.
+        /// The <c>MSAL B2C</c> V2 Open ID Connect configuration.
         /// </summary>
-        public const string PiIssuerB2C = "https://login.perpetualintelligence.com/{0}/v2.0";
+        public const string MsalOpenIdConfigurationB2C = "https://{0}.b2clogin.com/{0}.onmicrosoft.com/{1}/v2.0/.well-known/openid-configuration";
 
         /// <summary>
         /// The <c>Perpetual Intelligence</c> B2C Tenant name.
@@ -85,8 +89,8 @@ namespace OneImlx.Shared.Authorization
         public const string PiB2CTenantName = "perpetualintelligenceb2c";
 
         /// <summary>
-        /// The <c>MSAL B2C</c> V2 Open ID Connect configuration.
+        /// The <c>Perpetual Intelligence</c> V2 Open ID Connect configuration.
         /// </summary>
-        public const string MsalOpenIdConfigurationB2C = "https://{0}.b2clogin.com/{0}.onmicrosoft.com/{1}/v2.0/.well-known/openid-configuration";
+        public const string PiIssuerB2C = "https://login.perpetualintelligence.com/{0}/v2.0";
     }
 }

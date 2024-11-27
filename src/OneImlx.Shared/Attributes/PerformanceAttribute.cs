@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright © 2019-2025 Perpetual Intelligence L.L.C. All rights reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
@@ -10,7 +10,7 @@ using System;
 namespace OneImlx.Shared.Attributes
 {
     /// <summary>
-    /// Specifies that the target has a performance concern that may be resolved in future releases. Applications can
+    /// Specifies that the target has a performance comment that may be resolved in future releases. Applications can
     /// use the target element, but the design may change in future releases including breaking changes.
     /// </summary>
     [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
@@ -22,7 +22,6 @@ namespace OneImlx.Shared.Attributes
         /// <param name="description"></param>
         public PerformanceAttribute(string description) : base(description)
         {
-            Description = description;
         }
     }
 }

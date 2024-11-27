@@ -1,3 +1,6 @@
+# v6.0.0
+- Prep for `OneImlx.Terminal` v6.x.x
+
 # v5.13.1
 - Update JSON to 8.0.5
 
@@ -38,3 +41,6 @@
 # v5.6.7
 - Merged the license identifier and subject into 1 Id property.
 - Migrate to xUnit and FluentAsserions for `OneImlx.Test`
+
+# v1.0.0 - 5.5.x
+- Internal release and name changes

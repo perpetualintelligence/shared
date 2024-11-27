@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2021 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright © 2019-2025 Perpetual Intelligence L.L.C. All rights reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
@@ -15,13 +15,6 @@ namespace OneImlx.Shared.Attributes
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
     public sealed class WriteDocumentationAttribute : ActionAttribute
     {
-        /// <summary>
-        /// Initializes a new instance.
-        /// </summary>
-        public WriteDocumentationAttribute() : base()
-        {
-        }
-
         /// <summary>
         /// Initialize a new instance.
         /// </summary>
