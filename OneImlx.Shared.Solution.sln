@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2F984849-B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{99A64035-E6B3-46D1-989E-71A804DB1048}"
 	ProjectSection(SolutionItems) = preProject
+		ACKNOWLEDGMENTS.md = ACKNOWLEDGMENTS.md
 		CHANGE_LOG.md = CHANGE_LOG.md
 		global.json = global.json
 		LICENSE = LICENSE
