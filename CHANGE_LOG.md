@@ -1,5 +1,6 @@
-# v6.0.0
+# v6.0.x
 - Prep for `OneImlx.Terminal` v6.x.x
+- Update terminal licensing model
 
 # v5.13.1
 - Update JSON to 8.0.5

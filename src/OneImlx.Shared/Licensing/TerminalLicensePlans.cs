@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright © 2019-2025 Perpetual Intelligence L.L.C. All rights reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
@@ -21,11 +21,11 @@ namespace OneImlx.Shared.Licensing
             switch (plan)
             {
                 case Demo:
+                case Solo:
                 case Micro:
-                case SMB:
+                case Smb:
                 case Enterprise:
-                case OnPremise:
-                case Unlimited:
+                case Corporate:
                 case Custom:
                     {
                         return true;
@@ -38,9 +38,9 @@ namespace OneImlx.Shared.Licensing
         }
 
         /// <summary>
-        /// The demo license pricing plan.
+        /// The corporate license pricing plan.
         /// </summary>
-        public const string Demo = "urn:oneimlx:terminal:plan:demo";
+        public const string Corporate = "urn:oneimlx:terminal:plan:corporate";
 
         /// <summary>
         /// The custom license pricing plan.
@@ -48,28 +48,28 @@ namespace OneImlx.Shared.Licensing
         public const string Custom = "urn:oneimlx:terminal:plan:custom";
 
         /// <summary>
+        /// The demo license pricing plan.
+        /// </summary>
+        public const string Demo = "urn:oneimlx:terminal:plan:demo";
+
+        /// <summary>
         /// The enterprise license pricing plan.
         /// </summary>
         public const string Enterprise = "urn:oneimlx:terminal:plan:enterprise";
 
         /// <summary>
-        /// The on-premise license pricing plan.
-        /// </summary>
-        public const string OnPremise = "urn:oneimlx:terminal:plan:onprem";
-
-        /// <summary>
-        /// The unlimited license pricing plan.
-        /// </summary>
-        public const string Unlimited = "urn:oneimlx:terminal:plan:unlimited";
-
-        /// <summary>
-        /// The solo or micro license pricing plan.
+        /// The micro license pricing plan.
         /// </summary>
         public const string Micro = "urn:oneimlx:terminal:plan:micro";
 
         /// <summary>
         /// The SMB license pricing plan.
         /// </summary>
-        public const string SMB = "urn:oneimlx:terminal:plan:smb";
+        public const string Smb = "urn:oneimlx:terminal:plan:smb";
+
+        /// <summary>
+        /// The solo license pricing plan.
+        /// </summary>
+        public const string Solo = "urn:oneimlx:terminal:plan:solo";
     }
 }

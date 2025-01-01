@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright © 2019-2025 Perpetual Intelligence L.L.C. All rights reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
@@ -14,21 +14,21 @@ namespace OneImlx.Shared.Licensing
     public class TerminalLicensePlansTests
     {
         [Fact]
-        public void IsValidShouldReturnTrueForValidLicensePlans()
-        {
-            TerminalLicensePlans.IsValidPlan(TerminalLicensePlans.Demo).Should().BeTrue();
-            TerminalLicensePlans.IsValidPlan(TerminalLicensePlans.Micro).Should().BeTrue();
-            TerminalLicensePlans.IsValidPlan(TerminalLicensePlans.SMB).Should().BeTrue();
-            TerminalLicensePlans.IsValidPlan(TerminalLicensePlans.Enterprise).Should().BeTrue();
-            TerminalLicensePlans.IsValidPlan(TerminalLicensePlans.OnPremise).Should().BeTrue();
-            TerminalLicensePlans.IsValidPlan(TerminalLicensePlans.Unlimited).Should().BeTrue();
-            TerminalLicensePlans.IsValidPlan(TerminalLicensePlans.Custom).Should().BeTrue();
-        }
-
-        [Fact]
         public void IsValidShouldReturnFalseForInvalidLicensePlans()
         {
             TerminalLicensePlans.IsValidPlan("invalid").Should().BeFalse();
+        }
+
+        [Fact]
+        public void IsValidShouldReturnTrueForValidLicensePlans()
+        {
+            TerminalLicensePlans.IsValidPlan(TerminalLicensePlans.Demo).Should().BeTrue();
+            TerminalLicensePlans.IsValidPlan(TerminalLicensePlans.Solo).Should().BeTrue();
+            TerminalLicensePlans.IsValidPlan(TerminalLicensePlans.Micro).Should().BeTrue();
+            TerminalLicensePlans.IsValidPlan(TerminalLicensePlans.Smb).Should().BeTrue();
+            TerminalLicensePlans.IsValidPlan(TerminalLicensePlans.Enterprise).Should().BeTrue();
+            TerminalLicensePlans.IsValidPlan(TerminalLicensePlans.Corporate).Should().BeTrue();
+            TerminalLicensePlans.IsValidPlan(TerminalLicensePlans.Custom).Should().BeTrue();
         }
 
         [Fact]
@@ -37,11 +37,11 @@ namespace OneImlx.Shared.Licensing
             typeof(TerminalLicensePlans).Should().HaveConstantCount(7);
 
             TerminalLicensePlans.Demo.Should().Be("urn:oneimlx:terminal:plan:demo");
+            TerminalLicensePlans.Solo.Should().Be("urn:oneimlx:terminal:plan:solo");
             TerminalLicensePlans.Micro.Should().Be("urn:oneimlx:terminal:plan:micro");
-            TerminalLicensePlans.SMB.Should().Be("urn:oneimlx:terminal:plan:smb");
+            TerminalLicensePlans.Smb.Should().Be("urn:oneimlx:terminal:plan:smb");
             TerminalLicensePlans.Enterprise.Should().Be("urn:oneimlx:terminal:plan:enterprise");
-            TerminalLicensePlans.OnPremise.Should().Be("urn:oneimlx:terminal:plan:onprem");
-            TerminalLicensePlans.Unlimited.Should().Be("urn:oneimlx:terminal:plan:unlimited");
+            TerminalLicensePlans.Corporate.Should().Be("urn:oneimlx:terminal:plan:corporate");
             TerminalLicensePlans.Custom.Should().Be("urn:oneimlx:terminal:plan:custom");
         }
     }
