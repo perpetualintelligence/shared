@@ -19,8 +19,11 @@
         <PackageTags>infrastructure oneimlx</PackageTags>
     </PropertyGroup>
 
+    <!--
+        Do not upgrade. This is the last version (7.x.x) with Apache 2.0 license.
+    -->
     <ItemGroup>
-        <PackageReference Include="FluentAssertions" Version="7.0.0" />
+        <PackageReference Include="FluentAssertions" Version="[7.2.0]" />
     </ItemGroup>
 
     <Choose>

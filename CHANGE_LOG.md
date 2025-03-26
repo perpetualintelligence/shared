@@ -1,4 +1,4 @@
-# v6.0.x
+# v6.1.x
 - Prep for `OneImlx.Terminal` v6.x.x
 - Update terminal licensing model
 
