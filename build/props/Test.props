@@ -1,13 +1,10 @@
 <!--
-    Copyright 2025 Perpetual Intelligence L.L.C. All Rights Reserved.
+    Copyright 2019-2025 Perpetual Intelligence L.L.C. All Rights Reserved.
 
     For license, terms, and data policies, go to:
     https://terms.perpetualintelligence.com/articles/intro.html
 -->
-<!--
-    Provide a set of shared build properties.
-    https://docs.microsoft.com/en-us/cpp/build/reference/vcxproj-file-structure?view=msvc-160
--->
+
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
     <PropertyGroup>
