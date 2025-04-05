@@ -1,4 +1,4 @@
-﻿The test components for Perpetual Intelligence's managed services, frameworks, and developer tools. 
+﻿The internal test component package for Perpetual Intelligence® frameworks, AI, and developer tools.
 
 > This package is part of our internal infrastructure. It is not for public use.
 

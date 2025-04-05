@@ -1,10 +1,12 @@
 # NOTICE
 
-This project makes use of the following open-source tools, libraries, and frameworks:
+_Last updated: April 4, 2025_
 
-> **Note:** This list includes only direct dependencies. Transitive dependencies of NuGet packages are not explicitly listed.
+This project utilizes the following open-source frameworks, tools, and libraries:
 
-We gratefully acknowledge the developers and maintainers of these tools and libraries for their contributions to the open-source community.
+> **Note:** Only direct dependencies are listed below. Transitive dependencies of NuGet packages are not explicitly included.
+
+We extend our sincere thanks to the developers and maintainers of these open-source components for their valuable contributions to the community.
 
 ## Frameworks
 - .NET Framework 4.8  
@@ -15,4 +17,6 @@ We gratefully acknowledge the developers and maintainers of these tools and libr
 ## Libraries
 - [xUnit](https://xunit.net/) — Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)  
 - [coverlet.collector](https://www.nuget.org/packages/coverlet.collector) — Licensed under the [MIT License](https://opensource.org/licenses/MIT)  
-- [FluentAssertions v7](https://www.nuget.org/packages/FluentAssertions) — Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+- [FluentAssertions v7](https://www.nuget.org/packages/FluentAssertions) — Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)  
+- [Report Generator](https://github.com/danielpalme/ReportGenerator) — Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)  
+- [Moq](https://github.com/moq/moq4) — Licensed under the [BSD-3-Clause License](https://opensource.org/licenses/BSD-3-Clause)

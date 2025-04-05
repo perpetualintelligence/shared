@@ -15,7 +15,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Description>The shared components for Perpetual Intelligence's managed services, frameworks, and developer tools.</Description>
+        <Description>The shared package for Perpetual Intelligence® frameworks, AI, and developer tools.</Description>
         <PackageTags>infrastructure oneimlx</PackageTags>
     </PropertyGroup>  
 
