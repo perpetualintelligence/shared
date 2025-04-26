@@ -9,7 +9,7 @@ using System;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 
-namespace OneImlx.Shared.Licensing
+namespace OneImlx.Shared.Security
 {
     public class X509CertificateFixture : IDisposable
     {

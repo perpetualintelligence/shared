@@ -8,9 +8,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
-using OneImlx.Shared.Attributes;
 
-namespace OneImlx.Shared.Security.Certificates
+namespace OneImlx.Shared.Security
 {
     /// <summary>
     /// The <see cref="X509Certificate2"/> store for OAuth and OpenID Connect protocols.

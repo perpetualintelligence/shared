@@ -230,5 +230,12 @@ namespace OneImlx.Shared.Licensing
             typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.Subject), "subject");
             typeof(LicenseClaims).Should().HaveJsonProperty(nameof(LicenseClaims.Deployment), "deployment");
         }
+
+
+        [Fact]
+        public void JsonPropertyNames_ShouldBeSnakeCase()
+        {
+            typeof(LicenseClaims).Should().HaveSnakeCaseJsonNames();
+        }
     }
 }
