@@ -6,6 +6,7 @@
 */
 
 using FluentAssertions;
+using OneImlx.Shared.Infrastructure;
 using OneImlx.Test.FluentAssertions;
 using System.Collections.Generic;
 using Xunit;
@@ -30,6 +31,55 @@ namespace OneImlx.Shared.Licensing
             ProductCatalog.TerminalPlanEnterprise.Should().Be("urn:oneimlx:terminal:plan:enterprise");
             ProductCatalog.TerminalPlanCorporate.Should().Be("urn:oneimlx:terminal:plan:corporate");
             ProductCatalog.TerminalPlanCustom.Should().Be("urn:oneimlx:terminal:plan:custom");
+        }
+
+        [Fact]
+        public void GetPlanDisplayName_InvalidPlan_ThrowsErrorException()
+        {
+            var act = () => ProductCatalog.GetPlanDisplayName(ProductCatalog.TerminalFramework, "invalid_plan");
+            act.Should().Throw<ErrorException>()
+               .WithErrorCode("invalid_request")
+               .WithErrorDescription($"The plan is not supported. product={ProductCatalog.TerminalFramework} plan=invalid_plan");
+        }
+
+        [Fact]
+        public void GetPlanDisplayName_InvalidProductForValidPlan_ThrowsErrorException()
+        {
+            var act = () => ProductCatalog.GetPlanDisplayName("invalid_product", ProductCatalog.TerminalPlanSolo);
+            act.Should().Throw<ErrorException>()
+               .WithErrorCode("invalid_request")
+               .WithErrorDescription($"The plan is not supported. product=invalid_product plan={ProductCatalog.TerminalPlanSolo}");
+        }
+
+        [Theory]
+        [InlineData(ProductCatalog.TerminalFramework, ProductCatalog.TerminalPlanDemo, "Demo")]
+        [InlineData(ProductCatalog.TerminalFramework, ProductCatalog.TerminalPlanSolo, "Solo")]
+        [InlineData(ProductCatalog.TerminalFramework, ProductCatalog.TerminalPlanMicro, "Micro")]
+        [InlineData(ProductCatalog.TerminalFramework, ProductCatalog.TerminalPlanSmb, "SMB")]
+        [InlineData(ProductCatalog.TerminalFramework, ProductCatalog.TerminalPlanEnterprise, "Enterprise")]
+        [InlineData(ProductCatalog.TerminalFramework, ProductCatalog.TerminalPlanCorporate, "Corporate")]
+        [InlineData(ProductCatalog.TerminalFramework, ProductCatalog.TerminalPlanCustom, "Custom")]
+        public void GetPlanDisplayName_ValidPlan_ReturnsDisplayName(string product, string plan, string expectedDisplayName)
+        {
+            var result = ProductCatalog.GetPlanDisplayName(product, plan);
+            result.Should().Be(expectedDisplayName);
+        }
+
+        [Fact]
+        public void GetProductDisplayName_InvalidProduct_ThrowsErrorException()
+        {
+            var act = () => ProductCatalog.GetProductDisplayName("invalid_product");
+            act.Should().Throw<ErrorException>()
+               .WithErrorCode("invalid_request")
+               .WithErrorDescription("The product is not supported. product=invalid_product");
+        }
+
+        [Theory]
+        [InlineData(ProductCatalog.TerminalFramework, "OneImlx.Terminal")]
+        public void GetProductDisplayName_ValidProduct_ReturnsDisplayName(string product, string expectedDisplayName)
+        {
+            var result = ProductCatalog.GetProductDisplayName(product);
+            result.Should().Be(expectedDisplayName);
         }
 
         [Fact]

@@ -6,6 +6,7 @@
 */
 
 using System.Collections.Generic;
+using OneImlx.Shared.Infrastructure;
 
 namespace OneImlx.Shared.Licensing
 {
@@ -14,6 +15,74 @@ namespace OneImlx.Shared.Licensing
     /// </summary>
     public sealed class ProductCatalog
     {
+        /// <summary>
+        /// Get the plan display name for the given product.
+        /// </summary>
+        /// <param name="product">The product.</param>
+        /// <param name="plan">The product plan.</param>
+        /// <returns></returns>
+        /// <exception cref="ErrorException"></exception>
+        public static string GetPlanDisplayName(string product, string plan)
+        {
+            if (!ProductCatalog.IsValidPlan(product, plan))
+            {
+                throw new ErrorException("invalid_request", "The plan is not supported. product={0} plan={1}", product, plan);
+            }
+
+            switch (plan)
+            {
+                case ProductCatalog.TerminalPlanDemo:
+                    {
+                        return "Demo";
+                    }
+                case ProductCatalog.TerminalPlanSolo:
+                    {
+                        return "Solo";
+                    }
+                case ProductCatalog.TerminalPlanMicro:
+                    {
+                        return "Micro";
+                    }
+                case ProductCatalog.TerminalPlanSmb:
+                    {
+                        return "SMB";
+                    }
+                case ProductCatalog.TerminalPlanEnterprise:
+                    {
+                        return "Enterprise";
+                    }
+                case ProductCatalog.TerminalPlanCorporate:
+                    {
+                        return "Corporate";
+                    }
+                default:
+                    {
+                        return "Custom";
+                    }
+            }
+        }
+
+        /// <summary>
+        /// Get the product display name for the given product.
+        /// </summary>
+        /// <param name="product">The product.</param>
+        /// <returns></returns>
+        /// <exception cref="ErrorException"></exception>
+        public static string GetProductDisplayName(string product)
+        {
+            switch (product)
+            {
+                case ProductCatalog.TerminalFramework:
+                    {
+                        return "OneImlx.Terminal";
+                    }
+                default:
+                    {
+                        throw new ErrorException("invalid_request", "The product is not supported. product={0}", product);
+                    }
+            }
+        }
+
         /// <summary>
         /// Determines whether the specified plan is valid for the specified product.
         /// </summary>
