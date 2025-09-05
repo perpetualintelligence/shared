@@ -1,3 +1,6 @@
+# v6.2.3
+- Update Nuget packages
+
 # v6.2.2
 - Add `ProductCatalog`
 
