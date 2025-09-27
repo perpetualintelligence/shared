@@ -1,3 +1,6 @@
+# v7.0.0
+- Move to .NET10 and C#14
+
 # v6.2.3
 - Update Nuget packages
 
