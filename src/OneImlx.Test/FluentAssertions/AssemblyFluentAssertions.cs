@@ -1,9 +1,6 @@
-﻿/*
-    Copyright © 2019-2025 Perpetual Intelligence L.L.C. All rights reserved.
-
-    For license, terms, and data policies, go to:
-    https://terms.perpetualintelligence.com/articles/intro.html
-*/
+﻿//  Copyright © 2019-2026 Perpetual Intelligence L.L.C. All rights reserved.
+//  For license, terms, and data policies, go to:
+//  https://terms.perpetualintelligence.com/articles/intro.html
 
 using System;
 using System.Collections.Generic;
@@ -13,7 +10,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using FluentAssertions;
 using FluentAssertions.Execution;
-using FluentAssertions.Reflection;
+using FluentAssertions.Types;
 using OneImlx.Shared.Infrastructure;
 
 namespace OneImlx.Test.FluentAssertions
@@ -32,10 +29,7 @@ namespace OneImlx.Test.FluentAssertions
         {
             var assembly = assertions.Subject;
             var actualNamespace = assembly.GetName().Name ?? throw new InvalidOperationException("Assembly name null");
-
-            Execute.Assertion
-                .ForCondition(actualNamespace == rootNamespace)
-                .FailWith($"Assembly '{assembly.GetName().Name}' does not have root namespace '{rootNamespace}'.");
+            actualNamespace.Should().Be(rootNamespace, $"Assembly '{assembly.GetName().Name}' should have root namespace '{rootNamespace}'");
 
             var types = assembly.GetTypes().Where(e => !IsCompilerGenerated(e));
             var invalidTypes = types.Where(e =>
@@ -81,13 +75,8 @@ namespace OneImlx.Test.FluentAssertions
             var testDir = Path.Combine(rootPath, "test");
             var srcDir = Path.Combine(rootPath, "src");
 
-            Execute.Assertion
-                .ForCondition(Directory.Exists(testDir))
-                .FailWith("'test' directory not found. path={0}", rootPath);
-
-            Execute.Assertion
-                .ForCondition(Directory.Exists(srcDir))
-                .FailWith("'src' directory not found. path={0}", rootPath);
+            Directory.Exists(testDir).Should().BeTrue("'test' directory not found. path={0}", rootPath);
+            Directory.Exists(srcDir).Should().BeTrue("'src' directory not found. path={0}", rootPath);
 
             IEnumerable<string?> namespaces = assembly.GetTypes()
                 .Where(e => !IsCompilerGenerated(e))

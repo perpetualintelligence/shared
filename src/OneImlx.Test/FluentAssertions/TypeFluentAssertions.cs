@@ -36,9 +36,10 @@ namespace OneImlx.Test.FluentAssertions
             var constants = type.GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance)
                                 .Where(fi => fi.IsLiteral && !fi.IsInitOnly);
 
-            Execute.Assertion
-                .ForCondition(constants.Count() == expectedCount)
-                .FailWith($"Expected type '{type.FullName}' to define exactly {expectedCount} constants, but found {constants.Count()}.");
+            if (constants.Count() != expectedCount)
+            {
+                throw new AssertionFailedException($"Expected type '{type.FullName}' to define exactly {expectedCount} constants, but found {constants.Count()}.");
+            }
 
             return new AndConstraint<TypeAssertions>(assertions);
         }
@@ -63,14 +64,15 @@ namespace OneImlx.Test.FluentAssertions
             JsonPropertyNameAttribute? jsonAttribute = propertyInfo?.GetCustomAttribute<JsonPropertyNameAttribute>();
 
             // Assert that the property exists, and its JsonPropertyNameAttribute has the expected name.
-            Execute.Assertion
-                .ForCondition(propertyInfo != null)
-                    .FailWith("Expected type {0} to have a property named {1}, but no such property was found.",
-                        typeAssertions.Subject, propertyName)
-                .Then
-                .ForCondition(jsonAttribute != null && jsonAttribute.Name == jsonPropertyName)
-                    .FailWith("Expected property {0} on type {1} to be decorated with JsonPropertyNameAttribute with a name of '{2}', but found '{3}'.",
-                        propertyName, typeAssertions.Subject, jsonPropertyName, jsonAttribute?.Name ?? "null");
+            if (propertyInfo == null)
+            {
+                throw new AssertionFailedException($"Expected type {typeAssertions.Subject} to have a property named {propertyName}, but no such property was found.");
+            }
+
+            if (jsonAttribute == null || jsonAttribute.Name != jsonPropertyName)
+            {
+                throw new AssertionFailedException($"Expected property {propertyName} on type {typeAssertions.Subject} to be decorated with JsonPropertyNameAttribute with a name of '{jsonPropertyName}', but found '{jsonAttribute?.Name ?? "null"}'.");
+            }
 
             // Return an AndConstraint to allow for further assertions.
             return new AndConstraint<TypeAssertions>(typeAssertions);
@@ -91,9 +93,10 @@ namespace OneImlx.Test.FluentAssertions
             // Retrieves both static and instance public properties.
             var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance);
 
-            Execute.Assertion
-                .ForCondition(properties.Length == expectedCount)
-                .FailWith($"Expected type '{type.FullName}' to define exactly {expectedCount} public properties (both static and instance), but found {properties.Length}.");
+            if (properties.Length != expectedCount)
+            {
+                throw new AssertionFailedException($"Expected type '{type.FullName}' to define exactly {expectedCount} public properties (both static and instance), but found {properties.Length}.");
+            }
 
             return new AndConstraint<TypeAssertions>(assertions);
         }
@@ -124,18 +127,18 @@ namespace OneImlx.Test.FluentAssertions
                 {
                     var expectedJsonName = ToExpectedSnakeCase(property.Name);
 
-                    Execute.Assertion
-                        .ForCondition(jsonPropertyName.Name == expectedJsonName)
-                        .BecauseOf(because, becauseArgs)
-                        .FailWith("Expected property \"{0}\" to have JsonPropertyName \"{1}\", but found \"{2}\".",
-                            property.Name, expectedJsonName, jsonPropertyName.Name);
+                    if (jsonPropertyName.Name != expectedJsonName)
+                    {
+                        var becauseMessage = string.IsNullOrEmpty(because) ? "" : " because " + string.Format(because, becauseArgs);
+                        throw new AssertionFailedException(
+                            $"Expected property \"{property.Name}\" to have JsonPropertyName \"{expectedJsonName}\"{becauseMessage}, but found \"{jsonPropertyName.Name}\".");
+                    }
                 }
                 else
                 {
                     if (jsonIgnore == null)
                     {
-                        Execute.Assertion
-                            .FailWith("Expected property \"{0}\" to be decorated with either [JsonPropertyName] or [JsonIgnore], but no attribute was found.", property.Name);
+                        throw new AssertionFailedException($"Expected property \"{property.Name}\" to be decorated with either [JsonPropertyName] or [JsonIgnore], but no attribute was found.");
                     }
 
                     // else: Property is [JsonIgnore], so no validation needed.

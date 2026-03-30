@@ -1,9 +1,6 @@
-﻿/*
-    Copyright (c) 2023 Perpetual Intelligence L.L.C. All Rights Reserved.
-
-    For license, terms, and data policies, go to:
-    https://terms.perpetualintelligence.com/articles/intro.html
-*/
+﻿//  Copyright © 2019-2026 Perpetual Intelligence L.L.C. All rights reserved.
+//  For license, terms, and data policies, go to:
+//  https://terms.perpetualintelligence.com/articles/intro.html
 
 using FluentAssertions.Execution;
 using FluentAssertions.Specialized;
@@ -40,15 +37,17 @@ namespace OneImlx.Test.FluentAssertions
             params object[] becauseArgs)
         where TException : Exception
         {
-            var exception = assertions.Which as ErrorException;
+            if (assertions.Which is not ErrorException exception)
+            {
+                throw new AssertionFailedException("Expected exception to be an ErrorException, but it was not.");
+            }
 
-            Execute.Assertion
-                .BecauseOf(because, becauseArgs)
-                .WithExpectation("Expected exception with error code {0}{reason}, ", expectedErrorCode)
-                .ForCondition(assertions.Which is ErrorException errorException && errorException.Error.ErrorCode == expectedErrorCode)
-                .FailWith("Expected error code to be {0}{reason}, but found {1}.",
-                           expectedErrorCode,
-                           exception?.Error.ErrorCode);
+            if (exception.Error.ErrorCode != expectedErrorCode)
+            {
+                var becauseMessage = string.IsNullOrEmpty(because) ? "" : " because " + string.Format(because, becauseArgs);
+                throw new AssertionFailedException(
+                    $"Expected error code to be {expectedErrorCode}{becauseMessage}, but found {exception.Error.ErrorCode}.");
+            }
 
             return assertions;
         }
@@ -74,18 +73,19 @@ namespace OneImlx.Test.FluentAssertions
             string because = "",
             params object[] becauseArgs) where TException : ErrorException
         {
-            // Attempt to cast the caught exception to ErrorException to access the Error property.
-            var exception = assertions.Which as ErrorException;
+            if (assertions.Which is not ErrorException exception)
+            {
+                throw new AssertionFailedException("Expected exception to be an ErrorException, but it was not.");
+            }
 
-            // Assert that the error code of the exception matches the expected error description.
-            Execute.Assertion
-                .ForCondition(exception != null && exception.Error.FormatDescription() == expectedErrorDescription)
-                .BecauseOf(because, becauseArgs)
-                .FailWith("Expected error description to be {0}{reason}, but found {1}.",
-                           expectedErrorDescription,
-                           exception?.Error.FormatDescription());
+            var actualDescription = exception.Error.FormatDescription();
+            if (actualDescription != expectedErrorDescription)
+            {
+                var becauseMessage = string.IsNullOrEmpty(because) ? "" : " because " + string.Format(because, becauseArgs);
+                throw new AssertionFailedException(
+                    $"Expected error description to be {expectedErrorDescription}{becauseMessage}, but found {actualDescription}.");
+            }
 
-            // Return the original ExceptionAssertions object to allow further assertion chaining.
             return assertions;
         }
 
@@ -105,10 +105,12 @@ namespace OneImlx.Test.FluentAssertions
             params object[] becauseArgs)
             where TException : ErrorException
         {
-            Execute.Assertion
-                .ForCondition(exceptionAssertions.Which.Error == expectedError)
-                .BecauseOf(because, becauseArgs)
-                .FailWith("Expected error to be {0}{reason}, but found {1}.", expectedError, exceptionAssertions.Which.Error);
+            if (exceptionAssertions.Which.Error != expectedError)
+            {
+                var becauseMessage = string.IsNullOrEmpty(because) ? "" : " because " + string.Format(because, becauseArgs);
+                throw new AssertionFailedException(
+                    $"Expected error to be {expectedError}{becauseMessage}, but found {exceptionAssertions.Which.Error}.");
+            }
 
             return exceptionAssertions;
         }
@@ -128,10 +130,12 @@ namespace OneImlx.Test.FluentAssertions
         {
             var exceptionAssertions = await task;
 
-            Execute.Assertion
-                .ForCondition(exceptionAssertions.Which.Error.ErrorCode == expectedErrorCode)
-                .BecauseOf(because, becauseArgs)
-                .FailWith("Expected error code to be {0}{reason}, but found {1}.", expectedErrorCode, exceptionAssertions.Which.Error.ErrorCode);
+            if (exceptionAssertions.Which.Error.ErrorCode != expectedErrorCode)
+            {
+                var becauseMessage = string.IsNullOrEmpty(because) ? "" : " because " + string.Format(because, becauseArgs);
+                throw new AssertionFailedException(
+                    $"Expected error code to be {expectedErrorCode}{becauseMessage}, but found {exceptionAssertions.Which.Error.ErrorCode}.");
+            }
 
             return exceptionAssertions;
         }
@@ -151,10 +155,13 @@ namespace OneImlx.Test.FluentAssertions
         {
             var exceptionAssertions = await task;
 
-            Execute.Assertion
-                .ForCondition(exceptionAssertions.Which.Error.FormatDescription() == expectedErrorDescription)
-                .BecauseOf(because, becauseArgs)
-                .FailWith("Expected error description to be {0}{reason}, but found {1}.", expectedErrorDescription, exceptionAssertions.Which.Error.FormatDescription());
+            var actualDescription = exceptionAssertions.Which.Error.FormatDescription();
+            if (actualDescription != expectedErrorDescription)
+            {
+                var becauseMessage = string.IsNullOrEmpty(because) ? "" : " because " + string.Format(because, becauseArgs);
+                throw new AssertionFailedException(
+                    $"Expected error description to be {expectedErrorDescription}{becauseMessage}, but found {actualDescription}.");
+            }
 
             return exceptionAssertions;
         }
@@ -174,10 +181,12 @@ namespace OneImlx.Test.FluentAssertions
         {
             var exceptionAssertions = await task;
 
-            Execute.Assertion
-                .ForCondition(exceptionAssertions.Which.Error == expectedError)
-                .BecauseOf(because, becauseArgs)
-                .FailWith("Expected error to be {0}{reason}, but found {1}.", expectedError, exceptionAssertions.Which.Error);
+            if (exceptionAssertions.Which.Error != expectedError)
+            {
+                var becauseMessage = string.IsNullOrEmpty(because) ? "" : " because " + string.Format(because, becauseArgs);
+                throw new AssertionFailedException(
+                    $"Expected error to be {expectedError}{becauseMessage}, but found {exceptionAssertions.Which.Error}.");
+            }
 
             return exceptionAssertions;
         }
