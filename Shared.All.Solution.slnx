@@ -4,6 +4,7 @@
     <File Path="build/props/Test.props" />
     <File Path="global.json" />
     <File Path="HISTORY.md" />
+    <File Path="NOTICE.md" />
     <File Path="README.md" />
   </Folder>
   <Folder Name="/src/">

@@ -1,6 +1,6 @@
 # NOTICE
 
-_Last updated: April 4, 2025_
+_Last updated: March 29, 2026_
 
 This project utilizes the following open-source frameworks, tools, and libraries:
 
@@ -9,14 +9,13 @@ This project utilizes the following open-source frameworks, tools, and libraries
 We extend our sincere thanks to the developers and maintainers of these open-source components for their valuable contributions to the community.
 
 ## Frameworks
-- .NET Framework 4.8  
 - .NET Standard 2.0  
 - .NET Standard 2.1  
-- .NET 8 and later  
+- .NET Framework 4.6.1 and later
+- .NET 8 and later
 
 ## Libraries
-- [xUnit](https://xunit.net/) — Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)  
-- [coverlet.collector](https://www.nuget.org/packages/coverlet.collector) — Licensed under the [MIT License](https://opensource.org/licenses/MIT)  
-- [FluentAssertions v7](https://www.nuget.org/packages/FluentAssertions) — Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)  
-- [Report Generator](https://github.com/danielpalme/ReportGenerator) — Licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)  
-- [Moq](https://github.com/moq/moq4) — Licensed under the [BSD-3-Clause License](https://opensource.org/licenses/BSD-3-Clause)
+- [xUnit](https://github.com/xunit/xunit) — [License](https://github.com/xunit/xunit/blob/main/LICENSE)  
+- [coverlet.collector](https://github.com/coverlet-coverage/coverlet) — [License](https://github.com/coverlet-coverage/coverlet/blob/master/LICENSE)  
+- [FluentAssertions](https://github.com/fluentassertions/fluentassertions) — [License](https://github.com/fluentassertions/fluentassertions/blob/master/LICENSE)
+- [Report Generator](https://github.com/danielpalme/ReportGenerator) — [License](https://github.com/danielpalme/ReportGenerator/blob/main/LICENSE.txt)
