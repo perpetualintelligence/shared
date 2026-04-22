@@ -1,6 +1,6 @@
 # NOTICE
 
-_Last updated: March 29, 2026_
+_Last updated: April 21, 2026_
 
 This project uses the following open-source frameworks, tools, and libraries:
 
@@ -15,7 +15,8 @@ We thank the developers and maintainers of these components for their contributi
 - .NET 8+  
 
 ## Libraries
-- xUnit — https://github.com/xunit/xunit (License: https://github.com/xunit/xunit/blob/main/LICENSE)  
-- coverlet.collector — https://github.com/coverlet-coverage/coverlet (License: https://github.com/coverlet-coverage/coverlet/blob/master/LICENSE)  
-- FluentAssertions — https://github.com/fluentassertions/fluentassertions (License: https://github.com/fluentassertions/fluentassertions/blob/master/LICENSE)  
-- ReportGenerator — https://github.com/danielpalme/ReportGenerator (License: https://github.com/danielpalme/ReportGenerator/blob/main/LICENSE.txt)  
+- [xUnit](https://github.com/xunit/xunit) — [License](https://github.com/xunit/xunit/blob/main/LICENSE)  
+- [coverlet.collector](https://github.com/coverlet-coverage/coverlet) — [License](https://github.com/coverlet-coverage/coverlet/blob/master/LICENSE)  
+- [FluentAssertions](https://github.com/fluentassertions/fluentassertions) — [License](https://github.com/fluentassertions/fluentassertions/blob/master/LICENSE)  
+- [ReportGenerator](https://github.com/danielpalme/ReportGenerator) — [License](https://github.com/danielpalme/ReportGenerator/blob/main/LICENSE.txt)
+- [DocFX](https://github.com/dotnet/docfx) — [License](https://github.com/dotnet/docfx/blob/main/LICENSE)  
