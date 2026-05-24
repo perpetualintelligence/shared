@@ -1,12 +1,9 @@
-﻿/*
-    Copyright © 2019-2025 Perpetual Intelligence L.L.C. All rights reserved.
+﻿//  Copyright © 2019-2026 Perpetual Intelligence L.L.C. All rights reserved.
+//  For license, terms, and data policies, go to:
+//  https://terms.perpetualintelligence.com/articles/intro.html
 
-    For license, terms, and data policies, go to:
-    https://terms.perpetualintelligence.com/articles/intro.html
-*/
-
-using System.Collections.Generic;
 using OneImlx.Shared.Infrastructure;
+using System.Collections.Generic;
 
 namespace OneImlx.Shared.Licensing
 {
@@ -54,6 +51,10 @@ namespace OneImlx.Shared.Licensing
                 case ProductCatalog.TerminalPlanCorporate:
                     {
                         return "Corporate";
+                    }
+                case ProductCatalog.TerminalPlanExtension:
+                    {
+                        return "Extension";
                     }
                 default:
                     {
@@ -135,6 +136,11 @@ namespace OneImlx.Shared.Licensing
         public const string TerminalPlanSolo = "urn:oneimlx:terminal:plan:solo";
 
         /// <summary>
+        /// The extension plan for <see cref="TerminalFramework"/>.
+        /// </summary>
+        public const string TerminalPlanExtension = "urn:oneimlx:terminal:plan:extension";
+
+        /// <summary>
         /// A mapping of products to their available license plans.
         /// </summary>
         public static readonly Dictionary<string, List<string>> ProductPlans = new()
@@ -148,6 +154,7 @@ namespace OneImlx.Shared.Licensing
                     TerminalPlanSmb,
                     TerminalPlanEnterprise,
                     TerminalPlanCorporate,
+                    TerminalPlanExtension,
                     TerminalPlanCustom
                 }
             }
