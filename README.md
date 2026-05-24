@@ -8,8 +8,8 @@ This repository contains the shared components for our cross-platform frameworks
 [![Cross-Platform Build and Test](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-cross.yml/badge.svg)](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-cross-manual.yml)
 [![Push Build and Test](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-push.yml/badge.svg)](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-push.yml)
 
-![coverage-line: 66%](https://img.shields.io/badge/coverage--line-66%25-yellow)
-![coverage-branch: 60%](https://img.shields.io/badge/coverage--branch-76%25-orange)
+![coverage-line](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/perpetualintelligencegit/141903832ee52f1e9e7913300a92d507/raw/coverage_shared_line.json)
+![coverage-branch](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/perpetualintelligencegit/141903832ee52f1e9e7913300a92d507/raw/coverage_shared_branch.json)
 
 ## Feedback
 We welcome feedback and suggestions. Issues and tasks are tracked in the [GitHub Issues](https://github.com/perpetualintelligence/shared/issues). Details about our issue classification and resolution procedures are available in our [Issues Policy](https://terms.perpetualintelligence.com/articles/issues_policy.html).

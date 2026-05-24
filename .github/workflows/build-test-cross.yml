@@ -26,30 +26,30 @@ jobs:
 
     # Checkout
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v6
 
-    # Read env    
+    # Read env
     - name: Read Env
       run: cat .github/package_version.env >> $GITHUB_ENV                
       continue-on-error: false
 
     # Setup .Net with global.json
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      
+      uses: actions/setup-dotnet@v5
+
     # Restore dependencies
     - name: Restore
       run: dotnet restore
-      
+
     # Build
     - name: Build
       run: dotnet build --no-restore
-      
+
     # Test
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      
-  macos:   
+
+  macos:
     runs-on: macos-latest
     timeout-minutes: 15
     
@@ -64,44 +64,44 @@ jobs:
 
     # Checkout
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v6
 
     # Setup .Net with global.json
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      
+      uses: actions/setup-dotnet@v5
+
     # Restore dependencies
     - name: Restore
       run: dotnet restore
-      
+
     # Build
     - name: Build
       run: dotnet build --no-restore
-      
+
     # Test
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      
-  windows:   
+
+  windows:
     runs-on: windows-latest
     timeout-minutes: 15
-    
+
     # Environment Variables
     env:     
       # GitHub package authentication
       PI_GITHUB_USERNAME_ENV: ${{ secrets.PI_GITHUB_USERNAME }}
       PI_GITHUB_PAT_ENV: ${{ secrets.PI_GITHUB_PAT }}
       PI_CI_REFERENCE: cross
-      
+
     steps:
 
     # Checkout
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v6
 
     # Setup .Net with global.json
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v5
       
     # Restore dependencies
     - name: Restore

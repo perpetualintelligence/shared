@@ -65,7 +65,7 @@ jobs:
       # Delete specific
       - name: Delete ${{ env.PI_DELETE_PACKAGES }}
         if: ${{ env.PI_DELETE_PACKAGES != 'All' }}
-        uses: actions/delete-package-versions@v4
+        uses: actions/delete-package-versions@v5
         with:
           package-name: ${{ env.PI_DELETE_PACKAGES }}
           package-type: nuget
@@ -74,7 +74,7 @@ jobs:
       # Delete OneImlx.Shared
       - name: Delete OneImlx.Shared
         if: ${{ env.PI_DELETE_PACKAGES == 'All' }}
-        uses: actions/delete-package-versions@v4
+        uses: actions/delete-package-versions@v5
         with:
           package-name: OneImlx.Shared
           package-type: nuget
@@ -83,7 +83,7 @@ jobs:
       # Delete OneImlx.Test
       - name: Delete OneImlx.Test
         if: ${{ env.PI_DELETE_PACKAGES == 'All' }}
-        uses: actions/delete-package-versions@v4
+        uses: actions/delete-package-versions@v5
         with:
           package-name: OneImlx.Test
           package-type: nuget
