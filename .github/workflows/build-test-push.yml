@@ -21,10 +21,10 @@ on:
         description: 'The package deployment suffix'
         required: true
         options:
-        - preview
+        - er
         - rc
         - release
-        default: preview
+        default: er
       registry:
         type: choice
         description: 'The package registry'
@@ -59,9 +59,9 @@ jobs:
       continue-on-error: false
     
     # Build Number
-    # Establish a unique build number for current run YYMMDD{RUN_NUMBER}{RUN_ATTEMPT} e.g. 2201032602
+    # Establish a unique build number for current run YYMMDD{RUN_NUMBER}{RUN_ATTEMPT}
     - name: Build Number
-      run: echo "PI_BUILD_NUMBER=$(date +'%-d%-m%y')${{ github.run_number }}" >> $GITHUB_ENV
+      run: echo "PI_BUILD_NUMBER=$(date +'%y%m%d')${{ github.run_number }}${{ github.run_attempt }}" >> $GITHUB_ENV
       continue-on-error: false
     
     # Setup preview package versions based on trigger
@@ -71,11 +71,11 @@ jobs:
       run: echo "PI_CI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}-rc.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
       continue-on-error: false
 
-    # Setup preview package versions
-    # Format: <package>.2.3.6-preview.2201032602
+    # Setup engineering package versions
+    # Format: <package>.2.3.6-er.2201032602
     - name: Preview metadata
-      if: ${{ github.event.inputs.suffix == 'preview' }}
-      run: echo "PI_CI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}-preview.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
+      if: ${{ github.event.inputs.suffix == 'er' }}
+      run: echo "PI_CI_PACKAGE_VERSION=${{ env.PI_MAJOR_VERSION }}.${{ env.PI_MINOR_VERSION }}.${{ env.PI_BUILD_VERSION }}-er.${{ env.PI_BUILD_NUMBER }}" >> $GITHUB_ENV
       continue-on-error: false
       
     # Setup rc package versions

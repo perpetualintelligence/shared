@@ -1,9 +1,6 @@
-﻿/*
-    Copyright © 2019-2025 Perpetual Intelligence L.L.C. All rights reserved.
-
-    For license, terms, and data policies, go to:
-    https://terms.perpetualintelligence.com/articles/intro.html
-*/
+﻿//  Copyright © 2019-2026 Perpetual Intelligence L.L.C. All rights reserved.
+//  For license, terms, and data policies, go to:
+//  https://terms.perpetualintelligence.com/articles/intro.html
 
 using FluentAssertions;
 using OneImlx.Shared.Infrastructure;
@@ -18,7 +15,7 @@ namespace OneImlx.Shared.Licensing
         [Fact]
         public void Constants_Returns_ExpectedUrns()
         {
-            typeof(ProductCatalog).Should().HaveConstantCount(8);
+            typeof(ProductCatalog).Should().HaveConstantCount(9);
 
             // Products
             ProductCatalog.TerminalFramework.Should().Be("urn:oneimlx:terminal");
@@ -30,6 +27,7 @@ namespace OneImlx.Shared.Licensing
             ProductCatalog.TerminalPlanSmb.Should().Be("urn:oneimlx:terminal:plan:smb");
             ProductCatalog.TerminalPlanEnterprise.Should().Be("urn:oneimlx:terminal:plan:enterprise");
             ProductCatalog.TerminalPlanCorporate.Should().Be("urn:oneimlx:terminal:plan:corporate");
+            ProductCatalog.TerminalPlanExtension.Should().Be("urn:oneimlx:terminal:plan:extension");
             ProductCatalog.TerminalPlanCustom.Should().Be("urn:oneimlx:terminal:plan:custom");
         }
 
@@ -58,6 +56,7 @@ namespace OneImlx.Shared.Licensing
         [InlineData(ProductCatalog.TerminalFramework, ProductCatalog.TerminalPlanSmb, "SMB")]
         [InlineData(ProductCatalog.TerminalFramework, ProductCatalog.TerminalPlanEnterprise, "Enterprise")]
         [InlineData(ProductCatalog.TerminalFramework, ProductCatalog.TerminalPlanCorporate, "Corporate")]
+        [InlineData(ProductCatalog.TerminalFramework, ProductCatalog.TerminalPlanExtension, "Extension")]
         [InlineData(ProductCatalog.TerminalFramework, ProductCatalog.TerminalPlanCustom, "Custom")]
         public void GetPlanDisplayName_ValidPlan_ReturnsDisplayName(string product, string plan, string expectedDisplayName)
         {
@@ -105,6 +104,7 @@ namespace OneImlx.Shared.Licensing
             ProductCatalog.IsValidPlan(ProductCatalog.TerminalFramework, ProductCatalog.TerminalPlanSmb).Should().BeTrue();
             ProductCatalog.IsValidPlan(ProductCatalog.TerminalFramework, ProductCatalog.TerminalPlanEnterprise).Should().BeTrue();
             ProductCatalog.IsValidPlan(ProductCatalog.TerminalFramework, ProductCatalog.TerminalPlanCorporate).Should().BeTrue();
+            ProductCatalog.IsValidPlan(ProductCatalog.TerminalFramework, ProductCatalog.TerminalPlanExtension).Should().BeTrue();
             ProductCatalog.IsValidPlan(ProductCatalog.TerminalFramework, ProductCatalog.TerminalPlanCustom).Should().BeTrue();
         }
 
@@ -122,10 +122,11 @@ namespace OneImlx.Shared.Licensing
                 ProductCatalog.TerminalPlanSmb,
                 ProductCatalog.TerminalPlanEnterprise,
                 ProductCatalog.TerminalPlanCorporate,
+                ProductCatalog.TerminalPlanExtension,
                 ProductCatalog.TerminalPlanCustom
             });
 
-            plans.Count.Should().Be(7);
+            plans.Count.Should().Be(8);
         }
 
         [Fact]

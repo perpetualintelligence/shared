@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/build/">
+    <File Path="build/props/Package.props" />
+    <File Path="build/props/Test.props" />
+    <File Path="global.json" />
+    <File Path="HISTORY.md" />
+    <File Path="NOTICE.md" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/OneImlx.Shared/OneImlx.Shared.csproj" />
+    <Project Path="src/OneImlx.Test/OneImlx.Test.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/OneImlx.Shared.Tests/OneImlx.Shared.Tests.csproj" />
+  </Folder>
+</Solution>
