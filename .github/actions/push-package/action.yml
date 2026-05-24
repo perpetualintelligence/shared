@@ -25,6 +25,13 @@ inputs:
     description: 'The package registry (github or nuget)'
     default: github
     required: true
+outputs:
+  coverage-line:
+    description: 'Line coverage percentage'
+    value: ${{ steps.extract-coverage.outputs.line }}
+  coverage-branch:
+    description: 'Branch coverage percentage'
+    value: ${{ steps.extract-coverage.outputs.branch }}
 runs:
   using: "composite"
   steps:
@@ -33,11 +40,28 @@ runs:
     - name: Build
       run: dotnet build ./src/${{ inputs.project }}/${{ inputs.project }}.csproj -c ${{ inputs.config }} --verbosity minimal
       shell: bash
-      
+
     # Test
     - name: Test
       if: ${{ inputs.skiptest == 'false' }}
-      run: dotnet test ./test/${{ inputs.project }}.Tests/${{ inputs.project }}.Tests.csproj -c ${{ inputs.config }} --verbosity minimal    
+      run: dotnet test ./test/${{ inputs.project }}.Tests/${{ inputs.project }}.Tests.csproj -c ${{ inputs.config }} --verbosity minimal --collect:"XPlat Code Coverage" --results-directory ./coverage
+      shell: bash
+
+    # Generate coverage report
+    - name: Coverage Report
+      if: ${{ inputs.skiptest == 'false' }}
+      run: reportgenerator -reports:./coverage/**/coverage.cobertura.xml -targetdir:./coverage/report -reporttypes:JsonSummary
+      shell: bash
+
+    # Extract line and branch coverage percentages
+    - name: Extract Coverage
+      id: extract-coverage
+      if: ${{ inputs.skiptest == 'false' }}
+      run: |
+        LINE=$(cat ./coverage/report/Summary.json | python3 -c "import sys,json; d=json.load(sys.stdin); print(round(d['summary']['linecoverage']))")
+        BRANCH=$(cat ./coverage/report/Summary.json | python3 -c "import sys,json; d=json.load(sys.stdin); print(round(d['summary']['branchcoverage']))")
+        echo "line=$LINE" >> $GITHUB_OUTPUT
+        echo "branch=$BRANCH" >> $GITHUB_OUTPUT
       shell: bash
 
     # Pack
@@ -59,7 +83,7 @@ runs:
       if: ${{ inputs.registry == 'nuget' }}
       run: dotnet nuget push _packages/${{ inputs.project }}.${{ inputs.version }}.nupkg --skip-duplicate --no-symbols --api-key ${{ inputs.ghapikey }} --source github
       shell: bash      
-      
+
     # Second push to Nuget (for package cadence, Github will be used and in production Nuget after package verification)
     - name: Nuget Push
       if: ${{ inputs.registry == 'nuget' }}

@@ -51,7 +51,7 @@ jobs:
 
     # Checkout
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v6
 
     # Read env    
     - name: Read Env
@@ -109,13 +109,12 @@ jobs:
     
     # Setup .Net with global.json
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      
-    # Setup Nuget
-    - name: Setup NuGet.exe
-      uses: NuGet/setup-nuget@v1
-      with:
-        nuget-version: latest
+      uses: actions/setup-dotnet@v5
+
+    # Setup ReportGenerator
+    - name: Setup ReportGenerator
+      run: dotnet tool install --global dotnet-reportgenerator-globaltool
+      continue-on-error: false
 
     # Setup local
     # OneImlx.Shared is the first package so we use the local project reference to avoid cyclic Nuget dependency resolution.
@@ -126,6 +125,7 @@ jobs:
 
     # Publish OneImlx.Shared
     - name: OneImlx.Shared
+      id: oneimlx-shared
       uses: ./.github/actions/push-package
       with:
         project: OneImlx.Shared
@@ -142,6 +142,7 @@ jobs:
 
     # Publish OneImlx.Test
     - name: OneImlx.Test
+      id: oneimlx-test
       uses: ./.github/actions/push-package
       with:
         project: OneImlx.Test
@@ -151,3 +152,29 @@ jobs:
         ghapikey: ${{ env.PI_GITHUB_PAT_ENV }}
         nugetapikey: ${{ env.PI_NUGET_PAT_ENV }}
         registry: ${{ env.PI_PUBLISH_REGISTRY }}
+
+    # Update line coverage badge in Gist
+    - name: Line Coverage Badge
+      uses: Schneegans/dynamic-badges-action@v1.8.0
+      with:
+        auth: ${{ secrets.GIST_SECRET }}
+        gistID: ${{ secrets.GIST_ID }}
+        filename: coverage-shared-line.json
+        label: coverage-line
+        message: ${{ steps.oneimlx-shared.outputs.coverage-line }}%
+        valColorRange: ${{ steps.oneimlx-shared.outputs.coverage-line }}
+        maxColorRange: 100
+        minColorRange: 0
+
+    # Update branch coverage badge in Gist
+    - name: Branch Coverage Badge
+      uses: Schneegans/dynamic-badges-action@v1.8.0
+      with:
+        auth: ${{ secrets.GIST_SECRET }}
+        gistID: ${{ secrets.GIST_ID }}
+        filename: coverage-shared-branch.json
+        label: coverage-branch
+        message: ${{ steps.oneimlx-shared.outputs.coverage-branch }}%
+        valColorRange: ${{ steps.oneimlx-shared.outputs.coverage-branch }}
+        maxColorRange: 100
+        minColorRange: 0
