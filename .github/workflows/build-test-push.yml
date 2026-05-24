@@ -157,9 +157,9 @@ jobs:
     - name: Line Coverage Badge
       uses: Schneegans/dynamic-badges-action@v1.8.0
       with:
-        auth: ${{ secrets.GIST_SECRET }}
-        gistID: ${{ secrets.GIST_ID }}
-        filename: coverage-shared-line.json
+        auth: ${{ secrets.PI_GITHUB_GIST_PAT }}
+        gistID: ${{ secrets.PI_GITHUB_GIST_ID }}
+        filename: coverage_${{ github.event.repository.name }}_line.json
         label: coverage-line
         message: ${{ steps.oneimlx-shared.outputs.coverage-line }}%
         valColorRange: ${{ steps.oneimlx-shared.outputs.coverage-line }}
@@ -170,9 +170,9 @@ jobs:
     - name: Branch Coverage Badge
       uses: Schneegans/dynamic-badges-action@v1.8.0
       with:
-        auth: ${{ secrets.GIST_SECRET }}
-        gistID: ${{ secrets.GIST_ID }}
-        filename: coverage-shared-branch.json
+        auth: ${{ secrets.PI_GITHUB_GIST_PAT }}
+        gistID: ${{ secrets.PI_GITHUB_GIST_ID }}
+        filename: coverage_${{ github.event.repository.name }}_branch.json
         label: coverage-branch
         message: ${{ steps.oneimlx-shared.outputs.coverage-branch }}%
         valColorRange: ${{ steps.oneimlx-shared.outputs.coverage-branch }}
