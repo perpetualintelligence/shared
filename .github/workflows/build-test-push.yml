@@ -161,10 +161,8 @@ jobs:
     - name: Extract Coverage
       id: coverage
       run: |
-        LINE=$(cat ./coverage/report/Summary.json | python3 -c "import sys,json; d=json.load(sys.stdin); print(round(d['summary']['lineCoverage']))")
-        BRANCH=$(cat ./coverage/report/Summary.json | python3 -c "import sys,json; d=json.load(sys.stdin); print(round(d['summary']['branchCoverage']))")
-        echo "line=$LINE" >> $GITHUB_OUTPUT
-        echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+        echo "line=$(jq '.summary.linecoverage' ./coverage/report/Summary.json | xargs printf '%.0f')" >> $GITHUB_OUTPUT
+        echo "branch=$(jq '.summary.branchcoverage' ./coverage/report/Summary.json | xargs printf '%.0f')" >> $GITHUB_OUTPUT
       shell: bash
 
     # Update line coverage badge in Gist
