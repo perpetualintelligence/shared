@@ -6,7 +6,7 @@
 name: build-test-push
 
 # 1 release at a time
-concurrency: shared
+concurrency: ${{ github.event.repository.name }}
 
 # CICD. The rc and release are a manual trigger
 on:
@@ -116,14 +116,13 @@ jobs:
       run: dotnet tool install --global dotnet-reportgenerator-globaltool
       continue-on-error: false
 
-    # Setup local
-    # OneImlx.Shared is the first package so we use the local project reference to avoid cyclic Nuget dependency resolution.
+    # OneImlx.Shared is the first package so we use the cross project reference to avoid cyclic Nuget dependency resolution.
     # See OneImlx.Shared.Test.csproj for more info.
-    - name: Force local
+    - name: Force cross
       run: echo "PI_CI_REFERENCE=cross" >> $GITHUB_ENV
       continue-on-error: false
 
-    # Publish OneImlx.Shared
+    # Publish OneImlx.Shared (deposits coverage into ./coverage)
     - name: OneImlx.Shared
       id: oneimlx-shared
       uses: ./.github/actions/push-package
@@ -135,12 +134,12 @@ jobs:
         nugetapikey: ${{ env.PI_NUGET_PAT_ENV }}
         registry: ${{ env.PI_PUBLISH_REGISTRY }}
 
-    # Setup package
+    # Switch to package references for downstream packages
     - name: Force package
       run: echo "PI_CI_REFERENCE=package" >> $GITHUB_ENV
       continue-on-error: false
 
-    # Publish OneImlx.Test
+    # Publish OneImlx.Test (no tests, no coverage)
     - name: OneImlx.Test
       id: oneimlx-test
       uses: ./.github/actions/push-package
@@ -153,6 +152,21 @@ jobs:
         nugetapikey: ${{ env.PI_NUGET_PAT_ENV }}
         registry: ${{ env.PI_PUBLISH_REGISTRY }}
 
+    # Aggregate coverage report across all packages deposited into ./coverage
+    - name: Coverage Report
+      run: reportgenerator -reports:./coverage/**/coverage.cobertura.xml -targetdir:./coverage/report -reporttypes:JsonSummary
+      shell: bash
+
+    # Extract aggregate line and branch coverage
+    - name: Extract Coverage
+      id: coverage
+      run: |
+        LINE=$(cat ./coverage/report/Summary.json | python3 -c "import sys,json; d=json.load(sys.stdin); print(round(d['summary']['linecoverage']))")
+        BRANCH=$(cat ./coverage/report/Summary.json | python3 -c "import sys,json; d=json.load(sys.stdin); print(round(d['summary']['branchcoverage']))")
+        echo "line=$LINE" >> $GITHUB_OUTPUT
+        echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+      shell: bash
+
     # Update line coverage badge in Gist
     - name: Line Coverage Badge
       uses: Schneegans/dynamic-badges-action@v1.8.0
@@ -161,8 +175,8 @@ jobs:
         gistID: ${{ secrets.PI_GITHUB_GIST_ID }}
         filename: coverage_${{ github.event.repository.name }}_line.json
         label: coverage-line
-        message: ${{ steps.shared.outputs.coverage-line }}%
-        valColorRange: ${{ steps.shared.outputs.coverage-line }}
+        message: ${{ steps.coverage.outputs.line }}%
+        valColorRange: ${{ steps.coverage.outputs.line }}
         maxColorRange: 100
         minColorRange: 0
 
@@ -174,7 +188,7 @@ jobs:
         gistID: ${{ secrets.PI_GITHUB_GIST_ID }}
         filename: coverage_${{ github.event.repository.name }}_branch.json
         label: coverage-branch
-        message: ${{ steps.shared.outputs.coverage-branch }}%
-        valColorRange: ${{ steps.shared.outputs.coverage-branch }}
+        message: ${{ steps.coverage.outputs.branch }}%
+        valColorRange: ${{ steps.coverage.outputs.branch }}
         maxColorRange: 100
         minColorRange: 0
