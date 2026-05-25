@@ -161,8 +161,8 @@ jobs:
     - name: Extract Coverage
       id: coverage
       run: |
-        LINE=$(cat ./coverage/report/Summary.json | python3 -c "import sys,json; d=json.load(sys.stdin); print(round(d['summary']['linecoverage']))")
-        BRANCH=$(cat ./coverage/report/Summary.json | python3 -c "import sys,json; d=json.load(sys.stdin); print(round(d['summary']['branchcoverage']))")
+        LINE=$(cat ./coverage/report/Summary.json | python3 -c "import sys,json; d=json.load(sys.stdin); print(round(d['summary']['lineCoverage']))")
+        BRANCH=$(cat ./coverage/report/Summary.json | python3 -c "import sys,json; d=json.load(sys.stdin); print(round(d['summary']['branchCoverage']))")
         echo "line=$LINE" >> $GITHUB_OUTPUT
         echo "branch=$BRANCH" >> $GITHUB_OUTPUT
       shell: bash
