@@ -1,26 +1,26 @@
 # Build
 
 ## Local Machine
-Follow the steps to set up the `pi-cli` repository on your local development machine.
+Follow the steps to set up the `shared` repository on your local development machine.
 
-1. Download and install [Visual Studio 2022](https://visualstudio.microsoft.com/vs/)
-2. Clone the [protocols](https://github.com/perpetualintelligence/protocols) GitHub repo
+1. Download and install [Visual Studio 2026](https://visualstudio.microsoft.com/vs/)
+2. Clone the [shared](https://github.com/perpetualintelligence/shared) GitHub repo
 3. Set PI_CI_REFERENCE environment variable to `cross`
 
 ## CICD
 This workflow folder contains the build and deployment pipelines for generating and publishing [Nuget](https://www.nuget.org/profiles/perpetualintelligencellc) and [GitHub](https://github.com/orgs/perpetualintelligence/packages?repo_name=data) packages. 
 
-- *build-test-cross-manual*: The manual action that builds and tests the code changes on Windows, Linux and macOS.
-- *build-test-publish*: The automated action that publishes the packages to [Nuget](https://www.nuget.org/profiles/perpetualintelligencellc) and [GitHub](https://github.com/orgs/perpetualintelligence/packages?repo_name=data), see [releases](https://github.com/perpetualintelligence/cli/releases)
+- *build-test-cross*: The manual action that builds and tests the code changes on Windows, Linux and macOS.
+- *build-test-push*: The automated action that publishes the packages to [Nuget](https://www.nuget.org/profiles/perpetualintelligencellc) and [GitHub](https://github.com/orgs/perpetualintelligence/packages?repo_name=data), see [releases](https://github.com/perpetualintelligence/shared/releases)
 - *delete-packages*:  The automated action cleans the packages every week and keeps the latest working version. For stable versions, refer to [Nuget](https://www.nuget.org/profiles/perpetualintelligencellc) packages.
 
-> ***Note: The `build-test-publish` release to Nuget pipeline triggers a deployment approval.***
+> ***Note: The `build-test-push` release to Nuget pipeline triggers a deployment approval.***
 
 ## Versioning
 All packages follow [sematic](https://semver.org/) versioning schemes. The env file *package_version.env* defines the package versions.
 
 ## Project Dependencies
-The *PI_CI_REFERENCE* environment variable defines how *.csproj* references the dependencies for CI and local development. It supportes the following values:
+The *PI_CI_REFERENCE* environment variable defines how *.csproj* references the dependencies for CI and local development. It supports the following values:
 - *local*: Project references for local development within the same repo
 - *cross*: Project references for local development across repos
 - *package*: Package references for CI/CD and deployment

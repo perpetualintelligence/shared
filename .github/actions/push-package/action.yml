@@ -9,7 +9,7 @@ inputs:
     default: 'false'
     required: false
   config:
-    description: 'The build configuration (Build or Release)'
+    description: 'The build configuration (Debug or Release)'
     default: Release
     required: true
   version:
