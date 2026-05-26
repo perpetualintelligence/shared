@@ -5,8 +5,8 @@ This repository contains the shared components for our cross-platform frameworks
 [![NuGet](https://img.shields.io/nuget/vpre/OneImlx.Test?label=OneImlx.Test)](https://www.nuget.org/packages/OneImlx.Test)
 
 ## Status
-[![Cross-Platform Build and Test](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-cross.yml/badge.svg)](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-cross-manual.yml)
-[![Push Build and Test](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-push.yml/badge.svg)](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-push.yml)
+[![build-test-cross](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-cross.yml/badge.svg)](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-cross.yml)
+[![build-test-push](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-push.yml/badge.svg)](https://github.com/perpetualintelligence/shared/actions/workflows/build-test-push.yml)
 
 ![coverage-line](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/perpetualintelligencegit/141903832ee52f1e9e7913300a92d507/raw/coverage_shared_line.json)
 ![coverage-branch](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/perpetualintelligencegit/141903832ee52f1e9e7913300a92d507/raw/coverage_shared_branch.json)

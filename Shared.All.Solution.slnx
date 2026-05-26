@@ -13,5 +13,6 @@
   </Folder>
   <Folder Name="/test/">
     <Project Path="test/OneImlx.Shared.Tests/OneImlx.Shared.Tests.csproj" />
+    <Project Path="test/OneImlx.Test.Tests/OneImlx.Test.Tests.csproj" Id="e9609456-eb72-4575-84bf-18dc91bd4883" />
   </Folder>
 </Solution>

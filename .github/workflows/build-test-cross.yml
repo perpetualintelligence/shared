@@ -66,6 +66,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v6
 
+    # Read env
+    - name: Read Env
+      run: cat .github/package_version.env >> $GITHUB_ENV                
+      continue-on-error: false
+
     # Setup .Net with global.json
     - name: Setup .NET
       uses: actions/setup-dotnet@v5
@@ -98,6 +103,11 @@ jobs:
     # Checkout
     - name: Checkout
       uses: actions/checkout@v6
+
+    # Read env
+    - name: Read Env
+      run: cat .github/package_version.env >> $GITHUB_ENV                
+      continue-on-error: false
 
     # Setup .Net with global.json
     - name: Setup .NET
