@@ -29,7 +29,10 @@ namespace OneImlx.Test.FluentAssertions
         {
             var assembly = assertions.Subject;
             var actualNamespace = assembly.GetName().Name ?? throw new InvalidOperationException("Assembly name null");
-            actualNamespace.Should().Be(rootNamespace, $"Assembly '{assembly.GetName().Name}' should have root namespace '{rootNamespace}'");
+            if (actualNamespace != rootNamespace)
+            {
+                throw new AssertionFailedException($"Assembly '{assembly.GetName().Name}' should have root namespace '{rootNamespace}'.");
+            }
 
             var types = assembly.GetTypes().Where(e => !IsCompilerGenerated(e));
             var invalidTypes = types.Where(e =>

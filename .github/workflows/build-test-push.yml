@@ -139,13 +139,12 @@ jobs:
       run: echo "PI_CI_REFERENCE=package" >> $GITHUB_ENV
       continue-on-error: false
 
-    # Publish OneImlx.Test (no tests, no coverage)
+    # Publish OneImlx.Test
     - name: OneImlx.Test
       id: oneimlx-test
       uses: ./.github/actions/push-package
       with:
         project: OneImlx.Test
-        skiptest: 'true'
         config: Release
         version: ${{ env.PI_CI_PACKAGE_VERSION }}
         ghapikey: ${{ env.PI_GITHUB_PAT_ENV }}
